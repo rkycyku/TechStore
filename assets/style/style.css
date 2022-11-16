@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    width: 85%;
+    margin: 0 auto;
+    background-color: white;
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: 100%;
+    height: 30px;
+    background-color: black;
+    color: white;
+}
+nav ul{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+nav ul li{
+    padding-left: 10px;
+    text-decoration: none;
+    display: flex;
+}
+
+.body{
+    display: flex;
+    flex-direction: column;
+}
+
+.djathas{
+    display: flex;
+    flex-direction: row;
+    justify-items: end;
+    align-items: right;
+}
+
+.photoBody{
+    width: 100%;
+    background-image: url(../img/bgIMG.jpg);
+    background-size: 100%;
+    height: 255px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: black;
+    
+}
+.photoBody h1,p{
+    margin: 0;
+}
+
+.Embelsira-3{
+    width: 90%;
+    padding: 5px;
+    margin: auto;
+    display: flex;
+    justify-content: left;
+    border: 1px solid black;
+}
+
+img{
+    width: 100px;
+    height: 200px;
+}
+
+.e1{
+    width: 33%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+.e2{
+    width: 33%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+.e3{
+    width: 33%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
