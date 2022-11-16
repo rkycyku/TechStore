@@ -1,0 +1,38 @@
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    padding: 0 10%;
+
+}
+
+.logo h1 span{
+color: red;
+}
+
+.nav-links{
+    display: flex;
+    gap: 2em;
+}
+
+.nav-links li{
+    padding: 2em 0;
+}
+
+.nav-links li a{
+    color: black;
+    font-weight: 600;
+}
