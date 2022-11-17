@@ -1,0 +1,37 @@
+#container{
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+    margin: 15% auto;
+    width: 80%;
+    height: 500%;
+    border: 1px solid black;
+    border-radius: 25px;
+    box-sizing: border-box;
+}
+
+.elementet{
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+    width: 80%;
+    border: 1px solid black;
+    border-radius: 25px;
+    
+}
+
+.elementet input{
+    display: flex;
+    width: 100%;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+    border: 1px solid black;
+    border-radius: 25px ;
+    margin-top: 10px;
+}
