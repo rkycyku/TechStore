@@ -10,6 +10,7 @@
     border: 1px solid black;
     border-radius: 25px;
     box-sizing: border-box;
+    padding: 10px 0;
 }
 
 .elementet{
@@ -18,20 +19,58 @@
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-    width: 80%;
+    width: 100%;
     border: 1px solid black;
     border-radius: 25px;
-    
+    padding: 10px;
 }
 
 .elementet input{
-    display: flex;
-    width: 100%;
-	flex-direction: column;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
     border: 1px solid black;
     border-radius: 25px ;
     margin-top: 10px;
+    padding: 15px;
+    width: 100%;
+}
+
+.butoni:hover{
+    background: rgb(68, 65, 250);
+    color: white;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    padding: 0 10%;
+    flex-wrap: wrap;
+}
+
+.logo h1 span{
+    color: rgb(22, 96, 193);
+}
+
+.nav-links{
+    display: flex;
+    gap: 2em;
+}
+
+.nav-links li{
+    padding: 2em 0;
+}
+
+.nav-links li a{
+    color: black;
+    font-weight: 600;
+}
+
+.auth {
+    display: flex;
+    gap: 1em;
+}
+
+.auth p a{
+    color: black;
+    font-weight: 600;
 }
