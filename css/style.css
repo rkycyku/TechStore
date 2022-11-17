@@ -35,3 +35,13 @@ color: red;
     color: black;
     font-weight: 600;
 }
+
+.auth {
+    display: flex;
+    gap: 1em;
+}
+
+.auth p a{
+    color: black;
+    font-weight: 600;
+}
