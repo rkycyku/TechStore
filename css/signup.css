@@ -19,7 +19,7 @@ header{
 }
 
 .logo h1 span{
-color: red;
+    color: rgb(31, 108, 210);
 }
 
 .nav-links{
@@ -63,9 +63,8 @@ form {
     border-radius: 30px;
 }
 
-h1{
-    padding: 12px;
-    font-weight: 400;
+.signup-title{
+    font-weight: 500;
     margin-bottom: 15px;
 }
 
@@ -77,6 +76,7 @@ input{
     width: max(19em, 18vw);
     padding: 10px;
 }
+
 
 .button{
     border: 1px solid black;
