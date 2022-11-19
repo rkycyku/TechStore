@@ -73,6 +73,7 @@ form {
 }
 
 input{
+    color: #fff;
     margin: 7px 0;
     background-color: inherit;
     border: none;
