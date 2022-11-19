@@ -4,13 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tech Shop</title>
-    <link rel="stylesheet" href="./css/login.css" />
+    <title>Login | Tech Shop</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/forms.css">
   </head>
   <body>
     <header>
       <div class="logo">
-        <h1>Tech<span>Shop</span></h1>
+        <h1><a href="index.html">Tech<span>Shop</span></a></h1>
       </div>
 
       <nav class="nav">
@@ -27,17 +28,15 @@
     </header>
 
     <div class="bg-image">
-      <div class="login">
-        <form>
-          <h1 class="login-h1">Log In</h1>
-          <input type="email" placeholder="Enter email" />
-          <br />
-          <input type="password" placeholder="Enter Password" />
-
+      <div class="forms">
+        <form action="">
+          <h1 class="form-title">Log In</h1>
+          <input class="form-input" type="email" placeholder="Email" />
+          <br>
+          <input class="form-input"type="password" placeholder="Password" />
           <div class="reg">
             <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
           </div>
-
           <input class="button" type="submit" value="Log In" />
         </form>
       </div>

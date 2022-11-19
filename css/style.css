@@ -22,6 +22,10 @@ header{
     color: rgb(31, 108, 210);
 }
 
+.logo h1 a{
+    color: black;
+}
+
 .nav-links{
     display: flex;
     gap: 2em;
