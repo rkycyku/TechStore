@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Shop</title>
-    <link rel="stylesheet" href="./css/signup.css">
+    <title>Sign Up | Tech Shop</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/forms.css">
 </head>
 <body>
     <header>
         <div class="logo">
-            <h1>Tech<span>Shop</span></h1>
+            <h1><a href="index.html">Tech<span>Shop</span></a></h1>
         </div>
 
         <nav class="nav">
@@ -27,18 +28,18 @@
     </header>
 
     <div class="bg-image">
-        <div class="signup">
+        <div class="forms">
             <form action="">
-                <h1 class="signup-title">Sign Up</h1>
-                <input type="text" placeholder="Enter your name">
+                <h1 class="form-title">Sign Up</h1>
+                <input class="form-input"  type="text" placeholder="Name" required>
                 <br>
-                <input type="text"  placeholder="Enter your lastname">
+                <input class="form-input"  type="text"  placeholder="Lastname">
                 <br>
-                <input type="email"  placeholder="Enter your email">
+                <input class="form-input"  type="email"  placeholder="Email" required>
                 <br>
-                <input type="password"  placeholder="Enter your password">
+                <input class="form-input"  type="password"  placeholder="Password" required>
                 <br>
-                <button class="button">Sign Up</button>
+                <input class="button" type="submit" value="Sign Up" />
             </form>
         </div>
     </div>
