@@ -1,7 +1,6 @@
 .container{
     display: flex;
     width: 100%;
-    /* border: 1px solid black; */
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
@@ -13,10 +12,8 @@
     background-position: 50%;
     background-size: cover;
     height: 60vh;
-    /* border-top-width: 100%; */
     display: flex;
     justify-content: center;
-    /* align-items: center; */
 }
 
 .titulliPershkrim{
@@ -32,12 +29,6 @@
     font-weight: 600;
 }
 
-
-/* .titulliPershkrim h1 span{
-    color: rgb(31, 108, 210);
-} */
-
-
 .artikujt{
     display: flex;
     align-items: center;
@@ -48,13 +39,16 @@
 }
 
 .titulliArtikuj{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 0 auto;
     margin-top: 2em;
-    width: 80%;
+    width: 100%;
+    padding-left: 1em;
 }
 
 .titulliArtikuj h1{
-    margin-left: 2.8em;
     margin-bottom: 0.5em;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 500;
@@ -66,12 +60,12 @@
     flex-direction: column;
     align-items: center;
     flex-basis: 200px;
-    /* border: 1px solid rgb(164, 171, 180); */
+    height: 275px;
     background-color: #fff;
     box-shadow: 0 0 10px #d3d3d3;
     box-sizing: border-box;
     margin: 0.5em;
-    padding-bottom: 1em;
+    padding: 1em;
     border-radius: 25px;
 }
 
@@ -82,7 +76,9 @@
 }
 
 .artikulli img{
-    width: 150px;
+    width: auto;
+    height: 150px;
+    padding-bottom: 1em;
 }
 
 .artikulliLabel{
@@ -92,13 +88,6 @@
 
 .cmimi{
     font-weight: bold;
-    
-}
-
-form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .button{

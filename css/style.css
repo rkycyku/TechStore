@@ -1,6 +1,4 @@
-*,
-::before,
-::after {
+*, ::before, ::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -9,26 +7,39 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-header{
+nav{
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    /* border-bottom: 1px solid black; */
+    flex-direction: row;
+    flex-wrap: wrap;
     padding: 0 10%;
-
+    width: 100%;
+    background-color: white;
 }
 
-.logo h1 span{
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2em;
+    font-size: 32px;
+    width: 33%;
+}
+
+.logo li span{
     color: rgb(31, 108, 210);
 }
 
-.logo h1 a{
+.logo li a{
     color: black;
 }
 
 .nav-links{
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 2em;
+    width: 33%;
 }
 
 .nav-links li{
@@ -40,12 +51,19 @@ header{
     font-weight: 600;
 }
 
-.auth {
+.auth{
     display: flex;
-    gap: 1em;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2em;
+    width: 33%;
 }
 
-.auth p a{
+.auth li{
+    padding: 2em 0;
+}
+
+.auth li a{
     color: black;
     font-weight: 600;
 }
