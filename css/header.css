@@ -1,0 +1,64 @@
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 0 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+} 
+
+
+.logo{
+  font-weight: 600;
+}
+
+.logo h1 span{
+    color: rgb(7, 56, 121);
+}
+
+.logo h1 a{
+    color: black;
+}
+
+.nav-links{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+}
+
+.nav-links li{
+    padding: 2em 0;
+}
+
+.nav-links li a{
+    color: black;
+    font-weight: 600;
+}
+
+.auth{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2em;
+}
+
+.auth p{
+    padding: 2em 0;
+}
+
+.auth p a{
+    color: black;
+    font-weight: 600;
+}
