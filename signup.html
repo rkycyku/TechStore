@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="./css/header.css" />
     <link rel="stylesheet" href="./css/footer.css">
   </head>
+	<script>
+		function validimiISignUP(){
+			alert("U regjistrust me Sukes!")
+		}
+	</script>
   <body>
     <header>
       <div class="logo">
@@ -31,7 +36,7 @@
 
     <div class="bg-image">
       <div class="forms">
-        <form action="">
+        <form action="" onsubmit="return validimiISignUP()">
           <h1 class="form-title">Sign Up</h1>
           <input class="form-input" type="text" placeholder="Name" required />
           <br />

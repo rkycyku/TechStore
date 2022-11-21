@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="./css/header.css" />
     <link rel="stylesheet" href="./css/footer.css">
   </head>
+	<script>
+		function validimiILogIn(){
+			alert("Hyrja eshte me Sukses!")
+		}
+	</script>
   <body>
     <header>
       <div class="logo">
@@ -31,11 +36,11 @@
 
     <div class="bg-image">
       <div class="forms">
-        <form action="">
+        <form action="" onsubmit="return validimiILogIn()">
           <h1 class="form-title">Log In</h1>
-          <input class="form-input" type="email" placeholder="Email" />
+          <input class="form-input" type="email" placeholder="Email" required />
           <br />
-          <input class="form-input" type="password" placeholder="Password" />
+          <input class="form-input" type="password" placeholder="Password" required />
           <div class="reg">
             <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
           </div>
