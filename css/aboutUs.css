@@ -16,6 +16,7 @@
     flex-wrap: wrap;
     width: 40%;
 }
+
 .title{
     color: rgb(7, 27, 83);
     margin-bottom: 1em;
@@ -29,7 +30,7 @@
 }
 
 .photo{
-    width: 40em;
+    width: 50%;
 }
 
 .photo img{
