@@ -36,11 +36,13 @@
 
     <div class="bg-image">
       <div class="forms">
-        <form action="" onsubmit="return validimiILogIn()">
+        <form action="" name="f1" onsubmit="return validate()">
           <h1 class="form-title">Log In</h1>
-          <input class="form-input" type="email" placeholder="Email" required />
+          <input class="form-input" type="email" placeholder="Email" />
+          <span id="nameloc"></span>
           <br />
-          <input class="form-input" type="password" placeholder="Password" required />
+          <input class="form-input" type="password" placeholder="Password"  />
+          <span id="passwordloc"></span>
           <div class="reg">
             <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
           </div>
@@ -80,5 +82,6 @@
         </div>
       </div>
     </footer>
+    <script src="./js/validate.js"></script>
   </body>
 </html>

@@ -9,11 +9,7 @@
     <link rel="stylesheet" href="./css/header.css" />
     <link rel="stylesheet" href="./css/footer.css">
   </head>
-	<script>
-		function validimiISignUP(){
-			alert("U regjistrust me Sukes!")
-		}
-	</script>
+	
   <body>
     <header>
       <div class="logo">
@@ -36,17 +32,17 @@
 
     <div class="bg-image">
       <div class="forms">
-        <form action="" onsubmit="return validimiISignUP()">
+        <form action="" name="myForm" onsubmit="return validateForm()">
           <h1 class="form-title">Sign Up</h1>
-          <input class="form-input" type="text" placeholder="Name" required />
+          <input class="form-input" name="name" type="name" placeholder="Name"  />
           <br />
           <input class="form-input" type="text" placeholder="Lastname" />
           <br />
-          <input class="form-input" type="text" placeholder="Username" required />
+          <input class="form-input" type="text" placeholder="Username"  />
           <br />
-          <input class="form-input" type="email" placeholder="Email" required />
+          <input class="form-input" name="email" type="email" placeholder="Email"  />
           <br />
-          <input class="form-input" type="password" placeholder="Password" required />
+          <input class="form-input" type="password" placeholder="Password"  />
           <br />
           <input class="button" type="submit" value="Sign Up" />
         </form>
@@ -84,5 +80,6 @@
         </div>
       </div>
     </footer>
+    <script src="./js/validate.js"></script>
   </body>
 </html>
