@@ -5,10 +5,7 @@
     margin: auto;
     margin-top: 11em;
     width: 80%;
-}
-
-.about-txt{
-    width: 50%;
+		flex-wrap: wrap;
 }
 
 .title{
