@@ -1,0 +1,106 @@
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 0 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+} 
+
+
+.logo{
+  font-weight: 600;
+}
+
+.logo h1 span{
+    color: rgb(56, 89, 132);
+}
+
+.logo h1 a{
+    color: black;
+}
+
+.nav-links{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+}
+
+.nav-links li{
+    padding: 2em 0;
+}
+
+.nav-links li a{
+    color: black;
+    font-weight: 600;
+}
+
+.auth{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2em;
+}
+
+.auth p{
+    padding: 2em 0;
+}
+
+.auth p a{
+    color: black;
+    font-weight: 600;
+}
+
+.about{
+    display: flex;
+    align-items: center;
+    gap: 3em;
+    margin: auto;
+    margin-top: 11em;
+    width: 80%;
+}
+
+.about-txt{
+    width: 50%;
+}
+
+.title{
+    color: rgb(7, 27, 83);
+    margin-bottom: 1em;
+    font-weight: 600;
+    font-size: 2em;
+}
+
+.txt{
+    line-height: 25px;
+    font-size: 17px;
+}
+
+.photo{
+    width: 40em;
+}
+.photo img{
+    width: 100%;
+    border-radius: 2em;
+    box-shadow: 0 0 10px rgb(7, 56, 121);
+}
+
+
+
+
+
+
+
+
