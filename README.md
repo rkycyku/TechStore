@@ -2,7 +2,7 @@
 
 ## Rreth Projektit
 
-Ky projekt eshte punuar per projektin ne **Inxhinierin e Webit** .
+Ky projekt eshte punuar per projektin ne **Inxhinierin e Webit**.
 
 TechStore eshte nje lloj e-Commerce, nje Dyqan Online per paisje Teknologjike.
 
