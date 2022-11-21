@@ -5,9 +5,17 @@
     margin: auto;
     margin-top: 11em;
     width: 80%;
-		flex-wrap: wrap;
-}
+	flex-wrap: wrap;
+    flex-direction: row;                                
+}                                                               
 
+.about-txt{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    width: 40%;
+}
 .title{
     color: rgb(7, 27, 83);
     margin-bottom: 1em;
