@@ -9,11 +9,10 @@ body{
 
 .forms{
     padding-top: 10em;
-    padding-bottom: 10em;
+    padding-bottom: 13em;
 }
 
 form {
-    background-image: linear-gradient(178.1deg, #211b53 8.5%, #171445 82.4%), rgb(36, 45, 57) 11.2%;
     margin: auto;
     display: flex;
     flex-direction: column;
