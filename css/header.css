@@ -15,19 +15,32 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #fff;
+    background-color: white;
 } 
+
+.nav{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    min-height: 70px;
+    gap: 25%;
+}
+
+.nav ul li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .logo{
   font-weight: 600;
+  font-size: 24pt;
+  color: black;
 }
 
-.logo h1 span{
+.logo span{
     color: rgb(7, 56, 121);
-}
-
-.logo h1 a{
-    color: black;
 }
 
 .nav-links{
@@ -37,11 +50,7 @@ header{
     gap: 2em;
 }
 
-.nav-links li{
-    padding: 2em 0;
-}
-
-.nav-links li a{
+.nav-links a{
     color: black;
     font-weight: 600;
 }
@@ -49,15 +58,87 @@ header{
 .auth{
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     gap: 2em;
 }
 
-.auth p{
-    padding: 2em 0;
-}
-
-.auth p a{
+.auth a{
     color: black;
     font-weight: 600;
+}
+
+.nav ul li a:hover{
+    color: #073879;
+}
+
+.hamburger{
+  display: none;
+  cursor: pointer;
+}
+
+.hamIkona{
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  background-color: black;
+}
+
+.hamIkona:nth-child(2){
+    background-color: #073879;
+}
+
+@media(max-width:1024px){
+    .hamburger{
+        display: block;
+    }
+    
+    .hamburger.active .hamIkona:nth-child(2){
+        opacity: 0;
+    }
+
+    .hamburger.active .hamIkona:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+        background-color: #073879;
+    }
+
+    .hamburger.active .hamIkona:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .nav li{
+        margin: 10px;
+    }
+
+    .nav-links{
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        gap: 0;
+        flex-direction: column;
+        background-color: #f7f7f9;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .auth{
+        position: fixed;
+        left: -100%;
+        top: 184px;
+        gap: 0;
+        flex-direction: column;
+        background-color: #f7f7f9;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .nav-links.active ,.auth.active{
+        left: 0 ;
+    }
+    .nav-links a:hover, .auth a:hover{
+        color: #073879;
+    }
 }

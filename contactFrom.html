@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | TechStore</title>
+    <link rel="icon" type="image/x-icon" href="./assets/img/web/techstoreLogoWhiteSquare.png">
     <link rel="stylesheet" href="./css/forms.css">
     <link rel="stylesheet" href="./css/header.css" />
     <link rel="stylesheet" href="./css/footer.css">
@@ -15,22 +17,37 @@
 		}
 </script>
 <body>
-  <header>
-    <div class="logo">
-      <h1><a href="index.html">Tech<span>Store</span></a></h1>
-    </div>
-    <nav class="nav">
-      <ul class="nav-links">
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="./aboutUs.html">About Us</a></li>
-        <li><a href="./contactFrom.html">Contact Us</a></li>
-      </ul>
-    </nav>
-    <div class="auth">
-      <p><a href="./login.html">Log In</a></p>
-      <p><a href="./signup.html">Sign Up</a></p>
-    </div>
-  </header>
+    <header>
+      <nav class="nav">
+        <a class="logo" href="index.html">Tech<span>Store</span></a>
+        <ul class="nav-links">
+            <li class="nav-item">
+                <a href="./index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="./aboutUs.html">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a href="./contactFrom.html">Contact Us</a>
+            </li>
+        </ul>
+    
+        <ul class="auth">
+            <li class="nav-item">
+                <a href="./login.html">Log In</a>
+            </li>
+            <li class="nav-item">
+                <a href="./signup.html">Sign Up</a>
+            </li>
+        </ul>
+      </nav>
+      <div class="hamburger">
+        <span class="hamIkona"></span>
+        <span class="hamIkona"></span>
+        <span class="hamIkona"></span>
+      </div>
+    </header>
+
   <div class="bg-image">
     <div class="forms">
       <form action="" onsubmit="return validimiIFormes()">
@@ -39,7 +56,7 @@
         <br>
         <input class="form-input" type="email" name="" id="" placeholder="Email" required>
         <br>
-        <input class="form-input" type="text" name="" id="" placeholder="Message" required>
+        <textarea name="" id="" placeholder="Enter your message!"></textarea>
         <br>
         <input class="button" type="submit" value="Send" />
       </form>
@@ -77,5 +94,6 @@
       </div>
     </div>
   </footer>
+  <script src="./js/hamburgerMenu.js"></script>
 </body>
 </html>

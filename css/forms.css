@@ -1,19 +1,28 @@
+body{
+    background-color: #f7f7f9;
+}
+
 .bg-image{
     background: linear-gradient(109.6deg, rgb(36, 45, 57) 11.2%, rgb(16, 37, 60) 51.2%, rgb(0, 0, 0) 98.6%);
-    height: 100vh;
+    height: 100%;
 }
 
 .forms{
     padding-top: 10em;
+    padding-bottom: 10em;
 }
 
 form {
     background-image: linear-gradient(178.1deg, #211b53 8.5%, #171445 82.4%), rgb(36, 45, 57) 11.2%;
-    width: fit-content;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-top: 5.2em;
-    padding: 2em 3em;
-    width: 500px;
+    gap: 0.5em;
+    row-gap: 0.5em;
+    width: 100%;
     border-radius: 30px;
     
 }
@@ -51,6 +60,16 @@ input.form-input:-webkit-autofill:active {
     -webkit-text-fill-color: #f3f3f3 !important;
 }
 
+textarea{
+    width: max(27em, 20vw);
+    height: max(10em);
+    resize: none;
+}
+
+textarea::placeholder{
+    color: rgb(153, 151, 151);
+}
+
 input.mesazhi{
     padding: 2em;
     padding-left: 10px;
@@ -76,7 +95,7 @@ input.mesazhi{
 }
 
 .button:hover{
-    background: rgb(31, 118, 175);
+    background: #073879;
     color: #fff;
     cursor: pointer;
 }
