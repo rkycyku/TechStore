@@ -33,6 +33,7 @@ footer{
 
 .footer-nav a:hover{
     color: #01df93;
+    font-weight: bold;
 }
 
 .footer-contact{
@@ -44,10 +45,12 @@ footer{
     list-style: none;
     color: #340182;
     padding-top: 5px;
+    
 }
 
 .footer-contact a:hover{
     color: #01df93;
+    font-weight: bold;
 }
 
 .footer-social-icons{

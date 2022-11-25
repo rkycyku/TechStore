@@ -9,7 +9,13 @@
     <link rel="stylesheet" href="./css/forms.css" />
     <link rel="stylesheet" href="./css/header.css" />
   </head>
-	
+	<style>
+    @media(max-width:1024px){
+    .auth{
+      top: 184px
+    }
+}
+  </style>
   <body>
     <header>
       <nav class="nav">
@@ -41,8 +47,6 @@
           <span class="hamIkona"></span>
        </div>
     </header>
-
-    <div class="bg-image">
       <div class="forms">
         <form action="" name="myForm" onsubmit="return validateForm()">
           <h1 class="form-title">Sign Up</h1>
@@ -59,7 +63,6 @@
           <input class="button" type="submit" value="Sign Up" />
         </form>
       </div>
-    </div>
     <script src="./js/validate.js"></script>
     <script src="./js/hamburgerMenu.js"></script>
   </body>

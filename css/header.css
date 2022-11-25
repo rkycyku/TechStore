@@ -4,11 +4,11 @@
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Segoe UI",SegoeUI,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 header{
-    position: fixed;
+    position: sticky;
     top: 0;
     width: 100%;
     padding: 0 5%;
@@ -36,11 +36,15 @@ header{
 .logo{
   font-weight: 600;
   font-size: 24pt;
-  color: black;
+  color: #00113f;
 }
 
 .logo span{
     color: rgb(7, 56, 121);
+}
+
+.logo span:hover{
+    color: #01df93;
 }
 
 .nav-links{
@@ -68,7 +72,7 @@ header{
 }
 
 .nav ul li a:hover{
-    color: #073879;
+    color: #01df93;
 }
 
 .hamburger{
@@ -126,7 +130,7 @@ header{
     .auth{
         position: fixed;
         left: -100%;
-        top: 184px;
+        top: 199px;
         gap: 0;
         flex-direction: column;
         background-color: #f7f7f9;

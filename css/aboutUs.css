@@ -3,7 +3,8 @@
     align-items: center;
     gap: 3em;
     margin: auto;
-    margin-top: 11em;
+    margin-top: 2em;
+    margin-bottom: 2em;
     width: 80%;
 	flex-wrap: wrap;
     flex-direction: row;                                

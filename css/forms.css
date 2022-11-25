@@ -1,29 +1,26 @@
 body{
-    background-color: #f7f7f9;
-}
-
-.bg-image{
-    background: linear-gradient(109.6deg, rgb(36, 45, 57) 11.2%, rgb(16, 37, 60) 51.2%, rgb(0, 0, 0) 98.6%);
-    height: 100%;
+    background-color: #0f243b;
 }
 
 .forms{
-    padding-top: 10em;
-    padding-bottom: 13em;
+    display: flex;
+    justify-content: space-between;
+    flex-basis: 120em;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 7em;
+    margin-bottom: 4em;
 }
 
-form {
-    margin: auto;
+form{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    margin-top: 5.2em;
     gap: 0.5em;
-    row-gap: 0.5em;
     width: 100%;
     border-radius: 30px;
-    
 }
 
 .form-title{
@@ -34,7 +31,6 @@ form {
 
 input{
     color: #fff;
-    margin: 7px 0;
     background-color: inherit;
     border: none;
     border-bottom: 1px solid white;
@@ -48,25 +44,15 @@ input{
     color: white;
 }
 
-input.form-input:-webkit-autofill,
-input.form-input:-webkit-autofill:hover,
-input.form-input:-webkit-autofill:focus,
-input.form-input:-webkit-autofill:active {
-    transition: background-color 5000s ease-in-out 0s;
-    -webkit-transition: background-color 5000s ease-in-out 0s;
-    -webkit-box-shadow: 0 0 0px 1000px inherit inset;
-    box-shadow: 0 0 0px 1000px inherit inset;
-    -webkit-text-fill-color: #f3f3f3 !important;
-}
-
 textarea{
     width: max(27em, 20vw);
     height: max(10em);
     resize: none;
-}
-
-textarea::placeholder{
-    color: rgb(153, 151, 151);
+    background-color: inherit;
+    border: none;
+    border-bottom: 1px solid white;
+    color: white;
+    padding: 10px;
 }
 
 input.mesazhi{
@@ -93,8 +79,33 @@ input.mesazhi{
     color: rgb(31, 118, 175);
 }
 
+.reg a:hover{
+    color: #01df93;
+    font-weight: bold;
+}
+
 .button:hover{
-    background: #073879;
+    background: #01df93;
     color: #fff;
+    font-weight: bold;
     cursor: pointer;
 }
+
+@media(max-width:380px){
+    .forms{
+        margin-top: 3em;
+        margin-bottom: 0;
+    }
+
+    textarea{
+        width: 15em;
+        height: 6em;
+    }
+
+    input{
+        width: 15em;
+    }
+
+}
+
+
