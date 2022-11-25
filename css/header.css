@@ -72,7 +72,7 @@ header{
 }
 
 .nav ul li a:hover{
-    color: #01df93;
+    border-bottom: 2px solid #01df93;
 }
 
 .hamburger{
