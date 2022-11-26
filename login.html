@@ -9,11 +9,6 @@
     <link rel="stylesheet" href="./css/header.css" />
     <link rel="stylesheet" href="./css/forms.css" />
   </head>
-	<script>
-		function validimiILogIn(){
-			alert("Hyrja eshte me Sukses!")
-		}
-	</script>
   <body>
     <header>
       <nav class="nav">
@@ -46,17 +41,16 @@
        </div>
     </header>
       <div class="forms">
-        <form action="" name="f1" onsubmit="return validate()">
+        <form  name="f1">
           <h1 class="form-title">Log In</h1>
-          <input class="form-input" type="email" placeholder="Email" />
-          <span id="nameloc"></span>
-          <br />
-          <input class="form-input" type="password" placeholder="Password"  />
+          <input class="form-input" id="email" type="email" placeholder="Email" />
+          <span id="result"></span>
+          <input class="form-input" type="password" placeholder="Password" required />
           <span id="passwordloc"></span>
           <div class="reg">
-            <p>Don't have an account?  <a href="signup.html">Sign Up</a></p>
+            <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
           </div>
-          <input class="button" type="submit" value="Log In" />
+          <input class="button" type="submit" value="Log In" onclick="validate(document.f1.email)"/>
         </form>
     </div>
     <script src="./js/validate.js"></script>

@@ -1,14 +1,15 @@
-function validateForm() {
-    let name = document.forms["myForm"]["name"].value;
-    if (name == "") {
-      alert("Name must be filled out");
-      return false;
-    }
-    
-    var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    let email = document.forms["myForm"]["email"].value;
-    if (email == "") {
-        alert("Write your eamil address!");
-        return false;
-  }
+
+function validate(email, password){
+  var mailformat = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+    if(email.value.match(mailformat)){
+      document.f1.text1.focus();
+      return true;
 }
+else{
+  alert("Invalid email address.");
+    document.f1.text1.focus();
+    return false;
+}
+}
+
+          

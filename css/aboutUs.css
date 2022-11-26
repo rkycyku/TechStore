@@ -1,20 +1,14 @@
 .about{
     display: flex;
     align-items: center;
-    gap: 3em;
+    justify-content: space-between;
+    /* gap: 3em; */
     margin: auto;
-    margin-top: 2em;
-    margin-bottom: 2em;
-    width: 80%;
-	flex-wrap: wrap;
-    flex-direction: row;                                
-}                                                               
-
+    margin-top: 10em;
+    margin-bottom: 10em;
+    width: 80%;                                      
+}
 .about-txt{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    flex-wrap: wrap;
     width: 40%;
 }
 
@@ -31,13 +25,26 @@
 }
 
 .photo{
-    width: 50%;
+    width: 43vw;
 }
 
 .photo img{
     width: 100%;
     border-radius: 2em;
     box-shadow: 0 0 10px rgb(7, 56, 121);
+}
+
+@media (max-width: 767px){
+    .about{
+        display: block;
+    }
+    .photo{
+        width: 100%;
+    }
+    .about-txt{
+        width: 100%;
+        margin-top: 1em;
+    }
 }
 
 

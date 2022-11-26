@@ -41,19 +41,14 @@
        </div>
     </header>
       <div class="forms">
-        <form action="" name="myForm" onsubmit="return validateForm()">
+        <form  name="f1" >
           <h1 class="form-title">Sign Up</h1>
           <input class="form-input" name="name" type="name" placeholder="Name"  />
-          <br />
           <input class="form-input" type="text" placeholder="Lastname" />
-          <br />
           <input class="form-input" type="text" placeholder="Username"  />
-          <br />
           <input class="form-input" name="email" type="email" placeholder="Email"  />
-          <br />
           <input class="form-input" type="password" placeholder="Password"  />
-          <br />
-          <input class="button" type="submit" value="Sign Up" />
+          <input class="button" type="submit" value="Sign Up" onclick="validate(document.f1.email)" />
         </form>
       </div>
     <script src="./js/validate.js"></script>
