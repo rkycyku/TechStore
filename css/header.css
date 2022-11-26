@@ -44,7 +44,7 @@ header{
 }
 
 .logo span:hover{
-    color: grey;
+    color: #01df93;
 }
 
 .nav-links{
@@ -55,7 +55,7 @@ header{
 }
 
 .nav-links a{
-    color: black;
+    color: #00113f;
     font-weight: 600;
 }
 
@@ -72,7 +72,8 @@ header{
 }
 
 .nav ul li a:hover{
-    border-bottom: 2px solid #0f243b;
+    border-bottom: 2px solid #01df93;
+    font-weight: bold;
 }
 
 .hamburger{
