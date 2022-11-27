@@ -44,7 +44,7 @@ header{
 }
 
 .logo span:hover{
-    color: #01df93;
+    color: grey;
 }
 
 .nav-links{
@@ -55,7 +55,7 @@ header{
 }
 
 .nav-links a{
-    color: #00113f;
+    color: black;
     font-weight: 600;
 }
 

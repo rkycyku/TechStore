@@ -37,8 +37,6 @@
 @media (max-width: 767px){
     .about{
         display: block;
-        margin-top: 2em;
-        margin-bottom: 3em;
     }
     .photo{
         width: 100%;
@@ -46,9 +44,6 @@
     .about-txt{
         width: 100%;
         margin-top: 1em;
-    }
-    .title{
-        margin-bottom: 0.3em;
     }
 }
 

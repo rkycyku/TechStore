@@ -41,17 +41,17 @@
        </div>
     </header>
       <div class="forms">
-        <form name="LogSinConForm" onsubmit="return validimiSignUp();">
+        <form  name="f1" >
           <h1 class="form-title">Sign Up</h1>
-          <input class="form-input" name="name" type="text" placeholder="Name">
-          <input class="form-input" name="lName" type="text" placeholder="Lastname">
-          <input class="form-input" name="uName" type="text" placeholder="Username">
-          <input class="form-input" name="email" type="email" placeholder="Email">
-          <input class="form-input" name="password" type="password" placeholder="Password">
-          <input class="button" type="submit" value="Sign Up">
+          <input class="form-input" name="name" type="name" placeholder="Name"  />
+          <input class="form-input" type="text" placeholder="Lastname" />
+          <input class="form-input" type="text" placeholder="Username"  />
+          <input class="form-input" name="email" type="email" placeholder="Email"  />
+          <input class="form-input" type="password" placeholder="Password"  />
+          <input class="button" type="submit" value="Sign Up" onclick="validate(document.f1.email)" />
         </form>
       </div>
-    <script src="./js/validimiFormave.js"></script>
+    <script src="./js/validate.js"></script>
     <script src="./js/hamburgerMenu.js"></script>
   </body>
 </html>

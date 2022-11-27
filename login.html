@@ -40,18 +40,20 @@
           <span class="hamIkona"></span>
        </div>
     </header>
-      <div class="forms" >
-        <form name="LogSinConForm" onsubmit="alert('Welcome back!!!')">
+      <div class="forms">
+        <form  name="f1">
           <h1 class="form-title">Log In</h1>
-          <input class="form-input" name="email" type="email" placeholder="Email" required>
-          <input class="form-input" name="password" type="password" placeholder="Password" required>
+          <input class="form-input" id="email" type="email" placeholder="Email" />
+          <span id="result"></span>
+          <input class="form-input" type="password" placeholder="Password" required />
+          <span id="passwordloc"></span>
           <div class="reg">
             <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
           </div>
-          <input class="button" type="submit" value="Log In"/>
+          <input class="button" type="submit" value="Log In" onclick="validate(document.f1.email)"/>
         </form>
     </div>
-    <script src="./js/validimiFormave.js"></script>
+    <script src="./js/validate.js"></script>
     <script src="./js/hamburgerMenu.js"></script>
   </body>
 </html>
