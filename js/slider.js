@@ -1,16 +1,16 @@
-const productContainers = [...document.querySelectorAll('.product-container')];
-const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
-const preBtn = [...document.querySelectorAll('.pre-btn')];
+const kornizaEBrendeve = [...document.querySelectorAll('.kornizaEBrendeve')];
+const shkoDjathtas = [...document.querySelectorAll('.shkoDjathtas')];
+const shkoMajtas = [...document.querySelectorAll('.shkoMajtas')];
 
-productContainers.forEach((item, i) => {
+kornizaEBrendeve.forEach((item, i) => {
     let containerDimensions = item.getBoundingClientRect();
     let containerWidth = containerDimensions.width;
 
-    nxtBtn[i].addEventListener('click', () => {
+    shkoDjathtas[i].addEventListener('click', () => {
         item.scrollLeft += containerWidth;
     })
 
-    preBtn[i].addEventListener('click', () => {
+    shkoMajtas[i].addEventListener('click', () => {
         item.scrollLeft -= containerWidth;
     })
 })
