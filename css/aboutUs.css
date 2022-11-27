@@ -2,8 +2,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    /* gap: 3em; */
     margin: auto;
-    margin-top: 7em;
+    margin-top: 10em;
     margin-bottom: 10em;
     width: 80%;                                      
 }
