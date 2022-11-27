@@ -31,6 +31,7 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .logo{
@@ -71,9 +72,36 @@ header{
     font-weight: 600;
 }
 
-.nav ul li a:hover{
-    border-bottom: 2px solid #0f243b;
+.nav ul li .line{
+    content: "";
+    position: absolute;
+    background-color: #073879;
+    padding: 1px;
+    width: 100%;
+    top: 2em;
+    display: none;
 }
+
+.nav ul li:hover .line{
+    display: block;
+
+}
+
+.auth .nav-item .line{
+    content: "";
+    position: absolute;
+    background-color: #073879;
+    padding: 1px;
+    width: 100%;
+    top: 2em;
+    display: none;
+}
+
+.auth .nav-item:hover .line{
+    display: block;
+}
+
+
 
 .hamburger{
   display: none;
