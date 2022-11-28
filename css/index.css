@@ -143,6 +143,11 @@
   padding: auto;
 }
 
+.kartelaEBrendit:hover{
+  transform: scale(1.1);
+  transition: 0.1s ease-in-out;
+}
+
 .logoBrendit {
   display: flex;
   justify-content: center;
@@ -152,6 +157,10 @@
   overflow: hidden;
   cursor: pointer;
 }
+
+/* .logoBrendit:hover{
+  transform: scale(1.1);
+} */
 
 .logoBrendit img{
   height: 150px;

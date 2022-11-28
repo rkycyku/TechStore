@@ -31,6 +31,7 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .logo{
@@ -59,6 +60,25 @@ header{
     font-weight: 600;
 }
 
+.line{
+    display: none;
+    content: "";
+    position: absolute;
+    padding: 1.2px;
+    background-color: #01df93;
+    width: 100%;
+    top: 1.7em;
+}
+
+.nav ul li:hover .line{
+    display: block;
+}
+
+.nav ul li:hover {
+    transform: scale(1.1);
+    transition: 0.1s ease-in-out;
+}
+
 .auth{
     display: flex;
     align-items: center;
@@ -69,11 +89,6 @@ header{
 .auth a{
     color: black;
     font-weight: 600;
-}
-
-.nav ul li a:hover{
-    border-bottom: 2px solid #01df93;
-    font-weight: bold;
 }
 
 .hamburger{
@@ -96,6 +111,14 @@ header{
 }
 
 @media(max-width:1024px){
+    .nav ul li:hover {
+        transform: none;
+    }
+
+    .nav ul li:hover .line{
+        display: none;
+    }
+
     .hamburger{
         display: block;
     }
