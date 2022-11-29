@@ -100,31 +100,6 @@
   color: white;
 }
 
-@media(max-width:1024px) {
-  .artikujt{
-    align-items: flex-start;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  .titulliArtikuj h1{
-    margin-bottom: 0.5em;
-    font-weight: 500;
-    color: #0f243b;
-  }
-  
-  .artikulli{
-    flex-basis: 100px;
-    margin: 0.7em;
-  }
-  
-  .artikulli img{
-    width: 90%;
-    aspect-ratio: 3/2;
-    object-fit: contain;
-  }
-}
-
 /* Fillimi i CSS te Slider-it te Brendeve */
 
 .brandsSlider {
@@ -224,3 +199,55 @@
 }
 
 /* Mbarimi i CSS te Slider-it te Brendeve */
+
+
+/* Fillimi i CSS-it per nje dukje me te mire ne Paisjet mobile (Responsive) */
+
+@media(max-width:1024px) {
+	.kartelaEBrendit {
+	  width: 150px;
+	  margin-right: 2em;
+	}
+	
+	.logoBrendit {
+	  width: 100px;
+	  margin: 0 auto;
+	}
+	
+	.logoBrendit img{
+	   width: 90%;
+	   aspect-ratio: 3/2;
+	   object-fit: contain;
+	}
+	
+	.shkoMajtas,
+	.shkoDjathtas {
+	  top: 25px;
+	}
+	
+  .artikujt{
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .titulliArtikuj h1{
+    margin-bottom: 0.5em;
+    font-weight: 500;
+    color: #0f243b;
+  }
+  
+  .artikulli{
+    flex-basis: 100px;
+    margin: 0.7em;
+  }
+  
+  .artikulli img{
+    width: 90%;
+    aspect-ratio: 3/2;
+    object-fit: contain;
+  }
+
+}
+
+/* Mbarimi i CSS-it per nje dukje me te mire ne Paisjet mobile (Responsive) */
