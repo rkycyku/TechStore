@@ -65,18 +65,14 @@
 .artikulliLabel{
   display: flex;
   text-align: center;
-  font-size: 13pt;
+  font-size: 10pt;
+  color: rgb(99, 93, 93);
 }
 
 .artikulli img{
   width: auto;
   height: 150px;
   padding-bottom: 1em;
-}
-
-.artikulliLabel{
-  font-size: 10pt;
-  color: rgb(99, 93, 93);
 }
 
 .cmimi{
@@ -107,19 +103,13 @@
     width: 100%;
   }
   
-  .titulliArtikuj h1{
-    margin-bottom: 0.5em;
-    font-weight: 500;
-    color: #0f243b;
-  }
-  
   .artikulli{
     flex-basis: 100px;
     margin: 0.7em;
   }
   
   .artikulli img{
-    width: 90%;
+    width: 100%;
     aspect-ratio: 3/2;
     object-fit: contain;
   }
