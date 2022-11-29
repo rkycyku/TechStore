@@ -1,5 +1,5 @@
 .banner{
-  background-image: url("../assets/img/web/bannerIndex.jpg");
+  background-image: url("../img/web/bannerIndex.jpg");
   background-repeat: no-repeat;
   background-position: 50%;
   background-size: cover;
@@ -100,6 +100,31 @@
   color: white;
 }
 
+@media(max-width:1024px) {
+  .artikujt{
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .titulliArtikuj h1{
+    margin-bottom: 0.5em;
+    font-weight: 500;
+    color: #0f243b;
+  }
+  
+  .artikulli{
+    flex-basis: 100px;
+    margin: 0.7em;
+  }
+  
+  .artikulli img{
+    width: 90%;
+    aspect-ratio: 3/2;
+    object-fit: contain;
+  }
+}
+
 /* Fillimi i CSS te Slider-it te Brendeve */
 
 .brandsSlider {
@@ -157,10 +182,6 @@
   overflow: hidden;
   cursor: pointer;
 }
-
-/* .logoBrendit:hover{
-  transform: scale(1.1);
-} */
 
 .logoBrendit img{
   height: 150px;
