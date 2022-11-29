@@ -96,25 +96,6 @@
   color: white;
 }
 
-@media(max-width:1024px) {
-  .artikujt{
-    align-items: flex-start;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  .artikulli{
-    flex-basis: 100px;
-    margin: 0.7em;
-  }
-  
-  .artikulli img{
-    width: 100%;
-    aspect-ratio: 3/2;
-    object-fit: contain;
-  }
-}
-
 /* Fillimi i CSS te Slider-it te Brendeve */
 
 .brandsSlider {
