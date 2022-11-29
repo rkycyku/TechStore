@@ -65,18 +65,14 @@
 .artikulliLabel{
   display: flex;
   text-align: center;
-  font-size: 13pt;
+  font-size: 10pt;
+  color: rgb(99, 93, 93);
 }
 
 .artikulli img{
   width: auto;
   height: 150px;
   padding-bottom: 1em;
-}
-
-.artikulliLabel{
-  font-size: 10pt;
-  color: rgb(99, 93, 93);
 }
 
 .cmimi{
@@ -98,6 +94,25 @@
 .button:hover{
   background-color: #01df93;
   color: white;
+}
+
+@media(max-width:1024px) {
+  .artikujt{
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .artikulli{
+    flex-basis: 100px;
+    margin: 0.7em;
+  }
+  
+  .artikulli img{
+    width: 100%;
+    aspect-ratio: 3/2;
+    object-fit: contain;
+  }
 }
 
 /* Fillimi i CSS te Slider-it te Brendeve */
