@@ -23,11 +23,12 @@
 
 .artikujt{
   display: flex;
-  align-items: stretch;
   justify-content: center;
+  align-items: stretch;
   margin: 0 auto;
   width: 80%;
   flex-wrap: wrap;
+  gap: 0.8em;
 }
 
 .titulliArtikuj{
@@ -49,10 +50,11 @@
 .artikulli{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  gap: 0.5em;
+  align-self: stretch;
   flex-basis: 200px;
+  gap: 0.5em;
   background-color: #fff;
   box-shadow: 0 0 10px #d3d3d3;
   box-sizing: border-box;
@@ -63,16 +65,18 @@
 
 
 .artikulliLabel{
-  display: flex;
   text-align: center;
   font-size: 10pt;
   color: rgb(99, 93, 93);
 }
 
 .artikulli img{
-  width: auto;
-  height: 150px;
-  padding-bottom: 1em;
+    width: 90%;
+    aspect-ratio: 3/2;
+    object-fit: contain;
+
+  
+    
 }
 
 .cmimi{
@@ -222,9 +226,7 @@
 	}
 	
   .artikujt{
-    align-items: flex-start;
-    justify-content: center;
-    width: 100%;
+    gap: 0;
   }
   
   .titulliArtikuj h1{
@@ -234,16 +236,27 @@
   }
   
   .artikulli{
-    flex-basis: 100px;
     margin: 0.7em;
   }
   
   .artikulli img{
-    width: 90%;
+    width: 80%;
     aspect-ratio: 3/2;
     object-fit: contain;
   }
 
+}
+
+@media(max-width:767px){
+  .artikujt{
+    width: 100%;
+    flex-wrap: wrap;
+  
+  }
+  .artikulli{
+    width: 10em;
+    flex-basis: 100px;
+  }
 }
 
 /* Mbarimi i CSS-it per nje dukje me te mire ne Paisjet mobile (Responsive) */
