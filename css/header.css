@@ -34,18 +34,10 @@ header{
     position: relative;
 }
 
-.logo{
-  font-weight: 600;
-  font-size: 24pt;
-  color: #00113f;
-}
-
-.logo span{
-    color: rgb(7, 56, 121);
-}
-
-.logo span:hover{
-    color: #01df93;
+.logo img{
+    width: 25%;
+    aspect-ratio: 3/2;
+    object-fit: contain;
 }
 
 .nav-links{

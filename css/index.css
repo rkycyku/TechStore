@@ -215,9 +215,9 @@
 	}
 	
 	.logoBrendit img{
-	   width: 90%;
-	   aspect-ratio: 3/2;
-	   object-fit: contain;
+    width: 90%;
+    aspect-ratio: 3/2;
+    object-fit: contain;
 	}
 	
 	.shkoMajtas,
@@ -227,6 +227,8 @@
 	
   .artikujt{
     gap: 0;
+    width: 100%;
+    flex-wrap: wrap;
   }
   
   .titulliArtikuj h1{
@@ -237,25 +239,14 @@
   
   .artikulli{
     margin: 0.7em;
+    width: 10em;
+    flex-basis: 100px;
   }
   
   .artikulli img{
     width: 80%;
     aspect-ratio: 3/2;
     object-fit: contain;
-  }
-
-}
-
-@media(max-width:767px){
-  .artikujt{
-    width: 100%;
-    flex-wrap: wrap;
-  
-  }
-  .artikulli{
-    width: 10em;
-    flex-basis: 100px;
   }
 }
 

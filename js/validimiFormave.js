@@ -1,27 +1,52 @@
-function validimiSignUp(){
-  if(document.LogSinConForm.name.value == ""){
-    alert("Please enter your name!");
-    document.LogSinConForm.name.focus();
-    return false;
-  }
-  if(document.LogSinConForm.uName.value == ""){
-    alert("Please enter your Username!");
-    document.LogSinConForm.uName.focus();
-    return false;
-  }
-  if(document.LogSinConForm.email.value == ""){
+function validimiLogin(){
+  let emailLF = document.LoginForm.email;
+  let passLF = document.LoginForm.password;
+
+  if(emailLF.value == ""){
     alert("Email can't be blank!");
-    document.LogSinConForm.email.focus();
+    emailLF.focus();
     return false;
   }
-  if(document.LogSinConForm.password.value == ""){
+
+  if(passLF.value == ""){
     alert("Password can't be blank!");
-    document.LogSinConForm.password.focus();
+    passLF.focus();
     return false;
   }
-  if(document.LogSinConForm.password.value.length < 8){
+
+  alert('Welcome back!!!')
+  return true;
+}
+
+function validimiSignUp(){
+  let emriSUF = document.SignUpForm.name;
+  let uNameSUF = document.SignUpForm.uName;
+  let emailSUF = document.SignUpForm.email;
+  let passSUF = document.SignUpForm.password;
+
+  if(emriSUF.value == ""){
+    alert("Please enter your name!");
+    emriSUF.focus();
+    return false;
+  }
+  if(uNameSUF.value == ""){
+    alert("Please enter your Username!");
+    uNameSUF.focus();
+    return false;
+  }
+  if(emailSUF.value == ""){
+    alert("Email can't be blank!");
+    emailSUF.focus();
+    return false;
+  }
+  if(passSUF.value == ""){
+    alert("Password can't be blank!");
+    passSUF.focus();
+    return false;
+  }
+  if(passSUF.value.length < 8){
     alert("Please enter a Password with at least 8 charachters!");
-    document.LogSinConForm.password.focus();
+    passSUF.focus();
     return false;
   }
   
@@ -29,4 +54,27 @@ function validimiSignUp(){
   return true;
 }
 
-          
+function validimiContactForm(){
+  let emriCF = document.ContactForm.name;
+  let emailCF = document.ContactForm.email;
+  let msgFieldCF = document.ContactForm.msgField;
+
+  if(emriCF.value == ""){
+    alert("Please enter your name!");
+    emriCF.focus();
+    return false;
+  }
+  if(emailCF.value == ""){
+    alert("Email can't be blank!");
+    emailCF.focus();
+    return false;
+  }
+  if(msgFieldCF.value == ""){
+    alert("Please enter your message!");
+    msgFieldCF.focus();
+    return false;
+  }
+  
+  alert("Thank you. We'll reach at you as soon as possible!")
+  return true;
+}

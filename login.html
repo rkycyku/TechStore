@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login | Tech Store</title>
-    <link rel="icon" type="image/x-icon" href="./img/web/techstoreLogoWhiteSquare.png">
+    <link rel="shortcut icon" href="./img/web/favicon.ico"/>
     <link rel="stylesheet" href="./css/header.css" />
     <link rel="stylesheet" href="./css/forms.css" />
   </head>
   <body>
     <header>
       <nav class="nav">
-          <a class="logo" href="index.html">Tech<span>Store</span></a>
+          <a class="logo" href="index.html"><img src="./img/web/techstoreLogoWhiteSquare.png" alt=""></a>
           <ul class="nav-links">
               <li class="nav-item">
                   <a href="./index.html">Home</a>
@@ -27,7 +27,6 @@
                   <span class="line"></span>
               </li>
           </ul>
-      
           <ul class="auth">
               <li class="nav-item">
                   <a href="./login.html">Log In</a>
@@ -46,10 +45,10 @@
        </div>
     </header>
       <div class="forms" >
-        <form name="LogSinConForm" onsubmit="alert('Welcome back!!!')">
+        <form name="LoginForm" onsubmit="return validimiLogin();">
           <h1 class="form-title">Log In</h1>
-          <input class="form-input" name="email" type="email" placeholder="Email" required>
-          <input class="form-input" name="password" type="password" placeholder="Password" required>
+          <input class="form-input" name="email" type="email" placeholder="Email">
+          <input class="form-input" name="password" type="password" placeholder="Password">
           <div class="reg">
             <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
           </div>
