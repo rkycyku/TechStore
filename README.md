@@ -9,6 +9,7 @@ TechStore eshte nje lloj e-Commerce, nje Dyqan Online per paisje Teknologjike.
 Ky projekt eshte i punuar ne
  - HTML
  - CSS
+ - JS
 
 Eshte punuar nga:
 
@@ -25,20 +26,20 @@ Eshte punuar nga:
 
 ### Home
 
-![Home | TechStore](assets/img/READMEImg/home.png?raw=true)
+![Home | TechStore](/img/READMEImg/home.png?raw=true)
 
 ### About Us
 
-![About Us | TechStore](assets/img/READMEImg/aboutUs.png?raw=true)
+![About Us | TechStore](/img/READMEImg/aboutUs.png?raw=true)
 
 ### Contact Form
 
-![Contact Us | TechStore](assets/img/READMEImg/contactForm.png?raw=true)
+![Contact Us | TechStore](/img/READMEImg/contactForm.png?raw=true)
 
 ### Login
 
-![Login | TechStore](assets/img/READMEImg/logIn.png?raw=true)
+![Login | TechStore](/img/READMEImg/logIn.png?raw=true)
 
 ### Sign Up
 
-![Sign Up | TechStore](assets/img/READMEImg/signUp.png?raw=true)
+![Sign Up | TechStore](/img/READMEImg/signUp.png?raw=true)
