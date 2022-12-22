@@ -26,20 +26,20 @@ Eshte punuar nga:
 
 ### Home
 
-![Home | TechStore](/img/READMEImg/home.png?raw=true)
+![Home | TechStore](img/READMEImg/home.png?raw=true)
 
 ### About Us
 
-![About Us | TechStore](/img/READMEImg/aboutUs.png?raw=true)
+![About Us | TechStore](img/READMEImg/aboutUs.png?raw=true)
 
 ### Contact Form
 
-![Contact Us | TechStore](/img/READMEImg/contactForm.png?raw=true)
+![Contact Us | TechStore](img/READMEImg/contactForm.png?raw=true)
 
 ### Login
 
-![Login | TechStore](/img/READMEImg/logIn.png?raw=true)
+![Login | TechStore](img/READMEImg/logIn.png?raw=true)
 
 ### Sign Up
 
-![Sign Up | TechStore](/img/READMEImg/signUp.png?raw=true)
+![Sign Up | TechStore](img/READMEImg/signUp.png?raw=true)

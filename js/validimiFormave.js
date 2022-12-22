@@ -19,6 +19,9 @@ function validimiLogin(){
 }
 
 function validimiSignUp(){
+  const emriREGEX = /^[A-Za-z]+$/  
+  const emailREGEX = /^[\w.+-]+@[\w.-]+\.[a-zA-Z]{2,}$/
+  const passREGEX = /^[A-Z][A-Za-z0-9@$!%*?&]*[a-z][A-Za-z0-9@$!%*?&]*[0-9][A-Za-z0-9@$!%*?&]*$/
   let emriSUF = document.SignUpForm.name;
   let uNameSUF = document.SignUpForm.uName;
   let emailSUF = document.SignUpForm.email;
@@ -29,13 +32,28 @@ function validimiSignUp(){
     emriSUF.focus();
     return false;
   }
+  if(!emriREGEX.test(emriSUF)){
+    alert("Name must contain letters only!");
+    emriSUF.focus();
+    return false;
+  }
   if(uNameSUF.value == ""){
     alert("Please enter your Username!");
     uNameSUF.focus();
     return false;
   }
+  if(uNameSUF.value.length < 6){
+    alert("Username must contain at least 6 characters!");
+    uNameSUF.focus();
+    return false;
+  }
   if(emailSUF.value == ""){
     alert("Email can't be blank!");
+    emailSUF.focus();
+    return false;
+  }
+  if(!emailREGEX.test(emailSUF.value)){
+    alert("Please enter a valid email address!");
     emailSUF.focus();
     return false;
   }
@@ -49,12 +67,19 @@ function validimiSignUp(){
     passSUF.focus();
     return false;
   }
+  if(!passREGEX.test(passSUF.value)){
+    alert("Password must contasin one lowercase letter, one digit and the first letter must be Uppercase!");
+    passSUF.focus();
+    return false;
+  }
   
   alert("Validation completed successfully!!!");
   return true;
 }
 
 function validimiContactForm(){
+  const emriREGEX = /^[A-Za-z]+$/  
+  const emailREGEX = /^[\w.+-]+@[\w.-]+\.[a-zA-Z]{2,}$/
   let emriCF = document.ContactForm.name;
   let emailCF = document.ContactForm.email;
   let msgFieldCF = document.ContactForm.msgField;
@@ -64,8 +89,18 @@ function validimiContactForm(){
     emriCF.focus();
     return false;
   }
+  if(!emriREGEX.test(emriCF.value)){
+    alert("Name must contain letters only!");
+    emriCF.focus();
+    return false;
+  }
   if(emailCF.value == ""){
     alert("Email can't be blank!");
+    emailCF.focus();
+    return false;
+  }
+  if(!emailREGEX.test(emailCF.value)){
+    alert("Please enter a valid email address!");
     emailCF.focus();
     return false;
   }
