@@ -7,45 +7,12 @@
     <title>Home | Tech Store</title>
     <link rel="shortcut icon" href="./img/web/favicon.ico"/>
     <link rel="stylesheet" href="./css/index.css" />
-    <link rel="stylesheet" href="./css/header.css" />
-    <link rel="stylesheet" href="./css/footer.css">
+    
   </head>
 
   <body>
-    <header>
-      <nav class="nav">
-          <a class="logo" href="index.html"><img src="./img/web/techstoreLogoWhiteSquare.png" alt=""></a>
-          <ul class="nav-links">
-              <li class="nav-item">
-                  <a href="./index.html">Home</a>
-                  <span class="line"></span>
-              </li>
-              <li class="nav-item">
-                  <a href="./aboutUs.html">About Us</a>
-                  <span class="line"></span>
-              </li>
-              <li class="nav-item">
-                  <a href="./contactForm.html">Contact Us</a>
-                  <span class="line"></span>
-              </li>
-          </ul>
-          <ul class="auth">
-              <li class="nav-item">
-                  <a href="./login.html">Log In</a>
-                  <span class="line"></span>
-              </li>
-              <li class="nav-item">
-                  <a href="./signup.html">Sign Up</a>
-                  <span class="line"></span>
-              </li>
-          </ul>
-      </nav>
-      <div class="hamburger">
-          <span class="hamIkona"></span>
-          <span class="hamIkona"></span>
-          <span class="hamIkona"></span>
-       </div>
-    </header>
+    
+    <?php include './header.html'?>
 
     <div class="container">
       <div class="banner">
@@ -210,38 +177,8 @@
         </div>
       </div>
     </div>
-
-    <footer>
-      <div class="footer">
-        <div class="footer-logo">
-          <img src="./img/web/techstoreLogoWhiteSquare.png" alt="">
-        </div>
-        <div class="footer-nav">
-          <h2 class="footer-nav-title">Quick Links</h2>
-          <ul>
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./aboutUs.html">About Us</a></li>
-            <li><a href="./contactForm.html">Contact Us</a></li>
-            <li><a href="./login.html">Log In</a></li>
-            <li><a href="./signup.html">Sign Up</a></p>
-          </ul>
-        </div>
-        <div class="footer-contact">
-          <h2 class="footer-nav-title">Get in touch</h2>
-          <ul>
-            <li><a href="tel:+11112223333">+1-111-222-3333</a></li>
-            <li><a href="mailto:contact@tech.store">contact@tech.store</a></li>
-            <li>1316 Industrial Rd. Mount Pleasant, TX 75455</li>
-          </ul>
-          <div class="footer-social-icons">
-            <a href="https://facebook.com"><img src="./img/web/social-link-icons/facebook.png" alt=""></a>
-            <a href="https://instagram.com"><img src="./img/web/social-link-icons/instagram.png" alt=""></a>
-            <a href="https://twitter.com"><img src="./img/web/social-link-icons/twitter.png" alt=""></a>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <script src="./js/hamburgerMenu.js"></script>
+    
+    <?php include './footer.html'?>
     <script src="./js/slider.js"></script>
   </body>
 </html>
