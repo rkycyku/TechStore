@@ -13,7 +13,7 @@
 
 </style>
 <body>
-  <?php include './header.html'?>
+  <?php include './header.php'?>
 
     <div class="forms">
       <form name="ContactForm" action="" onsubmit="return validimiContactForm()">

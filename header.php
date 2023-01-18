@@ -1,3 +1,8 @@
+<?php
+if(!isset($_SESSION) || empty($_SESSION)){
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,6 +36,10 @@
                 </li>
                 <li class="nav-item">
                     <a href="./signup.php">Sign Up</a>
+                    <span class="line"></span>
+                </li>
+                <li class="nav-item">
+                    <a href=""><?php echo 'Miresevini ' . $_SESSION['name'];?></a>
                     <span class="line"></span>
                 </li>
             </ul>

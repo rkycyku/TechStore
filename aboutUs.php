@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./css/footer.css">
   </head>
   <body>
-    <?php include './header.html'?>
+    <?php include './header.php'?>
     
     <div class="about">
 			<div class="photo">

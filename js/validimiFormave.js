@@ -19,24 +19,25 @@ function validimiLogin(){
 }
 
 function validimiSignUp(){
-  const emriREGEX = /^[A-Za-z]+$/  
+  const emriREGEX = /^[A-Za-z]+$/   
   const emailREGEX = /^[\w.+-]+@[\w.-]+\.[a-zA-Z]{2,}$/
   const passREGEX = /^[A-Z][A-Za-z0-9@$!%*?&]*[a-z][A-Za-z0-9@$!%*?&]*[0-9][A-Za-z0-9@$!%*?&]*$/
   let emriSUF = document.SignUpForm.name;
   let uNameSUF = document.SignUpForm.uName;
   let emailSUF = document.SignUpForm.email;
   let passSUF = document.SignUpForm.password;
-
+  
   if(emriSUF.value == ""){
     alert("Please enter your name!");
     emriSUF.focus();
     return false;
   }
-  if(!emriREGEX.test(emriSUF)){
+  if(!emriREGEX.test(emriSUF.value)){
     alert("Name must contain letters only!");
     emriSUF.focus();
     return false;
   }
+  
   if(uNameSUF.value == ""){
     alert("Please enter your Username!");
     uNameSUF.focus();
@@ -73,7 +74,6 @@ function validimiSignUp(){
     return false;
   }
   
-  alert("Validation completed successfully!!!");
   return true;
 }
 
