@@ -12,14 +12,14 @@
   <body>
     <?php include './header.php'?>
       <div class="forms" >
-        <form name="LoginForm" action='./php/loginUser.php' method="POST">
+        <form name="LoginForm" onsubmit="return validimiLogin();" action='./php/loginUser.php' method="POST">
           <h1 class="form-title">Log In</h1>
-          <input class="form-input" name="username" type="text" placeholder="Username">
+          <input class="form-input" name="username" type="text" placeholder="Username" required>
           <input class="form-input" name="password" type="password" placeholder="Password">
           <div class="reg">
-            <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+            <p>Don't have an account? <a href="signup.php">Sign Up</a></p>
           </div>
-          <input class="button" name='login' type="submit" value="Log In"/>
+          <input class="button" type="submit" value="Log In" name='login'/>
         </form>
     </div>
     <script src="./js/validimiFormave.js"></script>

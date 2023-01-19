@@ -106,7 +106,19 @@ class userCRUD extends dbCon{
         }
     }
 
-    public function lexoTeDhenat(){
+    public function kontrolloUser(){
+        try{
+            $sql = 'SELECT * from user WHERE username = ?';
+            $stm = $this->dbConn->prepare($sql);
+            $stm->execute([$this->username]);
+
+            return $stm->fetch();
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+    }
+
+    public function kontrolloLlogarin(){
         try{
             $sql = 'SELECT * from user WHERE username = ? and password = ?';
             $stm = $this->dbConn->prepare($sql);

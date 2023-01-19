@@ -1,20 +1,19 @@
 function validimiLogin(){
-  let emailLF = document.LoginForm.email;
+  let uNameLF = document.LoginForm.username;
   let passLF = document.LoginForm.password;
 
-  if(emailLF.value == ""){
-    alert("Email can't be blank!");
+  if(uNameLF.value == ""){
+    alert("Please enter your username!");
     emailLF.focus();
     return false;
   }
 
   if(passLF.value == ""){
-    alert("Password can't be blank!");
+    alert("Please enter your password!");
     passLF.focus();
     return false;
   }
 
-  alert('Welcome back!!!')
   return true;
 }
 
@@ -109,7 +108,6 @@ function validimiContactForm(){
     msgFieldCF.focus();
     return false;
   }
-  
-  alert("Thank you. We'll reach at you as soon as possible!")
+
   return true;
 }
