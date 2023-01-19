@@ -102,50 +102,7 @@ header{
     background-color: #073879;
 }
 
-.auth{
-    position: fixed;
-    left: 100%;
-    top: 70px;
-    gap: 0;
-    flex-direction: column;
-    background-color: #f7f7f9;
-    width: 100%;
-    text-align: center;
-    transition: 0.3s;
-}
-
-.auth.active{
-    left: 0 ;
-}
-.auth a:hover{
-    color: #073879;
-}
-
-.auth .nav-item:hover {
-    transform: none;
-}
-
-.auth .nav-item:first-child{
-    margin-top: 10px;
-}
-
-.auth .nav-item:last-child{
-    margin-bottom: 10px;
-}
-
-@media(max-width:1024px){
-    .nav ul li:hover {
-        transform: none;
-    }
-
-    .nav ul li:hover .line{
-        display: none;
-    }
-
-    .hamburger{
-        display: block;
-    }
-    
+@media(min-width:1025px){
     .hamburger.active .hamIkona:nth-child(2){
         opacity: 0;
     }
@@ -158,23 +115,89 @@ header{
     .hamburger.active .hamIkona:nth-child(3){
         transform: translateY(-8px) rotate(-45deg);
     }
+
+    .auth{
+        position: fixed;
+        left: 100%;
+        top: 70px;
+        gap: 0;
+        flex-direction: column;
+        background-color: #f7f7f9;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+    }
+    
+    .auth.active{
+        left: 0 ;
+    }
+    .auth a:hover{
+        color: #073879;
+    }
+    
+    .auth .nav-item:hover {
+        transform: none;
+    }
+    
+    .auth .nav-item:first-child{
+        margin-top: 5px;
+    }
+
+    .auth .nav-item:last-child{
+        margin-bottom: 10px;
+    }
+}
+
+@media(max-width:1024px){
+    .nav ul li:hover {
+        transform: none;
+    }
+    .nav ul li:hover .line{
+        display: none;
+    }
+    .hamburger{
+        display: block;
+    }
+    
+    .hamburger.active .hamIkona:nth-child(2){
+        opacity: 0;
+    }
+    .hamburger.active .hamIkona:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+        background-color: #073879;
+    }
+    .hamburger.active .hamIkona:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
     .nav li{
         margin: 10px;
     }
-
     .nav-links{
-        text-align: left;
-        font-size: 80%;
+        position: fixed;
+        left: -100%;
+        top: 70px;
         gap: 0;
-        padding: 0;
+        flex-direction: column;
+        background-color: #f7f7f9;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
     }
-
-    .nav{
-        justify-content: space-between;
+    .auth{
+        position: fixed;
+        left: -100%;
+        top: 199px;
+        gap: 0;
+        flex-direction: column;
+        background-color: #f7f7f9;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
     }
-
-    .logo img{
-        width: 40px;
-        height: auto;
+    .nav-links.active ,.auth.active{
+        left: 0 ;
+    }
+    .nav-links a:hover, .auth a:hover{
+        color: #073879;
     }
 }
