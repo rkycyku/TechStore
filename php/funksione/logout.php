@@ -5,6 +5,6 @@ if(!isset($_SESSION) || empty($_SESSION)){
 
 session_destroy();
 
-echo '<script>document.location="../index.php"</script>'
+echo '<script>document.location="../../php/pages/index.php"</script>'
 
 ?>

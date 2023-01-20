@@ -1,7 +1,7 @@
 <?php
 require('../CRUD/userCRUD.php');
 
-if(!isset($_SESSION) || empty($_SESSION)){
+if(!isset($_SESSION)){
     session_start();
 }
 

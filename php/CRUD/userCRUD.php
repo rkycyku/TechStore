@@ -1,6 +1,11 @@
 <?php
 require_once('../db/dbcon.php');
 
+if(!isset($_SESSION)) 
+{ 
+    session_start(); 
+} 
+
 class userCRUD extends dbCon{
     private $userID;
     private $emri;
@@ -100,7 +105,7 @@ class userCRUD extends dbCon{
             $stm = $this->dbConn->prepare($sql);
             $stm->execute([$this->emri, $this->mbiemri, $this->username, $this->email,$this->password]);
 
-            echo "<script>alert('U regjisturat me sukses!');document.location='../login.php'</script>";
+            $_SESSION['regMeSukses'] = true;
         }catch(Exception $e){
             return $e->getMessage();
         }

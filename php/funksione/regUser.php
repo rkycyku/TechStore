@@ -11,6 +11,8 @@ if(isset($_POST['submit'])){
     $user->setPassword($_POST['password']);
 
     $user->shtoUser();
+
+    echo "<script>document.location='../pages/signup.php'</script>";
 }
 
 

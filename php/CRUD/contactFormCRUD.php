@@ -1,7 +1,7 @@
 <?php
 require_once('./db/dbcon.php');
 
-if(!isset($_SESSION) || empty($_SESSION)){
+if(!isset($_SESSION)){
     session_start();
 }
 

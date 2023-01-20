@@ -12,7 +12,7 @@
 
   <body>
     
-    <?php include './header.php'?>
+    <?php include '../design/headerMain.php'?>
 
     <div class="container">
       <div class="banner">
@@ -120,7 +120,6 @@
       </div>
     </div>
     
-    <?php include './footer.html'?>
-    <script src="../../js/slider.js"></script>
+    <?php include './footer.php'?>
   </body>
 </html>

@@ -13,7 +13,7 @@
 
 </style>
 <body>
-  <?php include './header.php'?>
+<?php include '../design/headerMain.php'?>
 
     <div class="forms">
       <form name="ContactForm" onsubmit="return validimiContactForm()" action="./php/funksione/dergoMesazh.php" method="POST">
@@ -37,8 +37,7 @@
         <input class="button" type="submit" value="Send" name="dergoMSG"/>
       </form>
     </div>
-    <script src="./js/validimiFormave.js"></script>
-    <script src="./js/mbyllMesazhin.js"></script>
+    <?php include_once('../funksione/importimiScriptave.php'); ?>
 </body>
 </html>
 <?php

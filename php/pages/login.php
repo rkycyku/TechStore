@@ -5,15 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login | Tech Store</title>
-    <link rel="shortcut icon" href="./img/web/favicon.ico"/>
-    <link rel="stylesheet" href="./css/header.css" />
-    <link rel="stylesheet" href="./css/forms.css" />
+    <link rel="shortcut icon" href=".../../img/web/favicon.ico"/>
+    <link rel="stylesheet" href="../../css/forms.css" />
   </head>
   <body>
-    <?php include './header.php'?>
+      <?php include '../design/headerMain.php'?>
       <div class="forms" >
         
-        <form name="LoginForm" onsubmit="return validimiLogin();" action='./php/funksione/loginUser.php' method="POST">
+        <form name="LoginForm" onsubmit="return validimiLogin();" action='../funksione/loginUser.php' method="POST">
           <?php
           if(isset($_SESSION['passGabim'])){
             echo '
@@ -45,8 +44,7 @@
           <input class="button" type="submit" value="Log In" name='login'/>
         </form>
     </div>
-    <script src="./js/validimiFormave.js"></script>
-    <script src="./js/mbyllMesazhin.js"></script>
+    <?php include_once('../funksione/importimiScriptave.php'); ?>
   </body>
 </html>
 
