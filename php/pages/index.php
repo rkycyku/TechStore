@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home | Tech Store</title>
-    <link rel="shortcut icon" href="./img/web/favicon.ico"/>
-    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="shortcut icon" href="../../img/web/favicon.ico"/>
+    <link rel="stylesheet" href="../../css/index.css" />
     
   </head>
 
@@ -21,65 +21,7 @@
         </div>
       </div>
 
-      <section class="brandsSlider"> 
-        <h2 class="brandsSlider-Label">Brands</h2>
-        
-        <button class="shkoMajtas"><img src="./img/slider/arrow.png" alt=""></button>
-        <button class="shkoDjathtas"><img src="./img/slider/arrow.png" alt=""></button>
-
-        <div class="kornizaEBrendeve">
-            <div class="kartelaEBrendit">
-                <div class="logoBrendit">
-                    <img src="./img/slider/sliderIcons/AppleLogo.png" alt="">
-                </div>
-            </div>
-            <div class="kartelaEBrendit">
-                <div class="logoBrendit">
-                    <img src="./img/slider/sliderIcons/Lenovo.png" alt="">
-                </div>
-            </div>
-            <div class="kartelaEBrendit">
-                <div class="logoBrendit">
-                    <img src="./img/slider/sliderIcons/MSI.png" alt="">
-                </div>
-            </div>
-            <div class="kartelaEBrendit">
-                <div class="logoBrendit">
-                    <img src="./img/slider/sliderIcons/Razer.png" alt="">
-                </div>
-            </div>
-            <div class="kartelaEBrendit">
-                <div class="logoBrendit">
-                    <img src="./img/slider/sliderIcons/JBL.png" alt="">
-                </div>
-            </div>
-            <div class="kartelaEBrendit">
-                <div class="logoBrendit">
-                    <img src="./img/slider/sliderIcons/AMDLogo.png" alt="">
-                </div>
-            </div>
-            <div class="kartelaEBrendit">
-                <div class="logoBrendit">
-                    <img src="./img/slider/sliderIcons/SamsungLogo.png" alt="">
-                </div>
-            </div>
-            <div class="kartelaEBrendit">
-                <div class="logoBrendit">
-                    <img src="./img/slider/sliderIcons/Nvidia.png" alt="">
-                </div>
-            </div>
-            <div class="kartelaEBrendit">
-                <div class="logoBrendit">
-                    <img src="./img/slider/sliderIcons/AsusLogo.png" alt="">
-                </div>
-            </div>
-            <div class="kartelaEBrendit">
-                <div class="logoBrendit">
-                    <img src="./img/slider/sliderIcons/Logitech.png" alt="">
-                </div>
-            </div>
-        </div>
-      </section>
+      <?php require_once('../funksione/slideriKompanive.php'); ?>
       
       <div class="artikujt">
         <div class="titulliArtikuj">
@@ -179,6 +121,6 @@
     </div>
     
     <?php include './footer.html'?>
-    <script src="./js/slider.js"></script>
+    <script src="../../js/slider.js"></script>
   </body>
 </html>

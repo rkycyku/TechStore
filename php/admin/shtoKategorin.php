@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vendosja e Produkteve | Tech Store</title>
+    <title>Vendosja e Kompanive | Tech Store</title>
     <link rel="shortcut icon" href="../../img/web/favicon.ico"/>
     <link rel="stylesheet" href="../../css/header.css" />
     <link rel="stylesheet" href="../../css/forms.css" />
@@ -55,21 +55,11 @@
             ';
           }
         ?>
-        <h1 class="form-title">Vendosja e Produkteve</h1>
-        <input class="form-input" name="pdName" type="text" placeholder="Emri i Produktit" required>
-        <?php
-          require_once('../CRUD/kompaniaCRUD.php');
-          $kompania = new kompaniaCRUD();
-          $kompania->shfaqKompanitSelektim();
-        ?>
-        <?php
-          require_once('../CRUD/kateogriaCRUD.php');
-          $kategoria = new kategoriaCRUD();
-          $kategoria->shfaqKategorinSelektim();
-        ?>
-        <input class="form-input" name="pdPhoto" accept="image/*" type="file" placeholder="Foto Produktit" required>
-        <input class="form-input" name="cmimiPd" type="text" placeholder="Qmimi i Produktit" required>
-        <input class="button" type="submit" value="Shtoni Produktin" name='shtoProd'>
+        <h1 class="form-title">Vendosja e Kompanive</h1>
+        <input class="form-input" name="emriKompanis" type="text" placeholder="Emri i Kompanis" required>
+        <input class="form-input" name="kompaniaLogo" accept="image/*" type="file" placeholder="Logo e Kompanis" required>
+        <input class="form-input" name="adresaKompanis" type="text" placeholder="Adresa e Kompanis">
+        <input class="button" type="submit" value="Shtoni Kompanin" name='shtoProd'>
       </form>
     </div>
     <script src="../../js/validimiFormave.js"></script>

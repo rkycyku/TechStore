@@ -118,17 +118,15 @@ function validimiShtimiProduktit(){
 
   if(!qmimiREGEX.test(qmimi.value)){
     alert("Ju lutem shkruani qmimin ne forme te DOUBLE(123.00)!!!");
-    emriCF.focus();
+    qmimi.focus();
     return false;
   }
 
-  else if(qmimi.value.length > 10){
+  if(qmimi.value.length > 10){
     alert("Qmimi mund te jete me se shumti '99999999.99'!");
-    emriCF.focus();
+    qmimi.focus();
     return false;
   }
-else{
 
   return true;
-}
 }
