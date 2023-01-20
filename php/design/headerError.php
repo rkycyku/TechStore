@@ -1,5 +1,5 @@
 <?php
-if(!isset($_SESSION) || empty($_SESSION)){
+if(!isset($_SESSION)){
     session_start();
 }
 ?>
@@ -14,7 +14,7 @@ if(!isset($_SESSION) || empty($_SESSION)){
 <body>
     <header>
         <nav class="nav">
-            <a class="logo" href="index.php"><img src="../../img/web/techstoreLogoWhiteSquare.png" alt=""></a>
+            <a class="logo" href="../pages/index.php"><img src="../../img/web/techstoreLogoWhiteSquare.png" alt=""></a>
             <ul class="nav-links">
                 <li class="nav-item">
                     <a href="../pages/index.php">Home</a>

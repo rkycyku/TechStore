@@ -1,3 +1,12 @@
+<?php
+if(!isset($_SESSION)){
+  session_start();
+}
+if($_SESSION['aksesi'] != 1){
+  echo '<script>document.location="../design/403.php"</script>';
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,7 +19,7 @@
     <link rel="stylesheet" href="../../css/forms.css" />
   </head>
   <body>
-    <?php include './header.php'?>
+  <?php include '../design/headerAdmin.php'?>
     <div class="forms">
         <form name="shtoKompanin" action='../funksione/shtoKompanin.php' method="POST" enctype="multipart/form-data">
         <?php

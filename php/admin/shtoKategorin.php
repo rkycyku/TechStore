@@ -1,3 +1,13 @@
+<?php
+if(!isset($_SESSION)){
+  session_start();
+}
+
+if($_SESSION['aksesi'] != 1){
+  echo '<script>document.location="../design/403.php"</script>';
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,7 +20,7 @@
     <link rel="stylesheet" href="../../css/forms.css" />
   </head>
   <body>
-    <?php include './header.php'?>
+  <?php include '../design/headerAdmin.php'?>
     <div class="forms">
         <form name="shtoProduktin" onsubmit="return validimiShtimiProduktit();" action='../funksione/shtoProduktin.php' method="POST" enctype="multipart/form-data">
         <?php
@@ -55,11 +65,11 @@
             ';
           }
         ?>
-        <h1 class="form-title">Vendosja e Kompanive</h1>
+        <h1 class="form-title">Vendosja e Kategorive</h1>
         <input class="form-input" name="emriKompanis" type="text" placeholder="Emri i Kompanis" required>
         <input class="form-input" name="kompaniaLogo" accept="image/*" type="file" placeholder="Logo e Kompanis" required>
         <input class="form-input" name="adresaKompanis" type="text" placeholder="Adresa e Kompanis">
-        <input class="button" type="submit" value="Shtoni Kompanin" name='shtoProd'>
+        <input class="button" type="submit" value="Shtoni Kategorin" name='shtoProd'>
       </form>
     </div>
     <script src="../../js/validimiFormave.js"></script>

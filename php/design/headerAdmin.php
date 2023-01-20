@@ -39,16 +39,16 @@ if(!isset($_SESSION)){
                             <a href="">Mirësevini ' . $_SESSION['name'] . '</a>
                         </li>
                         <li class="nav-item">
-                            <a href="./shtoKategorin.php">Log Out</a>
+                            <a href="./shtoKategorin.php">Vendosja e Kategorive</a>
                         </li>
                         <li class="nav-item">
-                            <a href="./shtoProdukt.php">Log Out</a>
+                            <a href="./shtoProdukt.php">Vendosja e Produkteve</a>
                         </li>
                         <li class="nav-item">
-                            <a href="./shtoKompanin.php">Log Out</a>
+                            <a href="./shtoKompanin.php">Vendosja e Kompanive</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../../funksione/logout.php">Log Out</a>
+                            <a href="../funksione/logout.php">Log Out</a>
                         </li>';
                         
                 }else{
