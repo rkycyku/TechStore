@@ -120,6 +120,6 @@
       </div>
     </div>
     
-    <?php include './footer.php'?>
+    <?php include '../design/footerMain.php'?>
   </body>
 </html>
