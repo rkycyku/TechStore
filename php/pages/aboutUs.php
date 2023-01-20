@@ -1,3 +1,8 @@
+<?php
+if(!isset($_SESSION)){
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,7 +14,7 @@
     <link rel="stylesheet" href="../../css/aboutUs.css" />
   </head>
   <body>
-  <?php include '../design/headerMain.php'?>
+  <?php  include '../design/headerMain.php'; ?>
     
     <div class="about">
 			<div class="photo">

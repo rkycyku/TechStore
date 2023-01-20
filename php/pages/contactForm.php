@@ -1,3 +1,8 @@
+<?php
+if(!isset($_SESSION)){
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +18,7 @@
 
 </style>
 <body>
-<?php include '../design/headerMain.php'?>
+<?php  include '../design/headerMain.php'; ?>
 
     <div class="forms">
       <form name="ContactForm" onsubmit="return validimiContactForm()" action="./php/funksione/dergoMesazh.php" method="POST">

@@ -18,16 +18,16 @@ if(isset($_POST['login'])){
         if($kontrolloLlogarin == true){
             $_SESSION['name'] = $kontrolloLlogarin['username'];
             $_SESSION['aksesi'] = $kontrolloLlogarin['aksesi'];
-            echo "<script>document.location='../../index.php'</script>";
+            echo "<script>document.location='../pages/index.php'</script>";
         }
         else{
             $_SESSION['passGabim'] = true;
-            echo "<script>document.location='../../login.php'</script>";
+            echo "<script>document.location='../pages/login.php'</script>";
         }
     }
     else{
         $_SESSION['uNameGabim'] = true;
-            echo "<script>document.location='../../login.php'</script>";
+            echo "<script>document.location='../pages/login.php'</script>";
     }
 }
 ?>
