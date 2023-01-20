@@ -12,7 +12,7 @@ if(!isset($_SESSION)){
     <title>Contact Us | TechStore</title>
     <link rel="shortcut icon" href="./img/web/favicon.ico"/>
     <link rel="stylesheet" href="./css/header.css" />
-    <link rel="stylesheet" href="./css/forms.css">
+    <link rel="stylesheet" href="../../css/forms.css" />
 </head>
 <style>
 
@@ -21,7 +21,7 @@ if(!isset($_SESSION)){
 <?php  include '../design/headerMain.php'; ?>
 
     <div class="forms">
-      <form name="ContactForm" onsubmit="return validimiContactForm()" action="./php/funksione/dergoMesazh.php" method="POST">
+      <form name="ContactForm" onsubmit="return validimiContactForm()" action="../funksione/dergoMesazh.php" method="POST">
       <?php
         if(isset($_SESSION['mesazhiMeSukses'])){
           echo '

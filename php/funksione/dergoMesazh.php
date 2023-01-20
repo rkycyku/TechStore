@@ -10,7 +10,7 @@ if(isset($_POST['dergoMSG'])){
 
     $cfCRUD->insertoMesazhin();
 
-    echo '<script>document.location="../contactForm.php"</script>';
+    echo '<script>document.location="../pages/contactForm.php"</script>';
 }
 
 ?>

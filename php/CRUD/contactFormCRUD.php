@@ -1,5 +1,5 @@
 <?php
-require_once('./db/dbcon.php');
+require_once('../db/dbcon.php');
 
 if(!isset($_SESSION)){
     session_start();
