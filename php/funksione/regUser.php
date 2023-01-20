@@ -1,5 +1,5 @@
 <?php
-require('./CRUD/userCRUD.php');
+require('../CRUD/userCRUD.php');
 
 if(isset($_POST['submit'])){
     $user = new userCRUD();

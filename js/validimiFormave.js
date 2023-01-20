@@ -111,3 +111,24 @@ function validimiContactForm(){
 
   return true;
 }
+
+function validimiShtimiProduktit(){
+  const qmimiREGEX = /^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$/
+  let qmimi = document.shtoProduktin.cmimiPd;
+
+  if(!qmimiREGEX.test(qmimi.value)){
+    alert("Ju lutem shkruani qmimin ne forme te DOUBLE(123.00)!!!");
+    emriCF.focus();
+    return false;
+  }
+
+  else if(qmimi.value.length > 10){
+    alert("Qmimi mund te jete me se shumti '99999999.99'!");
+    emriCF.focus();
+    return false;
+  }
+else{
+
+  return true;
+}
+}

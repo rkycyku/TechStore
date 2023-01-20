@@ -12,7 +12,7 @@
   <body>
     <?php include './header.php'?>
       <div class="forms">
-         <form name="SignUpForm" onsubmit="return validimiSignUp();" action='./php/regUser.php' method="POST">
+         <form name="SignUpForm" onsubmit="return validimiSignUp();" action='./php/funksione/regUser.php' method="POST">
           <h1 class="form-title">Sign Up</h1>
           <input class="form-input" name="name" type="text" placeholder="Name">
           <input class="form-input" name="lName" type="text" placeholder="Lastname">

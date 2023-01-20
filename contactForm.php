@@ -16,15 +16,31 @@
   <?php include './header.php'?>
 
     <div class="forms">
-      <form name="ContactForm" action="" onsubmit="return validimiContactForm()">
+      <form name="ContactForm" onsubmit="return validimiContactForm()" action="./php/funksione/dergoMesazh.php" method="POST">
+      <?php
+        if(isset($_SESSION['mesazhiMeSukses'])){
+          echo '
+                <div class="mesazhiSuksesStyle">
+                  <h3>Mesazhi juaj u dergua me sukses!</h3>
+                  <button id="mbyllMesazhin">
+                    X
+                  </button>
+                </div>
+          ';
+        }
+      ?>
+      
         <h1 class="form-title">Contact Us</h1>
         <input class="form-input" name="name" type="text" placeholder="Name">
         <input class="form-input" name="email" type="text" placeholder="Email">
         <textarea placeholder="Enter your message!" name="msgField"></textarea>
-        <input class="button" type="submit" value="Send" />
+        <input class="button" type="submit" value="Send" name="dergoMSG"/>
       </form>
     </div>
     <script src="./js/validimiFormave.js"></script>
-  
+    <script src="./js/mbyllMesazhin.js"></script>
 </body>
 </html>
+<?php
+unset($_SESSION['mesazhiMeSukses']);
+?>
