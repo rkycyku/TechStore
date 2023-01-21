@@ -1,6 +1,8 @@
-<?php require_once('./kontrolloAksesin.php'); 
+<?php 
+// require_once('./kontrolloAksesin.php');
+require_once('./kontrolloAksesAdmin.php'); 
 require_once('../CRUD/produktiCRUD.php');
-require_once('../CRUD/kateogriaCRUD.php');
+require_once('../CRUD/kategoriaCRUD.php');
 require_once('../CRUD/kompaniaCRUD.php');
 $kompania = new kompaniaCRUD();
 $kategoria = new kategoriaCRUD();

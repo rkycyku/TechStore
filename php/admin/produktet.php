@@ -1,5 +1,6 @@
 <?php 
-require_once('./kontrolloAksesin.php');
+require_once('./kontrolloAksesAdmin.php');
+// require_once('./kontrolloAksesin.php');
 require_once('../CRUD/produktiCRUD.php');
 
 $produktiCRUD = new produktiCRUD();

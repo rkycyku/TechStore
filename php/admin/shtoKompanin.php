@@ -1,4 +1,8 @@
-<?php require_once('./kontrolloAksesin.php'); ?>
+<?php 
+require_once('./kontrolloAksesAdmin.php');
+// require_once('./kontrolloAksesin.php');
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
