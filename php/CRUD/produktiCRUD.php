@@ -238,8 +238,9 @@ class produktiCRUD extends dbCon{
             if (in_array($fileActualExt, $teLejuara)) {
                 if ($errorFoto === 0) {
                     if ($madhesiaFotos < 1000000) {
-                    $destinacioniFotos = '../../img/products/'.$emriFotos;
-                    move_uploaded_file($emeriTempIFotes, $destinacioniFotos);
+                        $emriUnikIFotos = uniqid('', true).".".$fileActualExt;
+                        $destinacioniFotos = '../../img/products/'.$emriUnikIFotos;
+                        move_uploaded_file($emeriTempIFotes, $destinacioniFotos);
                     } 
                     else {
                     $_SESSION['madhesiaGabim'] = true;
