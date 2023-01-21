@@ -39,6 +39,9 @@ if(!isset($_SESSION)){
                             <a href="">Mirësevini ' . $_SESSION['name'] . '</a>
                         </li>
                         <li class="nav-item">
+                            <a href="./adminDashboard.php">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
                             <a href="./shtoKategorin.php">Vendosja e Kategorive</a>
                         </li>
                         <li class="nav-item">

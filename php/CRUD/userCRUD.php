@@ -134,6 +134,18 @@ class userCRUD extends dbCon{
             return $e->getMessage();
         }
     }
+
+    public function shfaqSipasID(){
+        try{
+            $sql = 'SELECT * from user WHERE userID = ?';
+            $stm = $this->dbConn->prepare($sql);
+            $stm->execute([$this->userID]);
+
+            return $stm->fetch();
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+    }
 }
 
 ?>

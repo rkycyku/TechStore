@@ -4,7 +4,9 @@ if(!isset($_SESSION)){
 }
 
 require_once('../CRUD/produktiCRUD.php');
+require_once('../CRUD/kompaniaCRUD.php');
 
+$kompaniaCRUD = new kompaniaCRUD();
 $produktiCRUD = new produktiCRUD();
 ?>
 <!DOCTYPE html>
@@ -16,13 +18,9 @@ $produktiCRUD = new produktiCRUD();
     <title>Home | Tech Store</title>
     <link rel="shortcut icon" href="../../img/web/favicon.ico"/>
     <link rel="stylesheet" href="../../css/index.css" />
-    
   </head>
-
   <body>
-    
   <?php  include '../design/headerMain.php'; ?>
-
     <div class="container">
       <div class="banner">
         <div class="titulliPershkrim">
@@ -30,14 +28,31 @@ $produktiCRUD = new produktiCRUD();
         </div>
       </div>
 
-      <?php require_once('../funksione/slideriKompanive.php'); ?>
+      <?php 
+        $kompanit = $kompaniaCRUD->shfaqKompanin();
+        
+        echo ' <section class="brandsSlider"> 
+                <h2 class="brandsSlider-Label">Brands</h2>
+                <button class="shkoMajtas"><img src="../../img/slider/arrow.png" alt=""></button>
+                <button class="shkoDjathtas"><img src="../../img/slider/arrow.png" alt=""></button>
+                <div class="kornizaEBrendeve">';
+        foreach($kompanit as $kompania){
+            echo'<div class="kartelaEBrendit">
+                  <div class="logoBrendit">
+                    <img src="../../img/slider/sliderIcons/'.$kompania['kompaniaLogo']. '" alt="">
+                  </div>
+                </div>';
+        }
+        echo ' </div>
+              </section>';
+      ?>
       
       <div class="artikujt">
         <div class="titulliArtikuj">
-          <h1 class="">Products</h1>
+          <h1 class="">Latest Products</h1>
         </div>
           <?php
-          $produktet = $produktiCRUD->shfaqTeGjithaProduktet();
+          $produktet = $produktiCRUD->shfaq20ProduktetEFundit();
           foreach($produktet as $produkti){
             echo '<div class="artikulli">
                     <img src="../../img/products/' . $produkti['fotoProduktit'] . '" alt="" />'.

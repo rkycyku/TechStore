@@ -40,6 +40,9 @@ if(!isset($_SESSION)){
                         if($_SESSION['aksesi'] == 1){
                             echo 
                             '<li class="nav-item">
+                                <a href="../admin/adminDashboard.php">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="../admin/shtoKategorin.php">Vendosja e Kategorive</a>
                             </li>
                             <li class="nav-item">

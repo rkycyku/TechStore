@@ -18,6 +18,7 @@ if(isset($_POST['login'])){
         if($kontrolloLlogarin == true){
             $_SESSION['name'] = $kontrolloLlogarin['username'];
             $_SESSION['aksesi'] = $kontrolloLlogarin['aksesi'];
+            $_SESSION['userID'] = $kontrolloLlogarin['userID'];
             echo "<script>document.location='../pages/index.php'</script>";
         }
         else{

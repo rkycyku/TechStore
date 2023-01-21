@@ -10,6 +10,7 @@ Ky projekt eshte i punuar ne
  - HTML
  - CSS
  - JS
+ - PHP
 
 Eshte punuar nga:
 

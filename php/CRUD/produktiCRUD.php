@@ -135,6 +135,30 @@ class produktiCRUD extends dbCon{
             return $e->getMessage();
         }
     }
+
+    public function shfaq20ProduktetEFundit(){
+        try{
+            $sql = "SELECT * FROM (SELECT * FROM `produkti` ORDER BY `produktiID` DESC LIMIT 20) AS prodEFundit ORDER BY prodEFundit.produktiID ASC";
+            $stm = $this->dbConn->prepare($sql);
+            $stm->execute();
+
+            return $stm->fetchAll();
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+    }
+
+    public function shfaqProduktinSipasID(){
+        try{
+            $sql = "SELECT * FROM `produkti` WHERE id = ?";
+            $stm = $this->dbConn->prepare($sql);
+            $stm->execute([$this->produktiID]);
+
+            return $stm->fetchAll();
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+    }
 }
 
 
