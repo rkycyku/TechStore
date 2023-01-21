@@ -37,6 +37,6 @@ $userCRUD = new userCRUD();
       ?>
     </div>
     
-    <?php include '../design/footerMain.php'?>
+    <?php include '../design/footerAdmin.php'?>
   </body>
 </html>

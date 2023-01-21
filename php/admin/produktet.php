@@ -13,7 +13,7 @@ $produktiCRUD = new produktiCRUD();
     <title>Admin Dashboard | Tech Store</title>
     <link rel="shortcut icon" href="../../img/web/favicon.ico"/>
     <link rel="stylesheet" href="../../css/adminDashboard.css" />
-    
+    <link rel="stylesheet" href="../../css/mesazhetStyle.css" />
   </head>
 
   <body>
@@ -21,8 +21,30 @@ $produktiCRUD = new produktiCRUD();
   <?php  include '../design/headerAdmin.php'; ?>
 
     <div class="containerDashboard">
-      <?php include_once('../design/adminNav.php');?>
-
+      <?php 
+        include_once('../design/adminNav.php');
+        if(isset($_SESSION['mesazhiMeSukses'])){
+          echo '
+                <div class="mesazhiSuksesStyle">
+                  <h3>Produkti u editua me sukses!</h3>
+                  <button id="mbyllMesazhin">
+                    X
+                  </button>
+                </div>
+          ';
+        }
+        if(isset($_SESSION['mesazhiFshirjesMeSukses'])){
+          echo '
+                <div class="mesazhiSuksesStyle">
+                  <h3>Produkti u fshi me sukses!</h3>
+                  <button id="mbyllMesazhin">
+                    X
+                  </button>
+                </div>
+          ';
+        }
+      ?>
+      
       <table>
         <tr>
             <th>ID e Produktit</th>
@@ -46,8 +68,8 @@ $produktiCRUD = new produktiCRUD();
               <td><img src="../../img/products/'.$produkti['fotoProduktit'].'"></td>
               <td>'.$produkti['emriStafit'].'</td>
               <td>'.$produkti['qmimiProduktit'].' €</td>
-              <td><button class=""><a href="./editoProduktin.php?userID='.$produkti['produktiID'].'">Edito</a></button></td>
-              <td><button class="">Fshi</button></td>
+              <td><button class=""><a href="./editoProduktin.php?produktID='.$produkti['produktiID'].'">Edito</a></button></td>
+              <td><button class=""><a href="../funksione/fshiProduktin.php?produktID='.$produkti['produktiID'].'">Fshi</a></button></td>
             </tr>
           ';
         }
@@ -56,6 +78,11 @@ $produktiCRUD = new produktiCRUD();
       </table>
     </div>
     
-    <?php include '../design/footerMain.php'?>
+    <?php include '../design/footerAdmin.php'?>
   </body>
 </html>
+
+<?php
+unset($_SESSION['mesazhiMeSukses']);
+unset($_SESSION['mesazhiFshirjesMeSukses']);
+?>

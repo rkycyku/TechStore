@@ -5,8 +5,7 @@ if(!isset($_SESSION)){
 
 session_destroy();
 
-
-    session_start();
+session_start();
 $_SESSION['aksesi'] = 0;
 
 echo '<script>document.location="../../php/pages/index.php"</script>'

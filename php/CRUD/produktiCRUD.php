@@ -112,10 +112,18 @@ class produktiCRUD extends dbCon{
 
     public function shtoProduktin(){
         try{
+            $this->setEmriProduktit($_SESSION['EmriProduktit']);
+            $this->setEmriKompanis($_SESSION['EmriKompanis']);
+            $this->setKategoriaProduktit($_SESSION['KategoriaProduktit']);
+            $this->setEmriStafit($_SESSION['name']);
+            $this->setQmimiProduktit($_SESSION['QmimiProduktit']);
+            $this->setFotoProduktit($_SESSION['EmriFotosProduktit']);
+
             $sql = "INSERT INTO `produkti`(`emriProduktit`, `emriKompanis`, `kategoriaProduktit`, `fotoProduktit`, `emriStafit`,`qmimiProduktit`) VALUES (?,?,?,?,?,?)";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute([$this->emriProduktit, $this->emriKompanis, $this->kategoriaProduktit, $this->fotoProduktit, $this->emriStafit, $this->qmimiProduktit]);
-            
+
+            $this->barteFotonNeFolder();
             $_SESSION['mesazhiMeSukses'] = true;
         }catch(Exception $e){
             return $e->getMessage();
@@ -150,11 +158,100 @@ class produktiCRUD extends dbCon{
 
     public function shfaqProduktinSipasID(){
         try{
-            $sql = "SELECT * FROM `produkti` WHERE id = ?";
+            $sql = "SELECT * FROM produkti WHERE produktiID = ?";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute([$this->produktiID]);
 
-            return $stm->fetchAll();
+            return $stm->fetch();
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+    }
+
+    public function fshijProduktinSipasID(){
+        try{
+            $sql = "DELETE FROM produkti WHERE produktiID = ?";
+            $stm = $this->dbConn->prepare($sql);
+            $stm->execute([$this->produktiID]);
+
+            $_SESSION['mesazhiFshirjesMeSukses'] = true;
+            echo '<script>document.location="../admin/produktet.php"</script>';
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+    }
+
+    public function editoProduktinPaFoto(){
+        try{
+            $this->setProduktiID($_SESSION['prouktiID']);
+            $this->setEmriProduktit($_SESSION['EmriProduktit']);
+            $this->setEmriKompanis($_SESSION['EmriKompanis']);
+            $this->setKategoriaProduktit($_SESSION['KategoriaProduktit']);
+            $this->setEmriStafit($_SESSION['name']);
+            $this->setQmimiProduktit($_SESSION['QmimiProduktit']);
+            
+            $sql = "UPDATE `produkti` SET `emriProduktit`=?,`emriKompanis`=?,`kategoriaProduktit`=?,`emriStafit`=?,`dataModifikimit`=current_timestamp(),`qmimiProduktit`=? WHERE produktiID = ?";
+            $stm = $this->dbConn->prepare($sql);
+            $stm->execute([$this->emriProduktit,$this->emriKompanis,$this->kategoriaProduktit,$this->emriStafit,$this->qmimiProduktit,$this->produktiID]);
+
+            $_SESSION['mesazhiMeSukses'] = true;
+            echo '<script>document.location="../admin/produktet.php"</script>';
+        }catch(Exception $e){
+            return $e->getMessage();
+        }   
+    }
+    public function editoProduktinMeFoto(){
+        try{
+            $this->setProduktiID($_SESSION['prouktiID']);
+            $this->setEmriProduktit($_SESSION['EmriProduktit']);
+            $this->setEmriKompanis($_SESSION['EmriKompanis']);
+            $this->setKategoriaProduktit($_SESSION['KategoriaProduktit']);
+            $this->setFotoProduktit($_SESSION['EmriFotosProduktit']);
+            $this->setEmriStafit($_SESSION['name']);
+            $this->setQmimiProduktit($_SESSION['QmimiProduktit']);
+
+            $sql = "UPDATE `produkti` SET `emriProduktit`=?,`emriKompanis`=?,`kategoriaProduktit`=?,`fotoProduktit`=?,`emriStafit`=?,`dataModifikimit`=current_timestamp(),`qmimiProduktit`=? WHERE produktiID = ?";
+            $stm = $this->dbConn->prepare($sql);
+            $stm->execute([$this->emriProduktit,$this->emriKompanis,$this->kategoriaProduktit,$this->fotoProduktit,$this->emriStafit,$this->qmimiProduktit,$this->produktiID]);
+            
+            $this->barteFotonNeFolder();
+            $_SESSION['mesazhiMeSukses'] = true;
+            echo '<script>document.location="../admin/produktet.php"</script>';
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+    }
+
+    public function barteFotonNeFolder(){
+        try{
+            $foto = $_SESSION['FotoProduktit'];
+            $emriFotos = $foto['name'];
+            $emeriTempIFotes = $foto['tmp_name'];
+            $madhesiaFotos = $foto['size'];
+            $errorFoto = $foto['error'];
+        
+            $fileExt = explode('.', $emriFotos);
+            $fileActualExt = strtolower(end($fileExt));
+        
+            $teLejuara = array('jpg', 'jpeg', 'png');
+        
+            if (in_array($fileActualExt, $teLejuara)) {
+                if ($errorFoto === 0) {
+                    if ($madhesiaFotos < 1000000) {
+                    $destinacioniFotos = '../../img/products/'.$emriFotos;
+                    move_uploaded_file($emeriTempIFotes, $destinacioniFotos);
+                    } 
+                    else {
+                    $_SESSION['madhesiaGabim'] = true;
+                    }
+                } 
+                else {
+                $_SESSION['problemNeBartje'] = true;
+                }
+            } 
+            else {
+            $_SESSION['fileNukSuportohet'] = true;
+            }
         }catch(Exception $e){
             return $e->getMessage();
         }

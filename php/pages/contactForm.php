@@ -2,6 +2,18 @@
 if(!isset($_SESSION)){
     session_start();
 }
+
+require_once('../CRUD/contactFormCRUD.php');
+
+if(isset($_POST['dergoMSG'])){
+  $cfCRUD = new contactFormCRUD();
+
+  $cfCRUD->setEmri($_POST['name']);
+  $cfCRUD->setEmail($_POST['email']);
+  $cfCRUD->setMsg($_POST['msgField']);
+
+  $cfCRUD->insertoMesazhin();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +25,7 @@ if(!isset($_SESSION)){
     <link rel="shortcut icon" href="./img/web/favicon.ico"/>
     <link rel="stylesheet" href="./css/header.css" />
     <link rel="stylesheet" href="../../css/forms.css" />
+    <link rel="stylesheet" href="../../css/mesazhetStyle.css" />
 </head>
 <style>
 
@@ -21,7 +34,7 @@ if(!isset($_SESSION)){
 <?php  include '../design/headerMain.php'; ?>
 
     <div class="forms">
-      <form name="ContactForm" onsubmit="return validimiContactForm()" action="../funksione/dergoMesazh.php" method="POST">
+      <form name="ContactForm" onsubmit="return validimiContactForm()" action="" method="POST">
       <?php
         if(isset($_SESSION['mesazhiMeSukses'])){
           echo '

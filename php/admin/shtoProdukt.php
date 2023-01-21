@@ -1,4 +1,27 @@
-<?php require_once('./kontrolloAksesin.php'); ?>
+<?php
+require_once('./kontrolloAksesin.php'); 
+require_once('../CRUD/produktiCRUD.php');
+require_once('../CRUD/kateogriaCRUD.php');
+require_once('../CRUD/kompaniaCRUD.php');
+$kompania = new kompaniaCRUD();
+$kategoria = new kategoriaCRUD();
+$produktiCRUD = new produktiCRUD();
+
+if(!isset($_SESSION)){
+  session_start();
+}
+
+if(isset($_POST['shtoProd'])){
+  $_SESSION['EmriProduktit'] = $_POST['pdName'];
+  $_SESSION['EmriKompanis'] = $_POST['kompania'];
+  $_SESSION['KategoriaProduktit'] = $_POST['kategoria'];
+  $_SESSION['QmimiProduktit'] = $_POST['cmimiPd'];
+  $_SESSION['FotoProduktit'] = $_FILES['pdPhoto'];
+  $_SESSION['EmriFotosProduktit'] = $_FILES['pdPhoto']['name'];
+
+  $produktiCRUD->shtoProduktin();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,11 +32,12 @@
     <link rel="shortcut icon" href="../../img/web/favicon.ico"/>
     <link rel="stylesheet" href="../../css/header.css" />
     <link rel="stylesheet" href="../../css/forms.css" />
+    <link rel="stylesheet" href="../../css/mesazhetStyle.css" />
   </head>
   <body>
     <?php include '../design/headerAdmin.php'?>
     <div class="forms">
-        <form name="shtoProduktin" onsubmit="return validimiShtimiProduktit();" action='../funksione/shtoProduktin.php' method="POST" enctype="multipart/form-data">
+        <form name="shtoProduktin" onsubmit="return validimiShtimiProduktit();" action='' method="POST" enctype="multipart/form-data">
         <?php
           if(isset($_SESSION['mesazhiMeSukses'])){
             echo '
@@ -58,16 +82,8 @@
         ?>
         <h1 class="form-title">Vendosja e Produkteve</h1>
         <input class="form-input" name="pdName" type="text" placeholder="Emri i Produktit" required>
-        <?php
-          require_once('../CRUD/kompaniaCRUD.php');
-          $kompania = new kompaniaCRUD();
-          $kompania->shfaqKompanitSelektim();
-        ?>
-        <?php
-          require_once('../CRUD/kateogriaCRUD.php');
-          $kategoria = new kategoriaCRUD();
-          $kategoria->shfaqKategorinSelektim();
-        ?>
+        <?php $kompania->shfaqKompanitSelektim(); ?>
+        <?php $kategoria->shfaqKategorinSelektim(); ?>
         <input class="form-input" name="pdPhoto" accept="image/*" type="file" placeholder="Foto Produktit" required>
         <input class="form-input" name="cmimiPd" type="text" placeholder="Qmimi i Produktit" required>
         <input class="button" type="submit" value="Shtoni Produktin" name='shtoProd'>

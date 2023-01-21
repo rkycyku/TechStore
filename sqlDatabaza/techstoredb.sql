@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 20, 2023 at 05:28 PM
+-- Generation Time: Jan 21, 2023 at 07:57 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -32,8 +32,16 @@ CREATE TABLE `contactform` (
   `emri` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `mesazhi` varchar(255) NOT NULL,
-  `dataDergeses` date NOT NULL DEFAULT current_timestamp()
+  `dataDergeses` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `contactform`
+--
+
+INSERT INTO `contactform` (`IDmesazhi`, `emri`, `email`, `mesazhi`, `dataDergeses`) VALUES
+(1, 'Rilind', 'r.kycyku.12@gmail.com', 'ssdgadgf', '2023-01-20 23:00:00'),
+(2, 'Rilind', 'r.kycyku.12@gmail.com', 'test', '2023-01-21 18:50:18');
 
 -- --------------------------------------------------------
 
@@ -106,12 +114,13 @@ CREATE TABLE `porosia` (
 
 CREATE TABLE `produkti` (
   `produktiID` int(11) NOT NULL,
-  `emriProduktit` varchar(50) NOT NULL,
+  `emriProduktit` varchar(255) NOT NULL,
   `emriKompanis` varchar(30) NOT NULL,
   `kategoriaProduktit` varchar(50) NOT NULL,
   `fotoProduktit` varchar(50) NOT NULL,
   `emriStafit` varchar(30) NOT NULL,
-  `dataKrijimit` date NOT NULL DEFAULT current_timestamp(),
+  `dataKrijimit` timestamp NOT NULL DEFAULT current_timestamp(),
+  `dataModifikimit` timestamp NOT NULL DEFAULT current_timestamp(),
   `qmimiProduktit` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -119,13 +128,14 @@ CREATE TABLE `produkti` (
 -- Dumping data for table `produkti`
 --
 
-INSERT INTO `produkti` (`produktiID`, `emriProduktit`, `emriKompanis`, `kategoriaProduktit`, `fotoProduktit`, `emriStafit`, `dataKrijimit`, `qmimiProduktit`) VALUES
-(1, 'iPhone 14 Pro, 128GB, Space Black', 'apple', 'celular', 'iphone14Pro.jpg', 'admin', '2023-01-20', '1510.00'),
-(2, 'Apple MacBook Pro 13.3\"', 'apple', 'laptop', 'AppleMacBookPro.jpg', 'admin', '2023-01-20', '1571.00'),
-(3, 'Laptop ASUS TUF Gaming F15 (2021), 15.6\"', 'asus', 'laptop', 'ASUSTUFGamingF15.jpg', 'admin', '2023-01-20', '758.50'),
-(4, 'Laptop Razer Blade 15 Advanced Model', 'razer', 'laptop', 'razer.jpg', 'admin', '2023-01-20', '2710.49'),
-(5, 'Samsung s22 Ultra, 512GB', 'samsung', 'celular', 's22.jpg', 'admin', '2023-01-20', '899.99'),
-(6, 'Lenovo NB IdeaPad 3 15ALC6', 'lenovo', 'laptop', 'Lenovo.jpg', 'admin', '2023-01-20', '459.50');
+INSERT INTO `produkti` (`produktiID`, `emriProduktit`, `emriKompanis`, `kategoriaProduktit`, `fotoProduktit`, `emriStafit`, `dataKrijimit`, `dataModifikimit`, `qmimiProduktit`) VALUES
+(1, 'iPhone 14 Pro, 128GB, Space Black', 'apple', 'laptop', 'iphone14Pro.jpg', 'admin', '2023-01-20 23:00:00', '2023-01-21 18:46:03', '1510.00'),
+(2, 'Apple MacBook Pro 13.3\"', 'apple', 'laptop', 'AppleMacBookPro.jpg', 'admin', '2023-01-19 23:00:00', '2023-01-21 17:55:41', '1571.00'),
+(3, 'Laptop ASUS TUF Gaming F15 (2021), 15.6\"', 'asus', 'laptop', 'ASUSTUFGamingF15.jpg', 'admin', '2023-01-19 23:00:00', '2023-01-21 17:55:41', '758.50'),
+(4, 'Laptop Razer Blade 15 Advanced Model', 'razer', 'laptop', 'razer.jpg', 'admin', '2023-01-19 23:00:00', '2023-01-21 17:55:41', '2710.49'),
+(5, 'Samsung s22 Ultra, 512GB', 'samsung', 'celular', 's22.jpg', 'admin', '2023-01-19 23:00:00', '2023-01-21 17:55:41', '899.99'),
+(6, 'Lenovo NB IdeaPad 3 15ALC6', 'lenovo', 'laptop', 'Lenovo.jpg', 'admin', '2023-01-19 23:00:00', '2023-01-21 17:55:41', '459.50'),
+(8, 'Lenovo ThinkPad P14s Gen 3 (AMD), 14\", AMD Ryzen 7 Pro, 32GB RAM, 1TB SSD, AMD Radeon 680M, i zi', 'lenovo', 'laptop', '0 (1).jpg', 'admin', '2023-01-21 18:24:31', '2023-01-21 18:45:24', '2469.50');
 
 -- --------------------------------------------------------
 
@@ -199,7 +209,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `contactform`
 --
 ALTER TABLE `contactform`
-  MODIFY `IDmesazhi` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IDmesazhi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `kategoriaproduktit`
@@ -223,7 +233,7 @@ ALTER TABLE `porosia`
 -- AUTO_INCREMENT for table `produkti`
 --
 ALTER TABLE `produkti`
-  MODIFY `produktiID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `produktiID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `user`

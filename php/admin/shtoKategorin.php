@@ -9,6 +9,7 @@
     <link rel="shortcut icon" href="../../img/web/favicon.ico"/>
     <link rel="stylesheet" href="../../css/header.css" />
     <link rel="stylesheet" href="../../css/forms.css" />
+    <link rel="stylesheet" href="../../css/mesazhetStyle.css" />
   </head>
   <body>
   <?php include '../design/headerAdmin.php'?>

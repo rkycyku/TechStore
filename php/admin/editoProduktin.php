@@ -1,11 +1,34 @@
 <?php require_once('./kontrolloAksesin.php'); 
 require_once('../CRUD/produktiCRUD.php');
-
+require_once('../CRUD/kateogriaCRUD.php');
+require_once('../CRUD/kompaniaCRUD.php');
+$kompania = new kompaniaCRUD();
+$kategoria = new kategoriaCRUD();
 $produktiCRUD = new produktiCRUD();
 
-$produktiCRUD->setProduktiID($_GET['userID']);
+$produktiCRUD->setProduktiID($_GET['produktID']);
 $produkti = $produktiCRUD->shfaqProduktinSipasID();
-
+if(!isset($_SESSION)){
+  session_start();
+}
+if(isset($_POST['editoProd'])){
+  $_SESSION['prouktiID'] = $_GET['produktID'];
+  $_SESSION['EmriProduktit'] = $_POST['pdName'];
+  $_SESSION['EmriKompanis'] = $_POST['kompania'];
+  $_SESSION['KategoriaProduktit'] = $_POST['kategoria'];
+  $_SESSION['QmimiProduktit'] = $_POST['cmimiPd'];
+  if($_FILES['pdPhoto']['name'] == ''){
+    $produktiCRUD->editoProduktinPaFoto();
+  }else{
+    $_SESSION['FotoProduktit'] = $_FILES['pdPhoto'];
+    $_SESSION['EmriFotosProduktit'] = $_FILES['pdPhoto']['name'];
+    $produktiCRUD->editoProduktinMeFoto();
+  }
+}
+if (isset($_POST['editoProd'])) {
+  echo '<script>document.location="./produktet.php"</script>';
+  unset($_SESSION['mesazhiMeSukses']);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +39,7 @@ $produkti = $produktiCRUD->shfaqProduktinSipasID();
     <title>Editimi i Produktiti | Tech Store</title>
     <link rel="shortcut icon" href="../../img/web/favicon.ico"/>
     <link rel="stylesheet" href="../../css/forms.css" />
+    <link rel="stylesheet" href="../../css/mesazhetStyle.css" />
   </head>
   <body>
     <?php
@@ -24,66 +48,37 @@ $produkti = $produktiCRUD->shfaqProduktinSipasID();
         include '../design/adminNav.php';
     echo '</div>';
     ?>
-
     <div class="forms">
-        <form name="shtoProduktin" onsubmit="return validimiShtimiProduktit();" action='../funksione/shtoProduktin.php' method="POST" enctype="multipart/form-data">
-        <?php
-          if(isset($_SESSION['mesazhiMeSukses'])){
-            echo '
-                  <div class="mesazhiSuksesStyle">
-                    <h3>Produkti u shtua me sukses!</h3>
-                    <button id="mbyllMesazhin">
-                      X
-                    </button>
-                  </div>
-            ';
-          }
-          if(isset($_SESSION['madhesiaGabim'])){
-            echo '
-                  <div class="mesazhiGabimStyle">
-                    <h3>Madhesia e fotos eshte shume e madhe!</h3>
-                    <button id="mbyllMesazhin">
-                      X
-                    </button>
-                  </div>
-            ';
-          }
-          if(isset($_SESSION['problemNeBartje'])){
-            echo '
-                  <div class="mesazhiGabimStyle">
-                    <h3>Ndodhi nje problem ne bartjen e fotov!</h3>
-                    <button id="mbyllMesazhin">
-                      X
-                    </button>
-                  </div>
-            ';
-          }
-          if(isset($_SESSION['fileNukSuportohet'])){
-            echo '
-                  <div class="mesazhiGabimStyle">
-                    <h3>Ky file nuk supportohet!</h3>
-                    <button id="mbyllMesazhin">
-                      X
-                    </button>
-                  </div>
-            ';
-          }
-        ?>
+        <form name="shtoProduktin" onsubmit="return validimiShtimiProduktit();" action='' method="POST" enctype="multipart/form-data">
         <h1 class="form-title">Editimi i Produktiti</h1>
-        <input class="form-input" name="pdName" type="text" placeholder="Emri i Produktit" value='<?php echo $produkti['emriProduktit'];?>'required>
+        <input class="form-input" name="pdName" type="text" placeholder="Emri i Produktit" value='<?php echo $produkti['emriProduktit']?>' required>
         <?php
-          require_once('../CRUD/kompaniaCRUD.php');
-          $kompania = new kompaniaCRUD();
-          $kompania->shfaqKompanitSelektim();
+          $kompanit = $kompania->shfaqKompanin();
+
+          echo '<select name="kompania">
+              <option hidden value="te tjera">Zgjedhni Kompanin</option>
+          ';
+          
+          foreach($kompanit as $kompania){
+              echo '<option value="' . $kompania['emriKompanis'] . '">' . $kompania['emriKompanis'] . '</option>';
+          }
+          echo '<option selected hidden value="' . $produkti['emriKompanis'] . '">' . $produkti['emriKompanis'] . '</option> </select>';
         ?>
         <?php
-          require_once('../CRUD/kateogriaCRUD.php');
-          $kategoria = new kategoriaCRUD();
-          $kategoria->shfaqKategorinSelektim();
+          $kategorit = $kategoria->shfaqKategorin();
+
+          echo '<select name="kategoria">
+              <option value="te tjera">Zgjedhni Kategorin</option>
+          ';
+          foreach($kategorit as $kategoria){
+              echo '<option value="' . $kategoria['emriKategoris'] . '">' . $kategoria['emriKategoris'] . '</option>';
+          }
+          echo '<option selected hidden value="' . $kategoria['emriKategoris'] . '">' . $kategoria['emriKategoris'] . '</option> </select>';
         ?>
-        <input class="form-input" name="pdPhoto" accept="image/*" type="file" placeholder="Foto Produktit" required>
-        <input class="form-input" name="cmimiPd" type="text" placeholder="Qmimi i Produktit" required>
-        <input class="button" type="submit" value="Shtoni Produktin" name='shtoProd'>
+        <input class="form-input" name="pdPhoto" accept="image/*" type="file" placeholder="Foto Produktit">
+        <input class="form-input" name="cmimiPd" type="text" placeholder="Qmimi i Produktit" value='<?php echo $produkti['qmimiProduktit']?>' required>
+        <input class="button" type="submit" value="Editoni Produktin" name='editoProd'>
+        <input class="button" type="submit" value="anulo" name='editoProd'>
       </form>
     </div>
     <script src="../../js/validimiFormave.js"></script>
@@ -91,8 +86,4 @@ $produkti = $produktiCRUD->shfaqProduktinSipasID();
   </body>
 </html>
 <?php
-unset($_SESSION['mesazhiMeSukses']);
-unset($_SESSION['madhesiaGabim']);
-unset($_SESSION['problemNeBartje']);
-unset($_SESSION['fileNukSuportohet']);
 ?>

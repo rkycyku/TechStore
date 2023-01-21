@@ -18,15 +18,15 @@ if(!isset($_SESSION)){
             <a class="logo" href="index.php"><img src="../../img/web/techstoreLogoWhiteSquare.png" alt=""></a>
             <ul class="nav-links">
                 <li class="nav-item">
-                    <a href="../../index.php">Home</a>
+                    <a href="../pages/index.php">Home</a>
                     <span class="line"></span>
                 </li>
                 <li class="nav-item">
-                    <a href="../../aboutUs.php">About Us</a>
+                    <a href="../pages/aboutUs.php">About Us</a>
                     <span class="line"></span>
                 </li>
                 <li class="nav-item">
-                    <a href="../../contactForm.php">Contact Us</a>
+                    <a href="../pages/contactForm.php">Contact Us</a>
                     <span class="line"></span>
                 </li> 
             </ul>

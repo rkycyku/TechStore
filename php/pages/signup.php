@@ -12,6 +12,7 @@ if(!isset($_SESSION)){
     <title>Sign Up | Tech Store</title>
     <link rel="shortcut icon" href="../../img/web/favicon.ico"/>
     <link rel="stylesheet" href="../../css/forms.css" />
+    <link rel="stylesheet" href="../../css/mesazhetStyle.css" />
   </head>
   <body>
   <?php  include '../design/headerMain.php'; ?>

@@ -15,11 +15,11 @@
           <div class="footer-nav">
             <h2 class="footer-nav-title">Quick Links</h2>
             <ul>
-              <li><a href="../../index.php">Home</a></li>
-              <li><a href="../../aboutUs.php">About Us</a></li>
-              <li><a href="../../contactForm.php">Contact Us</a></li>
-              <li><a href="../../login.php">Log In</a></li>
-              <li><a href="../../signup.php">Sign Up</a></p>
+              <li><a href="../pages/index.php">Home</a></li>
+              <li><a href="../pages/aboutUs.php">About Us</a></li>
+              <li><a href="../pages/contactForm.php">Contact Us</a></li>
+              <li><a href="../pages/login.php">Log In</a></li>
+              <li><a href="../pages/signup.php">Sign Up</a></p>
             </ul>
           </div>
           <div class="footer-contact">
