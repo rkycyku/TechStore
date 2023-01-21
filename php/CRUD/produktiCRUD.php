@@ -168,6 +168,30 @@ class produktiCRUD extends dbCon{
         }
     }
 
+    public function shfaqProduktinSipasKompanis(){
+        try{
+            $sql = "SELECT * FROM produkti WHERE `emriKompanis` = ?";
+            $stm = $this->dbConn->prepare($sql);
+            $stm->execute([$this->emriKompanis]);
+
+            return $stm->fetchAll();
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+    }
+
+    public function shfaqProduktinSipasKategoris(){
+        try{
+            $sql = "SELECT * FROM produkti WHERE `kategoriaProduktit` = ?";
+            $stm = $this->dbConn->prepare($sql);
+            $stm->execute([$this->kategoriaProduktit]);
+
+            return $stm->fetchAll();
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+    }
+
     public function fshijProduktinSipasID(){
         try{
             $sql = "DELETE FROM produkti WHERE produktiID = ?";

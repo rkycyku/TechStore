@@ -28,6 +28,10 @@ if(!isset($_SESSION)){
                     <a href="./contactForm.php">Contact Us</a>
                     <span class="line"></span>
                 </li> 
+                <li class="nav-item">
+                    <a href="./produktet.php">Products</a>
+                    <span class="line"></span>
+                </li> 
             </ul>
             <ul class="auth">
             

@@ -18,7 +18,7 @@ $produktiCRUD = new produktiCRUD();
 
   <body>
     
-  <?php  include '../design/headerAdmin.php'; ?>
+  <?php include '../design/headerAdmin.php'?>
 
     <div class="containerDashboard">
       <?php 

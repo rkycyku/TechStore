@@ -39,7 +39,9 @@ $produktiCRUD = new produktiCRUD();
         foreach($kompanit as $kompania){
             echo'<div class="kartelaEBrendit">
                   <div class="logoBrendit">
-                    <img src="../../img/slider/sliderIcons/'.$kompania['kompaniaLogo']. '" alt="">
+                    <a href="../pages/produktet.php?kompania='.$kompania['emriKompanis'].'">
+                      <img src="../../img/slider/sliderIcons/'.$kompania['kompaniaLogo']. '" alt="">
+                    </a>
                   </div>
                 </div>';
         }

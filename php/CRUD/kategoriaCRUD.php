@@ -20,43 +20,47 @@ class kategoriaCRUD extends dbCon{
         $this->dbConn = $this->connDB();
     }
 
-    public function getkategoriaID()
+    public function getKategoriaID()
     {
         return $this->kategoriaID;
     }
 
-    public function setkategoriaID($kategoriaID)
+    public function setKategoriaID($kategoriaID)
     {
         $this->kategoriaID = $kategoriaID;
     }
 
-    public function getemriKategoris()
+    public function getEmriKategoris()
     {
         return $this->emriKategoris;
     }
 
-    public function setemriKategoris($emriKategoris)
+    public function setEmriKategoris($emriKategoris)
     {
         $this->emriKategoris = $emriKategoris;
     }
 
-    public function getpershkrimiKategoris()
+    public function getPershkrimiKategoris()
     {
         return $this->pershkrimiKategoris;
     }
 
-    public function setpershkrimiKategoris($pershkrimiKategoris)
+    public function setPershkrimiKategoris($pershkrimiKategoris)
     {
         $this->pershkrimiKategoris = $pershkrimiKategoris;
     }
 
     public function insertoKategorinProduktit(){
         try{
+            $this->setEmriKategoris($_SESSION['emriKat']);
+            $this->setPershkrimiKategoris($_SESSION['pershkrimiKat']);
+
             $sql = "INSERT INTO `kategoriaproduktit`(`emriKategoris`, `pershkrimiKategoris`) VALUES (?,?)";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute([$this->emriKategoris,$this->pershkrimiKategoris]);
 
-            $_SESSION['mesazhiMeSukses'] = true;
+            echo '<script>document.location="../admin/shtoKategorin.php"</script>';
+            $_SESSION['katUShtua'] = true;
         }catch(Exception $e){
             return $e->getMessage();
         }

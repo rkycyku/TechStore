@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 21, 2023 at 07:57 PM
+-- Generation Time: Jan 21, 2023 at 10:18 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -60,8 +60,13 @@ CREATE TABLE `kategoriaproduktit` (
 --
 
 INSERT INTO `kategoriaproduktit` (`kategoriaID`, `emriKategoris`, `pershkrimiKategoris`) VALUES
-(1, 'celular', NULL),
-(2, 'laptop', NULL);
+(1, 'Smartphone', NULL),
+(2, 'Laptop', NULL),
+(3, 'Smart Watch', 'Ore te menqura te markave te ndryshme'),
+(4, 'Foto & Video', ''),
+(5, 'Audio', ''),
+(6, 'Konzola & Aksesorë Gaming', ''),
+(7, 'Videolojëra', '');
 
 -- --------------------------------------------------------
 
@@ -81,16 +86,16 @@ CREATE TABLE `kompania` (
 --
 
 INSERT INTO `kompania` (`kompaniaID`, `emriKompanis`, `kompaniaLogo`, `adresaKompanis`) VALUES
-(1, 'apple', 'AppleLogo.png', NULL),
-(2, 'amd', 'AMDLogo.png', NULL),
-(3, 'asus', 'AsusLogo.png', NULL),
-(4, 'jbl', 'JBL.png', NULL),
-(5, 'lenovo', 'Lenovo.png', ''),
-(6, 'logitech', 'Logitech.png', ''),
-(7, 'msi', 'MSI.png', ''),
-(8, 'nvidia', 'Nvidia.png', ''),
-(9, 'razer', 'Razer.png', ''),
-(10, 'samsung', 'SamsungLogo.png', '');
+(1, 'Apple', 'AppleLogo.png', NULL),
+(2, 'Amd', 'AMDLogo.png', NULL),
+(3, 'Asus', 'AsusLogo.png', NULL),
+(4, 'JBL', 'JBL.png', NULL),
+(5, 'Lenovo', 'Lenovo.png', ''),
+(6, 'Logitech', 'Logitech.png', ''),
+(7, 'MSI', 'MSI.png', ''),
+(8, 'Nvidia', 'Nvidia.png', ''),
+(9, 'Razer', 'Razer.png', ''),
+(10, 'Samsung', 'SamsungLogo.png', '');
 
 -- --------------------------------------------------------
 
@@ -129,13 +134,13 @@ CREATE TABLE `produkti` (
 --
 
 INSERT INTO `produkti` (`produktiID`, `emriProduktit`, `emriKompanis`, `kategoriaProduktit`, `fotoProduktit`, `emriStafit`, `dataKrijimit`, `dataModifikimit`, `qmimiProduktit`) VALUES
-(1, 'iPhone 14 Pro, 128GB, Space Black', 'apple', 'laptop', 'iphone14Pro.jpg', 'admin', '2023-01-20 23:00:00', '2023-01-21 18:46:03', '1510.00'),
-(2, 'Apple MacBook Pro 13.3\"', 'apple', 'laptop', 'AppleMacBookPro.jpg', 'admin', '2023-01-19 23:00:00', '2023-01-21 17:55:41', '1571.00'),
-(3, 'Laptop ASUS TUF Gaming F15 (2021), 15.6\"', 'asus', 'laptop', 'ASUSTUFGamingF15.jpg', 'admin', '2023-01-19 23:00:00', '2023-01-21 17:55:41', '758.50'),
-(4, 'Laptop Razer Blade 15 Advanced Model', 'razer', 'laptop', 'razer.jpg', 'admin', '2023-01-19 23:00:00', '2023-01-21 17:55:41', '2710.49'),
-(5, 'Samsung s22 Ultra, 512GB', 'samsung', 'celular', 's22.jpg', 'admin', '2023-01-19 23:00:00', '2023-01-21 17:55:41', '899.99'),
-(6, 'Lenovo NB IdeaPad 3 15ALC6', 'lenovo', 'laptop', 'Lenovo.jpg', 'admin', '2023-01-19 23:00:00', '2023-01-21 17:55:41', '459.50'),
-(8, 'Lenovo ThinkPad P14s Gen 3 (AMD), 14\", AMD Ryzen 7 Pro, 32GB RAM, 1TB SSD, AMD Radeon 680M, i zi', 'lenovo', 'laptop', '0 (1).jpg', 'admin', '2023-01-21 18:24:31', '2023-01-21 18:45:24', '2469.50');
+(1, 'iPhone 14 Pro, 128GB, Space Black', 'Apple', 'laptop', 'iphone14Pro.jpg', 'admin', '2023-01-20 23:00:00', '2023-01-21 18:46:03', '1510.00'),
+(2, 'Apple MacBook Pro 13.3\"', 'Apple', 'laptop', 'AppleMacBookPro.jpg', 'admin', '2023-01-19 23:00:00', '2023-01-21 17:55:41', '1571.00'),
+(3, 'Laptop ASUS TUF Gaming F15 (2021), 15.6\"', 'Asus', 'laptop', 'ASUSTUFGamingF15.jpg', 'admin', '2023-01-19 23:00:00', '2023-01-21 17:55:41', '758.50'),
+(4, 'Laptop Razer Blade 15 Advanced Model', 'Razer', 'laptop', 'razer.jpg', 'admin', '2023-01-19 23:00:00', '2023-01-21 17:55:41', '2710.49'),
+(5, 'Samsung s22 Ultra, 512GB', 'Samsung', 'celular', 's22.jpg', 'admin', '2023-01-19 23:00:00', '2023-01-21 17:55:41', '899.99'),
+(6, 'Lenovo NB IdeaPad 3 15ALC6', 'Lenovo', 'laptop', 'Lenovo.jpg', 'admin', '2023-01-19 23:00:00', '2023-01-21 17:55:41', '459.50'),
+(8, 'Lenovo ThinkPad P14s Gen 3 (AMD), 14\", AMD Ryzen 7 Pro, 32GB RAM, 1TB SSD, AMD Radeon 680M, i zi', 'Lenovo', 'laptop', '0 (1).jpg', 'admin', '2023-01-21 18:24:31', '2023-01-21 18:45:24', '2469.50');
 
 -- --------------------------------------------------------
 
@@ -215,7 +220,7 @@ ALTER TABLE `contactform`
 -- AUTO_INCREMENT for table `kategoriaproduktit`
 --
 ALTER TABLE `kategoriaproduktit`
-  MODIFY `kategoriaID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `kategoriaID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `kompania`

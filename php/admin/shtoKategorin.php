@@ -1,11 +1,23 @@
-<?php require_once('./kontrolloAksesin.php'); ?>
+<?php 
+require_once('./kontrolloAksesin.php');
+require_once('../CRUD/kategoriaCRUD.php');
+
+$katCRUD = new kategoriaCRUD();
+
+if(isset($_POST['shtoKat'])){
+  $_SESSION['emriKat'] = $_POST['emriKat'];
+  $_SESSION['pershkrimiKat'] = $_POST['pershkrimiKat'];
+
+  $katCRUD->insertoKategorinProduktit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vendosja e Kompanive | Tech Store</title>
+    <title>Vendosja e Kategorive | Tech Store</title>
     <link rel="shortcut icon" href="../../img/web/favicon.ico"/>
     <link rel="stylesheet" href="../../css/header.css" />
     <link rel="stylesheet" href="../../css/forms.css" />
@@ -14,42 +26,12 @@
   <body>
   <?php include '../design/headerAdmin.php'?>
     <div class="forms">
-        <form name="shtoProduktin" onsubmit="return validimiShtimiProduktit();" action='../funksione/shtoProduktin.php' method="POST" enctype="multipart/form-data">
+        <form name="shtoKategorin" onsubmit="" action='' method="POST">
         <?php
-          if(isset($_SESSION['mesazhiMeSukses'])){
+          if(isset($_SESSION['katUShtua'])){
             echo '
                   <div class="mesazhiSuksesStyle">
-                    <h3>Produkti u shtua me sukses!</h3>
-                    <button id="mbyllMesazhin">
-                      X
-                    </button>
-                  </div>
-            ';
-          }
-          if(isset($_SESSION['madhesiaGabim'])){
-            echo '
-                  <div class="mesazhiGabimStyle">
-                    <h3>Madhesia e fotos eshte shume e madhe!</h3>
-                    <button id="mbyllMesazhin">
-                      X
-                    </button>
-                  </div>
-            ';
-          }
-          if(isset($_SESSION['problemNeBartje'])){
-            echo '
-                  <div class="mesazhiGabimStyle">
-                    <h3>Ndodhi nje problem ne bartjen e fotov!</h3>
-                    <button id="mbyllMesazhin">
-                      X
-                    </button>
-                  </div>
-            ';
-          }
-          if(isset($_SESSION['fileNukSuportohet'])){
-            echo '
-                  <div class="mesazhiGabimStyle">
-                    <h3>Ky file nuk supportohet!</h3>
+                    <h3>Kategoria u shtua me sukses!</h3>
                     <button id="mbyllMesazhin">
                       X
                     </button>
@@ -58,10 +40,9 @@
           }
         ?>
         <h1 class="form-title">Vendosja e Kategorive</h1>
-        <input class="form-input" name="emriKompanis" type="text" placeholder="Emri i Kompanis" required>
-        <input class="form-input" name="kompaniaLogo" accept="image/*" type="file" placeholder="Logo e Kompanis" required>
-        <input class="form-input" name="adresaKompanis" type="text" placeholder="Adresa e Kompanis">
-        <input class="button" type="submit" value="Shtoni Kategorin" name='shtoProd'>
+        <input class="form-input" name="emriKat" type="text" placeholder="Emri i Kategoris" required>
+        <input class="form-input" name="pershkrimiKat" type="text" placeholder="Pershkrimi i Kategoris">
+        <input class="button" type="submit" value="Shtoni Kategorin" name='shtoKat'>
       </form>
     </div>
     <script src="../../js/validimiFormave.js"></script>
@@ -69,8 +50,5 @@
   </body>
 </html>
 <?php
-unset($_SESSION['mesazhiMeSukses']);
-unset($_SESSION['madhesiaGabim']);
-unset($_SESSION['problemNeBartje']);
-unset($_SESSION['fileNukSuportohet']);
+unset($_SESSION['katUShtua']);
 ?>
