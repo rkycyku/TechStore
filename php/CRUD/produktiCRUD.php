@@ -1,13 +1,14 @@
 <?php
 require_once('../db/dbcon.php');
 
-if(!isset($_SESSION)){
+if (!isset($_SESSION)) {
     session_start();
 }
 
-class produktiCRUD extends dbCon{
+class produktiCRUD extends dbCon
+{
     private $produktiID;
-    private $emriProduktit; 
+    private $emriProduktit;
     private $emriKompanis;
     private $kategoriaProduktit;
     private $fotoProduktit;
@@ -19,15 +20,15 @@ class produktiCRUD extends dbCon{
     public function __construct($produktiID = '', $emriProduktit = '', $emriKompanis = '', $kategoriaProduktit = '', $fotoProduktit = '', $emriStafit = '', $dataKrijimit = '', $qmimiProduktit = '')
     {
         $this->produktiID = $produktiID;
-        $this->emriProduktit  = $emriProduktit;
-        $this->emriKompanis  = $emriKompanis;
-        $this->kategoriaProduktit  = $kategoriaProduktit;
-        $this->fotoProduktit  = $fotoProduktit;
-        $this->emriStafit  = $emriStafit;
-        $this->dataKrijimit  = $dataKrijimit;
-        $this->qmimiProduktit  = $qmimiProduktit;
+        $this->emriProduktit = $emriProduktit;
+        $this->emriKompanis = $emriKompanis;
+        $this->kategoriaProduktit = $kategoriaProduktit;
+        $this->fotoProduktit = $fotoProduktit;
+        $this->emriStafit = $emriStafit;
+        $this->dataKrijimit = $dataKrijimit;
+        $this->qmimiProduktit = $qmimiProduktit;
 
-        $this->dbConn  = $this->connDB();
+        $this->dbConn = $this->connDB();
     }
 
     public function getProduktiID()
@@ -110,8 +111,9 @@ class produktiCRUD extends dbCon{
         $this->qmimiProduktit = $qmimiProduktit;
     }
 
-    public function shtoProduktin(){
-        try{
+    public function shtoProduktin()
+    {
+        try {
             $this->barteFotonNeFolder();
 
             $this->setEmriProduktit($_SESSION['EmriProduktit']);
@@ -126,64 +128,69 @@ class produktiCRUD extends dbCon{
             $stm->execute([$this->emriProduktit, $this->emriKompanis, $this->kategoriaProduktit, $this->fotoProduktit, $this->emriStafit, $this->qmimiProduktit]);
 
             $_SESSION['mesazhiMeSukses'] = true;
-        }catch(Exception $e){
+        } catch (Exception $e) {
             return $e->getMessage();
         }
     }
 
 
 
-    public function shfaqTeGjithaProduktet(){
-        try{
+    public function shfaqTeGjithaProduktet()
+    {
+        try {
             $sql = "SELECT * FROM `produkti`";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute();
 
             return $stm->fetchAll();
-        }catch(Exception $e){
+        } catch (Exception $e) {
             return $e->getMessage();
         }
     }
 
-    public function shfaq20ProduktetEFundit(){
-        try{
+    public function shfaq20ProduktetEFundit()
+    {
+        try {
             $sql = "SELECT * FROM (SELECT * FROM `produkti` ORDER BY `produktiID` DESC LIMIT 20) AS prodEFundit ORDER BY prodEFundit.produktiID ASC";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute();
 
             return $stm->fetchAll();
-        }catch(Exception $e){
+        } catch (Exception $e) {
             return $e->getMessage();
         }
     }
 
-    public function shfaqProduktinSipasID(){
-        try{
+    public function shfaqProduktinSipasID()
+    {
+        try {
             $sql = "SELECT * FROM produkti WHERE produktiID = ?";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute([$this->produktiID]);
 
             return $stm->fetch();
-        }catch(Exception $e){
+        } catch (Exception $e) {
             return $e->getMessage();
         }
     }
 
-    public function shfaqProduktinSipasKompanis(){
-        try{
+    public function shfaqProduktinSipasKompanis()
+    {
+        try {
             $sql = "SELECT * FROM produkti WHERE `emriKompanis` = ?";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute([$this->emriKompanis]);
 
             return $stm->fetchAll();
-        }catch(Exception $e){
+        } catch (Exception $e) {
             return $e->getMessage();
         }
     }
 
-    public function shfaqProduktetNgaKerkimi(){
-        try{
-            $this->setEmriProduktit('%'.$_SESSION['kompania'].'%');
+    public function shfaqProduktetNgaKerkimi()
+    {
+        try {
+            $this->setEmriProduktit('%' . $_SESSION['kompania'] . '%');
 
             $sql = "SELECT * FROM produkti WHERE `emriProduktit` like ?";
             $stm = $this->dbConn->prepare($sql);
@@ -191,20 +198,20 @@ class produktiCRUD extends dbCon{
 
             $produktet = $stm->fetchAll();
 
-            if($produktet == true){
+            if ($produktet == true) {
                 echo '<div class="artikujt">
                 <div class="titulliArtikuj">
                   <h1 class="">All Products like ' . $_SESSION['kompania'] . '</h1>
                 </div>';
-              foreach ($produktet as $produkti) {
-                echo '  <div class="artikulli">
+                foreach ($produktet as $produkti) {
+                    echo '  <div class="artikulli">
                           <img src="../../img/products/' . $produkti['fotoProduktit'] . '" alt="" />
                           <p class="artikulliLabel">' . $produkti['emriProduktit'] . '</p>
                           <p class="cmimi">' . $produkti['qmimiProduktit'] . ' €</p>
                           <button class="button">Buy</button>
                          </div>';
-              }
-            }else{
+                }
+            } else {
                 echo '<div class="artikujt">
                 <div class="titulliArtikuj">
                   <h1 class="">All Products like ' . $_SESSION['kompania'] . '</h1>
@@ -212,59 +219,63 @@ class produktiCRUD extends dbCon{
                     <h1>Produkti qe kerkuat nuk egziston!</h1>';
 
             }
-        }catch(Exception $e){
+        } catch (Exception $e) {
             return $e->getMessage();
         }
     }
 
-    public function shfaqProduktinSipasKategoris(){
-        try{
+    public function shfaqProduktinSipasKategoris()
+    {
+        try {
             $sql = "SELECT * FROM produkti WHERE `kategoriaProduktit` = ?";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute([$this->kategoriaProduktit]);
 
             return $stm->fetchAll();
-        }catch(Exception $e){
+        } catch (Exception $e) {
             return $e->getMessage();
         }
     }
 
-    public function fshijProduktinSipasID(){
-        try{
+    public function fshijProduktinSipasID()
+    {
+        try {
             $sql = "DELETE FROM produkti WHERE produktiID = ?";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute([$this->produktiID]);
 
             $_SESSION['mesazhiFshirjesMeSukses'] = true;
             echo '<script>document.location="../admin/produktet.php"</script>';
-        }catch(Exception $e){
+        } catch (Exception $e) {
             return $e->getMessage();
         }
     }
 
-    public function editoProduktinPaFoto(){
-        try{
+    public function editoProduktinPaFoto()
+    {
+        try {
             $this->setProduktiID($_SESSION['prouktiID']);
             $this->setEmriProduktit($_SESSION['EmriProduktit']);
             $this->setEmriKompanis($_SESSION['EmriKompanis']);
             $this->setKategoriaProduktit($_SESSION['KategoriaProduktit']);
             $this->setEmriStafit($_SESSION['name']);
             $this->setQmimiProduktit($_SESSION['QmimiProduktit']);
-            
+
             $sql = "UPDATE `produkti` SET `emriProduktit`=?,`emriKompanis`=?,`kategoriaProduktit`=?,`emriStafit`=?,`dataModifikimit`=current_timestamp(),`qmimiProduktit`=? WHERE produktiID = ?";
             $stm = $this->dbConn->prepare($sql);
-            $stm->execute([$this->emriProduktit,$this->emriKompanis,$this->kategoriaProduktit,$this->emriStafit,$this->qmimiProduktit,$this->produktiID]);
+            $stm->execute([$this->emriProduktit, $this->emriKompanis, $this->kategoriaProduktit, $this->emriStafit, $this->qmimiProduktit, $this->produktiID]);
 
             $_SESSION['mesazhiMeSukses'] = true;
             echo '<script>document.location="../admin/produktet.php"</script>';
-        }catch(Exception $e){
+        } catch (Exception $e) {
             return $e->getMessage();
-        }   
+        }
     }
-    public function editoProduktinMeFoto(){
-        try{
+    public function editoProduktinMeFoto()
+    {
+        try {
             $this->barteFotonNeFolder();
-            
+
             $this->setProduktiID($_SESSION['prouktiID']);
             $this->setEmriProduktit($_SESSION['EmriProduktit']);
             $this->setEmriKompanis($_SESSION['EmriKompanis']);
@@ -275,47 +286,45 @@ class produktiCRUD extends dbCon{
 
             $sql = "UPDATE `produkti` SET `emriProduktit`=?,`emriKompanis`=?,`kategoriaProduktit`=?,`fotoProduktit`=?,`emriStafit`=?,`dataModifikimit`=current_timestamp(),`qmimiProduktit`=? WHERE produktiID = ?";
             $stm = $this->dbConn->prepare($sql);
-            $stm->execute([$this->emriProduktit,$this->emriKompanis,$this->kategoriaProduktit,$this->fotoProduktit,$this->emriStafit,$this->qmimiProduktit,$this->produktiID]);
-            
+            $stm->execute([$this->emriProduktit, $this->emriKompanis, $this->kategoriaProduktit, $this->fotoProduktit, $this->emriStafit, $this->qmimiProduktit, $this->produktiID]);
+
             $_SESSION['mesazhiMeSukses'] = true;
             echo '<script>document.location="../admin/produktet.php"</script>';
-        }catch(Exception $e){
+        } catch (Exception $e) {
             return $e->getMessage();
         }
     }
 
-    public function barteFotonNeFolder(){
-        try{
+    public function barteFotonNeFolder()
+    {
+        try {
             $foto = $_SESSION['FotoProduktit'];
             $emriFotos = $foto['name'];
             $emeriTempIFotes = $foto['tmp_name'];
             $madhesiaFotos = $foto['size'];
             $errorFoto = $foto['error'];
-        
+
             $fileExt = explode('.', $emriFotos);
             $fileActualExt = strtolower(end($fileExt));
-        
+
             $teLejuara = array('jpg', 'jpeg', 'png');
-        
+
             if (in_array($fileActualExt, $teLejuara)) {
                 if ($errorFoto === 0) {
                     if ($madhesiaFotos < 1000000) {
-                        $_SESSION['emriUnikFotos'] = uniqid('', true).".".$fileActualExt;
-                        $destinacioniFotos = '../../img/products/'.$_SESSION['emriUnikFotos'];
+                        $_SESSION['emriUnikFotos'] = uniqid('', true) . "." . $fileActualExt;
+                        $destinacioniFotos = '../../img/products/' . $_SESSION['emriUnikFotos'];
                         move_uploaded_file($emeriTempIFotes, $destinacioniFotos);
-                    } 
-                    else {
-                    $_SESSION['madhesiaGabim'] = true;
+                    } else {
+                        $_SESSION['madhesiaGabim'] = true;
                     }
-                } 
-                else {
-                $_SESSION['problemNeBartje'] = true;
+                } else {
+                    $_SESSION['problemNeBartje'] = true;
                 }
-            } 
-            else {
-            $_SESSION['fileNukSuportohet'] = true;
+            } else {
+                $_SESSION['fileNukSuportohet'] = true;
             }
-        }catch(Exception $e){
+        } catch (Exception $e) {
             return $e->getMessage();
         }
     }

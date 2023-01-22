@@ -1,4 +1,4 @@
-.banner{
+.banner {
   background-image: url("../img/web/bannerIndex.jpg");
   background-repeat: no-repeat;
   background-position: 50%;
@@ -8,20 +8,20 @@
   justify-content: center;
 }
 
-.titulliPershkrim{
+.titulliPershkrim {
   margin-top: 3em;
   color: black;
   text-align: center;
 }
 
-.titulliPershkrim p{
+.titulliPershkrim p {
   margin-top: 1em;
   color: rgb(155, 155, 155);
   font-size: 1.2em;
   font-weight: 600;
 }
 
-.artikujt{
+.artikujt {
   display: flex;
   justify-content: center;
   align-items: stretch;
@@ -31,7 +31,7 @@
   gap: 0.8em;
 }
 
-.titulliArtikuj{
+.titulliArtikuj {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,13 +41,13 @@
   padding-left: 1em;
 }
 
-.titulliArtikuj h1{
+.titulliArtikuj h1 {
   margin-bottom: 0.5em;
   font-weight: 500;
   color: #0f243b;
 }
 
-.artikulli{
+.artikulli {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -63,24 +63,23 @@
   border-radius: 25px;
 }
 
-
-.artikulliLabel{
+.artikulliLabel {
   text-align: center;
   font-size: 10pt;
   color: rgb(99, 93, 93);
 }
 
-.artikulli img{
+.artikulli img {
   width: 90%;
   aspect-ratio: 3/2;
   object-fit: contain;
 }
 
-.cmimi{
+.cmimi {
   font-weight: bold;
 }
 
-.button{
+.button {
   border: none;
   box-shadow: 0 0 10px #d3d3d3;
   background-color: white;
@@ -92,7 +91,7 @@
   font-weight: 600;
 }
 
-.button:hover{
+.button:hover {
   background-color: #01df93;
   color: white;
 }
@@ -140,7 +139,7 @@
   padding: auto;
 }
 
-.kartelaEBrendit:hover{
+.kartelaEBrendit:hover {
   transform: scale(1.1);
   transition: 0.1s ease-in-out;
 }
@@ -155,10 +154,10 @@
   cursor: pointer;
 }
 
-.logoBrendit img{
-  height: 150px;
-  width: auto;
-  border-radius: 5px;
+.logoBrendit img {
+  width: 90%;
+  aspect-ratio: 3/2;
+  object-fit: contain;
 }
 
 .shkoMajtas,
@@ -197,50 +196,49 @@
 
 /* Mbarimi i CSS te Slider-it te Brendeve */
 
-
 /* Fillimi i CSS-it per nje dukje me te mire ne Paisjet mobile (Responsive) */
 
-@media(max-width:1024px) {
-	.kartelaEBrendit {
-	  width: 150px;
-	  margin-right: 2em;
-	}
-	
-	.logoBrendit {
-	  width: 100px;
-	  margin: 0 auto;
-	}
-	
-	.logoBrendit img{
+@media (max-width: 1024px) {
+  .kartelaEBrendit {
+    width: 150px;
+    margin-right: 2em;
+  }
+
+  .logoBrendit {
+    width: 100px;
+    margin: 0 auto;
+  }
+
+  .logoBrendit img {
     width: 90%;
     aspect-ratio: 3/2;
     object-fit: contain;
-	}
-	
-	.shkoMajtas,
-	.shkoDjathtas {
-	  top: 25px;
-	}
-	
-  .artikujt{
+  }
+
+  .shkoMajtas,
+  .shkoDjathtas {
+    top: 25px;
+  }
+
+  .artikujt {
     gap: 0;
     width: 100%;
     flex-wrap: wrap;
   }
-  
-  .titulliArtikuj h1{
+
+  .titulliArtikuj h1 {
     margin-bottom: 0.5em;
     font-weight: 500;
     color: #0f243b;
   }
-  
-  .artikulli{
+
+  .artikulli {
     margin: 0.7em;
     width: 10em;
     flex-basis: 100px;
   }
-  
-  .artikulli img{
+
+  .artikulli img {
     width: 80%;
     aspect-ratio: 3/2;
     object-fit: contain;

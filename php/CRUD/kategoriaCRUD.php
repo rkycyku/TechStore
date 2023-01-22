@@ -1,17 +1,18 @@
 <?php
 require_once('../db/dbcon.php');
 
-if(!isset($_SESSION)){
+if (!isset($_SESSION)) {
     session_start();
 }
 
-class kategoriaCRUD extends dbCon{
+class kategoriaCRUD extends dbCon
+{
     private $kategoriaID;
     private $emriKategoris;
     private $pershkrimiKategoris;
     private $dbConn;
 
-    public function __construct($kategoriaID = '',$emriKategoris = '', $pershkrimiKategoris = '')
+    public function __construct($kategoriaID = '', $emriKategoris = '', $pershkrimiKategoris = '')
     {
         $this->kategoriaID = $kategoriaID;
         $this->emriKategoris = $emriKategoris;
@@ -50,56 +51,59 @@ class kategoriaCRUD extends dbCon{
         $this->pershkrimiKategoris = $pershkrimiKategoris;
     }
 
-    public function insertoKategorinProduktit(){
-        try{
+    public function insertoKategorinProduktit()
+    {
+        try {
             $this->setEmriKategoris($_SESSION['emriKat']);
             $this->setPershkrimiKategoris($_SESSION['pershkrimiKat']);
 
             $sql = "INSERT INTO `kategoriaproduktit`(`emriKategoris`, `pershkrimiKategoris`) VALUES (?,?)";
             $stm = $this->dbConn->prepare($sql);
-            $stm->execute([$this->emriKategoris,$this->pershkrimiKategoris]);
+            $stm->execute([$this->emriKategoris, $this->pershkrimiKategoris]);
 
             echo '<script>document.location="../admin/shtoKategorin.php"</script>';
             $_SESSION['katUShtua'] = true;
-        }catch(Exception $e){
+        } catch (Exception $e) {
             return $e->getMessage();
         }
     }
 
 
-    public function shfaqKategorin(){
-        try{
+    public function shfaqKategorin()
+    {
+        try {
             $sql = "SELECT * FROM kategoriaproduktit";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute();
 
             return $stm->fetchAll();
-        }catch(Exception $e){
+        } catch (Exception $e) {
             return $e->getMessage();
         }
     }
 
-    public function shfaqKategorinSelektim(){
-        try{
+    public function shfaqKategorinSelektim()
+    {
+        try {
             $kategorit = $this->shfaqKategorin();
 
-        
+
             echo '<select name="kategoria">
                 <option value="te tjera">Zgjedhni Kategorin</option>
             ';
-            foreach($kategorit as $kategoria){
+            foreach ($kategorit as $kategoria) {
                 echo '<option value="' . $kategoria['emriKategoris'] . '">' . $kategoria['emriKategoris'] . '</option>';
             }
             echo '</select>';
-        
-        }catch(Exception $e){
+
+        } catch (Exception $e) {
             return $e->getMessage();
         }
-        
-        
+
+
     }
 
-    
+
 }
 
 

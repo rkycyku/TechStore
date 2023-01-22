@@ -1,94 +1,97 @@
-*, ::before, ::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    list-style: none;
-    font-family: "Segoe UI",SegoeUI,"Helvetica Neue",Helvetica,Arial,sans-serif;
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Segoe UI", SegoeUI, "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
 }
 
-header{
-    position: sticky;
-    top: 0;
-    width: 100%;
-    padding: 0 5%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: white;
-    z-index: 2000;
-} 
-
-.nav{
-    display: flex;
-    align-items: center;
-    width: 100%;
-    min-height: 70px;
-    justify-content: space-between;
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 0 5%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: white;
+  z-index: 2000;
 }
 
-.nav ul li{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+.nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 70px;
+  justify-content: space-between;
 }
 
-.logo img{
-    width: 70px;
-    aspect-ratio: 3/2;
-    object-fit: contain;
+.nav ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
-.nav-links{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2em;
+.logo img {
+  width: 70px;
+  aspect-ratio: 3/2;
+  object-fit: contain;
 }
 
-.nav-links a{
-    color: #00113f;
-    font-weight: 600;
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
 }
 
-.line{
-    display: none;
-    content: "";
-    position: absolute;
-    padding: 1.2px;
-    background-color: #01df93;
-    width: 100%;
-    top: 1.7em;
+.nav-links a {
+  color: #00113f;
+  font-weight: 600;
 }
 
-.nav ul li:hover .line{
-    display: block;
+.line {
+  display: none;
+  content: "";
+  position: absolute;
+  padding: 1.2px;
+  background-color: #01df93;
+  width: 100%;
+  top: 1.7em;
+}
+
+.nav ul li:hover .line {
+  display: block;
 }
 
 .nav ul li:hover {
-    transform: scale(1.1);
-    transition: 0.1s ease-in-out;
+  transform: scale(1.1);
+  transition: 0.1s ease-in-out;
 }
 
-.auth{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2em;
+.auth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
 }
 
-.auth a{
-    color: black;
-    font-weight: 600;
+.auth a {
+  color: black;
+  font-weight: 600;
 }
 
-.hamburger{
+.hamburger {
   display: block;
   cursor: pointer;
 }
 
-.hamIkona{
+.hamIkona {
   display: block;
   width: 25px;
   height: 3px;
@@ -98,106 +101,108 @@ header{
   background-color: black;
 }
 
-.hamIkona:nth-child(2){
+.hamIkona:nth-child(2) {
+  background-color: #073879;
+}
+
+@media (min-width: 1025px) {
+  .hamburger.active .hamIkona:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .hamIkona:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
     background-color: #073879;
+  }
+
+  .hamburger.active .hamIkona:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .auth {
+    position: fixed;
+    left: 100%;
+    top: 70px;
+    gap: 0;
+    flex-direction: column;
+    background-color: #f7f7f9;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+  }
+
+  .auth.active {
+    left: 0;
+  }
+  .auth a:hover {
+    color: #073879;
+  }
+
+  .auth .nav-item:hover {
+    transform: none;
+  }
+
+  .auth .nav-item:first-child {
+    margin-top: 5px;
+  }
+
+  .auth .nav-item:last-child {
+    margin-bottom: 10px;
+  }
 }
 
-@media(min-width:1025px){
-    .hamburger.active .hamIkona:nth-child(2){
-        opacity: 0;
-    }
+@media (max-width: 1024px) {
+  .nav ul li:hover {
+    transform: none;
+  }
+  .nav ul li:hover .line {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
 
-    .hamburger.active .hamIkona:nth-child(1){
-        transform: translateY(8px) rotate(45deg);
-        background-color: #073879;
-    }
-
-    .hamburger.active .hamIkona:nth-child(3){
-        transform: translateY(-8px) rotate(-45deg);
-    }
-
-    .auth{
-        position: fixed;
-        left: 100%;
-        top: 70px;
-        gap: 0;
-        flex-direction: column;
-        background-color: #f7f7f9;
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-    }
-    
-    .auth.active{
-        left: 0 ;
-    }
-    .auth a:hover{
-        color: #073879;
-    }
-    
-    .auth .nav-item:hover {
-        transform: none;
-    }
-    
-    .auth .nav-item:first-child{
-        margin-top: 5px;
-    }
-
-    .auth .nav-item:last-child{
-        margin-bottom: 10px;
-    }
-}
-
-@media(max-width:1024px){
-    .nav ul li:hover {
-        transform: none;
-    }
-    .nav ul li:hover .line{
-        display: none;
-    }
-    .hamburger{
-        display: block;
-    }
-    
-    .hamburger.active .hamIkona:nth-child(2){
-        opacity: 0;
-    }
-    .hamburger.active .hamIkona:nth-child(1){
-        transform: translateY(8px) rotate(45deg);
-        background-color: #073879;
-    }
-    .hamburger.active .hamIkona:nth-child(3){
-        transform: translateY(-8px) rotate(-45deg);
-    }
-    .nav li{
-        margin: 10px;
-    }
-    .nav-links{
-        position: fixed;
-        left: -100%;
-        top: 70px;
-        gap: 0;
-        flex-direction: column;
-        background-color: #f7f7f9;
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-    }
-    .auth{
-        position: fixed;
-        left: -100%;
-        top: 199px;
-        gap: 0;
-        flex-direction: column;
-        background-color: #f7f7f9;
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-    }
-    .nav-links.active ,.auth.active{
-        left: 0 ;
-    }
-    .nav-links a:hover, .auth a:hover{
-        color: #073879;
-    }
+  .hamburger.active .hamIkona:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active .hamIkona:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+    background-color: #073879;
+  }
+  .hamburger.active .hamIkona:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  .nav li {
+    margin: 10px;
+  }
+  .nav-links {
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    gap: 0;
+    flex-direction: column;
+    background-color: #f7f7f9;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+  }
+  .auth {
+    position: fixed;
+    left: -100%;
+    top: 199px;
+    gap: 0;
+    flex-direction: column;
+    background-color: #f7f7f9;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+  }
+  .nav-links.active,
+  .auth.active {
+    left: 0;
+  }
+  .nav-links a:hover,
+  .auth a:hover {
+    color: #073879;
+  }
 }

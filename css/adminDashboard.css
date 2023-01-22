@@ -1,4 +1,4 @@
-.containerDashboard{
+.containerDashboard {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,11 +7,11 @@
   margin: 0 auto;
 }
 
-.titulliPershkrim{
+.titulliPershkrim {
   color: red;
   text-align: center;
 }
-.adminNav{
+.adminNav {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,22 +19,21 @@
   background-color: gray;
 }
 
-.adminNav-links{
+.adminNav-links {
   display: flex;
   flex-direction: row;
   gap: 2em;
 }
 
-.adminNav-item a{
+.adminNav-item a {
   font-size: larger;
   color: #00113f;
 }
-.adminNav-item a:hover{
+.adminNav-item a:hover {
   font-weight: bold;
 }
 
-
-.button{
+.button {
   border: none;
   box-shadow: 0 0 10px #d3d3d3;
   background-color: white;
@@ -46,11 +45,11 @@
   font-weight: 600;
 }
 
-.button:hover{
+.button:hover {
   background-color: #01df93;
   color: white;
 }
 
-img{
+img {
   width: 25px;
 }

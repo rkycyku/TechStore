@@ -1,7 +1,7 @@
 <?php
 require('../CRUD/userCRUD.php');
 
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
     $user = new userCRUD();
 
     $user->setEmri($_POST['name']);

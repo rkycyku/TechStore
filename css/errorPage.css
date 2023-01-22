@@ -1,16 +1,16 @@
-.about{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    margin-top: 10em;
-    margin-bottom: 10em;
-    width: 100%;                                      
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 10em;
+  margin-bottom: 10em;
+  width: 100%;
 }
 
-.title{
-    color: rgb(7, 27, 83);
-    margin-bottom: 1em;
-    font-weight: 600;
-    font-size: 2em;
+.title {
+  color: rgb(7, 27, 83);
+  margin-bottom: 1em;
+  font-weight: 600;
+  font-size: 2em;
 }

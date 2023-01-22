@@ -1,18 +1,19 @@
 <?php
 require_once('../db/dbcon.php');
 
-if(!isset($_SESSION)){
+if (!isset($_SESSION)) {
     session_start();
 }
 
-class kompaniaCRUD extends dbCon{
+class kompaniaCRUD extends dbCon
+{
     private $kompaniaID;
     private $emriKompanis;
     private $kompaniaLogo;
     private $adresaKompanis;
     private $dbConn;
 
-    public function __construct($kompaniaID = '',$emriKompanis = '', $kompaniaLogo = '', $adresaKompanis = '')
+    public function __construct($kompaniaID = '', $emriKompanis = '', $kompaniaLogo = '', $adresaKompanis = '')
     {
         $this->kompaniaID = $kompaniaID;
         $this->emriKompanis = $emriKompanis;
@@ -62,52 +63,55 @@ class kompaniaCRUD extends dbCon{
         $this->adresaKompanis = $adresaKompanis;
     }
 
-    public function insertoKompanin(){
-        try{
+    public function insertoKompanin()
+    {
+        try {
             $sql = "INSERT INTO `kompania`(`emriKompanis`, `kompaniaLogo`, `adresaKompanis`) VALUES (?,?,?)";
             $stm = $this->dbConn->prepare($sql);
-            $stm->execute([$this->emriKompanis,$this->kompaniaLogo,$this->adresaKompanis]);
+            $stm->execute([$this->emriKompanis, $this->kompaniaLogo, $this->adresaKompanis]);
 
             $_SESSION['mesazhiMeSukses'] = true;
-        }catch(Exception $e){
+        } catch (Exception $e) {
             return $e->getMessage();
         }
     }
 
 
-    public function shfaqKompanin(){
-        try{
+    public function shfaqKompanin()
+    {
+        try {
             $sql = "SELECT * FROM kompania";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute();
 
             return $stm->fetchAll();
-        }catch(Exception $e){
+        } catch (Exception $e) {
             return $e->getMessage();
         }
     }
 
-    public function shfaqKompanitSelektim(){
-        try{
+    public function shfaqKompanitSelektim()
+    {
+        try {
             $kompanit = $this->shfaqKompanin();
 
             echo '<select name="kompania">
                 <option value="te tjera">Zgjedhni Kompanin</option>
             ';
-            
-            foreach($kompanit as $kompania){
+
+            foreach ($kompanit as $kompania) {
                 echo '<option value="' . $kompania['emriKompanis'] . '">' . $kompania['emriKompanis'] . '</option>';
             }
             echo '</select>';
 
-        }catch(Exception $e){
+        } catch (Exception $e) {
             return $e->getMessage();
         }
-        
-        
+
+
     }
 
-    
+
 }
 
 
