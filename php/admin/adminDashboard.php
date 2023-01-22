@@ -13,7 +13,7 @@ $userCRUD = new userCRUD();
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin Dashboard | Tech Store</title>
   <link rel="shortcut icon" href="../../img/web/favicon.ico" />
-
+  <link rel="stylesheet" href="../../css/adminDashboard.css">
 </head>
 
 <body>
@@ -22,7 +22,6 @@ $userCRUD = new userCRUD();
 
   <div class="containerDashboard">
 
-    <?php include_once('../design/adminNav.php'); ?>
     <h1 class="titulliPershkrim">Miresevini
       <?php echo $_SESSION['name'] ?>!
     </h1>

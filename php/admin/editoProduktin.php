@@ -28,7 +28,6 @@ if (isset($_POST['editoProd'])) {
 }
 if (isset($_POST['editoProd'])) {
   echo '<script>document.location="./produktet.php"</script>';
-  unset($_SESSION['mesazhiMeSukses']);
 }
 ?>
 <!DOCTYPE html>
@@ -48,7 +47,6 @@ if (isset($_POST['editoProd'])) {
   <?php
   include '../design/headerAdmin.php';
   echo '<div class="containerDashboard">';
-  include '../design/adminNav.php';
   echo '</div>';
   ?>
   <div class="forms">

@@ -190,9 +190,9 @@ class produktiCRUD extends dbCon
     public function shfaqProduktetNgaKerkimi()
     {
         try {
-            $this->setEmriProduktit('%' . $_SESSION['kompania'] . '%');
+            $this->setEmriProduktit('%' . $_SESSION['kerko'] . '%');
 
-            $sql = "SELECT * FROM produkti WHERE `emriProduktit` like ?";
+            $sql = "SELECT * FROM produkti WHERE `emriProduktit` LIKE ?";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute([$this->emriProduktit]);
 
@@ -201,7 +201,7 @@ class produktiCRUD extends dbCon
             if ($produktet == true) {
                 echo '<div class="artikujt">
                 <div class="titulliArtikuj">
-                  <h1 class="">All Products like ' . $_SESSION['kompania'] . '</h1>
+                  <h1 class="">All Products like ' . $_SESSION['kerko'] . '</h1>
                 </div>';
                 foreach ($produktet as $produkti) {
                     echo '  <div class="artikulli">
@@ -214,7 +214,7 @@ class produktiCRUD extends dbCon
             } else {
                 echo '<div class="artikujt">
                 <div class="titulliArtikuj">
-                  <h1 class="">All Products like ' . $_SESSION['kompania'] . '</h1>
+                  <h1 class="">All Products like ' . $_SESSION['kerko'] . '</h1>
                 </div>
                     <h1>Produkti qe kerkuat nuk egziston!</h1>';
 

@@ -10,7 +10,9 @@
 .titulliPershkrim {
   color: red;
   text-align: center;
+  margin-top: 2em;
 }
+
 .adminNav {
   display: flex;
   justify-content: center;

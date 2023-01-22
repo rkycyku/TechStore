@@ -53,7 +53,7 @@ require_once('./kontrolloAksesin.php');
       <input class="button" type="submit" value="Shtoni Kompanin" name='shtoKompanin'>
     </form>
   </div>
-  <script src="../../js/mbyllMesazhin.js"></script>
+  <?php include('../funksione/importimiScriptave.php')?>
 </body>
 
 </html>

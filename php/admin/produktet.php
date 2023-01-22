@@ -23,7 +23,6 @@ $produktiCRUD = new produktiCRUD();
 
   <div class="containerDashboard">
     <?php
-    include_once('../design/adminNav.php');
     if (isset($_SESSION['mesazhiMeSukses'])) {
       echo '
                 <div class="mesazhiSuksesStyle">
@@ -44,6 +43,16 @@ $produktiCRUD = new produktiCRUD();
                 </div>
           ';
     }
+    if (isset($_SESSION['skeAksesAdmin'])) {
+      echo '
+                <div class="mesazhiGabimStyle">
+                  <h3>Nuk keni akses per kete sherbim!</h3>
+                  <button id="mbyllMesazhin">
+                    X
+                  </button>
+                </div>
+          ';
+    }
     ?>
 
     <table>
@@ -55,6 +64,7 @@ $produktiCRUD = new produktiCRUD();
         <th>Foto e Produktit</th>
         <th>Stafi Menaxhues</th>
         <th>Qmimi i Produktit</th>
+        <th>Funksione</th>
       </tr>
       <?php
       $produktet = $produktiCRUD->shfaqTeGjithaProduktet();
@@ -69,8 +79,8 @@ $produktiCRUD = new produktiCRUD();
               <td><img src="../../img/products/' . $produkti['fotoProduktit'] . '"></td>
               <td>' . $produkti['emriStafit'] . '</td>
               <td>' . $produkti['qmimiProduktit'] . ' €</td>
-              <td><button class=""><a href="./editoProduktin.php?produktID=' . $produkti['produktiID'] . '">Edito</a></button></td>
-              <td><button class=""><a href="../funksione/fshiProduktin.php?produktID=' . $produkti['produktiID'] . '">Fshi</a></button></td>
+              <td><button class=""><a href="./editoProduktin.php?produktID=' . $produkti['produktiID'] . '">Edito</a></button>
+              <button class=""><a href="../funksione/fshiProduktin.php?produktID=' . $produkti['produktiID'] . '">Fshi</a></button></td>
             </tr>
           ';
       }
@@ -79,7 +89,9 @@ $produktiCRUD = new produktiCRUD();
     </table>
   </div>
 
-  <?php include '../design/footerAdmin.php' ?>
+  <?php
+  include '../design/footerAdmin.php';
+  include('../funksione/importimiScriptave.php')?>
 </body>
 
 </html>
@@ -87,4 +99,5 @@ $produktiCRUD = new produktiCRUD();
 <?php
 unset($_SESSION['mesazhiMeSukses']);
 unset($_SESSION['mesazhiFshirjesMeSukses']);
+unset($_SESSION['skeAksesAdmin']);
 ?>

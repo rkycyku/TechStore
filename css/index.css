@@ -209,12 +209,6 @@
     margin: 0 auto;
   }
 
-  .logoBrendit img {
-    width: 90%;
-    aspect-ratio: 3/2;
-    object-fit: contain;
-  }
-
   .shkoMajtas,
   .shkoDjathtas {
     top: 25px;

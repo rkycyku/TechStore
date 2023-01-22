@@ -47,8 +47,7 @@ if (isset($_POST['shtoKat'])) {
       <input class="button" type="submit" value="Shtoni Kategorin" name='shtoKat'>
     </form>
   </div>
-  <script src="../../js/validimiFormave.js"></script>
-  <script src="../../js/mbyllMesazhin.js"></script>
+  <?php include('../funksione/importimiScriptave.php')?>
 </body>
 
 </html>

@@ -92,8 +92,7 @@ if (isset($_POST['shtoProd'])) {
       <input class="button" type="submit" value="Shtoni Produktin" name='shtoProd'>
     </form>
   </div>
-  <script src="../../js/validimiFormave.js"></script>
-  <script src="../../js/mbyllMesazhin.js"></script>
+  <?php include('../funksione/importimiScriptave.php')?>
 </body>
 
 </html>

@@ -9,8 +9,8 @@ require_once('../CRUD/kompaniaCRUD.php');
 $kompaniaCRUD = new kompaniaCRUD();
 $produktiCRUD = new produktiCRUD();
 
-if (isset($_POST['test'])) {
-  echo '<script>document.location="./produktet.php?kerko=' . $_POST['test'] . '"</script>';
+if (isset($_POST['kerkimi'])) {
+  echo '<script>document.location="./produktet.php?kerko=' . $_POST['kerkimi'] . '"</script>';
 }
 ?>
 <!DOCTYPE html>
@@ -32,7 +32,7 @@ if (isset($_POST['test'])) {
       <div class="titulliPershkrim">
         <p>A place where technology is everything.</p>
         <form name='kerko' action='' method="post">
-          <input name='test' type="text">
+          <input name='kerkimi' type="text">
         </form>
       </div>
     </div>
@@ -75,7 +75,7 @@ if (isset($_POST['test'])) {
       ?>
     </div>
   </div>
-
+  <?php include('../funksione/importimiScriptave.php')?>
   <?php include '../design/footerMain.php' ?>
 </body>
 

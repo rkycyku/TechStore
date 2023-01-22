@@ -43,7 +43,7 @@ $produktiCRUD = new produktiCRUD();
                 </div>';
       }
     } else if (isset($_GET['kerko'])) {
-      $_SESSION['kompania'] = $_GET['kerko'];
+      $_SESSION['kerko'] = $_GET['kerko'];
 
       $produktiCRUD->shfaqProduktetNgaKerkimi();
     } else {
