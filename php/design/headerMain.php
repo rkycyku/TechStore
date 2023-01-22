@@ -41,7 +41,7 @@ if(!isset($_SESSION)){
                          '<li class="nav-item">
                             <a href="">Mirësevini ' . $_SESSION['name'] . '</a>
                         </li>';
-                        if($_SESSION['aksesi'] == 1){
+                        if($_SESSION['aksesi'] != 0){
                             echo 
                             '<li class="nav-item">
                                 <a href="../admin/adminDashboard.php">Dashboard</a>

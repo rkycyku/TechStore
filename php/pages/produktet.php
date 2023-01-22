@@ -40,6 +40,10 @@ $produktiCRUD = new produktiCRUD();
                     <button class="button">Buy</button>
                 </div>';
           }
+        }else if(isset($_GET['kerko'])){
+          $_SESSION['kompania'] = $_GET['kerko'];
+
+          $produktiCRUD->shfaqProduktetNgaKerkimi();
         }else{
           echo '<div class="artikujt">
                   <div class="titulliArtikuj">

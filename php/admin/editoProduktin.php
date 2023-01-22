@@ -1,6 +1,5 @@
 <?php 
-// require_once('./kontrolloAksesin.php');
-require_once('./kontrolloAksesAdmin.php'); 
+require_once('./kontrolloAksesin.php');
 require_once('../CRUD/produktiCRUD.php');
 require_once('../CRUD/kategoriaCRUD.php');
 require_once('../CRUD/kompaniaCRUD.php');
@@ -75,7 +74,7 @@ if (isset($_POST['editoProd'])) {
           foreach($kategorit as $kategoria){
               echo '<option value="' . $kategoria['emriKategoris'] . '">' . $kategoria['emriKategoris'] . '</option>';
           }
-          echo '<option selected hidden value="' . $kategoria['emriKategoris'] . '">' . $kategoria['emriKategoris'] . '</option> </select>';
+          echo '<option selected hidden value="' . $produkti['kategoriaProduktit'] . '">' . $produkti['kategoriaProduktit'] . '</option> </select>';
         ?>
         <input class="form-input" name="pdPhoto" accept="image/*" type="file" placeholder="Foto Produktit">
         <input class="form-input" name="cmimiPd" type="text" placeholder="Qmimi i Produktit" value='<?php echo $produkti['qmimiProduktit']?>' required>

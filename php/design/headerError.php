@@ -37,11 +37,26 @@ if(!isset($_SESSION)){
             
                  <?php
                  if(isset($_SESSION['name'])){
-                    echo 
-                        '<li class="nav-item">
+                    echo
+                         '<li class="nav-item">
                             <a href="">Mirësevini ' . $_SESSION['name'] . '</a>
-                        </li>
-                        <li class="nav-item">
+                        </li>';
+                        if($_SESSION['aksesi'] != 0){
+                            echo 
+                            '<li class="nav-item">
+                                <a href="../admin/adminDashboard.php">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/shtoKategorin.php">Vendosja e Kategorive</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/shtoProdukt.php">Vendosja e Produkteve</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/shtoKompanin.php">Vendosja e Kompanive</a>
+                            </li>';
+                        }
+                    echo '    <li class="nav-item">
                             <a href="../funksione/logout.php">Log Out</a>
                         </li>';
                 }else{

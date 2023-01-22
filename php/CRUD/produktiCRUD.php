@@ -112,18 +112,19 @@ class produktiCRUD extends dbCon{
 
     public function shtoProduktin(){
         try{
+            $this->barteFotonNeFolder();
+
             $this->setEmriProduktit($_SESSION['EmriProduktit']);
             $this->setEmriKompanis($_SESSION['EmriKompanis']);
             $this->setKategoriaProduktit($_SESSION['KategoriaProduktit']);
             $this->setEmriStafit($_SESSION['name']);
             $this->setQmimiProduktit($_SESSION['QmimiProduktit']);
-            $this->setFotoProduktit($_SESSION['EmriFotosProduktit']);
+            $this->setFotoProduktit($_SESSION['emriUnikFotos']);
 
             $sql = "INSERT INTO `produkti`(`emriProduktit`, `emriKompanis`, `kategoriaProduktit`, `fotoProduktit`, `emriStafit`,`qmimiProduktit`) VALUES (?,?,?,?,?,?)";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute([$this->emriProduktit, $this->emriKompanis, $this->kategoriaProduktit, $this->fotoProduktit, $this->emriStafit, $this->qmimiProduktit]);
 
-            $this->barteFotonNeFolder();
             $_SESSION['mesazhiMeSukses'] = true;
         }catch(Exception $e){
             return $e->getMessage();
@@ -180,6 +181,42 @@ class produktiCRUD extends dbCon{
         }
     }
 
+    public function shfaqProduktetNgaKerkimi(){
+        try{
+            $this->setEmriProduktit('%'.$_SESSION['kompania'].'%');
+
+            $sql = "SELECT * FROM produkti WHERE `emriProduktit` like ?";
+            $stm = $this->dbConn->prepare($sql);
+            $stm->execute([$this->emriProduktit]);
+
+            $produktet = $stm->fetchAll();
+
+            if($produktet == true){
+                echo '<div class="artikujt">
+                <div class="titulliArtikuj">
+                  <h1 class="">All Products like ' . $_SESSION['kompania'] . '</h1>
+                </div>';
+              foreach ($produktet as $produkti) {
+                echo '  <div class="artikulli">
+                          <img src="../../img/products/' . $produkti['fotoProduktit'] . '" alt="" />
+                          <p class="artikulliLabel">' . $produkti['emriProduktit'] . '</p>
+                          <p class="cmimi">' . $produkti['qmimiProduktit'] . ' €</p>
+                          <button class="button">Buy</button>
+                         </div>';
+              }
+            }else{
+                echo '<div class="artikujt">
+                <div class="titulliArtikuj">
+                  <h1 class="">All Products like ' . $_SESSION['kompania'] . '</h1>
+                </div>
+                    <h1>Produkti qe kerkuat nuk egziston!</h1>';
+
+            }
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+    }
+
     public function shfaqProduktinSipasKategoris(){
         try{
             $sql = "SELECT * FROM produkti WHERE `kategoriaProduktit` = ?";
@@ -226,11 +263,13 @@ class produktiCRUD extends dbCon{
     }
     public function editoProduktinMeFoto(){
         try{
+            $this->barteFotonNeFolder();
+            
             $this->setProduktiID($_SESSION['prouktiID']);
             $this->setEmriProduktit($_SESSION['EmriProduktit']);
             $this->setEmriKompanis($_SESSION['EmriKompanis']);
             $this->setKategoriaProduktit($_SESSION['KategoriaProduktit']);
-            $this->setFotoProduktit($_SESSION['EmriFotosProduktit']);
+            $this->setFotoProduktit($_SESSION['emriUnikFotos']);
             $this->setEmriStafit($_SESSION['name']);
             $this->setQmimiProduktit($_SESSION['QmimiProduktit']);
 
@@ -238,7 +277,6 @@ class produktiCRUD extends dbCon{
             $stm = $this->dbConn->prepare($sql);
             $stm->execute([$this->emriProduktit,$this->emriKompanis,$this->kategoriaProduktit,$this->fotoProduktit,$this->emriStafit,$this->qmimiProduktit,$this->produktiID]);
             
-            $this->barteFotonNeFolder();
             $_SESSION['mesazhiMeSukses'] = true;
             echo '<script>document.location="../admin/produktet.php"</script>';
         }catch(Exception $e){
@@ -262,8 +300,8 @@ class produktiCRUD extends dbCon{
             if (in_array($fileActualExt, $teLejuara)) {
                 if ($errorFoto === 0) {
                     if ($madhesiaFotos < 1000000) {
-                        $emriUnikIFotos = uniqid('', true).".".$fileActualExt;
-                        $destinacioniFotos = '../../img/products/'.$emriUnikIFotos;
+                        $_SESSION['emriUnikFotos'] = uniqid('', true).".".$fileActualExt;
+                        $destinacioniFotos = '../../img/products/'.$_SESSION['emriUnikFotos'];
                         move_uploaded_file($emeriTempIFotes, $destinacioniFotos);
                     } 
                     else {

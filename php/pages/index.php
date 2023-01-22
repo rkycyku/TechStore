@@ -8,6 +8,10 @@ require_once('../CRUD/kompaniaCRUD.php');
 
 $kompaniaCRUD = new kompaniaCRUD();
 $produktiCRUD = new produktiCRUD();
+
+if(isset($_POST['test'])){
+  echo '<script>document.location="./produktet.php?kerko=' . $_POST['test'] . '"</script>';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,9 +29,11 @@ $produktiCRUD = new produktiCRUD();
       <div class="banner">
         <div class="titulliPershkrim">
           <p>A place where technology is everything.</p>
+          <form name='kerko' action='' method="post">
+            <input name='test'type="text">
+          </form>
         </div>
       </div>
-
       <?php 
         $kompanit = $kompaniaCRUD->shfaqKompanin();
         
