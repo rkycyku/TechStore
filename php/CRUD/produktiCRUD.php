@@ -217,7 +217,7 @@ class produktiCRUD extends dbCon
                   <h1 class="">All Products like ' . $_SESSION['kerko'] . '</h1>
                 </div>
                     <h1>Produkti qe kerkuat nuk egziston!</h1>';
-
+                
             }
         } catch (Exception $e) {
             return $e->getMessage();

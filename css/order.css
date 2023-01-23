@@ -1,0 +1,26 @@
+.containerOrder{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    margin: 5em auto;
+}
+.teDhenatEProduktit{
+    display: flex;
+    width: 30%;
+    flex-direction: column;
+    color: white;
+    gap: 1em;
+    margin-right: 1em;
+}
+
+.teDhenatEProduktit img{
+  width: 70%;
+  aspect-ratio: 3/2;
+  object-fit: contain;
+}
+
+#shumaTOT{
+  color: white;
+}

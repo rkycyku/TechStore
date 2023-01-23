@@ -16,9 +16,11 @@ if (isset($_POST['login'])) {
         $kontrolloLlogarin = $userCRUD->kontrolloLlogarin();
 
         if ($kontrolloLlogarin == true) {
-            $_SESSION['name'] = $kontrolloLlogarin['username'];
             $_SESSION['aksesi'] = $kontrolloLlogarin['aksesi'];
             $_SESSION['userID'] = $kontrolloLlogarin['userID'];
+            $_SESSION['name'] = $kontrolloLlogarin['emri'];
+            $_SESSION['mbiemri'] = $kontrolloLlogarin['mbiemri'];
+            $_SESSION['email'] = $kontrolloLlogarin['email'];
             echo "<script>document.location='../pages/index.php'</script>";
         } else {
             $_SESSION['passGabim'] = true;
