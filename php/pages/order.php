@@ -53,7 +53,7 @@ if (isset($_GET['produktiID'])) {
                 <input class="form-input" name="email" type="text" placeholder="Email" <?php if(isset($_SESSION['email']))echo 'value="'.$_SESSION['email'].'"'?>>
                 <textarea class="form-input" name="adresa" type="textfield" placeholder="Adresa"></textarea>
                 <input class="form-input" name="sasia" id="sasia" type="number" placeholder="Sasia" value="1" min="1">
-                <input class="button" type="submit" value="Sign Up" name='submit'>
+                <input class="button" type="submit" value="Submit" name='submit'>
             </form>
         </div>
         <div class="QmimiTransportit">
@@ -75,7 +75,7 @@ function updatePrice() {
   })
   .then(response => response.text())
   .then(price => {
-    document.getElementById("shumaTOT").innerHTML = "Shuma Totale eshte: " + price + " €";
+    document.getElementById("shumaTOT").innerHTML = "Totali eshte: " + price + " €";
   });
 }
 </script>

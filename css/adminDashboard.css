@@ -1,14 +1,58 @@
-.containerDashboard {
+.containerDashboardP {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  
+}
+.containerDashboardP tr th{
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.containerDashboardP th,
+.containerDashboardP td{
+  padding: 12px 15px;
+}
+
+.containerDashboardP tr td{
+  border-bottom: 1px solid #dddddd;
+}
+
+.edito{
+  padding: 0.4em;
+  background-color: #45c263;
+  border: none;
+  border-radius: 2px;
+}
+
+.fshij{
+  padding: 0.4em;
+  background-color: #e33437;
+  border: none;
+  border-radius: 2px;
+}
+
+.containerDashboard{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  margin: 0 auto;
+  padding-bottom: 5em;
+  margin-top: 2em;
+  gap: 0.6em;
+
 }
 
 .titulliPershkrim {
-  color: red;
+  display: flex;
+  flex-direction: column;
+  color: #009879;
   text-align: center;
   margin-top: 2em;
 }
@@ -28,7 +72,7 @@
 }
 
 .adminNav-item a {
-  font-size: larger;
+  font-size: 1em;
   color: #00113f;
 }
 .adminNav-item a:hover {

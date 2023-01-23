@@ -25,7 +25,7 @@ $userCRUD = new userCRUD();
     <h1 class="titulliPershkrim">Miresevini
       <?php echo $_SESSION['name'] ?>!
     </h1>
-    <h2>Te dhenat e tua</h2>
+    <h2>Te dhenat</h2>
     <?php
     $userCRUD->setUserID($_SESSION['userID']);
     $useri = $userCRUD->shfaqSipasID();

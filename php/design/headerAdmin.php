@@ -33,6 +33,8 @@ if (!isset($_SESSION)) {
                     <a href="./produktet.php">Produktet</a>
                     <span class="line"></span>
                 </li>
+
+                
             </ul>
             <ul class="auth">
                 <li class="nav-item">

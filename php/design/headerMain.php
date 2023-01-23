@@ -39,10 +39,6 @@ if (!isset($_SESSION)) {
 
                 <?php
                 if (isset($_SESSION['name'])) {
-                    echo
-                        '<li class="nav-item">
-                            <a href="">Mirësevini ' . $_SESSION['name'] . '</a>
-                        </li>';
                     if ($_SESSION['aksesi'] != 0) {
                         echo
                             '<li class="nav-item">

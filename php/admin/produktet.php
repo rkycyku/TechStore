@@ -21,7 +21,7 @@ $produktiCRUD = new produktiCRUD();
 
   <?php include '../design/headerAdmin.php' ?>
 
-  <div class="containerDashboard">
+  <div class="containerDashboardP">
     <?php
     if (isset($_SESSION['mesazhiMeSukses'])) {
       echo '
@@ -57,12 +57,11 @@ $produktiCRUD = new produktiCRUD();
 
     <table>
       <tr>
-        <th>ID e Produktit</th>
+        <th>ID </th>
         <th>Emri i Produktit</th>
         <th>Emri i Kompanis</th>
         <th>Kategoria e Produktit</th>
         <th>Foto e Produktit</th>
-        <th>Stafi Menaxhues</th>
         <th>Qmimi i Produktit</th>
         <th>Funksione</th>
       </tr>
@@ -77,10 +76,9 @@ $produktiCRUD = new produktiCRUD();
               <td>' . $produkti['emriKompanis'] . '</td>
               <td>' . $produkti['kategoriaProduktit'] . '</td>
               <td><img src="../../img/products/' . $produkti['fotoProduktit'] . '"></td>
-              <td>' . $produkti['emriStafit'] . '</td>
               <td>' . $produkti['qmimiProduktit'] . ' €</td>
-              <td><button class=""><a href="./editoProduktin.php?produktID=' . $produkti['produktiID'] . '">Edito</a></button>
-              <button class=""><a href="../funksione/fshiProduktin.php?produktID=' . $produkti['produktiID'] . '">Fshi</a></button></td>
+              <td><button class="edito"><a href="./editoProduktin.php?produktID=' . $produkti['produktiID'] . '">Edito</a></button>
+              <button class="fshij"><a href="../funksione/fshiProduktin.php?produktID=' . $produkti['produktiID'] . '">Fshi</a></button></td>
             </tr>
           ';
       }
