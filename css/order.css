@@ -8,11 +8,27 @@
 }
 .teDhenatEProduktit{
     display: flex;
-    width: 30%;
+    width: 20%;
     flex-direction: column;
-    color: white;
+    color: black;
+    font-size: 0.8em;
     gap: 1em;
-    margin-right: 1em;
+    margin-right: 3em;
+    border: solid 1px black;
+    border-radius: 25px;
+    padding: 1.5em;
+    background-color: white;
+}
+
+.QmimiTransportit{
+  margin-left: 3em;
+  width: 20%;
+  font-size: 10px;
+  color: black;
+  border: solid 1px black;
+  border-radius: 25px;
+  padding: 1.5em;
+  background-color: white;
 }
 
 .teDhenatEProduktit img{
@@ -22,5 +38,5 @@
 }
 
 #shumaTOT{
-  color: white;
+  color: black;
 }

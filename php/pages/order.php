@@ -56,9 +56,9 @@ if (isset($_GET['produktiID'])) {
                 <input class="button" type="submit" value="Sign Up" name='submit'>
             </form>
         </div>
-        <div>
-            <h2>Qmimi i Transportit kushton 2 €</h2>
-            <h2 id='shumaTOT'>Shuma Totale eshte: <?php echo ($_SESSION['qmimiProduktit']+2) . ' €'?></h2>
+        <div class="QmimiTransportit">
+            <h2>Transporti: 2 €</h2>
+            <h2 id='shumaTOT'>Totali eshte: <?php echo ($_SESSION['qmimiProduktit']+2) . ' €'?></h2>
         </div>
     </div>
     <?php include_once('../funksione/importimiScriptave.php'); ?>
