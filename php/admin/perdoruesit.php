@@ -23,20 +23,20 @@ $userCRUD = new userCRUD();
 
   <div class="containerDashboardP">
     <?php
-    if (isset($_SESSION['mesazhiMeSukses'])) {
+    if (isset($_SESSION['aksesiUPerditesua'])) {
       echo '
                 <div class="mesazhiSuksesStyle">
-                  <h3>Produkti u editua me sukses!</h3>
+                  <h3>Aksesi u ndryshua!</h3>
                   <button id="mbyllMesazhin">
                     X
                   </button>
                 </div>
           ';
     }
-    if (isset($_SESSION['mesazhiFshirjesMeSukses'])) {
+    if (isset($_SESSION['ndryshimiUAnulua'])) {
       echo '
-                <div class="mesazhiSuksesStyle">
-                  <h3>Produkti u fshi me sukses!</h3>
+                <div class="mesazhiGabimStyle">
+                  <h3>Ju keni anuluar ndryshimin!</h3>
                   <button id="mbyllMesazhin">
                     X
                   </button>
@@ -77,8 +77,7 @@ $userCRUD = new userCRUD();
               <td>' . $produkti['username'] . '</td>
               <td>' . $produkti['email'] . '</td>
               <td>' . $produkti['aksesi'] . '</td>
-              <td><button class="edito"><a href="./editoProduktin.php?userID=' . $produkti['userID'] . '">Edito</a></button>
-              <button class="fshij"><a href="../funksione/fshiProduktin.php?userID=' . $produkti['userID'] . '">Fshi</a></button>
+              <td><button class="edito"><a href="./ndryshoAksesin.php?userID=' . $produkti['userID'] . '">Edito</a></button>
               <button class="edito"><a href="../userPages/porosit.php?userID=' . $produkti['userID'] . '">Porosite</a></button></td>
             </tr>
           ';
@@ -96,7 +95,7 @@ $userCRUD = new userCRUD();
 </html>
 
 <?php
-unset($_SESSION['mesazhiMeSukses']);
-unset($_SESSION['mesazhiFshirjesMeSukses']);
+unset($_SESSION['aksesiUPerditesua']);
+unset($_SESSION['ndryshimiUAnulua']);
 unset($_SESSION['skeAksesAdmin']);
 ?>

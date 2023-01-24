@@ -41,6 +41,10 @@ if (!isset($_SESSION)) {
                     <a href="./perdoruesit.php">Perdoruesit</a>
                     <span class="line"></span>
                 </li>
+                <li class="nav-item">
+                    <a href="./shfaqMesazhet.php">Mesazhet</a>
+                    <span class="line"></span>
+                </li>
             </ul>
             <ul class="auth">
                 <li class="nav-item">

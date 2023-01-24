@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 24, 2023 at 01:23 AM
+-- Generation Time: Jan 24, 2023 at 01:32 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -31,7 +31,8 @@ CREATE TABLE `contactform` (
   `emri` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `mesazhi` varchar(255) NOT NULL,
-  `dataDergeses` timestamp NOT NULL DEFAULT current_timestamp()
+  `dataDergeses` timestamp NOT NULL DEFAULT current_timestamp(),
+  `statusi` varchar(80) NOT NULL DEFAULT 'Eshte Derguar me Sukses'
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 --
 -- Dumping data for table `contactform`
@@ -42,21 +43,24 @@ INSERT INTO `contactform` (
     `emri`,
     `email`,
     `mesazhi`,
-    `dataDergeses`
+    `dataDergeses`,
+    `statusi`
   )
 VALUES (
     1,
     'Rilind',
     'r.kycyku.12@gmail.com',
     'ssdgadgf',
-    '2023-01-20 23:00:00'
+    '2023-01-20 23:00:00',
+    'Mesazhi eshte Pranuar dhe eshte Pergjigjur ne email'
   ),
   (
     2,
     'Rilind',
     'r.kycyku.12@gmail.com',
     'test',
-    '2023-01-21 18:50:18'
+    '2023-01-21 18:50:18',
+    'Eshte Derguar me Sukses'
   );
 -- --------------------------------------------------------
 --

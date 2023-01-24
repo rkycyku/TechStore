@@ -11,14 +11,16 @@ class contactFormCRUD extends dbCon
     private $emri;
     private $email;
     private $msg;
+    private $statusi;
     private $dbConn;
 
-    public function __construct($IDmesazhi = '', $emri = '', $email = '', $msg = '')
+    public function __construct($IDmesazhi = '', $emri = '', $email = '', $msg = '', $statusi = '')
     {
         $this->IDmesazhi = $IDmesazhi;
         $this->emri = $emri;
         $this->email = $email;
         $this->msg = $msg;
+        $this->statusi = $statusi;
 
         $this->dbConn = $this->connDB();
     }
@@ -52,7 +54,15 @@ class contactFormCRUD extends dbCon
     {
         $this->msg = $msg;
     }
+    public function getStatusi()
+    {
+        return $this->statusi;
+    }
 
+    public function setStatusi($statusi)
+    {
+        $this->statusi = $statusi;
+    }
     public function getIDmesazhi()
     {
         return $this->IDmesazhi;
@@ -86,6 +96,19 @@ class contactFormCRUD extends dbCon
 
             return $stm->fetchAll();
         } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function konfirmoMesazhin(){
+        try{
+            $sql = "UPDATE contactform set statusi = 'Mesazhi eshte Pranuar dhe eshte Pergjigjur ne email' where IDmesazhi = ?";
+            $stm = $this->dbConn->prepare($sql);
+            $stm->execute([$this->IDmesazhi]);
+
+            $_SESSION['mezashiUKonfirmua'] = true;
+            echo '<script>document.location="./shfaqMesazhet.php"</script>';
+        }catch(Exception $e){
             return $e->getMessage();
         }
     }

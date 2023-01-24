@@ -163,6 +163,16 @@ class userCRUD extends dbCon
             return $e->getMessage();
         }
     }
+
+    public function editoAksesinUserit(){
+        try{
+            $sql = "UPDATE user set `aksesi` = ? where userID = ?";
+            $stm = $this->dbConn->prepare($sql);
+            $stm->execute([$this->aksesi, $this->userID]);
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+    }
 }
 
 ?>

@@ -33,15 +33,23 @@ $porosiaCRUD = new porosiaCRUD();
                       <button id="mbyllMesazhin">X</button>
                     </div>';
     }
-    if (isset($_SESSION['userID'])) {
-      $porosiaCRUD->setUserID($_SESSION['userID']);
-      echo '<h2>Te gjitha porosit e tua</h2>';
+    if (isset($_GET['produktID'])) {
+      $porosiaCRUD->setProduktiID($_GET['produktID']);
+      echo '<h2>Te gjitha porosit e Produktit me ID: ' . $_GET['produktID'] . '</h2>';
+      $porosiaCRUD->shfaqPorositSipasProduktit();
+    } else {
+
+
+      if (isset($_SESSION['userID'])) {
+        $porosiaCRUD->setUserID($_SESSION['userID']);
+        echo '<h2>Te gjitha porosit e tua</h2>';
+      }
+      if (isset($_GET['userID'])) {
+        $porosiaCRUD->setUserID($_GET['userID']);
+        echo '<h2>Te gjitha porosit e Klientit me ID: ' . $_GET['userID'] . '</h2>';
+      }
+      $porosia = $porosiaCRUD->shfaqPorositEKlientit();
     }
-    if (isset($_GET['userID'])) {
-      $porosiaCRUD->setUserID($_GET['userID']);
-      echo '<h2>Te gjitha porosit e Klientit me ID: ' . $_GET['userID'] . '</h2>';
-    }
-    $porosia = $porosiaCRUD->shfaqPorositEKlientit();
     ?>
 
   </div>

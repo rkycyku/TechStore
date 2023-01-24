@@ -234,6 +234,51 @@ class porosiaCRUD extends dbCon
         }
     }
 
+    public function shfaqPorositSipasProduktit()
+    {
+        try {
+            $sql = "SELECT * from `porosia` inner join produkti on porosia.produktiID = produkti.produktiID where porosia.produktiID = ?";
+            $stm = $this->dbConn->prepare($sql);
+            $stm->execute([$this->produktiID]);
+
+            echo '
+            <table>
+            <tr>
+              <th>Numri i Porosis</th>
+              <th>ID Klinetit</th>
+              <th>Emri Klientit</th>
+              <th>Emri i Produktit</th>
+              <th>Qmimi i Produktit</th>
+              <th>Sasia e Porositur</th>
+              <th>Qmimi total</th>
+              <th>Data e porosis</th>
+              <th>Statusi i porosis</th>
+            </tr>';
+
+
+            foreach ($stm as $porosia) {
+                echo '
+                  <tr>
+                    <td>' . $porosia['porosiaID'] . '</td>
+                    <td>' . $porosia['userID'] . '</td>
+                    <td>' . $porosia['emriKlientit'] . '</td>
+                    <td>' . $porosia['emriProduktit'] . '</td>
+                    <td>' . $porosia['qmimiProduktit'] . ' €</td>
+                    <td>' . $porosia['sasiaPorositur'] . '</td>
+                    <td>' . $porosia['qmimiTotal'] . ' €</td>
+                    <td>' . $porosia['dataPorosis'] . '</td>
+                    <td>' . $porosia['statusiPorosis'] . '</td>
+                  </tr>
+                ';
+            }
+            echo '</th>
+          </table>';
+
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
     public function shfaqTeGjithaPorosite()
     {
         try {

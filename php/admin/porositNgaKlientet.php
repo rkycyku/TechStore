@@ -2,7 +2,7 @@
 if (!isset($_SESSION)) {
   session_start();
 }
-
+require_once('./kontrolloAksesin.php');
 require_once('../CRUD/porosiaCRUD.php');
 
 $porosiaCRUD = new porosiaCRUD();
