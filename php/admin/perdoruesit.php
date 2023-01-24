@@ -1,8 +1,8 @@
 <?php
 require_once('./kontrolloAksesin.php');
-require_once('../CRUD/produktiCRUD.php');
+require_once('../CRUD/userCRUD.php');
 
-$produktiCRUD = new produktiCRUD();
+$userCRUD = new userCRUD();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +11,7 @@ $produktiCRUD = new produktiCRUD();
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Produktet | Tech Store</title>
+  <title>Perdoruesit | Tech Store</title>
   <link rel="shortcut icon" href="../../img/web/favicon.ico" />
   <link rel="stylesheet" href="../../css/adminDashboard.css" />
   <link rel="stylesheet" href="../../css/mesazhetStyle.css" />
@@ -54,31 +54,32 @@ $produktiCRUD = new produktiCRUD();
           ';
     }
     ?>
-    <h1>Produktet</h1>
+    <h1>Lista e Perdoruesve</h1>
     <table>
       <tr>
-        <th>ID </th>
-        <th>Emri i Produktit</th>
-        <th>Emri i Kompanis</th>
-        <th>Kategoria e Produktit</th>
-        <th>Foto e Produktit</th>
-        <th>Qmimi i Produktit</th>
+        <th>ID</th>
+        <th>Emri</th>
+        <th>Mbiemri</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Aksesi</th>
         <th>Funksione</th>
       </tr>
       <?php
-      $produktet = $produktiCRUD->shfaqTeGjithaProduktet();
+      $produktet = $userCRUD->shfaqTeGjithePerdoruesit();
 
       foreach ($produktet as $produkti) {
         echo '
             <tr>
-              <td>' . $produkti['produktiID'] . '</td>
-              <td>' . $produkti['emriProduktit'] . '</td>
-              <td>' . $produkti['emriKompanis'] . '</td>
-              <td>' . $produkti['kategoriaProduktit'] . '</td>
-              <td><img src="../../img/products/' . $produkti['fotoProduktit'] . '"></td>
-              <td>' . $produkti['qmimiProduktit'] . ' €</td>
-              <td><button class="edito"><a href="./editoProduktin.php?produktID=' . $produkti['produktiID'] . '">Edito</a></button>
-              <button class="fshij"><a href="../funksione/fshiProduktin.php?produktID=' . $produkti['produktiID'] . '">Fshi</a></button></td>
+              <td>' . $produkti['userID'] . '</td>
+              <td>' . $produkti['emri'] . '</td>
+              <td>' . $produkti['mbiemri'] . '</td>
+              <td>' . $produkti['username'] . '</td>
+              <td>' . $produkti['email'] . '</td>
+              <td>' . $produkti['aksesi'] . '</td>
+              <td><button class="edito"><a href="./editoProduktin.php?userID=' . $produkti['userID'] . '">Edito</a></button>
+              <button class="fshij"><a href="../funksione/fshiProduktin.php?userID=' . $produkti['userID'] . '">Fshi</a></button>
+              <button class="edito"><a href="../userPages/porosit.php?userID=' . $produkti['userID'] . '">Porosite</a></button></td>
             </tr>
           ';
       }

@@ -52,12 +52,17 @@ if (!isset($_SESSION)) {
                             </li>
                             <li class="nav-item">
                                 <a href="../admin/shtoKompanin.php">Vendosja e Kompanive</a>
-                            </li>';
-                    }
-                    echo '    <li class="nav-item">
+                            </li></li><li class="nav-item">
                             <a href="../funksione/logout.php">Log Out</a>
                         </li>';
-
+                    } else {
+                        echo '    
+                    <li class="nav-item">
+                            <a href="../userPages/userDashboard.php">Dashboard</a>
+                        </li><li class="nav-item">
+                            <a href="../funksione/logout.php">Log Out</a>
+                        </li>';
+                    }
                 } else {
                     echo
                         '<li class="nav-item">

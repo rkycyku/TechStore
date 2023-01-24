@@ -1,26 +1,28 @@
-.containerOrder{
-    display: flex;
-    flex-direction: row;
-    width: 80%;
-    align-items: center;
-    justify-content: center;
-    margin: 5em auto;
+.containerOrder {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  align-items: center;
+  justify-content: center;
+  margin: 5em auto;
+  flex-wrap: wrap;
 }
-.teDhenatEProduktit{
-    display: flex;
-    width: 20%;
-    flex-direction: column;
-    color: black;
-    font-size: 0.8em;
-    gap: 1em;
-    margin-right: 3em;
-    border: solid 1px black;
-    border-radius: 25px;
-    padding: 1.5em;
-    background-color: white;
+.teDhenatEProduktit {
+  display: flex;
+  width: 20%;
+  flex-direction: column;
+  color: black;
+  font-size: 0.8em;
+  gap: 1em;
+  margin-right: 3em;
+  border: solid 1px black;
+  border-radius: 25px;
+  padding: 1.5em;
+  background-color: white;
+  flex-wrap: wrap;
 }
 
-.QmimiTransportit{
+.QmimiTransportit {
   margin-left: 3em;
   width: 20%;
   font-size: 10px;
@@ -31,12 +33,12 @@
   background-color: white;
 }
 
-.teDhenatEProduktit img{
+.teDhenatEProduktit img {
   width: 70%;
   aspect-ratio: 3/2;
   object-fit: contain;
 }
 
-#shumaTOT{
+#shumaTOT {
   color: black;
 }

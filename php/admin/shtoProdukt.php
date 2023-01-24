@@ -92,7 +92,7 @@ if (isset($_POST['shtoProd'])) {
       <input class="button" type="submit" value="Shtoni Produktin" name='shtoProd'>
     </form>
   </div>
-  <?php include('../funksione/importimiScriptave.php')?>
+  <?php include('../funksione/importimiScriptave.php') ?>
 </body>
 
 </html>

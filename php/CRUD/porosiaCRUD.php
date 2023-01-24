@@ -1,7 +1,8 @@
 <?php
-include ('../db/dbcon.php');
+require_once('../db/dbcon.php');
 
-class porosiaCRUD extends dbCon{
+class porosiaCRUD extends dbCon
+{
     private $porosiaID;
     private $produktiID;
     private $userID;
@@ -12,28 +13,33 @@ class porosiaCRUD extends dbCon{
     private $qyteti;
     private $adresaKlientit;
     private $dataPorosis;
+    private $qmimiProd;
+    private $sasiaPorositur;
     private $qmimiTotal;
     private $statusiPorosis;
     private $dbConn;
 
-    public function __construct($porosiaID = '',$produktiID = '', $userID = '', $emriKlientit = '', $mbiemriKlientit = '', $emailKlientit = '', $nrKontaktit = '', $qyteti = '', $adresaKlientit = '', $dataPorosis = '', $qmimiTotal = '', $statusiPorosis = ''){
-        $this->porosiaID=$porosiaID;
-        $this->produktiID=$produktiID;
-        $this->userID=$userID;
-        $this->emriKlientit=$emriKlientit;
-        $this->mbiemriKlientit=$mbiemriKlientit;
-        $this->emailKlientit=$emailKlientit;
-        $this->nrKontaktit=$nrKontaktit;
-        $this->qyteti=$qyteti;
-        $this->adresaKlientit=$adresaKlientit;
-        $this->dataPorosis=$dataPorosis;
-        $this->qmimiTotal=$qmimiTotal;
-        $this->statusiPorosis=$statusiPorosis;
+    public function __construct($porosiaID = '', $produktiID = '', $userID = '', $emriKlientit = '', $mbiemriKlientit = '', $emailKlientit = '', $nrKontaktit = '', $qyteti = '', $adresaKlientit = '', $dataPorosis = '', $qmimiProd = '', $sasiaPorositur = '', $qmimiTotal = '', $statusiPorosis = '')
+    {
+        $this->porosiaID = $porosiaID;
+        $this->produktiID = $produktiID;
+        $this->userID = $userID;
+        $this->emriKlientit = $emriKlientit;
+        $this->mbiemriKlientit = $mbiemriKlientit;
+        $this->emailKlientit = $emailKlientit;
+        $this->nrKontaktit = $nrKontaktit;
+        $this->qyteti = $qyteti;
+        $this->adresaKlientit = $adresaKlientit;
+        $this->sasiaPorositur = $qmimiProd;
+        $this->sasiaPorositur = $sasiaPorositur;
+        $this->dataPorosis = $dataPorosis;
+        $this->qmimiTotal = $qmimiTotal;
+        $this->statusiPorosis = $statusiPorosis;
 
         $this->dbConn = $this->connDB();
     }
 
-    
+
 
     public function getPorosiaID()
     {
@@ -135,6 +141,25 @@ class porosiaCRUD extends dbCon{
         $this->dataPorosis = $dataPorosis;
     }
 
+    public function getQmimiProd()
+    {
+        return $this->qmimiProd;
+    }
+
+    public function setQmimiProd($qmimiProd)
+    {
+        $this->qmimiProd = $qmimiProd;
+    }
+    public function getSasiaPorositur()
+    {
+        return $this->sasiaPorositur;
+    }
+
+    public function setSasiaPorositur($sasiaPorositur)
+    {
+        $this->sasiaPorositur = $sasiaPorositur;
+    }
+
     public function getQmimiTotal()
     {
         return $this->qmimiTotal;
@@ -155,12 +180,93 @@ class porosiaCRUD extends dbCon{
         $this->statusiPorosis = $statusiPorosis;
     }
 
-    public function shtoPorosin(){
-        try{
-            $sql = "INSERT INTO `porosia`(`produktiID`, `userID`, `emriKlientit`, `mbiemriKlientit`, `emailKlientit`, `nrKontaktit`, `qyteti`, `adresaKlientit`, `qmimiTotal`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    public function shtoPorosin()
+    {
+        try {
+            $sql = "INSERT INTO `porosia`(`produktiID`, `userID`, `emriKlientit`, `mbiemriKlientit`, `emailKlientit`, `nrKontaktit`, `qyteti`, `adresaKlientit`,`qmimiProd`,`sasiaPorositur`, `qmimiTotal`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $stm = $this->dbConn->prepare($sql);
-            $stm->execute([$this->produktiID,$this->userID,$this->emriKlientit,$this->mbiemriKlientit,$this->emailKlientit,$this->nrKontaktit,$this->qyteti,$this->adresaKlientit,$this->qmimiTotal]);
-        }catch(Exception $e){
+            $stm->execute([$this->produktiID, $this->userID, $this->emriKlientit, $this->mbiemriKlientit, $this->emailKlientit, $this->nrKontaktit, $this->qyteti, $this->adresaKlientit, $this->qmimiProd, $this->sasiaPorositur, $this->qmimiTotal]);
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function shfaqPorositEKlientit()
+    {
+        try {
+            $sql = "SELECT * from `porosia` inner join produkti on porosia.produktiID = produkti.produktiID where porosia.userID = ?";
+            $stm = $this->dbConn->prepare($sql);
+            $stm->execute([$this->userID]);
+
+            echo '
+            <table>
+            <tr>
+              <th>Numri i Porosis</th>
+              <th>Emri i Produktit</th>
+              <th>Qmimi i Produktit</th>
+              <th>Sasia e Porositur</th>
+              <th>Qmimi total</th>
+              <th>Data e porosis</th>
+              <th>Statusi i porosis</th>
+              <th>Funksione</th>
+            </tr>';
+
+
+            foreach ($stm as $porosia) {
+                echo '
+                  <tr>
+                    <td>' . $porosia['porosiaID'] . '</td>
+                    <td>' . $porosia['emriProduktit'] . '</td>
+                    <td>' . $porosia['qmimiProduktit'] . ' €</td>
+                    <td>' . $porosia['sasiaPorositur'] . '</td>
+                    <td>' . $porosia['qmimiTotal'] . ' €</td>
+                    <td>' . $porosia['dataPorosis'] . '</td>
+                    <td>' . $porosia['statusiPorosis'] . '</td>
+                    <td><button class="edito"><a href="../funksione/konfirmoPorosin.php?porosiaID=' . $porosia['porosiaID'] . '">Konfirmo Porosin</a></button></td>
+                  </tr>
+                ';
+            }
+            echo '</th>
+          </table>';
+
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function shfaqTeGjithaPorosite()
+    {
+        try {
+            $sql = "SELECT * from `porosia` inner join produkti on porosia.produktiID = produkti.produktiID";
+            $stm = $this->dbConn->prepare($sql);
+            $stm->execute();
+
+            return $stm->fetchAll();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function shfaqPorosinSipasID()
+    {
+        try {
+            $sql = "SELECT * from `porosia` inner join produkti on porosia.produktiID = produkti.produktiID where porosiaID = ?";
+            $stm = $this->dbConn->prepare($sql);
+            $stm->execute([$this->porosiaID]);
+
+            return $stm->fetch();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function perditesoStatusinPorosis()
+    {
+        try {
+            $sql = "UPDATE `porosia` SET `statusiPorosis`= ? WHERE `porosiaID` = ?";
+            $stm = $this->dbConn->prepare($sql);
+            $stm->execute([$this->statusiPorosis, $this->porosiaID]);
+        } catch (Exception $e) {
             return $e->getMessage();
         }
     }

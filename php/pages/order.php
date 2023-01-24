@@ -38,46 +38,50 @@ if (isset($_GET['produktiID'])) {
             echo ' <img src="../../img/products/' . $_SESSION['fotoProduktit'] . '">
             <h3>' . $_SESSION['emriProduktit'] . '</h3>
             
-            <h2>Cmimi: ' . $_SESSION['qmimiProduktit'] . ' €</h2>';
+            <h2>Cmimi: <span id="qmimiProd">' . $_SESSION['qmimiProduktit'] . '</span> €</h2>';
 
             ?>
-
         </div>
         <div class="teDhenatKlientit">
             <form name="vendosPorosin" onsubmit="" action='../funksione/orderComplete.php' method="POST">
-            
+
                 <h1 class="form-title">Te dhenat e tua</h1>
-                <input class="form-input" name="emri" type="text" placeholder="Name" <?php if(isset($_SESSION['name']))echo 'value="'.$_SESSION['name'].'"'?>>
-                <input class="form-input" name="mbiemri" type="text" placeholder="Lastname" <?php if(isset($_SESSION['mbiemri']))echo 'value="'.$_SESSION['mbiemri'].'"'?>>
-                <input class="form-input" name="tel" type="text" placeholder="Numri Kontaktit">
-                <input class="form-input" name="email" type="text" placeholder="Email" <?php if(isset($_SESSION['email']))echo 'value="'.$_SESSION['email'].'"'?>>
-                <input class="form-input" name="qyteti" type="text" placeholder="Qyteti">
-                <textarea class="form-input" name="adresa" type="textfield" placeholder="Adresa"></textarea>
-                <input class="form-input" name="sasia" id="sasia" type="number" placeholder="Sasia" value="1" min="1">
-                <input class="button" type="submit" value="Order Now" name='submit'>
-            </form>
-        </div>
-        <div class="QmimiTransportit">
-            <h2>Transporti: 2 €</h2>
-            <h2 id='shumaTOT'>Totali eshte: <?php echo ($_SESSION['qmimiProduktit']+2) . ' €'?></h2>
+                <input class="form-input" name="emri" type="text" placeholder="Name" <?php
+                if (isset($_SESSION['name']))
+                    echo 'value="' . $_SESSION['name'] . '"' ?>>
+                    <input class="form-input" name="mbiemri" type="text" placeholder="Lastname" <?php
+                if (isset($_SESSION['mbiemri']))
+                    echo 'value="' . $_SESSION['mbiemri'] . '"' ?>>
+                    <input class="form-input" name="tel" type="text" placeholder="Numri Kontaktit">
+                    <input class="form-input" name="email" type="text" placeholder="Email" <?php
+                if (isset($_SESSION['email']))
+                    echo 'value="' . $_SESSION['email'] . '"' ?>>
+                    <input class="form-input" name="qyteti" type="text" placeholder="Qyteti">
+                    <textarea class="form-input" name="adresa" type="textfield" placeholder="Adresa"></textarea>
+                    <input class="form-input" name="sasia" id="sasia" type="number" placeholder="Sasia" value="1" min="1">
+                    <input class="button" type="submit" value="Order Now" name='submit'>
+                </form>
+            </div>
+            <div class="QmimiTransportit">
+                <h2>Transporti: 2 €</h2>
+                <h2>Totali eshte: <span id='shumaTOT'>
+                    <?php echo ($_SESSION['qmimiProduktit'] + 2) . '</span> €' ?>
+            </h2>
         </div>
     </div>
     <?php include_once('../funksione/importimiScriptave.php'); ?>
 </body>
 <script>
-var quantity = document.getElementById("sasia");
-quantity.addEventListener("change", updatePrice);
 
-function updatePrice() {
-  var newQuantity = this.value;
-  fetch("../funksione/kontrollimiIQmimit.php", {
-    method: "POST",
-    body: JSON.stringify({quantity: newQuantity})
-  })
-  .then(response => response.text())
-  .then(price => {
-    document.getElementById("shumaTOT").innerHTML = "Totali eshte: " + price + " €";
-  });
-}
+    var qmimi = parseFloat(document.getElementById("qmimiProd").innerHTML);
+    var sasia = document.getElementById("sasia");
+    sasia.addEventListener("change", perditesoQmiminTotal);
+
+    function perditesoQmiminTotal() {
+        var sasiaERe = parseFloat(this.value);
+        var qmimiTotal = parseFloat(sasiaERe * qmimi) + 2;
+        document.getElementById("shumaTOT").innerHTML = parseFloat(qmimiTotal);
+    }
 </script>
+
 </html>

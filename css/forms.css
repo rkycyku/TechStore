@@ -89,6 +89,10 @@ input.mesazhi {
   cursor: pointer;
 }
 
+label {
+  color: white;
+}
+
 @media (max-width: 380px) {
   .forms {
     margin-top: 3em;

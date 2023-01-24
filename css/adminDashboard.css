@@ -6,9 +6,11 @@
   margin: 25px 0;
   font-size: 0.9em;
   min-width: 400px;
-  
+  flex-direction: column;
+  gap: 2em;
+  flex-wrap: wrap;
 }
-.containerDashboardP tr th{
+.containerDashboardP tr th {
   background-color: #009879;
   color: #ffffff;
   text-align: left;
@@ -16,29 +18,29 @@
 }
 
 .containerDashboardP th,
-.containerDashboardP td{
+.containerDashboardP td {
   padding: 12px 15px;
 }
 
-.containerDashboardP tr td{
+.containerDashboardP tr td {
   border-bottom: 1px solid #dddddd;
 }
 
-.edito{
+.edito {
   padding: 0.4em;
   background-color: #45c263;
   border: none;
   border-radius: 2px;
 }
 
-.fshij{
+.fshij {
   padding: 0.4em;
   background-color: #e33437;
   border: none;
   border-radius: 2px;
 }
 
-.containerDashboard{
+.containerDashboard {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,7 +48,6 @@
   padding-bottom: 5em;
   margin-top: 2em;
   gap: 0.6em;
-
 }
 
 .titulliPershkrim {

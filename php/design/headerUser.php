@@ -20,35 +20,18 @@ if (!isset($_SESSION)) {
             <a class="logo" href="../pages/index.php"><img src="../../img/web/techstoreLogoWhiteSquare.png" alt=""></a>
             <ul class="nav-links">
                 <li class="nav-item">
-                    <a href="./adminDashboard.php">Dashboard</a>
+                    <a href="./userDashboard.php">Dashboard</a>
                     <span class="line"></span>
                 </li>
 
                 <li class="nav-item">
-                    <a href="./shtoProdukt.php">Vendosja e Produkteve</a>
+                    <a href="./porosit.php">Porosite</a>
                     <span class="line"></span>
                 </li>
 
-                <li class="nav-item">
-                    <a href="./produktet.php">Produktet</a>
-                    <span class="line"></span>
-                </li>
-                <li class="nav-item">
-                    <a href="./porositNgaKlientet.php">Porosite</a>
-                    <span class="line"></span>
-                </li>
-                <li class="nav-item">
-                    <a href="./perdoruesit.php">Perdoruesit</a>
-                    <span class="line"></span>
-                </li>
+
             </ul>
             <ul class="auth">
-                <li class="nav-item">
-                    <a href="./shtoKompanin.php">Vendosja e Kompanive</a>
-                </li>
-                <li class="nav-item">
-                    <a href="./shtoKategorin.php">Vendosja e Kategorive</a>
-                </li>
                 <li class="nav-item">
                     <a href="../funksione/logout.php">Log Out</a>
                 </li>

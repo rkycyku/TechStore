@@ -47,7 +47,7 @@ if (isset($_POST['shtoKat'])) {
       <input class="button" type="submit" value="Shtoni Kategorin" name='shtoKat'>
     </form>
   </div>
-  <?php include('../funksione/importimiScriptave.php')?>
+  <?php include('../funksione/importimiScriptave.php') ?>
 </body>
 
 </html>

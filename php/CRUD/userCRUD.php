@@ -150,6 +150,19 @@ class userCRUD extends dbCon
             return $e->getMessage();
         }
     }
+
+    public function shfaqTeGjithePerdoruesit()
+    {
+        try {
+            $sql = 'SELECT * from user';
+            $stm = $this->dbConn->prepare($sql);
+            $stm->execute();
+
+            return $stm->fetchAll();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
 }
 
 ?>

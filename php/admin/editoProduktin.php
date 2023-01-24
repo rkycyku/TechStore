@@ -26,7 +26,7 @@ if (isset($_POST['editoProd'])) {
     $produktiCRUD->editoProduktinMeFoto();
   }
 }
-if (isset($_POST['editoProd'])) {
+if (isset($_POST['anulo'])) {
   echo '<script>document.location="./produktet.php"</script>';
 }
 ?>
@@ -82,7 +82,7 @@ if (isset($_POST['editoProd'])) {
       <input class="form-input" name="cmimiPd" type="text" placeholder="Qmimi i Produktit"
         value='<?php echo $produkti['qmimiProduktit'] ?>' required>
       <input class="button" type="submit" value="Editoni Produktin" name='editoProd'>
-      <input class="button" type="submit" value="anulo" name='editoProd'>
+      <input class="button" type="submit" value="anulo" name='anulo'>
     </form>
   </div>
   <script src="../../js/validimiFormave.js"></script>

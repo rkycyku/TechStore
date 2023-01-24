@@ -1,5 +1,4 @@
 <?php
-require_once('./kontrolloAksesin.php');
 require_once('../CRUD/userCRUD.php');
 
 $userCRUD = new userCRUD();
@@ -11,14 +10,14 @@ $userCRUD = new userCRUD();
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin Dashboard | Tech Store</title>
+  <title>User Dashboard | Tech Store</title>
   <link rel="shortcut icon" href="../../img/web/favicon.ico" />
   <link rel="stylesheet" href="../../css/adminDashboard.css">
 </head>
 
 <body>
 
-  <?php include '../design/headerAdmin.php'; ?>
+  <?php include '../design/headerUser.php' ?>
 
   <div class="containerDashboard">
 
@@ -30,11 +29,11 @@ $userCRUD = new userCRUD();
     $userCRUD->setUserID($_SESSION['userID']);
     $useri = $userCRUD->shfaqSipasID();
     echo '
-    <p><strong>ID:</strong> ' . ($useri['userID']) . '</p>
-    <p><strong>Emri:</strong> ' . ($useri['emri']) . '</p>
-    <p><strong>Mbiemri:</strong> ' . ($useri['mbiemri']) . '</p>
-    <p><strong>Username:</strong> ' . ($useri['username']) . '</p>
-    <p><strong>Email:</strong> ' . ($useri['email']) . '</p>
+        <p><strong>ID:</strong> ' . ($useri['userID']) . '</p>
+        <p><strong>Emri:</strong> ' . ($useri['emri']) . '</p>
+        <p><strong>Mbiemri:</strong> ' . ($useri['mbiemri']) . '</p>
+        <p><strong>Username:</strong> ' . ($useri['username']) . '</p>
+        <p><strong>Email:</strong> ' . ($useri['email']) . '</p>
       ';
     ?>
   </div>
