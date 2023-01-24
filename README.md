@@ -16,11 +16,16 @@ Eshte punuar nga:
 
  - **Rilind Kyçyku** - 212257449 (rk57449@ubt-uni.net) - **G3B**
  - **Përparim Dardhishta** - 212257329 (pd57329@ubt-uni.net) - **G3B**
+ 
+ Profesoret:
+
+ - **Ramiz Hoxha** - MSc.
+ - **Blerina Rrmoku** - can. MSc
 
 ## Credits
 
  - **[Gjirafa50](https://gjirafa50.com)** - Emrat, çmimet dhe fotot e produkteve,
- - **[Logos World](https://logos-world.net/)** - Logot e brendeve të cilat janë të vendosura ne slider,
+ - **[Logos World](https://logos-world.net/)** - Disa nga logot e brendeve të cilat janë të vendosura ne slider,
  - **[Behance | Abbas - Techstore](https://www.behance.net/gallery/130956581/Tech-Store-Brand-identity)** - Logo e TechStore.
 
 ## Pamja e TechStore
