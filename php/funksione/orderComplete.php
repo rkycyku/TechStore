@@ -93,7 +93,7 @@ $porosiaCRUD->shtoPorosin();
     <a href="../userPages/porosit.php"><button>Perfundo</button></a>
   </div>
 
-  <?php include '../design/footerMain.php' ?>
+  <?php include '../design/footer.php' ?>
 </body>
 
 </html>

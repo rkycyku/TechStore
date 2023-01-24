@@ -1,8 +1,9 @@
 <?php
-require_once('./kontrolloAksesin.php');
+require_once('../adminFunksione/kontrolloAksesin.php');
 require_once('../CRUD/produktiCRUD.php');
 require_once('../CRUD/kategoriaCRUD.php');
 require_once('../CRUD/kompaniaCRUD.php');
+
 $kompania = new kompaniaCRUD();
 $kategoria = new kategoriaCRUD();
 $produktiCRUD = new produktiCRUD();
@@ -37,7 +38,7 @@ if (isset($_POST['shtoProd'])) {
 </head>
 
 <body>
-  <?php include '../design/headerAdmin.php' ?>
+  <?php include '../design/header.php' ?>
   <div class="forms">
     <form name="shtoProduktin" onsubmit="return validimiShtimiProduktit();" action='' method="POST"
       enctype="multipart/form-data">
@@ -80,7 +81,7 @@ if (isset($_POST['shtoProd'])) {
                       X
                     </button>
                   </div>
-            ';
+          ';
       }
       ?>
       <h1 class="form-title">Vendosja e Produkteve</h1>

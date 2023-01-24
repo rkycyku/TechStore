@@ -31,7 +31,7 @@ if (isset($_GET['produktiID'])) {
 </head>
 
 <body>
-    <?php include '../design/headerMain.php'; ?>
+    <?php include '../design/header.php'; ?>
     <div class="containerOrder">
         <div class="teDhenatEProduktit">
             <?php

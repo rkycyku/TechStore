@@ -1,5 +1,5 @@
 <?php
-require_once('./kontrolloAksesin.php');
+require_once('../adminFunksione/kontrolloAksesin.php');
 require_once('../CRUD/kategoriaCRUD.php');
 
 $katCRUD = new kategoriaCRUD();
@@ -26,7 +26,7 @@ if (isset($_POST['shtoKat'])) {
 </head>
 
 <body>
-  <?php include '../design/headerAdmin.php' ?>
+  <?php include '../design/header.php' ?>
   <div class="forms">
     <form name="shtoKategorin" onsubmit="" action='' method="POST">
       <?php

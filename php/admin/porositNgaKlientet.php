@@ -2,7 +2,7 @@
 if (!isset($_SESSION)) {
   session_start();
 }
-require_once('./kontrolloAksesin.php');
+require_once('../adminFunksione/kontrolloAksesin.php');
 require_once('../CRUD/porosiaCRUD.php');
 
 $porosiaCRUD = new porosiaCRUD();
@@ -23,7 +23,7 @@ $porosia = $porosiaCRUD->shfaqTeGjithaPorosite();
 
 <body>
 
-  <?php include '../design/headerAdmin.php' ?>
+  <?php include '../design/header.php' ?>
 
   <div class="containerDashboardP">
     <?php
@@ -90,7 +90,7 @@ $porosia = $porosiaCRUD->shfaqTeGjithaPorosite();
   </div>
 
   <?php
-  include '../design/footerAdmin.php';
+  include '../design/footer.php';
   include('../funksione/importimiScriptave.php') ?>
 </body>
 

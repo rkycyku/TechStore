@@ -1,5 +1,5 @@
 <?php
-require_once('./kontrolloAksesin.php');
+require_once('../adminFunksione/kontrolloAksesin.php');
 require_once('../CRUD/produktiCRUD.php');
 
 $produktiCRUD = new produktiCRUD();
@@ -19,7 +19,7 @@ $produktiCRUD = new produktiCRUD();
 
 <body>
 
-  <?php include '../design/headerAdmin.php' ?>
+  <?php include '../design/header.php' ?>
 
   <div class="containerDashboardP">
     <?php
@@ -78,7 +78,7 @@ $produktiCRUD = new produktiCRUD();
               <td><img src="../../img/products/' . $produkti['fotoProduktit'] . '"></td>
               <td>' . $produkti['qmimiProduktit'] . ' €</td>
               <td><button class="edito"><a href="./editoProduktin.php?produktID=' . $produkti['produktiID'] . '">Edito</a></button>
-              <button class="fshij"><a href="./fshiProduktin.php?produktID=' . $produkti['produktiID'] . '">Fshi</a></button>
+              <button class="fshij"><a href="../adminFunksione/fshiProduktin.php?produktID=' . $produkti['produktiID'] . '">Fshi</a></button>
               <button class="edito"><a href="../userPages/porosit.php?produktID=' . $produkti['produktiID'] . '">Porosit</a></button></td>
             </tr>
           ';
@@ -89,7 +89,7 @@ $produktiCRUD = new produktiCRUD();
   </div>
 
   <?php
-  include '../design/footerAdmin.php';
+  include '../design/footer.php';
   include('../funksione/importimiScriptave.php') ?>
 </body>
 

@@ -17,7 +17,7 @@ if (!isset($_SESSION)) {
 </head>
 
 <body>
-  <?php include '../design/headerMain.php'; ?>
+  <?php include '../design/header.php'; ?>
   <div class="forms">
 
     <form name="LoginForm" onsubmit="return validimiLogin();" action='../funksione/loginUser.php' method="POST">

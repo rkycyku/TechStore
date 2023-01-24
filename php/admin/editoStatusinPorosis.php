@@ -1,5 +1,5 @@
 <?php
-require_once('./kontrolloAksesin.php');
+require_once('../adminFunksione/kontrolloAksesin.php');
 require_once('../CRUD/porosiaCRUD.php');
 $porosiaCRUD = new porosiaCRUD();
 $porosiaCRUD->setPorosiaID($_GET['porosiaID']);
@@ -36,7 +36,7 @@ if (isset($_POST['anulo'])) {
 
 <body>
     <?php
-    include '../design/headerAdmin.php';
+    include '../design/header.php';
     echo '<div class="containerDashboard">';
     echo '</div>';
     ?>

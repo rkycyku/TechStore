@@ -1,5 +1,5 @@
 <?php
-require_once('./kontrolloAksesin.php');
+require_once('../adminFunksione/kontrolloAksesin.php');
 require_once('../CRUD/produktiCRUD.php');
 require_once('../CRUD/kategoriaCRUD.php');
 require_once('../CRUD/kompaniaCRUD.php');
@@ -45,12 +45,12 @@ if (isset($_POST['anulo'])) {
 
 <body>
   <?php
-  include '../design/headerAdmin.php';
+  include '../design/header.php';
   echo '<div class="containerDashboard">';
   echo '</div>';
   ?>
   <div class="forms">
-    <form name="shtoProduktin" onsubmit="return validimiShtimiProduktit();" action='' method="POST"
+    <form name="editoProduktin" onsubmit="" action='' method="POST"
       enctype="multipart/form-data">
       <h1 class="form-title">Editimi i Produktiti</h1>
       <input class="form-input" name="pdName" type="text" placeholder="Emri i Produktit"
@@ -90,5 +90,3 @@ if (isset($_POST['anulo'])) {
 </body>
 
 </html>
-<?php
-?>

@@ -18,7 +18,7 @@ $userCRUD = new userCRUD();
 
 <body>
 
-  <?php include '../design/headerUser.php' ?>
+  <?php include '../design/header.php' ?>
 
   <div class="containerDashboard">
     <?php
@@ -50,11 +50,17 @@ $userCRUD = new userCRUD();
         <p><strong>Username:</strong> ' . ($useri['username']) . '</p>
         <p><strong>Email:</strong> ' . ($useri['email']) . '</p>
         <a href="../funksione/perditesoTeDhenat.php?userID=' . $useri['userID'] . '"><button class="button">Perditeso te Dhenat</button></a>
+        <a href="../funksione/ndryshoPass.php?userID=' . $useri['userID'] . '"><button class="button">Ndrysho Fjalekalimin</button></a>
       ';
+      if($_SESSION['aksesi'] == 0){
+      echo ' <a href="../userPages/porosit.php"><button class="button">Porosite e tua</button></a>';
+      }
     ?>
+   
   </div>
 
-  <?php include '../design/footerAdmin.php'; include_once '../funksione/importimiScriptave.php'?>
+  <?php include '../design/footer.php'; 
+  include_once '../funksione/importimiScriptave.php'?>
 </body>
 
 </html>

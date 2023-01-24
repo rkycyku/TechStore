@@ -22,7 +22,7 @@ $porosiaCRUD = new porosiaCRUD();
 
 <body>
 
-    <?php include '../design/headerUser.php' ?>
+    <?php include '../design/header.php' ?>
 
     <div class="containerDashboardP">
 

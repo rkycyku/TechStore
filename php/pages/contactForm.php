@@ -33,7 +33,7 @@ if (isset($_POST['dergoMSG'])) {
 </style>
 
 <body>
-  <?php include '../design/headerMain.php'; ?>
+  <?php include '../design/header.php'; ?>
 
   <div class="forms">
     <form name="ContactForm" onsubmit="return validimiContactForm()" action="" method="POST">

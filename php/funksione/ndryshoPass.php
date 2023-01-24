@@ -14,14 +14,11 @@ $userCRUD = new userCRUD();
 $userCRUD->setUserID($_GET['userID']);
 $perdoruesi = $userCRUD->shfaqSipasID();
 
-if (isset($_POST['perditDhenat'])) {
-    if ($_POST['pass'] == $perdoruesi['password']) {
-        $userCRUD->setUsername($_POST['uName']);
-        $userCRUD->setEmri($_POST['emri']);
-        $userCRUD->setMbiemri($_POST['mbiemri']);
-        $userCRUD->setEmail($_POST['email']);
+if (isset($_POST['perditPass'])) {
+    if ($_POST['oldPass'] == $perdoruesi['password']) {
+        $userCRUD->setPassword($_POST['newPass']);
 
-        $userCRUD->perditesoTeDhenat();
+        $userCRUD->perditesoFjalekalimin();
 
         $_SESSION['teDhenatUPerditesuan'] = true;
         if ($_SESSION['aksesi'] != 0) {
@@ -35,7 +32,7 @@ if (isset($_POST['perditDhenat'])) {
 }
 if (isset($_POST['anulo'])) {
     $_SESSION['teDhenatUPerditesuan'] = false;
-        echo '<script>document.location="../userPages/userDashboard.php"</script>';
+    echo '<script>document.location="../userPages/userDashboard.php"</script>';
 }
 $perdoruesi = $userCRUD->shfaqSipasID();
 ?>
@@ -46,7 +43,7 @@ $perdoruesi = $userCRUD->shfaqSipasID();
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Perditesimi i te dhenave | Tech Store</title>
+    <title>Perditesimi i Password | Tech Store</title>
     <link rel="shortcut icon" href="../../img/web/favicon.ico" />
     <link rel="stylesheet" href="../../css/forms.css" />
     <link rel="stylesheet" href="../../css/mesazhetStyle.css" />
@@ -59,7 +56,7 @@ $perdoruesi = $userCRUD->shfaqSipasID();
     echo '</div>';
     ?>
     <div class="forms">
-        <form name="shtoProduktin" onsubmit="" action='' method="POST" enctype="multipart/form-data">
+        <form name="ndryshoPass" onsubmit="" action='' method="POST" enctype="multipart/form-data">
             <?php
             if (isset($_SESSION['passGabim'])) {
                 echo '
@@ -73,32 +70,24 @@ $perdoruesi = $userCRUD->shfaqSipasID();
             }
 
             ?>
-            <h1 class="form-title">Perditesimi i te dhenave </h1>
+            <h1 class="form-title">Perditesimi i Password </h1>
             <label for="">
                 <strong>ID Juaj: </strong>
                 <?php echo $perdoruesi['userID'] ?>
             </label>
             <label for="">
                 <strong>Username: </strong>
-                <input type="text" name="uName" value="<?php echo $perdoruesi['username'] ?>">
+                <?php echo $perdoruesi['username'] ?>
             </label>
             <label for="">
-                <strong>Emri: </strong>
-                <input type="text" name="emri" value="<?php echo $perdoruesi['emri'] ?>">
+                <strong>Password i Ri: </strong>
+                <input type="password" placeholder="Shkruani passwordin!" name="newPass">
             </label>
             <label for="">
-                <strong>Mbiemri: </strong>
-                <input type="text" name="mbiemri" value="<?php echo $perdoruesi['mbiemri'] ?>">
+                <strong>Password Aktual: </strong>
+                <input type="password" placeholder="Shkruani passwordin!" name="oldPass">
             </label>
-            <label for="">
-                <strong>Email: </strong>
-                <input type="text" name="email" value="<?php echo $perdoruesi['email'] ?>">
-            </label>
-            <label for="">
-                <strong>Password: </strong>
-                <input type="password" placeholder="Shkruani passwordin!" name="pass">
-            </label>
-            <input class="button" type="submit" value="Perditesoni te dhenat" name='perditDhenat'>
+            <input class="button" type="submit" value="Perditesoni Password" name='perditPass'>
             <input class="button" type="submit" value="Anulo" name='anulo'>
         </form>
     </div>

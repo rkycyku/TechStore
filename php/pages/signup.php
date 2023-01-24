@@ -41,7 +41,7 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
-  <?php include '../design/headerMain.php'; ?>
+  <?php include '../design/header.php'; ?>
   <div class="forms">
     <form name="SignUpForm" onsubmit="return validimiSignUp();" action='' method="POST">
       <?php

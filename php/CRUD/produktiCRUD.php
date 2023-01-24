@@ -240,6 +240,9 @@ class produktiCRUD extends dbCon
     public function fshijProduktinSipasID()
     {
         try {
+            $produkti = $this->shfaqProduktinSipasID();
+            unlink('../../img/products/'.$produkti['fotoProduktit']);
+
             $sql = "DELETE FROM produkti WHERE produktiID = ?";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute([$this->produktiID]);
@@ -274,6 +277,9 @@ class produktiCRUD extends dbCon
     public function editoProduktinMeFoto()
     {
         try {
+            $produkti = $this->shfaqProduktinSipasID();
+            unlink('../../img/products/'.$produkti['fotoProduktit']);
+
             $this->barteFotonNeFolder();
 
             $this->setProduktiID($_SESSION['prouktiID']);
@@ -289,7 +295,6 @@ class produktiCRUD extends dbCon
             $stm->execute([$this->emriProduktit, $this->emriKompanis, $this->kategoriaProduktit, $this->fotoProduktit, $this->emriStafit, $this->qmimiProduktit, $this->produktiID]);
 
             $_SESSION['mesazhiMeSukses'] = true;
-            echo '<script>document.location="../admin/produktet.php"</script>';
         } catch (Exception $e) {
             return $e->getMessage();
         }
@@ -311,13 +316,10 @@ class produktiCRUD extends dbCon
 
             if (in_array($fileActualExt, $teLejuara)) {
                 if ($errorFoto === 0) {
-                    if ($madhesiaFotos < 1000000) {
-                        $_SESSION['emriUnikFotos'] = uniqid('', true) . "." . $fileActualExt;
-                        $destinacioniFotos = '../../img/products/' . $_SESSION['emriUnikFotos'];
-                        move_uploaded_file($emeriTempIFotes, $destinacioniFotos);
-                    } else {
-                        $_SESSION['madhesiaGabim'] = true;
-                    }
+                    $_SESSION['emriUnikFotos'] = uniqid('', true) . "." . $fileActualExt;
+                    $destinacioniFotos = '../../img/products/' . $_SESSION['emriUnikFotos'];
+                    move_uploaded_file($emeriTempIFotes, $destinacioniFotos);
+
                 } else {
                     $_SESSION['problemNeBartje'] = true;
                 }

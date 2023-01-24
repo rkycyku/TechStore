@@ -3,6 +3,7 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
+require_once('../adminFunksione/kontrolloAksesin.php');
 require_once('../CRUD/contactFormCRUD.php');
 
 $contactFormCRUD = new contactFormCRUD();
@@ -23,7 +24,7 @@ $contactForm = $contactFormCRUD->shfaqMesazhet();
 
 <body>
 
-    <?php include '../design/headerAdmin.php' ?>
+    <?php include '../design/header.php' ?>
 
     <div class="containerDashboardP">
         <?php
@@ -62,7 +63,7 @@ $contactForm = $contactFormCRUD->shfaqMesazhet();
               <td>' . $mesazhi['mesazhi'] . '</td>
               <td>' . $mesazhi['dataDergeses'] . '</td>
               <td>' . $mesazhi['statusi'] . '</td>
-              <td><button class="edito"><a href="./konfirmoMesazhin.php?IDmesazhi=' . $mesazhi['IDmesazhi'] . '">Konfirmo</a></button></td>
+              <td><button class="edito"><a href="../adminFunksione/konfirmoMesazhin.php?IDmesazhi=' . $mesazhi['IDmesazhi'] . '">Konfirmo</a></button></td>
             </tr>
           ';
             }
@@ -71,7 +72,7 @@ $contactForm = $contactFormCRUD->shfaqMesazhet();
     </div>
 
     <?php
-    include '../design/footerAdmin.php';
+    include '../design/footer.php';
     include('../funksione/importimiScriptave.php') ?>
 </body>
 

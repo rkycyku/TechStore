@@ -22,7 +22,7 @@ $produktiCRUD = new produktiCRUD();
 </head>
 
 <body>
-  <?php include '../design/headerMain.php'; ?>
+  <?php include '../design/header.php'; ?>
   <div class="container">
     <?php
     if (isset($_GET['kompania'])) {
@@ -66,7 +66,7 @@ $produktiCRUD = new produktiCRUD();
     ?>
   </div>
 
-  <?php include '../design/footerMain.php' ?>
+  <?php include '../design/footer.php' ?>
 </body>
 
 </html>

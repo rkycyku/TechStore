@@ -11,13 +11,13 @@
 </head>
 
 <body>
-  <?php include './headerError.php' ?>
+  <?php include './header.php' ?>
 
   <div class="about">
     <h3 class="title">403 | Nuk keni akses per tu qasur ne kete faqe!</h3>
   </div>
 
-  <?php include './footerError.php' ?>
+  <?php include './footer.php' ?>
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 <?php
-require_once('./kontrolloAksesin.php');
+require_once('../adminFunksione/kontrolloAksesin.php');
 
 ?>
 <!DOCTYPE html>
@@ -17,9 +17,9 @@ require_once('./kontrolloAksesin.php');
 </head>
 
 <body>
-  <?php include '../design/headerAdmin.php' ?>
+  <?php include '../design/header.php' ?>
   <div class="forms">
-    <form name="shtoKompanin" action='../funksione/shtoKompanin.php' method="POST" enctype="multipart/form-data">
+    <form name="shtoKompanin" action='../adminFunksione/shtoKompanin.php' method="POST" enctype="multipart/form-data">
       <?php
       if (isset($_SESSION['mesazhiMeSukses'])) {
         echo '<div class="mesazhiSuksesStyle">

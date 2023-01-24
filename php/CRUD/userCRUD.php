@@ -176,9 +176,18 @@ class userCRUD extends dbCon
 
     public function perditesoTeDhenat(){
         try{
-            $sql = "UPDATE user set `emri` = ?, `mbiemri` = ?, `email` = ? where userID = ?";
+            $sql = "UPDATE user set `username` = ?, `emri` = ?, `mbiemri` = ?, `email` = ? where userID = ?";
             $stm = $this->dbConn->prepare($sql);
-            $stm->execute([$this->emri, $this->mbiemri,$this->email,$this->userID]);
+            $stm->execute([$this->username,$this->emri, $this->mbiemri,$this->email,$this->userID]);
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+    }
+    public function perditesoFjalekalimin(){
+        try{
+            $sql = "UPDATE user set `password` = ? where userID = ?";
+            $stm = $this->dbConn->prepare($sql);
+            $stm->execute([$this->password,$this->userID]);
         }catch(Exception $e){
             return $e->getMessage();
         }

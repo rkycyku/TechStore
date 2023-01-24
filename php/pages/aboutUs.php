@@ -16,7 +16,7 @@ if (!isset($_SESSION)) {
 </head>
 
 <body>
-  <?php include '../design/headerMain.php'; ?>
+  <?php include '../design/header.php'; ?>
 
   <div class="about">
     <div class="photo">
@@ -30,7 +30,7 @@ if (!isset($_SESSION)) {
     </div>
   </div>
 
-  <?php include '../design/footerMain.php' ?>
+  <?php include '../design/footer.php' ?>
 </body>
 
 </html>

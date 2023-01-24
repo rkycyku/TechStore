@@ -26,7 +26,7 @@ if (isset($_POST['kerkimi'])) {
 </head>
 
 <body>
-  <?php include '../design/headerMain.php'; ?>
+  <?php include '../design/header.php'; ?>
   <div class="container">
     <div class="banner">
       <div class="titulliPershkrim">
@@ -76,7 +76,7 @@ if (isset($_POST['kerkimi'])) {
     </div>
   </div>
   <?php include('../funksione/importimiScriptave.php') ?>
-  <?php include '../design/footerMain.php' ?>
+  <?php include '../design/footer.php' ?>
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 <?php
-require_once('./kontrolloAksesin.php');
+require_once('../adminFunksione/kontrolloAksesin.php');
 require_once('../CRUD/userCRUD.php');
 
 $userCRUD = new userCRUD();
@@ -19,7 +19,7 @@ $userCRUD = new userCRUD();
 
 <body>
 
-  <?php include '../design/headerAdmin.php' ?>
+  <?php include '../design/header.php' ?>
 
   <div class="containerDashboardP">
     <?php
@@ -72,7 +72,7 @@ $userCRUD = new userCRUD();
   </div>
 
   <?php
-  include '../design/footerAdmin.php';
+  include '../design/footer.php';
   include('../funksione/importimiScriptave.php') ?>
 </body>
 
