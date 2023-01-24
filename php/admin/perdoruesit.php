@@ -26,27 +26,7 @@ $userCRUD = new userCRUD();
     if (isset($_SESSION['aksesiUPerditesua'])) {
       echo '
                 <div class="mesazhiSuksesStyle">
-                  <h3>Aksesi u ndryshua!</h3>
-                  <button id="mbyllMesazhin">
-                    X
-                  </button>
-                </div>
-          ';
-    }
-    if (isset($_SESSION['ndryshimiUAnulua'])) {
-      echo '
-                <div class="mesazhiGabimStyle">
-                  <h3>Ju keni anuluar ndryshimin!</h3>
-                  <button id="mbyllMesazhin">
-                    X
-                  </button>
-                </div>
-          ';
-    }
-    if (isset($_SESSION['skeAksesAdmin'])) {
-      echo '
-                <div class="mesazhiGabimStyle">
-                  <h3>Nuk keni akses per kete sherbim!</h3>
+                  <h3>Llogaria u ndryshua!</h3>
                   <button id="mbyllMesazhin">
                     X
                   </button>
@@ -71,16 +51,20 @@ $userCRUD = new userCRUD();
       foreach ($produktet as $produkti) {
         echo '
             <tr>
-              <td>' . $produkti['userID'] . '</td>
-              <td>' . $produkti['emri'] . '</td>
-              <td>' . $produkti['mbiemri'] . '</td>
+              <td id="userID_' . $produkti['userID'] . '">' . $produkti['userID'] . '</td>
+              <td><input id="emri_' . $produkti['userID'] . '" type="text" placeholder="Emri" value="' . $produkti['emri'] . '"></td>
+              <td><input id="mbiemri_' . $produkti['userID'] . '" type="text" placeholder=""value="' . $produkti['mbiemri'] . '"></td>
               <td>' . $produkti['username'] . '</td>
-              <td>' . $produkti['email'] . '</td>
-              <td>' . $produkti['aksesi'] . '</td>
-              <td><button class="edito"><a href="./ndryshoAksesin.php?userID=' . $produkti['userID'] . '">Edito</a></button>
+              <td>' . $produkti['email'] . '</td>';
+              if($produkti['aksesi'] == 2 && $_SESSION['aksesi'] != 2 || $produkti['userID'] == $_SESSION['userID']){
+                echo '<td id="aksesi_' . $produkti['userID'] . '">' . $produkti['aksesi'] . '</td>';
+              }else{
+                echo '<td><input id="aksesi_' . $produkti['userID'] . '" type="number" min="0" max="2" placeholder="Aksesi" value="' . $produkti['aksesi'] . '"></td>';
+              }
+        echo '<td><button class="edito" onclick="getValue('.$produkti['userID'].')">Edito</button>
               <button class="edito"><a href="../userPages/porosit.php?userID=' . $produkti['userID'] . '">Porosite</a></button></td>
-            </tr>
-          ';
+            </tr>';
+          
       }
       ?>
       </th>
@@ -94,8 +78,18 @@ $userCRUD = new userCRUD();
 
 </html>
 
+<script>
+  function getValue(idUser) {
+  var userID = document.getElementById("userID_"+idUser).innerHTML;
+  var emri = document.getElementById("emri_"+idUser).value;
+  var mbiemri = document.getElementById("mbiemri_"+idUser).value;
+  var aksesi = document.getElementById("aksesi_"+idUser).value;
+  
+  var link = "./ndryshoTeDhenatLlogaris.php?userID=" + userID+"&emri="+emri+"&mbiemri=" + mbiemri+"&aksesi=" + aksesi;
+  window.location.href = link;
+}
+</script>
+
 <?php
 unset($_SESSION['aksesiUPerditesua']);
-unset($_SESSION['ndryshimiUAnulua']);
-unset($_SESSION['skeAksesAdmin']);
 ?>

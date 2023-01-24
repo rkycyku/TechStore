@@ -13,6 +13,7 @@ $userCRUD = new userCRUD();
   <title>User Dashboard | Tech Store</title>
   <link rel="shortcut icon" href="../../img/web/favicon.ico" />
   <link rel="stylesheet" href="../../css/adminDashboard.css">
+  <link rel="stylesheet" href="../../css/mesazhetStyle.css">
 </head>
 
 <body>
@@ -20,7 +21,21 @@ $userCRUD = new userCRUD();
   <?php include '../design/headerUser.php' ?>
 
   <div class="containerDashboard">
-
+    <?php
+  if (isset($_SESSION['teDhenatUPerditesuan'])) {
+    if ($_SESSION['teDhenatUPerditesuan'] == false) {
+      echo '<div class="mesazhiGabimStyle">
+                      <h3>Perditesimi u anulua!</h3>
+                      <button id="mbyllMesazhin">X</button>
+                    </div>';
+    } else {
+      echo '<div class="mesazhiSuksesStyle">
+                      <h3>Te dhenat u perditesuan me sukses!</h3>
+                      <button id="mbyllMesazhin">X</button>
+                    </div>';
+    }
+  }
+  ?>
     <h1 class="titulliPershkrim">Miresevini
       <?php echo $_SESSION['name'] ?>!
     </h1>
@@ -34,11 +49,14 @@ $userCRUD = new userCRUD();
         <p><strong>Mbiemri:</strong> ' . ($useri['mbiemri']) . '</p>
         <p><strong>Username:</strong> ' . ($useri['username']) . '</p>
         <p><strong>Email:</strong> ' . ($useri['email']) . '</p>
+        <a href="../funksione/perditesoTeDhenat.php?userID=' . $useri['userID'] . '"><button class="button">Perditeso te Dhenat</button></a>
       ';
     ?>
   </div>
 
-  <?php include '../design/footerAdmin.php' ?>
+  <?php include '../design/footerAdmin.php'; include_once '../funksione/importimiScriptave.php'?>
 </body>
 
 </html>
+
+<?php unset($_SESSION['teDhenatUPerditesuan']);?>

@@ -221,10 +221,11 @@ class porosiaCRUD extends dbCon
                     <td>' . $porosia['sasiaPorositur'] . '</td>
                     <td>' . $porosia['qmimiTotal'] . ' €</td>
                     <td>' . $porosia['dataPorosis'] . '</td>
-                    <td>' . $porosia['statusiPorosis'] . '</td>
-                    <td><button class="edito"><a href="../funksione/konfirmoPorosin.php?porosiaID=' . $porosia['porosiaID'] . '">Konfirmo Porosin</a></button></td>
-                  </tr>
-                ';
+                    <td>' . $porosia['statusiPorosis'] . '</td>';
+                    if($porosia['userID'] == $_SESSION['userID']){
+                    echo '<td><button class="edito"><a href="../funksione/konfirmoPorosin.php?porosiaID=' . $porosia['porosiaID'] . '">Konfirmo Porosin</a></button></td>';
+                    }
+                echo '</tr> ';
             }
             echo '</th>
           </table>';
