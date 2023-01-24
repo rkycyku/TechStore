@@ -61,7 +61,7 @@ $userCRUD = new userCRUD();
               }else{
                 echo '<td><input id="aksesi_' . $produkti['userID'] . '" type="number" min="0" max="2" placeholder="Aksesi" value="' . $produkti['aksesi'] . '"></td>';
               }
-        echo '<td><button class="edito" onclick="getValue('.$produkti['userID'].')">Edito</button>
+        echo '<td><button class="edito" onclick="ndryshoTeDhenat('.$produkti['userID'].')">Edito</button>
               <button class="edito"><a href="../userPages/porosit.php?userID=' . $produkti['userID'] . '">Porosite</a></button></td>
             </tr>';
           
@@ -79,7 +79,7 @@ $userCRUD = new userCRUD();
 </html>
 
 <script>
-  function getValue(idUser) {
+  function ndryshoTeDhenat(idUser) {
   var userID = document.getElementById("userID_"+idUser).innerHTML;
   var emri = document.getElementById("emri_"+idUser).value;
   var mbiemri = document.getElementById("mbiemri_"+idUser).value;
