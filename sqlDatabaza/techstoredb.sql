@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 24, 2023 at 11:38 PM
+-- Generation Time: Jan 25, 2023 at 04:03 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -61,13 +61,11 @@ CREATE TABLE `kategoriaproduktit` (
 --
 
 INSERT INTO `kategoriaproduktit` (`kategoriaID`, `emriKategoris`, `pershkrimiKategoris`) VALUES
-(1, 'Smartphone', NULL),
-(2, 'Laptop', NULL),
+(1, 'Smartphone', ''),
+(2, 'Laptop', ''),
 (3, 'Smart Watch', 'Ore te menqura te markave te ndryshme'),
 (4, 'Foto & Video', ''),
 (5, 'Audio', ''),
-(6, 'Konzola & Aksesorë Gaming', ''),
-(7, 'Videolojëra', ''),
 (8, 'All in One (AiO)', ''),
 (9, 'TV & Projektor', ''),
 (10, 'Maus & Aksesore', ''),
@@ -92,7 +90,7 @@ CREATE TABLE `kompania` (
 --
 
 INSERT INTO `kompania` (`kompaniaID`, `emriKompanis`, `kompaniaLogo`, `adresaKompanis`) VALUES
-(1, 'Apple', 'AppleLogo.png', NULL),
+(1, 'Apple', 'AppleLogo.png', ''),
 (2, 'Amd', 'AMDLogo.png', NULL),
 (3, 'Asus', 'AsusLogo.png', NULL),
 (4, 'JBL', 'JBL.png', NULL),
@@ -291,7 +289,7 @@ ALTER TABLE `kategoriaproduktit`
 -- AUTO_INCREMENT for table `kompania`
 --
 ALTER TABLE `kompania`
-  MODIFY `kompaniaID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `kompaniaID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `porosia`

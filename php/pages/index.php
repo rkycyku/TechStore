@@ -9,9 +9,7 @@ require_once('../CRUD/kompaniaCRUD.php');
 $kompaniaCRUD = new kompaniaCRUD();
 $produktiCRUD = new produktiCRUD();
 
-if (isset($_POST['kerkimi'])) {
-  echo '<script>document.location="./produktet.php?kerko=' . $_POST['kerkimi'] . '"</script>';
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,8 +29,8 @@ if (isset($_POST['kerkimi'])) {
     <div class="banner">
       <div class="titulliPershkrim">
         <p>A place where technology is everything.</p>
-        <form name='kerko' action='' method="post">
-          <input name='kerkimi' type="text">
+        <form name='kerko' action='../funksione/search.php' method="post">
+          <input class="searchBar" name='kerkimi' type="text" placeholder="Search">
         </form>
       </div>
     </div>

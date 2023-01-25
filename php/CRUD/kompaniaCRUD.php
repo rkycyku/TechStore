@@ -66,12 +66,28 @@ class kompaniaCRUD extends dbCon
     public function insertoKompanin()
     {
         try {
+            $this->barteFotonNeFolder();
+
+            $this->setEmriKompanis($_SESSION['emriKompanis']);
+            $this->setAdresaKompanis($_SESSION['adresaKompanis']);
+            $this->setKompaniaLogo($_SESSION['emriUnikFotos']);
+
             $sql = "INSERT INTO `kompania`(`emriKompanis`, `kompaniaLogo`, `adresaKompanis`) VALUES (?,?,?)";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute([$this->emriKompanis, $this->kompaniaLogo, $this->adresaKompanis]);
 
             $_SESSION['mesazhiMeSukses'] = true;
         } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function perditesoKompanin(){
+        try{
+            $sql = "UPDATE `kompania` SET `emriKompanis` = ?, `adresaKompanis` = ? where kompaniaID = ?";
+            $stm = $this->dbConn->prepare($sql);
+            $stm->execute([$this->emriKompanis,$this->adresaKompanis,$this->kompaniaID]);
+        }catch(Exception $e){
             return $e->getMessage();
         }
     }
@@ -85,6 +101,18 @@ class kompaniaCRUD extends dbCon
             $stm->execute();
 
             return $stm->fetchAll();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+    public function shfaqKompaninSipasID()
+    {
+        try {
+            $sql = "SELECT * FROM kompania where kompaniaID = ?";
+            $stm = $this->dbConn->prepare($sql);
+            $stm->execute([$this->kompaniaID]);
+
+            return $stm->fetch();
         } catch (Exception $e) {
             return $e->getMessage();
         }
@@ -107,10 +135,53 @@ class kompaniaCRUD extends dbCon
         } catch (Exception $e) {
             return $e->getMessage();
         }
+    }
+    public function fshijKompanin()
+    {
+        try {
 
+            $kompanija = $this->shfaqKompaninSipasID();
 
+            unlink('../../img/slider/slidericons/'.$kompanija['kompaniaLogo']);
+
+            $sql = "DELETE FROM kompania WHERE kompaniaID = ?";
+            $stm = $this->dbConn->prepare($sql);
+            $stm->execute([$this->kompaniaID]);
+            
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
     }
 
+    public function barteFotonNeFolder()
+    {
+        try {
+            $foto = $_SESSION['LogoKompanis'];
+            $emriFotos = $foto['name'];
+            $emeriTempIFotes = $foto['tmp_name'];
+            $errorFoto = $foto['error'];
+
+            $fileExt = explode('.', $emriFotos);
+            $fileActualExt = strtolower(end($fileExt));
+
+            $teLejuara = array('jpg', 'jpeg', 'png');
+
+            if (in_array($fileActualExt, $teLejuara)) {
+                if ($errorFoto === 0) {
+                    $_SESSION['emriUnikFotos'] = uniqid('', true) . "." . $fileActualExt;
+                    $destinacioniFotos = '../../img/slider/slidericons/' . $_SESSION['emriUnikFotos'];
+                    move_uploaded_file($emeriTempIFotes, $destinacioniFotos);
+
+                } else {
+                    $_SESSION['problemNeBartje'] = true;
+                }
+            } else {
+                $_SESSION['fileNukSuportohet'] = true;
+            }
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
 
 }
 

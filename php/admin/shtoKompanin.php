@@ -1,6 +1,20 @@
 <?php
 require_once('../adminFunksione/kontrolloAksesin.php');
+require_once('../CRUD/kompaniaCRUD.php');
 
+$kompaniaCRUD = new kompaniaCRUD();
+
+if (isset($_POST['shtoKompanin'])) {
+  if (isset($_FILES['kompaniaLogo'])) {
+    $_SESSION['LogoKompanis'] = $_FILES['kompaniaLogo'];
+    $_SESSION['emriLogosKompanis'] = $_FILES['kompaniaLogo']['name'];
+  }
+
+  $_SESSION['emriKompanis'] = $_POST['emriKompanis'];
+  $_SESSION['adresaKompanis'] = $_POST['adresaKompanis'];
+
+  $kompaniaCRUD->insertoKompanin();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +33,7 @@ require_once('../adminFunksione/kontrolloAksesin.php');
 <body>
   <?php include '../design/header.php' ?>
   <div class="forms">
-    <form name="shtoKompanin" action='../adminFunksione/shtoKompanin.php' method="POST" enctype="multipart/form-data">
+    <form name="shtoKompanin" action='' method="POST" enctype="multipart/form-data">
       <?php
       if (isset($_SESSION['mesazhiMeSukses'])) {
         echo '<div class="mesazhiSuksesStyle">

@@ -68,6 +68,28 @@ class kategoriaCRUD extends dbCon
         }
     }
 
+    public function perditesoKategorin(){
+        try {
+            $sql = "UPDATE `kategoriaproduktit` set `emriKategoris` = ?, `pershkrimiKategoris` = ? WHERE kategoriaID = ?";
+            $stm = $this->dbConn->prepare($sql);
+            $stm->execute([$this->emriKategoris, $this->pershkrimiKategoris,$this->kategoriaID]);
+
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+    public function shfaqKategorinSipasID()
+    {
+        try {
+            $sql = "SELECT * FROM kategoriaproduktit where kategoriaID = ?";
+            $stm = $this->dbConn->prepare($sql);
+            $stm->execute([$this->kategoriaID]);
+
+            return $stm->fetch();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
 
     public function shfaqKategorin()
     {
@@ -103,7 +125,17 @@ class kategoriaCRUD extends dbCon
 
     }
 
-
+    public function fshijKategorinSipasID()
+    {
+        try {
+            $sql = "DELETE FROM kategoriaproduktit WHERE kategoriaID = ?";
+            $stm = $this->dbConn->prepare($sql);
+            $stm->execute([$this->kategoriaID]);
+            
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
 }
 
 

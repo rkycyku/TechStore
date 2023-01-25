@@ -3,6 +3,21 @@ require_once('../adminFunksione/kontrolloAksesin.php');
 require_once('../CRUD/userCRUD.php');
 
 $userCRUD = new userCRUD();
+
+if (isset($_GET['userID'])) {
+  $userCRUD->setUserID($_GET['userID']);
+  $useri = $userCRUD->shfaqSipasID();
+
+  $userCRUD->setUserID($_GET['userID']);
+  $userCRUD->setEmri($_GET['emri']);
+  $userCRUD->setMbiemri($_GET['mbiemri']);
+  $userCRUD->setAksesi($_GET['aksesi']);
+
+
+  $userCRUD->perditesoTeDhenatAdmini();
+
+  $_SESSION['aksesiUPerditesua'] = true;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,15 +71,15 @@ $userCRUD = new userCRUD();
               <td><input id="mbiemri_' . $produkti['userID'] . '" type="text" placeholder=""value="' . $produkti['mbiemri'] . '"></td>
               <td>' . $produkti['username'] . '</td>
               <td>' . $produkti['email'] . '</td>';
-              if($produkti['aksesi'] == 2 && $_SESSION['aksesi'] != 2 || $produkti['userID'] == $_SESSION['userID']){
-                echo '<td id="aksesi_' . $produkti['userID'] . '">' . $produkti['aksesi'] . '</td>';
-              }else{
-                echo '<td><input id="aksesi_' . $produkti['userID'] . '" type="number" min="0" max="2" placeholder="Aksesi" value="' . $produkti['aksesi'] . '"></td>';
-              }
-        echo '<td><button class="edito" onclick="ndryshoTeDhenat('.$produkti['userID'].')">Edito</button>
+        if ($produkti['aksesi'] == 2 && $_SESSION['aksesi'] != 2 || $produkti['userID'] == $_SESSION['userID']) {
+          echo '<td id="aksesi_' . $produkti['userID'] . '">' . $produkti['aksesi'] . '</td>';
+        } else {
+          echo '<td><input id="aksesi_' . $produkti['userID'] . '" type="number" min="0" max="2" placeholder="Aksesi" value="' . $produkti['aksesi'] . '"></td>';
+        }
+        echo '<td><button class="edito" onclick="ndryshoTeDhenat(' . $produkti['userID'] . ')">Edito</button>
               <button class="edito"><a href="../userPages/porosit.php?userID=' . $produkti['userID'] . '">Porosite</a></button></td>
             </tr>';
-          
+
       }
       ?>
       </th>
@@ -80,14 +95,20 @@ $userCRUD = new userCRUD();
 
 <script>
   function ndryshoTeDhenat(idUser) {
-  var userID = document.getElementById("userID_"+idUser).innerHTML;
-  var emri = document.getElementById("emri_"+idUser).value;
-  var mbiemri = document.getElementById("mbiemri_"+idUser).value;
-  var aksesi = document.getElementById("aksesi_"+idUser).value;
-  
-  var link = "./ndryshoTeDhenatLlogaris.php?userID=" + userID+"&emri="+emri+"&mbiemri=" + mbiemri+"&aksesi=" + aksesi;
-  window.location.href = link;
-}
+    var userID = document.getElementById("userID_" + idUser).innerHTML;
+    var emri = document.getElementById("emri_" + idUser).value;
+    var mbiemri = document.getElementById("mbiemri_" + idUser).value;
+    var aksesi = document.getElementById("aksesi_" + idUser).value;
+
+    var link = "../adminFunksione/ndryshoTeDhenatLlogaris.php?userID=" + userID + "&emri=" + emri + "&mbiemri=" + mbiemri + "&aksesi=" + aksesi;
+    window.location.href = link;
+  }
+  function fshijKategorin(kategoriaID){
+        var kategoriaID = document.getElementById("kategoriaID_" + kategoriaID).innerHTML;
+
+        var link = "?kategoriaID=" + kategoriaID+"&fshij";
+        window.location.href = link;
+    }
 </script>
 
 <?php

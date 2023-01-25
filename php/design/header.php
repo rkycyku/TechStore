@@ -1,6 +1,10 @@
 <?php
 if (!isset($_SESSION)) {
     session_start();
+      
+}
+if(!isset($_SESSION['aksesi'])){
+    $_SESSION['aksesi'] = 0;  
 }
 ?>
 <!DOCTYPE html>
@@ -41,6 +45,14 @@ if (!isset($_SESSION)) {
                     </li>
                     <li class="nav-item">
                         <a href="../admin/perdoruesit.php">Perdoruesit</a>
+                        <span class="line"></span>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../admin/kompanit.php">Kompanit</a>
+                        <span class="line"></span>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../admin/kategorit.php">Kategorit</a>
                         <span class="line"></span>
                     </li>
                     <li class="nav-item">

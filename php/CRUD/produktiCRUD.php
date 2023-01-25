@@ -306,7 +306,6 @@ class produktiCRUD extends dbCon
             $foto = $_SESSION['FotoProduktit'];
             $emriFotos = $foto['name'];
             $emeriTempIFotes = $foto['tmp_name'];
-            $madhesiaFotos = $foto['size'];
             $errorFoto = $foto['error'];
 
             $fileExt = explode('.', $emriFotos);
