@@ -33,7 +33,7 @@ if (isset($_GET['fshij'])) {
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kompanit | Tech Store</title>
+    <title>Categories | Tech Store</title>
     <link rel="shortcut icon" href="../../img/web/favicon.ico" />
     <link rel="stylesheet" href="../../css/adminDashboard.css" />
     <link rel="stylesheet" href="../../css/mesazhetStyle.css" />
@@ -66,7 +66,7 @@ if (isset($_GET['fshij'])) {
           ';
         }
         ?>
-        <h1>Lista e Kategorive</h1>
+        <h1>List of Categories</h1>
         <table>
             <tr>
                 <th>ID Kategoris</th>

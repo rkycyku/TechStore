@@ -29,9 +29,6 @@ $produktiCRUD = new produktiCRUD();
     <div class="banner">
       <div class="titulliPershkrim">
         <p>A place where technology is everything.</p>
-        <form name='kerko' action='../funksione/search.php' method="post">
-          <input class="searchBar" name='kerkimi' type="text" placeholder="Search">
-        </form>
       </div>
     </div>
     <?php

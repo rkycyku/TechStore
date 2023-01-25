@@ -1,5 +1,6 @@
 body {
-  background-color: #0f243b;
+  background-color: #6cc0a2;
+
 }
 
 .forms {
@@ -8,8 +9,14 @@ body {
   flex-basis: 120em;
   align-items: center;
   flex-wrap: wrap;
+  border-radius: 25px;
+  width: fit-content;
+  margin: auto;
   margin-top: 7em;
-  margin-bottom: 4em;
+  -webkit-box-shadow: 0 0 20px #3aa27e;
+  box-shadow: 0 0 20px #3aa27e;
+  padding: 3em 2em;
+
 }
 
 form {
@@ -59,10 +66,10 @@ input.mesazhi {
 }
 
 .button {
-  border: 1px solid black;
+  border: none;
   background-color: white;
   color: black;
-  padding: 10px;
+  padding: 1em 3em;
   width: auto;
   border-radius: 25px;
   margin-top: 1em;

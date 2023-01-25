@@ -46,7 +46,7 @@ $perdoruesi = $userCRUD->shfaqSipasID();
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Perditesimi i te dhenave | Tech Store</title>
+    <title>Info Update | Tech Store</title>
     <link rel="shortcut icon" href="../../img/web/favicon.ico" />
     <link rel="stylesheet" href="../../css/forms.css" />
     <link rel="stylesheet" href="../../css/mesazhetStyle.css" />
@@ -64,7 +64,7 @@ $perdoruesi = $userCRUD->shfaqSipasID();
             if (isset($_SESSION['passGabim'])) {
                 echo '
                 <div class="mesazhiGabimStyle">
-                  <h3>Passwordi juaj eshte Gabim!</h3>
+                  <h3>Wrong Password!</h3>
                   <button id="mbyllMesazhin">
                     X
                   </button>
@@ -73,9 +73,9 @@ $perdoruesi = $userCRUD->shfaqSipasID();
             }
 
             ?>
-            <h1 class="form-title">Perditesimi i te dhenave </h1>
+            <h1 class="form-title">Info Update </h1>
             <label for="">
-                <strong>ID Juaj: </strong>
+                <strong>ID: : </strong>
                 <?php echo $perdoruesi['userID'] ?>
             </label>
             <label for="">
@@ -83,11 +83,11 @@ $perdoruesi = $userCRUD->shfaqSipasID();
                 <input type="text" name="uName" value="<?php echo $perdoruesi['username'] ?>">
             </label>
             <label for="">
-                <strong>Emri: </strong>
+                <strong>Name: </strong>
                 <input type="text" name="emri" value="<?php echo $perdoruesi['emri'] ?>">
             </label>
             <label for="">
-                <strong>Mbiemri: </strong>
+                <strong>Lastname: </strong>
                 <input type="text" name="mbiemri" value="<?php echo $perdoruesi['mbiemri'] ?>">
             </label>
             <label for="">
@@ -98,8 +98,8 @@ $perdoruesi = $userCRUD->shfaqSipasID();
                 <strong>Password: </strong>
                 <input type="password" placeholder="Shkruani passwordin!" name="pass">
             </label>
-            <input class="button" type="submit" value="Perditesoni te dhenat" name='perditDhenat'>
-            <input class="button" type="submit" value="Anulo" name='anulo'>
+            <input class="button" type="submit" value="Update info" name='perditDhenat'>
+            <input class="button" type="submit" value="Dissmis" name='anulo'>
         </form>
     </div>
     <script src="../../js/validimiFormave.js"></script>

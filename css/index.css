@@ -196,9 +196,10 @@
 
 .searchBar{
   width: 23em;
-  padding: 1em;
+  padding: 1em 2em;
   margin-top: 2em;
-  border-radius: 15px;
+  border: 1px solid #d3d3d3;
+  border-radius: 25px;
 }
 
 .searchBarForm{

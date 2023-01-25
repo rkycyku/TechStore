@@ -100,13 +100,13 @@ if(!isset($_SESSION['aksesi'])){
                             <a href="../pages/produktet.php">Products</a>
                         </li>
                             <li class="nav-item">
-                                <a href="../admin/shtoKategorin.php">Vendosja e Kategorive</a>
+                                <a href="../admin/shtoKategorin.php">Add Categories</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../admin/shtoProdukt.php">Vendosja e Produkteve</a>
+                                <a href="../admin/shtoProdukt.php">Add Products</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../admin/shtoKompanin.php">Vendosja e Kompanive</a>
+                                <a href="../admin/shtoKompanin.php">Add Companies</a>
                             </li></li><li class="nav-item">
                             <a href="../funksione/logout.php">Log Out</a>
                         </li>';
