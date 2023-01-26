@@ -68,11 +68,12 @@ class kategoriaCRUD extends dbCon
         }
     }
 
-    public function perditesoKategorin(){
+    public function perditesoKategorin()
+    {
         try {
             $sql = "UPDATE `kategoriaproduktit` set `emriKategoris` = ?, `pershkrimiKategoris` = ? WHERE kategoriaID = ?";
             $stm = $this->dbConn->prepare($sql);
-            $stm->execute([$this->emriKategoris, $this->pershkrimiKategoris,$this->kategoriaID]);
+            $stm->execute([$this->emriKategoris, $this->pershkrimiKategoris, $this->kategoriaID]);
 
         } catch (Exception $e) {
             return $e->getMessage();
@@ -131,7 +132,7 @@ class kategoriaCRUD extends dbCon
             $sql = "DELETE FROM kategoriaproduktit WHERE kategoriaID = ?";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute([$this->kategoriaID]);
-            
+
         } catch (Exception $e) {
             return $e->getMessage();
         }

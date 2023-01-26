@@ -1,6 +1,5 @@
 body {
   background-color: #6cc0a2;
-
 }
 
 .forms {
@@ -16,7 +15,6 @@ body {
   -webkit-box-shadow: 0 0 20px #3aa27e;
   box-shadow: 0 0 20px #3aa27e;
   padding: 3em 2em;
-
 }
 
 form {
@@ -101,7 +99,7 @@ label {
 }
 
 ::-webkit-file-upload-button {
-  background:white;
+  background: white;
   border: none;
   border-radius: 20px;
   color: grey;
@@ -114,22 +112,22 @@ label {
   cursor: pointer;
 }
 
-.dropdown{
-  background:white;
+.dropdown {
+  background: white;
   outline: none;
   border: none;
   border-radius: 20px;
   color: grey;
-  padding:0.5em 1em;
+  padding: 0.5em 1em;
   cursor: pointer;
 }
-.dropdown1{
-  background:white;
+.dropdown1 {
+  background: white;
   outline: none;
   border: none;
   border-radius: 20px;
   color: grey;
-  padding:0.5em 1.3em;
+  padding: 0.5em 1.3em;
   cursor: pointer;
 }
 
@@ -154,5 +152,3 @@ label {
     top: 193px;
   }
 }
-
-

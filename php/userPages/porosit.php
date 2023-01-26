@@ -11,22 +11,22 @@ $porosiaCRUD = new porosiaCRUD();
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Orders | Tech Store</title>
-    <link rel="shortcut icon" href="../../img/web/favicon.ico" />
-    <link rel="stylesheet" href="../../css/adminDashboard.css" />
-    <link rel="stylesheet" href="../../css/mesazhetStyle.css" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Orders | Tech Store</title>
+  <link rel="shortcut icon" href="../../img/web/favicon.ico" />
+  <link rel="stylesheet" href="../../css/adminDashboard.css" />
+  <link rel="stylesheet" href="../../css/mesazhetStyle.css" />
 </head>
 
 <body>
 
-    <?php include '../design/header.php' ?>
+  <?php include '../design/header.php' ?>
 
-    <div class="containerDashboardP">
+  <div class="containerDashboardP">
 
-        <?php
+    <?php
     if (isset($_SESSION['konfirmimiPorosis'])) {
       echo '<div class="mesazhiSuksesStyle">
                       <h3>Ju faleminderit qe konfirmuat porosin!</h3>
@@ -52,9 +52,9 @@ $porosiaCRUD = new porosiaCRUD();
     }
     ?>
 
-    </div>
+  </div>
 
-    <?php
+  <?php
   include '../design/footer.php';
   include('../funksione/importimiScriptave.php') ?>
 </body>

@@ -103,12 +103,12 @@ if (isset($_GET['userID'])) {
     var link = "../adminFunksione/ndryshoTeDhenatLlogaris.php?userID=" + userID + "&emri=" + emri + "&mbiemri=" + mbiemri + "&aksesi=" + aksesi;
     window.location.href = link;
   }
-  function fshijKategorin(kategoriaID){
-        var kategoriaID = document.getElementById("kategoriaID_" + kategoriaID).innerHTML;
+  function fshijKategorin(kategoriaID) {
+    var kategoriaID = document.getElementById("kategoriaID_" + kategoriaID).innerHTML;
 
-        var link = "?kategoriaID=" + kategoriaID+"&fshij";
-        window.location.href = link;
-    }
+    var link = "?kategoriaID=" + kategoriaID + "&fshij";
+    window.location.href = link;
+  }
 </script>
 
 <?php

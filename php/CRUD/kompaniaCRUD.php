@@ -82,12 +82,13 @@ class kompaniaCRUD extends dbCon
         }
     }
 
-    public function perditesoKompanin(){
-        try{
+    public function perditesoKompanin()
+    {
+        try {
             $sql = "UPDATE `kompania` SET `emriKompanis` = ?, `adresaKompanis` = ? where kompaniaID = ?";
             $stm = $this->dbConn->prepare($sql);
-            $stm->execute([$this->emriKompanis,$this->adresaKompanis,$this->kompaniaID]);
-        }catch(Exception $e){
+            $stm->execute([$this->emriKompanis, $this->adresaKompanis, $this->kompaniaID]);
+        } catch (Exception $e) {
             return $e->getMessage();
         }
     }
@@ -142,12 +143,12 @@ class kompaniaCRUD extends dbCon
 
             $kompanija = $this->shfaqKompaninSipasID();
 
-            unlink('../../img/slider/slidericons/'.$kompanija['kompaniaLogo']);
+            unlink('../../img/slider/slidericons/' . $kompanija['kompaniaLogo']);
 
             $sql = "DELETE FROM kompania WHERE kompaniaID = ?";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute([$this->kompaniaID]);
-            
+
         } catch (Exception $e) {
             return $e->getMessage();
         }

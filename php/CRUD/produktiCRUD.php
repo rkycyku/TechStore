@@ -241,7 +241,7 @@ class produktiCRUD extends dbCon
     {
         try {
             $produkti = $this->shfaqProduktinSipasID();
-            unlink('../../img/products/'.$produkti['fotoProduktit']);
+            unlink('../../img/products/' . $produkti['fotoProduktit']);
 
             $sql = "DELETE FROM produkti WHERE produktiID = ?";
             $stm = $this->dbConn->prepare($sql);
@@ -278,7 +278,7 @@ class produktiCRUD extends dbCon
     {
         try {
             $produkti = $this->shfaqProduktinSipasID();
-            unlink('../../img/products/'.$produkti['fotoProduktit']);
+            unlink('../../img/products/' . $produkti['fotoProduktit']);
 
             $this->barteFotonNeFolder();
 

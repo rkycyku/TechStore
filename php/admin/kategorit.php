@@ -66,7 +66,7 @@ if (isset($_GET['fshij'])) {
           ';
         }
         ?>
-        <h1>List of Categories</h1>
+        <h1>Lista e Kategorive</h1>
         <table>
             <tr>
                 <th>ID Kategoris</th>
@@ -109,7 +109,7 @@ if (isset($_GET['fshij'])) {
         var link = "?kategoriaID=" + kategoriaID + "&emriKategoris=" + emriKategoris + "&pershkrimiKategoris=" + pershkrimiKategoris;
         window.location.href = link;
     }
-    
+
     function fshijKategorin(kategoriaID) {
         var kategoriaID = document.getElementById("kategoriaID_" + kategoriaID).innerHTML;
 

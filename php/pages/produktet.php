@@ -25,8 +25,8 @@ $produktiCRUD = new produktiCRUD();
   <?php include '../design/header.php'; ?>
   <div class="container">
     <form class="searchBarForm" name='kerko' action='../funksione/search.php' method="post">
-        <input class="searchBar" name='kerkimi' type="text" placeholder="Search">
-      </form>
+      <input class="searchBar" name='kerkimi' type="text" placeholder="Search">
+    </form>
     <?php
     if (isset($_GET['kompania'])) {
       $kompania = $_GET['kompania'];

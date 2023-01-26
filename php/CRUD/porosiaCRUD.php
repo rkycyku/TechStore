@@ -222,9 +222,9 @@ class porosiaCRUD extends dbCon
                     <td>' . $porosia['qmimiTotal'] . ' €</td>
                     <td>' . $porosia['dataPorosis'] . '</td>
                     <td>' . $porosia['statusiPorosis'] . '</td>';
-                    if($porosia['userID'] == $_SESSION['userID']){
+                if ($porosia['userID'] == $_SESSION['userID']) {
                     echo '<td><button class="edito"><a href="../funksione/konfirmoPorosin.php?porosiaID=' . $porosia['porosiaID'] . '">Konfirmo Porosin</a></button></td>';
-                    }
+                }
                 echo '</tr> ';
             }
             echo '</th>
@@ -312,6 +312,19 @@ class porosiaCRUD extends dbCon
             $sql = "UPDATE `porosia` SET `statusiPorosis`= ? WHERE `porosiaID` = ?";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute([$this->statusiPorosis, $this->porosiaID]);
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function numriIPorosisNeKonfirmim()
+    {
+        try {
+            $sql = "SELECT porosiaID from `porosia` ORDER BY porosiaID DESC LIMIT 1";
+            $stm = $this->dbConn->prepare($sql);
+            $stm->execute();
+
+            return $stm->fetch();
         } catch (Exception $e) {
             return $e->getMessage();
         }

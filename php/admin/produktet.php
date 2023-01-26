@@ -79,7 +79,7 @@ $produktiCRUD = new produktiCRUD();
               <td>' . $produkti['qmimiProduktit'] . ' €</td>
               <td><button class="edito"><a href="./editoProduktin.php?produktID=' . $produkti['produktiID'] . '">Edito</a></button>
               <button class="fshij"><a href="../adminFunksione/fshiProduktin.php?produktID=' . $produkti['produktiID'] . '">Fshij</a></button>
-              <button class="porositP"><a href="../userPages/porosit.php?produktID=' . $produkti['produktiID'] . '">Porosit</a></button></td>
+              <button class="porositP"><a href="../userPages/porosit.php?produktID=' . $produkti['produktiID'] . '">Porositë</a></button></td>
             </tr>
           ';
       }

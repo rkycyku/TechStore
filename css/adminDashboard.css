@@ -24,7 +24,7 @@
 .containerDashboardP tr td {
   border-bottom: 1px solid #dddddd;
 }
-.emriP{
+.emriP {
   width: 30em;
 }
 
@@ -42,15 +42,12 @@
   border-radius: 2px;
 }
 
-.porositP{
+.porositP {
   margin-top: 0.4em;
   padding: 0.4em;
   background-color: #c9d51a;
   border: none;
   border-radius: 2px;
-}
-.porositP::after{
-  content: 'ë';
 }
 
 .containerDashboard {

@@ -194,7 +194,7 @@
   opacity: 1;
 }
 
-.searchBar{
+.searchBar {
   width: 23em;
   padding: 1em 2em;
   margin-top: 2em;
@@ -202,7 +202,7 @@
   border-radius: 25px;
 }
 
-.searchBarForm{
+.searchBarForm {
   display: flex;
   justify-content: center;
 }

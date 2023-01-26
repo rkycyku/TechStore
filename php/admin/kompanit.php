@@ -88,8 +88,7 @@ if (isset($_GET['fshij'])) {
               <td><img src="../../img/slider/sliderIcons/' . $kompanit['kompaniaLogo'] . '"></td>
               <td><input id="adresaKompanis_' . $kompanit['kompaniaID'] . '" type="text" placeholder="Adresa Kompanis" value="' . $kompanit['adresaKompanis'] . '"></td>
               <td><button class="edito" onclick="editoKompanin(' . $kompanit['kompaniaID'] . ')">Edito</button>
-              <button class="fshij" onclick="fshijKompanin(' . $kompanit['kompaniaID'] . ')">Fshije</button>
-              <button class="edito"><a href="../userPages/porosit.php?userID=' . $kompanit['kompaniaID'] . '">Ndrysho Foton</a></button></td>
+              <button class="fshij" onclick="fshijKompanin(' . $kompanit['kompaniaID'] . ')">Fshije</button></button></td>
             </tr>';
 
             }
@@ -114,10 +113,10 @@ if (isset($_GET['fshij'])) {
         var link = "?kompaniaID=" + kompaniaID + "&emriKompanis=" + emriKompanis + "&adresaKompanis=" + adresaKompanis;
         window.location.href = link;
     }
-    function fshijKompanin(kompaniaID){
+    function fshijKompanin(kompaniaID) {
         var kategoriaID = document.getElementById("kompaniaID_" + kompaniaID).innerHTML;
 
-        var link = "?kompaniaID=" + kompaniaID+"&fshij";
+        var link = "?kompaniaID=" + kompaniaID + "&fshij";
         window.location.href = link;
     }
 </script>

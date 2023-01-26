@@ -22,20 +22,20 @@ $userCRUD = new userCRUD();
 
   <div class="containerDashboard">
     <?php
-  if (isset($_SESSION['teDhenatUPerditesuan'])) {
-    if ($_SESSION['teDhenatUPerditesuan'] == false) {
-      echo '<div class="mesazhiGabimStyle">
+    if (isset($_SESSION['teDhenatUPerditesuan'])) {
+      if ($_SESSION['teDhenatUPerditesuan'] == false) {
+        echo '<div class="mesazhiGabimStyle">
                       <h3>Perditesimi u anulua!</h3>
                       <button id="mbyllMesazhin">X</button>
                     </div>';
-    } else {
-      echo '<div class="mesazhiSuksesStyle">
+      } else {
+        echo '<div class="mesazhiSuksesStyle">
                       <h3>Te dhenat u perditesuan me sukses!</h3>
                       <button id="mbyllMesazhin">X</button>
                     </div>';
+      }
     }
-  }
-  ?>
+    ?>
     <h1 class="titulliPershkrim">Miresevini
       <?php echo $_SESSION['name'] ?>!
     </h1>
@@ -52,17 +52,17 @@ $userCRUD = new userCRUD();
         <a href="../funksione/perditesoTeDhenat.php?userID=' . $useri['userID'] . '"><button class="button">Perditeso te Dhenat</button></a>
         <a href="../funksione/ndryshoPass.php?userID=' . $useri['userID'] . '"><button class="button">Ndrysho Fjalekalimin</button></a>
       ';
-      if($_SESSION['aksesi'] == 0){
+    if ($_SESSION['aksesi'] == 0) {
       echo ' <a href="../userPages/porosit.php"><button class="button">Porosite e tua</button></a>';
-      }
+    }
     ?>
-   
+
   </div>
 
-  <?php include '../design/footer.php'; 
-  include_once '../funksione/importimiScriptave.php'?>
+  <?php include '../design/footer.php';
+  include_once '../funksione/importimiScriptave.php' ?>
 </body>
 
 </html>
 
-<?php unset($_SESSION['teDhenatUPerditesuan']);?>
+<?php unset($_SESSION['teDhenatUPerditesuan']); ?>

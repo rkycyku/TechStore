@@ -10,4 +10,4 @@ $_SESSION['aksesi'] = 0;
 
 echo '<script>document.location="../../php/pages/index.php"</script>'
 
-?>
+    ?>

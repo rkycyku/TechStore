@@ -35,7 +35,7 @@ if (isset($_POST['perditDhenat'])) {
 }
 if (isset($_POST['anulo'])) {
     $_SESSION['teDhenatUPerditesuan'] = false;
-        echo '<script>document.location="../userPages/userDashboard.php"</script>';
+    echo '<script>document.location="../userPages/userDashboard.php"</script>';
 }
 $perdoruesi = $userCRUD->shfaqSipasID();
 ?>

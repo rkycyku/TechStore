@@ -50,8 +50,7 @@ if (isset($_POST['anulo'])) {
   echo '</div>';
   ?>
   <div class="forms">
-    <form name="editoProduktin" onsubmit="" action='' method="POST"
-      enctype="multipart/form-data">
+    <form name="editoProduktin" onsubmit="" action='' method="POST" enctype="multipart/form-data">
       <h1 class="form-title">Editimi i Produktiti</h1>
       <input class="form-input" name="pdName" type="text" placeholder="Emri i Produktit"
         value='<?php echo $produkti['emriProduktit'] ?>' required>

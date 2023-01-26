@@ -100,15 +100,16 @@ class contactFormCRUD extends dbCon
         }
     }
 
-    public function konfirmoMesazhin(){
-        try{
+    public function konfirmoMesazhin()
+    {
+        try {
             $sql = "UPDATE contactform set statusi = 'Mesazhi eshte Pranuar dhe eshte Pergjigjur ne email' where IDmesazhi = ?";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute([$this->IDmesazhi]);
 
             $_SESSION['mezashiUKonfirmua'] = true;
             echo '<script>document.location="./shfaqMesazhet.php"</script>';
-        }catch(Exception $e){
+        } catch (Exception $e) {
             return $e->getMessage();
         }
     }

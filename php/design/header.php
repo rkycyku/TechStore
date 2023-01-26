@@ -1,10 +1,11 @@
 <?php
 if (!isset($_SESSION)) {
     session_start();
-      
+
 }
-if(!isset($_SESSION['aksesi'])){
-    $_SESSION['aksesi'] = 0;  
+
+if (!isset($_SESSION['aksesi'])) {
+    $_SESSION['aksesi'] = 0;
 }
 ?>
 <!DOCTYPE html>

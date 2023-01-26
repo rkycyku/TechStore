@@ -20,7 +20,6 @@
   padding: 1.5em;
   background-color: white;
   flex-wrap: wrap;
-
 }
 
 .QmimiTransportit {
@@ -41,4 +40,65 @@
 
 #shumaTOT {
   color: black;
+}
+
+/* Fillimi i CSS per Dizajnin e Kompletimit te porosis */
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+
+.containerPorosia {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.detajetPoresis {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  flex-direction: column;
+  gap: 0.3em;
+}
+
+.detajetPoresis img {
+  width: 30%;
+  aspect-ratio: 3/2;
+  object-fit: contain;
+  margin-bottom: 1em;
+}
+
+.detajetDorezimit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  flex-direction: column;
+  gap: 0.3em;
+}
+
+.perfundoButoni {
+  border: none;
+  background-color: #f7f7f9;
+  color: black;
+  padding: 1em 3em;
+  width: auto;
+  border-radius: 25px;
+  margin-top: 1em;
+}
+
+.perfundoButoni:hover {
+  background: #01df93;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
 }
