@@ -7,6 +7,7 @@
   margin: 5em auto;
   flex-wrap: wrap;
 }
+
 .teDhenatEProduktit {
   display: flex;
   width: 20%;
@@ -15,11 +16,11 @@
   font-size: 0.8em;
   gap: 1em;
   margin-right: 3em;
-  border: solid 1px black;
   border-radius: 25px;
   padding: 1.5em;
   background-color: white;
   flex-wrap: wrap;
+
 }
 
 .QmimiTransportit {
@@ -27,7 +28,6 @@
   width: 20%;
   font-size: 10px;
   color: black;
-  border: solid 1px black;
   border-radius: 25px;
   padding: 1.5em;
   background-color: white;

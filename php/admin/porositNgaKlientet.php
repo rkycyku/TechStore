@@ -31,7 +31,7 @@ $porosia = $porosiaCRUD->shfaqTeGjithaPorosite();
       if ($_SESSION['statusiUPerditesua'] == true) {
         echo '
                   <div class="mesazhiSuksesStyle">
-                    <h3>Statusi i porosis u perditesua me sukses!</h3>
+                    <p>Statusi i porosis u perditesua me sukses!</p>
                     <button id="mbyllMesazhin">
                       X
                     </button>
@@ -40,7 +40,7 @@ $porosia = $porosiaCRUD->shfaqTeGjithaPorosite();
       } else {
         echo '
             <div class="mesazhiGabimStyle">
-              <h3>Statusi i porosis nuk u perditesua!</h3>
+              <p>Statusi i porosis nuk u perditesua!</p>
               <button id="mbyllMesazhin">
                 X
               </button>

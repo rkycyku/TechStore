@@ -55,7 +55,7 @@ $porosiaCRUD = new porosiaCRUD();
     </div>
 
     <?php
-  include '../design/footerAdmin.php';
+  include '../design/footer.php';
   include('../funksione/importimiScriptave.php') ?>
 </body>
 

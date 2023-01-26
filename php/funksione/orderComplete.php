@@ -40,7 +40,7 @@ $porosiaCRUD->shtoPorosin();
 </head>
 
 <body>
-  <?php include '../design/headerError.php'; ?>
+  <?php include '../design/header.php'; ?>
   <div class="container">
     <h1>Porosia u krye me sukses</h1>
     <div class="detajetPoresis">

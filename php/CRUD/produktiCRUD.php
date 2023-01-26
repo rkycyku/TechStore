@@ -151,7 +151,7 @@ class produktiCRUD extends dbCon
     public function shfaq20ProduktetEFundit()
     {
         try {
-            $sql = "SELECT * FROM (SELECT * FROM `produkti` ORDER BY `produktiID` DESC LIMIT 20) AS prodEFundit ORDER BY prodEFundit.produktiID ASC";
+            $sql = "SELECT * FROM (SELECT * FROM `produkti` ORDER BY `produktiID` DESC LIMIT 20) AS prodEFundit ORDER BY prodEFundit.produktiID DESC";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute();
 
@@ -216,7 +216,7 @@ class produktiCRUD extends dbCon
                 <div class="titulliArtikuj">
                   <h1 class="">All Products like ' . $_SESSION['kerko'] . '</h1>
                 </div>
-                    <h1>Produkti qe kerkuat nuk egziston!</h1>';
+                    <p>Produkti qe kerkuat nuk egziston!</p>';
 
             }
         } catch (Exception $e) {

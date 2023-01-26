@@ -123,7 +123,7 @@ class kompaniaCRUD extends dbCon
         try {
             $kompanit = $this->shfaqKompanin();
 
-            echo '<select name="kompania">
+            echo '<select class="dropdown" name="kompania">
                 <option value="te tjera">Zgjedhni Kompanin</option>
             ';
 

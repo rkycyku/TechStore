@@ -46,7 +46,7 @@ if (isset($_POST['shtoProd'])) {
       if (isset($_SESSION['mesazhiMeSukses'])) {
         echo '
                   <div class="mesazhiSuksesStyle">
-                    <h3>Produkti u shtua me sukses!</h3>
+                    <p>Produkti u shtua me sukses!</p>
                     <button id="mbyllMesazhin">
                       X
                     </button>
@@ -56,7 +56,7 @@ if (isset($_POST['shtoProd'])) {
       if (isset($_SESSION['madhesiaGabim'])) {
         echo '
                   <div class="mesazhiGabimStyle">
-                    <h3>Madhesia e fotos eshte shume e madhe!</h3>
+                    <p>Madhesia e fotos eshte shume e madhe!</p>
                     <button id="mbyllMesazhin">
                       X
                     </button>
@@ -66,7 +66,7 @@ if (isset($_POST['shtoProd'])) {
       if (isset($_SESSION['problemNeBartje'])) {
         echo '
                   <div class="mesazhiGabimStyle">
-                    <h3>Ndodhi nje problem ne bartjen e fotov!</h3>
+                    <p>Ndodhi nje problem ne bartjen e fotov!</p>
                     <button id="mbyllMesazhin">
                       X
                     </button>
@@ -76,7 +76,7 @@ if (isset($_POST['shtoProd'])) {
       if (isset($_SESSION['fileNukSuportohet'])) {
         echo '
                   <div class="mesazhiGabimStyle">
-                    <h3>Ky file nuk supportohet!</h3>
+                    <p>Ky file nuk supportohet!</p>
                     <button id="mbyllMesazhin">
                       X
                     </button>
@@ -88,8 +88,8 @@ if (isset($_POST['shtoProd'])) {
       <input class="form-input" name="pdName" type="text" placeholder="Emri i Produktit" required>
       <?php $kompania->shfaqKompanitSelektim(); ?>
       <?php $kategoria->shfaqKategorinSelektim(); ?>
-      <input class="form-input" name="pdPhoto" accept="image/*" type="file" placeholder="Foto Produktit" required>
-      <input class="form-input" name="cmimiPd" type="text" placeholder="Qmimi i Produktit" required>
+      <input class="form-input" name="pdPhoto" accept="image/*" type="file" value="Foto Produktit" required>
+      <input class="finput" name="cmimiPd" type="text" placeholder="Qmimi i Produktit" required>
       <input class="button" type="submit" value="Shtoni Produktin" name='shtoProd'>
     </form>
   </div>

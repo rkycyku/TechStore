@@ -41,7 +41,7 @@ if (isset($_GET['userID'])) {
     if (isset($_SESSION['aksesiUPerditesua'])) {
       echo '
                 <div class="mesazhiSuksesStyle">
-                  <h3>Llogaria u ndryshua!</h3>
+                  <p>Llogaria u ndryshua!</p>
                   <button id="mbyllMesazhin">
                     X
                   </button>

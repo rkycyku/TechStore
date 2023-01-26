@@ -37,25 +37,25 @@ if (isset($_POST['shtoKompanin'])) {
       <?php
       if (isset($_SESSION['mesazhiMeSukses'])) {
         echo '<div class="mesazhiSuksesStyle">
-                    <h3>Kompania u shtua me sukses!</h3>
+                    <p>Kompania u shtua me sukses!</p>
                     <button id="mbyllMesazhin">X</button>
                   </div>';
       }
       if (isset($_SESSION['madhesiaGabim'])) {
         echo '<div class="mesazhiGabimStyle">
-                    <h3>Madhesia e fotos eshte shume e madhe!</h3>
+                    <p>Madhesia e fotos eshte shume e madhe!</p>
                     <button id="mbyllMesazhin"></button>
                   </div>';
       }
       if (isset($_SESSION['problemNeBartje'])) {
         echo '<div class="mesazhiGabimStyle">
-                    <h3>Ndodhi nje problem ne bartjen e fotov!</h3>
+                    <p>Ndodhi nje problem ne bartjen e fotov!</p>
                     <button id="mbyllMesazhin">X</button>
                   </div>';
       }
       if (isset($_SESSION['fileNukSuportohet'])) {
         echo '<div class="mesazhiGabimStyle">
-                    <h3>Ky file nuk supportohet!</h3>
+                    <p>Ky file nuk supportohet!</p>
                     <button id="mbyllMesazhin">X</button>
                   </div>';
       }

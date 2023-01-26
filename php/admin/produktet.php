@@ -72,14 +72,14 @@ $produktiCRUD = new produktiCRUD();
         echo '
             <tr>
               <td>' . $produkti['produktiID'] . '</td>
-              <td>' . $produkti['emriProduktit'] . '</td>
+              <td class="emriP">' . $produkti['emriProduktit'] . '</td>
               <td>' . $produkti['emriKompanis'] . '</td>
               <td>' . $produkti['kategoriaProduktit'] . '</td>
               <td><img src="../../img/products/' . $produkti['fotoProduktit'] . '"></td>
               <td>' . $produkti['qmimiProduktit'] . ' €</td>
               <td><button class="edito"><a href="./editoProduktin.php?produktID=' . $produkti['produktiID'] . '">Edito</a></button>
-              <button class="fshij"><a href="../adminFunksione/fshiProduktin.php?produktID=' . $produkti['produktiID'] . '">Fshi</a></button>
-              <button class="edito"><a href="../userPages/porosit.php?produktID=' . $produkti['produktiID'] . '">Porosit</a></button></td>
+              <button class="fshij"><a href="../adminFunksione/fshiProduktin.php?produktID=' . $produkti['produktiID'] . '">Fshij</a></button>
+              <button class="porositP"><a href="../userPages/porosit.php?produktID=' . $produkti['produktiID'] . '">Porosit</a></button></td>
             </tr>
           ';
       }

@@ -27,7 +27,7 @@ if (isset($_GET['produktiID'])) {
     <link rel="shortcut icon" href="../../img/web/favicon.ico" />
     <link rel="stylesheet" href="../../css/forms.css" />
     <link rel="stylesheet" href="../../css/mesazhetStyle.css" />
-    <link rel="stylesheet" href="../../css/order.css">
+    <link rel="stylesheet" href="../../css/order.css"/>
 </head>
 
 <body>

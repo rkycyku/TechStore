@@ -33,7 +33,7 @@ if (isset($_POST['shtoKat'])) {
       if (isset($_SESSION['katUShtua'])) {
         echo '
                   <div class="mesazhiSuksesStyle">
-                    <h3>Kategoria u shtua me sukses!</h3>
+                    <p>Kategoria u shtua me sukses!</p>
                     <button id="mbyllMesazhin">
                       X
                     </button>

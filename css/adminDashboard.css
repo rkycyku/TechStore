@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-collapse: collapse;
   margin: 25px 0;
   font-size: 0.9em;
   min-width: 400px;
@@ -25,6 +24,9 @@
 .containerDashboardP tr td {
   border-bottom: 1px solid #dddddd;
 }
+.emriP{
+  width: 30em;
+}
 
 .edito {
   padding: 0.4em;
@@ -38,6 +40,17 @@
   background-color: #e33437;
   border: none;
   border-radius: 2px;
+}
+
+.porositP{
+  margin-top: 0.4em;
+  padding: 0.4em;
+  background-color: #c9d51a;
+  border: none;
+  border-radius: 2px;
+}
+.porositP::after{
+  content: 'ë';
 }
 
 .containerDashboard {

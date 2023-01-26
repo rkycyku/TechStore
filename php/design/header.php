@@ -31,7 +31,7 @@ if(!isset($_SESSION['aksesi'])){
                     </li>
 
                     <li class="nav-item">
-                        <a href="../admin/shtoProdukt.php">Vendosja e Produkteve</a>
+                        <a href="../admin/shtoProdukt.php">Vendos Produktet</a>
                         <span class="line"></span>
                     </li>
 
@@ -48,11 +48,11 @@ if(!isset($_SESSION['aksesi'])){
                         <span class="line"></span>
                     </li>
                     <li class="nav-item">
-                        <a href="../admin/kompanit.php">Kompanit</a>
+                        <a href="../admin/kompanit.php">Kompanite</a>
                         <span class="line"></span>
                     </li>
                     <li class="nav-item">
-                        <a href="../admin/kategorit.php">Kategorit</a>
+                        <a href="../admin/kategorit.php">Kategorite</a>
                         <span class="line"></span>
                     </li>
                     <li class="nav-item">
@@ -74,7 +74,7 @@ if(!isset($_SESSION['aksesi'])){
                         <span class="line"></span>
                     </li>
                     <li class="nav-item">
-                        <a href="../pages/produktet.php">Products</a>
+                        <a href="../pages/produktet.php">Produktet</a>
                         <span class="line"></span>
                     </li>';
                 }
@@ -97,16 +97,13 @@ if(!isset($_SESSION['aksesi'])){
                             <a href="../pages/contactForm.php">Contact Us</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../pages/produktet.php">Products</a>
+                            <a href="../pages/produktet.php">Produkte</a>
                         </li>
                             <li class="nav-item">
-                                <a href="../admin/shtoKategorin.php">Add Categories</a>
+                                <a href="../admin/shtoKategorin.php">Vendos Kategorite</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../admin/shtoProdukt.php">Add Products</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../admin/shtoKompanin.php">Add Companies</a>
+                                <a href="../admin/shtoKompanin.php">Vendos Kompanite</a>
                             </li></li><li class="nav-item">
                             <a href="../funksione/logout.php">Log Out</a>
                         </li>';
