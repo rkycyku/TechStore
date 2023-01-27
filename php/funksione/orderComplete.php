@@ -98,7 +98,7 @@ $nrPorosis = $porosiaCRUD->numriIPorosisNeKonfirmim();
         </p>
         <h3>Paguani pas pranimit te porosis</h3>
         <h4>Porosia arrin me se largu
-          <?php echo date("d-m-y", strtotime("+3 days", strtotime(date("Y-m-d")))) ?>
+          <?php echo date("d-m-y", strtotime("+4 days", strtotime(date("Y-m-d")))) ?>
         </h4>
       </div>
     </div>

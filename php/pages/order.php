@@ -43,7 +43,7 @@ if (isset($_GET['produktiID'])) {
             ?>
         </div>
         <div class="teDhenatKlientit">
-            <form name="vendosPorosin" onsubmit="" action='../funksione/orderComplete.php' method="POST">
+            <form name="vendosPorosin" onsubmit="return validimiPorosis();" action='../funksione/orderComplete.php' method="POST">
 
                 <h1 class="form-title">Te dhenat e tua</h1>
                 <input class="form-input" name="emri" type="text" placeholder="Name" <?php

@@ -130,3 +130,49 @@ function validimiShtimiProduktit() {
 
   return true;
 }
+
+function validimiPorosis() {
+  const emriREGEX = /^[A-Za-z]+$/
+  const telREGEX = /^04[3,4,5,6,8,9]\d{6}$/
+  let emriVP = document.vendosPorosin.emri;
+  let telVP = document.vendosPorosin.tel;
+  let qytetiVP = document.vendosPorosin.qyteti;
+  let adresaVP = document.vendosPorosin.adresa;
+
+  if (emriVP.value == "") {
+    alert("Ju lutem shenoni emrin tuaj!");
+    emriVP.focus();
+    return false;
+  }
+  if (!emriREGEX.test(emriVP.value)) {
+    alert("Emri duhet te permbaj vetem shkronja!");
+    emriVP.focus();
+    return false;
+  }
+  
+  if (telVP.value == "") {
+    alert("Ju lutem te vendosni nje numer kontakti per shkak te kontaktimit nga postieri!");
+    telVP.focus();
+    return false;
+  }
+  if (!telREGEX.test(telVP.value)) {
+    alert("Numri i telefonit duhte te jet ne formatin 04ONNNNNN ku O eshte identifikimi i numrit te operatorit IPKO ose Vala" +
+    " N eshte numer nga 0 deri 9 pra Pjesa tjeter e numrit!");
+    telVP.focus();
+    return false;
+  }
+
+  if (qytetiVP.value == "") {
+    alert("Ju lutem shenoni qytetin tuaj!");
+    qytetiVP.focus();
+    return false;
+  }
+  
+  if (adresaVP.value == "") {
+    alert("Ju lutem shenoni adresen!");
+    adresaVP.focus();
+    return false;
+  }
+
+  return true;
+}

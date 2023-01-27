@@ -49,8 +49,10 @@ $userCRUD = new userCRUD();
         <p><strong>Mbiemri:</strong> ' . ($useri['mbiemri']) . '</p>
         <p><strong>Username:</strong> ' . ($useri['username']) . '</p>
         <p><strong>Email:</strong> ' . ($useri['email']) . '</p>
+        <div class=test>
         <a href="../funksione/perditesoTeDhenat.php?userID=' . $useri['userID'] . '"><button class="button">Perditeso te Dhenat</button></a>
         <a href="../funksione/ndryshoPass.php?userID=' . $useri['userID'] . '"><button class="button">Ndrysho Fjalekalimin</button></a>
+        </div>
       ';
     if ($_SESSION['aksesi'] == 0) {
       echo ' <a href="../userPages/porosit.php"><button class="button">Porosite e tua</button></a>';
