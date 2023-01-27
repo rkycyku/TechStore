@@ -57,7 +57,7 @@ if (isset($_POST['anulo'])) {
       <?php
       $kompanit = $kompania->shfaqKompanin();
 
-      echo '<select name="kompania">
+      echo '<select name="kompania" class="dropdown">
               <option hidden value="te tjera">Zgjedhni Kompanin</option>
           ';
 
@@ -69,7 +69,7 @@ if (isset($_POST['anulo'])) {
       <?php
       $kategorit = $kategoria->shfaqKategorin();
 
-      echo '<select name="kategoria">
+      echo '<select name="kategoria" class="dropdown">
               <option value="te tjera">Zgjedhni Kategorin</option>
           ';
       foreach ($kategorit as $kategoria) {

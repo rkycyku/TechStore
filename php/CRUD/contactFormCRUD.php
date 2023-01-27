@@ -108,7 +108,7 @@ class contactFormCRUD extends dbCon
             $stm->execute([$this->IDmesazhi]);
 
             $_SESSION['mezashiUKonfirmua'] = true;
-            echo '<script>document.location="./shfaqMesazhet.php"</script>';
+            echo '<script>document.location="../admin/shfaqMesazhet.php"</script>';
         } catch (Exception $e) {
             return $e->getMessage();
         }

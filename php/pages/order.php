@@ -33,14 +33,20 @@ if (isset($_GET['produktiID'])) {
 <body>
     <?php include '../design/header.php'; ?>
     <div class="containerOrder">
-        <div class="teDhenatEProduktit">
+        <div class="teDhenatEProduktit gap">
             <?php
             echo ' <img src="../../img/products/' . $_SESSION['fotoProduktit'] . '">
-            <h3>' . $_SESSION['emriProduktit'] . '</h3>
+            <p>' . $_SESSION['emriProduktit'] . '</p>
             
-            <h2>Cmimi: <span id="qmimiProd">' . $_SESSION['qmimiProduktit'] . '</span> €</h2>';
+            <h4>Cmimi: <span id="qmimiProd">' . $_SESSION['qmimiProduktit'] . '</span> €</h4>';
 
             ?>
+            <div class="cmimi">
+                <h3>Transporti: 2 €</h3>
+                <h2>Totali eshte: <span id='shumaTOT'>
+                    <?php echo ($_SESSION['qmimiProduktit'] + 2) . '</span> €' ?>
+                </h2>
+            </div> 
         </div>
         <div class="teDhenatKlientit">
             <form name="vendosPorosin" onsubmit="return validimiPorosis();" action='../funksione/orderComplete.php' method="POST">
@@ -61,12 +67,7 @@ if (isset($_GET['produktiID'])) {
                     <input class="form-input" name="sasia" id="sasia" type="number" placeholder="Sasia" value="1" min="1">
                     <input class="button" type="submit" value="Order Now" name='submit'>
                 </form>
-            </div>
-            <div class="QmimiTransportit">
-                <h2>Transporti: 2 €</h2>
-                <h2>Totali eshte: <span id='shumaTOT'>
-                    <?php echo ($_SESSION['qmimiProduktit'] + 2) . '</span> €' ?>
-            </h2>
+            </div>   
         </div>
     </div>
     <?php include_once('../funksione/importimiScriptave.php'); ?>

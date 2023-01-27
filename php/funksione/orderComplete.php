@@ -48,11 +48,13 @@ $nrPorosis = $porosiaCRUD->numriIPorosisNeKonfirmim();
   <?php include '../design/header.php'; ?>
 
   <div class="container">
-    <h1 class="orderCompleteTitulli">Porosia u krye me sukses</h1>
-    <h2>Numri i Porosis
+    <div class="porosiatxt">
+    <h1 class="orderCompleteTitulli gap">Porosia u krye me sukses</h1>
+    <h2 class="gap">Numri i Porosis
       <?php echo '#' . $nrPorosis['porosiaID'] ?>
     </h2>
-    <h3>Ju Faleminderit!</h3>
+    <h3 class="gap">Ju Faleminderit!</h3>
+    </div>
     <div class="containerPorosia">
       <div class="detajetPoresis">
         <h2>Detajet e Porosis</h2>

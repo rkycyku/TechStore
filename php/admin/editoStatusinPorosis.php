@@ -58,7 +58,7 @@ if (isset($_POST['anulo'])) {
             <label for="">
                 <strong>Statusi i Porosis: &nbsp&nbsp</strong>
 
-                <select name="statusiPorosis">
+                <select name="statusiPorosis" class="dropdown">
                     <option value="Ne Procesim">Ne Procesim</option>
                     <option value="E Derguar">E Derguar</option>
                     <option value="Pranuar Nga Bleresi">Pranuar Nga Bleresi</option>

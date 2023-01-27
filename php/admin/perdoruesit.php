@@ -61,23 +61,23 @@ if (isset($_GET['userID'])) {
         <th>Funksione</th>
       </tr>
       <?php
-      $produktet = $userCRUD->shfaqTeGjithePerdoruesit();
+      $perdoruesit = $userCRUD->shfaqTeGjithePerdoruesit();
 
-      foreach ($produktet as $produkti) {
+      foreach ($perdoruesit as $perdoruesi) {
         echo '
             <tr>
-              <td id="userID_' . $produkti['userID'] . '">' . $produkti['userID'] . '</td>
-              <td><input id="emri_' . $produkti['userID'] . '" type="text" placeholder="Emri" value="' . $produkti['emri'] . '"></td>
-              <td><input id="mbiemri_' . $produkti['userID'] . '" type="text" placeholder=""value="' . $produkti['mbiemri'] . '"></td>
-              <td>' . $produkti['username'] . '</td>
-              <td>' . $produkti['email'] . '</td>';
-        if ($produkti['aksesi'] == 2 && $_SESSION['aksesi'] != 2 || $produkti['userID'] == $_SESSION['userID']) {
-          echo '<td id="aksesi_' . $produkti['userID'] . '">' . $produkti['aksesi'] . '</td>';
+              <td id="userID_' . $perdoruesi['userID'] . '">' . $perdoruesi['userID'] . '</td>
+              <td><input id="emri_' . $perdoruesi['userID'] . '" type="text" placeholder="Emri" value="' . $perdoruesi['emri'] . '"></td>
+              <td><input id="mbiemri_' . $perdoruesi['userID'] . '" type="text" placeholder=""value="' . $perdoruesi['mbiemri'] . '"></td>
+              <td>' . $perdoruesi['username'] . '</td>
+              <td>' . $perdoruesi['email'] . '</td>';
+        if ($perdoruesi['aksesi'] == 2 && $_SESSION['aksesi'] != 2 || $perdoruesi['userID'] == $_SESSION['userID']) {
+          echo '<td id="aksesi_' . $perdoruesi['userID'] . '">' . $perdoruesi['aksesi'] . '</td>';
         } else {
-          echo '<td><input id="aksesi_' . $produkti['userID'] . '" type="number" min="0" max="2" placeholder="Aksesi" value="' . $produkti['aksesi'] . '"></td>';
+          echo '<td><input id="aksesi_' . $perdoruesi['userID'] . '" type="number" min="0" max="2" placeholder="Aksesi" value="' . $perdoruesi['aksesi'] . '"></td>';
         }
-        echo '<td><button class="edito" onclick="ndryshoTeDhenat(' . $produkti['userID'] . ')">Edito</button>
-              <button class="edito"><a href="../userPages/porosit.php?userID=' . $produkti['userID'] . '">Porosite</a></button></td>
+        echo '<td><button class="edito" onclick="ndryshoTeDhenat(' . $perdoruesi['userID'] . ')">Edito</button>
+              <button class="edito"><a href="../userPages/porosit.php?userID=' . $perdoruesi['userID'] . '">Porosite</a></button></td>
             </tr>';
 
       }
@@ -100,7 +100,7 @@ if (isset($_GET['userID'])) {
     var mbiemri = document.getElementById("mbiemri_" + idUser).value;
     var aksesi = document.getElementById("aksesi_" + idUser).value;
 
-    var link = "../adminFunksione/ndryshoTeDhenatLlogaris.php?userID=" + userID + "&emri=" + emri + "&mbiemri=" + mbiemri + "&aksesi=" + aksesi;
+    var link = "?userID=" + userID + "&emri=" + emri + "&mbiemri=" + mbiemri + "&aksesi=" + aksesi;
     window.location.href = link;
   }
   function fshijKategorin(kategoriaID) {
