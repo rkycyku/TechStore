@@ -29,24 +29,32 @@ Eshte punuar nga:
  - **[Behance | Abbas - Techstore](https://www.behance.net/gallery/130956581/Tech-Store-Brand-identity)** - Logo e TechStore.
  - **[jsPDF - James Hall / Parallax](https://parall.ax/products/jspdf)** - A library to generate PDFs in JavaScript.
 
-## Pamja e TechStore
+## Disa nga shembujt e pamjes se TechStore
 
 ### Home
 
 ![Home | TechStore](img/READMEImg/home.png?raw=true)
 
-### About Us
+### Produktet - Klient
 
-![About Us | TechStore](img/READMEImg/aboutUs.png?raw=true)
+![About Us | TechStore](img/READMEImg/produktet.png?raw=true)
 
-### Contact Form
+### Forma e thjesht
 
-![Contact Us | TechStore](img/READMEImg/contactForm.png?raw=true)
+![Contact Us | TechStore](img/READMEImg/FormaEThjesht.png?raw=true)
 
-### Login
+### Forma me input te Fotove dhe Selektim
 
-![Login | TechStore](img/READMEImg/logIn.png?raw=true)
+![Contact Us | TechStore](img/READMEImg/FormaMeFoto.png?raw=true)
 
-### Sign Up
+### Fatura
 
-![Sign Up | TechStore](img/READMEImg/signUp.png?raw=true)
+![Login | TechStore](img/READMEImg/fatura.png?raw=true)
+
+### Faqet me tabela
+
+![Sign Up | TechStore](img/READMEImg/faqetMeTabela.png?raw=true)
+
+### Dashboard
+
+![Sign Up | TechStore](img/READMEImg/dashboard.png?raw=true)
