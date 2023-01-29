@@ -49,63 +49,121 @@ $nrPorosis = $porosiaCRUD->numriIPorosisNeKonfirmim();
 
   <div class="container">
     <div class="porosiatxt">
-    <h1 class="orderCompleteTitulli gap">Porosia u krye me sukses</h1>
-    <h2 class="gap">Numri i Porosis
-      <?php echo '#' . $nrPorosis['porosiaID'] ?>
-    </h2>
-    <h3 class="gap">Ju Faleminderit!</h3>
+      <h1 class="orderCompleteTitulli ">Porosia u krye me sukses</h1>
+      <h2 class="">Numri i Porosis
+        <?php echo '#' . $nrPorosis['porosiaID'] ?>
+      </h2>
+      <h3 class="">Ju Faleminderit!</h3>
     </div>
     <div class="containerPorosia">
       <div class="detajetPoresis">
-        <h2>Detajet e Porosis</h2>
+        <h1>Detajet e Porosis</h1>
         <img src="../../img/products/<?php echo $_SESSION['fotoProduktit'] ?>">
-        <p><strong>Emri produktit:</strong>
-          <?php echo $_SESSION['emriProduktit'] ?>
-        </p>
-        <p><strong>Qmimi Produktit</strong>
-          <?php echo $_SESSION['qmimiProduktit'] ?>
-        </p>
-        <p><strong>Sasia</strong>
-          <?php echo $_SESSION['sasia'] ?>
-        </p>
-        <p><strong>Qmim pa Transport</strong>
-          <?php echo $_SESSION['sasia'] * $_SESSION['qmimiProduktit'] ?>
-        </p>
-        <p><strong>Qmimi transportit</strong> 2</p>
-        <p><strong>Qmimi Total</strong>
-          <?php echo $_SESSION['qmimiProduktit'] * $_SESSION['sasia'] + 2 ?>
-        </p>
+        <table class="tabelaOrderComplete">
+          <tr>
+            <td>
+              <strong>Emri produktit: </strong>
+            </td>
+            <td>
+              <?php echo $_SESSION['emriProduktit'] ?>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Qmimi Produktit: </strong>
+            </td>
+            <td>
+              <?php echo number_format($_SESSION['qmimiProduktit'], 2) . ' €' ?>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Sasia: </strong>
+            </td>
+            <td>
+              <?php echo $_SESSION['sasia'] ?>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Qmim pa Transport: </strong>
+            </td>
+            <td>
+              <?php echo number_format($_SESSION['sasia'] * $_SESSION['qmimiProduktit'], 2) . ' €' ?>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Qmimi transportit: </strong>
+            </td>
+            <td>2 €</td>
+          </tr>
+          <tr>
+            <td>
+              <h3>Qmimi Total</h3>
+            </td>
+            <td>
+              <?php echo number_format($_SESSION['qmimiProduktit'] * $_SESSION['sasia'] + 2, 2) . ' €' ?>
+            </td>
+          </tr>
+        </table>
       </div>
 
       <div class="detajetDorezimit">
 
-        <h2>Detajet e dorezimit</h2>
-        <p><strong>Emri</strong>
-          <?php echo $_SESSION['emri'] ?>
-        </p>
-        <p><strong>Mbeimri</strong>
-          <?php echo $_SESSION['mbiemri'] ?>
-        </p>
-        <p><strong>Tel</strong>
-          <?php echo $_SESSION['tel'] ?>
-        </p>
-        <p><strong>Email</strong>
-          <?php echo $_SESSION['email'] ?>
-        </p>
-        <p><strong>Qyteti</strong>
-          <?php echo $_SESSION['qyteti'] ?>
-        </p>
-        <p><strong>Adresa</strong>
-          <?php echo $_SESSION['adresa'] ?>
-        </p>
-        <h3>Paguani pas pranimit te porosis</h3>
-        <h4>Porosia arrin me se largu
+        <h1>Detajet e dorezimit</h1>
+        <table class="tabelaOrderComplete">
+          <tr>
+            <td><strong>Emri: </strong></td>
+            <td>
+              <?php echo $_SESSION['emri'] ?>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Mbiemri: </strong></td>
+            <td>
+              <?php echo $_SESSION['mbiemri'] ?>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Tel: </strong></td>
+            <td>
+              <?php echo $_SESSION['tel'] ?>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Email: </strong></td>
+            <td>
+              <?php echo $_SESSION['email'] ?>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Qyteti: </strong></td>
+            <td>
+              <?php echo $_SESSION['qyteti'] ?>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Adresa: </strong></td>
+            <td>
+              <?php echo $_SESSION['adresa'] ?>
+            </td>
+          </tr>
+        </table>
+        <h2>Paguani pas pranimit te porosis</h2>
+        <h2>Porosia arrin me se largu
           <?php echo date("d-m-y", strtotime("+4 days", strtotime(date("Y-m-d")))) ?>
-        </h4>
+        </h2>
       </div>
     </div>
 
-    <a href="../userPages/porosit.php"><button class="perfundoButoni">Perfundo</button></a>
+    <div class="butonat">
+      <a href="../userPages/porosit.php"><button class="perfundoButoni">Perfundo</button></a>
+      <a href="./fatura.php?nrPorosis=<?php echo $nrPorosis['porosiaID'] ?>" target="_blank">
+        <button class="perfundoButoni">Shkarko Faturen</button>
+      </a>
+    </div>
+
   </div>
   <?php include '../design/footer.php' ?>
 </body>

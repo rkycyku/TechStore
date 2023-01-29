@@ -27,6 +27,7 @@ Eshte punuar nga:
  - **[Gjirafa50](https://gjirafa50.com)** - Emrat, çmimet dhe fotot e produkteve,
  - **[Logos World](https://logos-world.net/)** - Disa nga logot e brendeve të cilat janë të vendosura ne slider,
  - **[Behance | Abbas - Techstore](https://www.behance.net/gallery/130956581/Tech-Store-Brand-identity)** - Logo e TechStore.
+ - **[jsPDF - James Hall / Parallax](https://parall.ax/products/jspdf)** - A library to generate PDFs in JavaScript.
 
 ## Pamja e TechStore
 

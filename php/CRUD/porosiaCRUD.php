@@ -223,7 +223,8 @@ class porosiaCRUD extends dbCon
                     <td>' . $porosia['dataPorosis'] . '</td>
                     <td>' . $porosia['statusiPorosis'] . '</td>';
                 if ($porosia['userID'] == $_SESSION['userID']) {
-                    echo '<td><button class="edito"><a href="../funksione/konfirmoPorosin.php?porosiaID=' . $porosia['porosiaID'] . '">Konfirmo Porosin</a></button></td>';
+                    echo '<td><button class="edito"><a href="../funksione/konfirmoPorosin.php?porosiaID=' . $porosia['porosiaID'] . '">Konfirmo Porosin</a></button>
+                    <a href="../funksione/fatura.php?nrPorosis=' . $porosia["porosiaID"] . '" target="_blank"><button class="edito">Shkarko Faturen</button></a></td>';
                 }
                 echo '</tr> ';
             }
