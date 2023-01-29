@@ -134,25 +134,33 @@ if ($porosia['userID'] != $_SESSION['userID'] && $_SESSION['aksesi'] == 0) {
     <div class="detajetDorezimit">
       <h1>Detajet e dorezimit</h1>
       <br>
-      <p><strong>Emri: </strong>
-        <?php echo $porosia['emriKlientit'] ?>
-      </p>
-      <p><strong>Mbiemri: </strong>
-        <?php echo $porosia['mbiemriKlientit'] ?>
-      </p>
-      <p><strong>Tel: </strong>
-        <?php echo $porosia['nrKontaktit'] ?>
-      </p>
-      <p><strong>Email: </strong>
-        <?php echo $porosia['emailKlientit'] ?>
-      </p>
-      <p><strong>Qyteti: </strong>
-        <?php echo $porosia['qyteti'] ?>
-      </p>
-      <p><strong>Adresa: </strong>
-        <?php echo $porosia['adresaKlientit'] ?>
-      </p>
-
+      <table>
+        <tr>
+          <td><strong>Emri: </strong></td>
+          <td><?php echo $porosia['emriKlientit'] ?></td>
+        </tr>
+        <tr>
+          <td><strong>Mbiemri: </strong></td>
+          <td><?php echo $porosia['mbiemriKlientit'] ?></td>
+        </tr>
+        <tr>
+          <td><strong>Tel: </strong></td>
+          <td><?php echo $porosia['nrKontaktit'] ?></td>
+        </tr>
+        <tr>
+          <td><strong>Email: </strong></td>
+          <td><?php echo $porosia['emailKlientit'] ?></td>
+        </tr>
+        <tr>
+          <td><strong>Qyteti: </strong></td>
+          <td><?php echo $porosia['qyteti'] ?></td>
+        </tr>
+        <tr>
+          <td><strong>Adresa: </strong></td>
+          <td><?php echo $porosia['adresaKlientit'] ?></td>
+        </tr>
+      </table>
+      
       <br>
 
       <h1>Shenime shtes</h1>

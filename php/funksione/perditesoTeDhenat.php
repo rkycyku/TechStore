@@ -75,7 +75,7 @@ $perdoruesi = $userCRUD->shfaqSipasID();
             ?>
             <h1 class="form-title">Info Update </h1>
             <label for="">
-                <strong>ID: : </strong>
+                <strong>ID: </strong>
                 <?php echo $perdoruesi['userID'] ?>
             </label>
             <label for="">
