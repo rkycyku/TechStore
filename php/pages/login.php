@@ -44,7 +44,7 @@ if (!isset($_SESSION)) {
       }
       ?>
       <h1 class="form-title">Log In</h1>
-      <input class="form-input" name="username" type="text" placeholder="Username" required>
+      <input class="form-input" name="username" type="text" placeholder="Username">
       <input class="form-input" name="password" type="password" placeholder="Password">
       <div class="reg">
         <p>Don't have an account? <a href="signup.php">Sign Up</a></p>

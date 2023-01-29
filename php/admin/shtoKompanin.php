@@ -33,7 +33,7 @@ if (isset($_POST['shtoKompanin'])) {
 <body>
   <?php include '../design/header.php' ?>
   <div class="forms">
-    <form name="shtoKompanin" action='' method="POST" enctype="multipart/form-data">
+    <form name="shtoKompanin" onsubmit='return validimiSHK()' action='' method="POST" enctype="multipart/form-data">
       <?php
       if (isset($_SESSION['mesazhiMeSukses'])) {
         echo '<div class="mesazhiSuksesStyle">
@@ -61,8 +61,8 @@ if (isset($_POST['shtoKompanin'])) {
       }
       ?>
       <h1 class="form-title">Vendosja e Kompanive</h1>
-      <input class="form-input" name="emriKompanis" type="text" placeholder="Emri i Kompanis" required>
-      <input class="form-input" name="kompaniaLogo" accept="image/*" type="file" placeholder="Logo e Kompanis" required>
+      <input class="form-input" name="emriKompanis" type="text" placeholder="Emri i Kompanis">
+      <input class="form-input" name="kompaniaLogo" accept="image/*" type="file" placeholder="Logo e Kompanis">
       <input class="form-input" name="adresaKompanis" type="text" placeholder="Adresa e Kompanis">
       <input class="button" type="submit" value="Shtoni Kompanin" name='shtoKompanin'>
     </form>

@@ -28,7 +28,7 @@ if (isset($_POST['shtoKat'])) {
 <body>
   <?php include '../design/header.php' ?>
   <div class="forms">
-    <form name="shtoKategorin" onsubmit="" action='' method="POST">
+    <form name="shtoKategorin" onsubmit="return validimiKategoris();" action='' method="POST">
       <?php
       if (isset($_SESSION['katUShtua'])) {
         echo '
@@ -42,7 +42,7 @@ if (isset($_POST['shtoKat'])) {
       }
       ?>
       <h1 class="form-title">Vendosja e Kategorive</h1>
-      <input class="form-input" name="emriKat" type="text" placeholder="Emri i Kategoris" required>
+      <input class="form-input" name="emriKat" type="text" placeholder="Emri i Kategoris">
       <input class="form-input" name="pershkrimiKat" type="text" placeholder="Pershkrimi i Kategoris">
       <input class="button" type="submit" value="Shtoni Kategorin" name='shtoKat'>
     </form>

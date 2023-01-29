@@ -4,7 +4,7 @@ function validimiLogin() {
 
   if (uNameLF.value == "") {
     alert("Please enter your username!");
-    emailLF.focus();
+    uNameLF.focus();
     return false;
   }
 
@@ -171,6 +171,37 @@ function validimiPorosis() {
   if (adresaVP.value == "") {
     alert("Ju lutem shenoni adresen!");
     adresaVP.focus();
+    return false;
+  }
+
+  return true;
+}
+
+function validimiSHK() {
+  let emriKompanisVSHK = document.shtoKompanin.emriKompanis;
+  let kompaniaLogoVSHK = document.shtoKompanin.kompaniaLogo;
+
+  if (emriKompanisVSHK.value == "") {
+    alert("Ju lutem shenoni emrin e kompanis!");
+    emriKompanisVSHK.focus();
+    return false;
+  }
+
+  if (kompaniaLogoVSHK.value == "") {
+    alert("Ju lutem vendosni foton e kompanis!");
+    kompaniaLogoVSHK.focus();
+    return false;
+  }
+
+  return true;
+}
+
+function validimiKategoris() {
+  let emriKategoris = document.shtoKategorin.emriKat;
+
+  if (emriKategoris.value == "") {
+    alert("Ju lutem shenoni emrin e kategoris!");
+    emriKategoris.focus();
     return false;
   }
 

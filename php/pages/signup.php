@@ -59,14 +59,14 @@ if (isset($_POST['submit'])) {
       }
       ?>
       <h1 class="form-title">Sign Up</h1>
-      <input class="form-input" name="name" type="text" placeholder="Name" value="<?php if (isset($_SESSION['fName']))
-        echo $_SESSION['fName'] ?>">
-        <input class="form-input" name="lName" type="text" placeholder="Lastname" value="<?php if (isset($_SESSION['fName']))
-        echo $_SESSION['lName'] ?>">
+      <input class="form-input" name="name" type="text" placeholder="Name">
+        <input class="form-input" name="lName" type="text" placeholder="Lastname">
         <input class="form-input" name="uName" type="text" placeholder="Username">
-        <input class="form-input" name="email" type="text" placeholder="Email" value="<?php if (isset($_SESSION['fName']))
-        echo $_SESSION['email'] ?>">
+        <input class="form-input" name="email" type="text" placeholder="Email">
         <input class="form-input" name="password" type="password" placeholder="Password">
+        <div class="reg">
+          <p>Do u have an account? <a href="login.php">Log in</a></p>
+        </div>
         <input class="button" type="submit" value="Sign Up" name='submit'>
       </form>
     </div>

@@ -76,7 +76,7 @@ if (isset($_GET['userID'])) {
         } else {
           echo '<td><input id="aksesi_' . $perdoruesi['userID'] . '" type="number" min="0" max="2" placeholder="Aksesi" value="' . $perdoruesi['aksesi'] . '"></td>';
         }
-        echo '<td><button class="edito" onclick="ndryshoTeDhenat(' . $perdoruesi['userID'] . ')">Edito</button>
+        echo '<td><button class="edito" onclick="return ndryshoTeDhenat(' . $perdoruesi['userID'] . '); ">Edito</button>
               <button class="edito"><a href="../userPages/porosit.php?userID=' . $perdoruesi['userID'] . '">Porosite</a></button></td>
             </tr>';
 
@@ -95,13 +95,30 @@ if (isset($_GET['userID'])) {
 
 <script>
   function ndryshoTeDhenat(idUser) {
+    const emREGEX = /^[A-Za-z]+$/
     var userID = document.getElementById("userID_" + idUser).innerHTML;
     var emri = document.getElementById("emri_" + idUser).value;
     var mbiemri = document.getElementById("mbiemri_" + idUser).value;
     var aksesi = document.getElementById("aksesi_" + idUser).value;
 
-    var link = "?userID=" + userID + "&emri=" + emri + "&mbiemri=" + mbiemri + "&aksesi=" + aksesi;
-    window.location.href = link;
+    if (emri == "") {
+      alert("Emri nuk duhet te jet i zbrazet!");
+      emri.focus();
+      return false;
+    }
+
+    else if (mbiemri == "") {
+      alert("Mbiemri nuk duhet te jet i zbrazet!");
+      mbiemri.focus();
+      return false;
+    }
+    
+    else {
+      var link = "?userID=" + userID + "&emri=" + emri + "&mbiemri=" + mbiemri + "&aksesi=" + aksesi;
+      window.location.href = link;
+
+      return true;
+    }
   }
   function fshijKategorin(kategoriaID) {
     var kategoriaID = document.getElementById("kategoriaID_" + kategoriaID).innerHTML;
