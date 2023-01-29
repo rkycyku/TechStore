@@ -12,7 +12,7 @@ $porosiaCRUD->setPorosiaID($_GET['nrPorosis']);
 
 $porosia = $porosiaCRUD->shfaqPorosinSipasID();
 
-if ($porosia['userID'] != $_SESSION['userID'] || $_SESSION['aksesi'] == 0) {
+if ($porosia['userID'] != $_SESSION['userID'] && $_SESSION['aksesi'] == 0) {
   echo '<script>document.location="../userPages/porosit.php"</script>';
 }
 ?>
