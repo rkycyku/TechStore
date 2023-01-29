@@ -137,7 +137,7 @@ if ($porosia['userID'] != $_SESSION['userID'] || $_SESSION['aksesi'] == 0) {
       <p><strong>Emri: </strong>
         <?php echo $porosia['emriKlientit'] ?>
       </p>
-      <p><strong>Mbeimri: </strong>
+      <p><strong>Mbiemri: </strong>
         <?php echo $porosia['mbiemriKlientit'] ?>
       </p>
       <p><strong>Tel: </strong>
