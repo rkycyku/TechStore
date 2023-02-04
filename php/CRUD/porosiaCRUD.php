@@ -194,7 +194,7 @@ class porosiaCRUD extends dbCon
     public function shfaqPorositEKlientit()
     {
         try {
-            $sql = "SELECT * from `porosia` inner join produkti on porosia.produktiID = produkti.produktiID where porosia.userID = ?";
+            $sql = "SELECT * from `porosia` inner join produkti on porosia.produktiID = produkti.produktiID where porosia.userID = ?  ORDER BY porosiaID DESC";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute([$this->userID]);
 
@@ -239,7 +239,7 @@ class porosiaCRUD extends dbCon
     public function shfaqPorositSipasProduktit()
     {
         try {
-            $sql = "SELECT * from `porosia` inner join produkti on porosia.produktiID = produkti.produktiID where porosia.produktiID = ?";
+            $sql = "SELECT * from `porosia` inner join produkti on porosia.produktiID = produkti.produktiID where porosia.produktiID = ?  ORDER BY porosiaID DESC";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute([$this->produktiID]);
 
@@ -284,7 +284,7 @@ class porosiaCRUD extends dbCon
     public function shfaqTeGjithaPorosite()
     {
         try {
-            $sql = "SELECT * from `porosia` inner join produkti on porosia.produktiID = produkti.produktiID";
+            $sql = "SELECT * from `porosia` inner join produkti on porosia.produktiID = produkti.produktiID ORDER BY porosiaID DESC";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute();
 
@@ -297,7 +297,7 @@ class porosiaCRUD extends dbCon
     public function shfaqPorosinSipasID()
     {
         try {
-            $sql = "SELECT * from `porosia` inner join produkti on porosia.produktiID = produkti.produktiID where porosiaID = ?";
+            $sql = "SELECT * from `porosia` inner join produkti on porosia.produktiID = produkti.produktiID where porosiaID = ?  ORDER BY porosiaID DESC";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute([$this->porosiaID]);
 
