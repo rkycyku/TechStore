@@ -69,9 +69,7 @@ if (isset($_POST['anulo'])) {
       <?php
       $kategorit = $kategoria->shfaqKategorin();
 
-      echo '<select name="kategoria" class="dropdown">
-              <option value="te tjera">Zgjedhni Kategorin</option>
-          ';
+      echo '<select name="kategoria" class="dropdown">';
       foreach ($kategorit as $kategoria) {
         echo '<option value="' . $kategoria['emriKategoris'] . '">' . $kategoria['emriKategoris'] . '</option>';
       }
@@ -80,8 +78,10 @@ if (isset($_POST['anulo'])) {
       <input class="form-input" name="pdPhoto" accept="image/*" type="file" placeholder="Foto Produktit">
       <input class="form-input" name="cmimiPd" type="text" placeholder="Qmimi i Produktit"
         value='<?php echo $produkti['qmimiProduktit'] ?>' required>
-      <input class="button" type="submit" value="Editoni Produktin" name='editoProd'>
-      <input class="button" type="submit" value="anulo" name='anulo'>
+      <div>
+        <input class="button" type="submit" value="Editoni Produktin" name='editoProd'>
+        <input class="button" type="submit" value="Anulo" name='anulo'>
+      </div>
     </form>
   </div>
   <script src="../../js/validimiFormave.js"></script>
