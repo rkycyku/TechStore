@@ -119,10 +119,10 @@ if (!isset($_SESSION['aksesi'])) {
                 } else {
                     echo
                         '<li class="nav-item">
-                            <a href="./login.php">Log In</a>
+                            <a href="../pages/login.php">Log In</a>
                         </li>
                         <li class="nav-item">
-                            <a href="./signup.php">Sign Up</a>
+                            <a href="../pages/signup.php">Sign Up</a>
                         </li>';
                 }
                 ?>
