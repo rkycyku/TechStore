@@ -1,4 +1,5 @@
 <?php
+require_once('../funksione/kontrolloEshteLogin.php');
 require_once('../CRUD/userCRUD.php');
 
 $userCRUD = new userCRUD();

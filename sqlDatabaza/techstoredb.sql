@@ -174,7 +174,7 @@ VALUES (1, 'Apple', 'AppleLogo.png', ''),
 CREATE TABLE `porosia` (
   `porosiaID` int(11) NOT NULL,
   `produktiID` int(11) NOT NULL,
-  `userID` int(11) NOT NULL,
+  `userID` varchar(11) NULL DEFAULT NULL, 
   `emriKlientit` varchar(30) NOT NULL,
   `mbiemriKlientit` varchar(30) NOT NULL,
   `emailKlientit` varchar(55) NOT NULL,

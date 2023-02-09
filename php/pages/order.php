@@ -12,8 +12,6 @@ if (isset($_GET['produktiID'])) {
     $_SESSION['fotoProduktit'] = $teDhenatEPRoduktit['fotoProduktit'];
     $_SESSION['qmimiProduktit'] = $teDhenatEPRoduktit['qmimiProduktit'];
 }
-
-
 ?>
 
 <!DOCTYPE html>

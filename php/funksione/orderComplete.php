@@ -20,7 +20,9 @@ $_SESSION['adresa'] = $_POST['adresa'];
 $_SESSION['sasia'] = $_POST['sasia'];
 
 $porosiaCRUD->setProduktiID($_SESSION['produktiID']);
-$porosiaCRUD->setUserID($_SESSION['userID']);
+if(isset($_SESSION['userID'])){
+  $porosiaCRUD->setUserID($_SESSION['userID']);
+}
 $porosiaCRUD->setEmriKlientit($_SESSION['emri']);
 $porosiaCRUD->setMbiemriKlientit($_SESSION['mbiemri']);
 $porosiaCRUD->setEmailKlientit($_SESSION['email']);

@@ -7,7 +7,7 @@ require_once('../adminFunksione/kontrolloAksesAdmin.php');
 require_once('../CRUD/produktiCRUD.php');
 
 if (isset($_SESSION['skeAksesAdmin']) == true) {
-    echo '<script>document.location="./produktet.php"</script>';
+    echo '<script>document.location="../admin/produktet.php"</script>';
 } else {
     $produktiCRUD = new produktiCRUD();
 

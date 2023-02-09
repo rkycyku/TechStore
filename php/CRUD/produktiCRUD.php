@@ -208,7 +208,7 @@ class produktiCRUD extends dbCon
                           <img src="../../img/products/' . $produkti['fotoProduktit'] . '" alt="" />
                           <p class="artikulliLabel">' . $produkti['emriProduktit'] . '</p>
                           <p class="cmimi">' . $produkti['qmimiProduktit'] . ' €</p>
-                          <button class="button">Buy</button>
+                          <a href="./order.php?produktiID=' . $produkti['produktiID'] . '"><button class="button">Buy</button></a>
                          </div>';
                 }
             } else {
