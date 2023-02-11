@@ -7,6 +7,7 @@ if (!isset($_SESSION)) {
 if (!isset($_SESSION['aksesi'])) {
     $_SESSION['aksesi'] = 0;
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +17,7 @@ if (!isset($_SESSION['aksesi'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/header.css" />
+    <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet">
 </head>
 
 <body>
@@ -81,9 +83,12 @@ if (!isset($_SESSION['aksesi'])) {
                 }
                 ?>
                 <li class="nav-item">
-                    <a href="../pages/shporta.php">Shporta</a>
-                    <span class="line"></span>
-                </li>'
+                    <a href="../pages/shporta.php"><i class="fa badge fa-lg" value=<?php
+                    if (isset($_SESSION['shportaBlerjes'])) {
+                        echo count($_SESSION['shportaBlerjes']);
+                    }else{
+                        echo 0;}?>>&#xf07a;</i>
+                </li>
             </ul>
             <ul class="auth">
 

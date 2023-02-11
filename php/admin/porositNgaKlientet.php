@@ -6,7 +6,19 @@ require_once('../adminFunksione/kontrolloAksesin.php');
 require_once('../CRUD/porosiaCRUD.php');
 
 $porosiaCRUD = new porosiaCRUD();
-$porosia = $porosiaCRUD->shfaqTeGjithaPorosite();
+
+
+if (isset($_GET['porosiaID'])) {
+  $porosiaCRUD->setPorosiaID($_GET['porosiaID']);
+
+
+  $porosiaCRUD->perditesoStatusinPorosis();
+
+  $_SESSION['statusiUPerditesua'] = true;
+
+}
+
+$porosit = $porosiaCRUD->shfaqTeGjithaPorosite();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,15 +49,6 @@ $porosia = $porosiaCRUD->shfaqTeGjithaPorosite();
                     </button>
                   </div>
             ';
-      } else {
-        echo '
-            <div class="mesazhiGabimStyle">
-              <p>Statusi i porosis nuk u perditesua!</p>
-              <button id="mbyllMesazhin">
-                X
-              </button>
-            </div>
-      ';
       }
 
     }
@@ -54,36 +57,53 @@ $porosia = $porosiaCRUD->shfaqTeGjithaPorosite();
     <table>
       <tr>
         <th>Numri i Porosis</th>
-        <th>ID Produktit</th>
-        <th>Emri Produktit</th>
-        <th>ID Klienti</th>
-        <th>Emri Klientit</th>
-        <th>Adresa Klientit</th>
-        <th>Sasia e Porositur</th>
-        <th>Qmimi total</th>
-        <th>Data e porosis</th>
-        <th>Statusi i porosis</th>
+        <th>Klienti</th>
+        <th>Numri Kontaktit</th>
+        <th>Adresa</th>
+        <th>Data e Porosis</th>
+        <th>Totali i Porosis</th>
+        <th>Statusi i Porosis</th>
         <th>Funksione</th>
       </tr>
       <?php
 
 
-      foreach ($porosia as $porosia) {
-        echo '
-            <tr>
-              <td>' . $porosia['porosiaID'] . '</td>
-              <td>' . $porosia['produktiID'] . '</td>
-              <td>' . $porosia['emriProduktit'] . '</td>
-              <td>' . $porosia['userID'] . '</td>
-              <td>' . $porosia['emriKlientit'] . '</td>
-              <td>' . $porosia['adresaKlientit'] . ', ' . $porosia['qyteti'] . '</td>
-              <td>' . $porosia['sasiaPorositur'] . '</td>
-              <td>' . $porosia['qmimiTotal'] . ' €</td>
-              <td>' . $porosia['dataPorosis'] . '</td>
-              <td>' . $porosia['statusiPorosis'] . '</td>
-              <td><button class="edito"><a href="./editoStatusinPorosis.php?porosiaID=' . $porosia['porosiaID'] . '">Ndrysho</a></button></td>
-            </tr>
-          ';
+      foreach ($porosit as $porosia) {
+        ?>
+        <tr>
+          <td>
+            <?php echo $porosia['nrPorosis'] ?>
+          </td>
+          <td>
+            <?php echo $porosia['emri'] . ' ' . $porosia['mbiemri'] ?>
+          </td>
+          <td>
+            <?php echo $porosia['nrKontaktit'] ?>
+          </td>
+          <td>
+            <?php echo $porosia['adresa'] . ', ' . $porosia['qyteti'] . ' ' . $porosia['zipKodi'] ?>
+          </td>
+          <td>
+            <?php echo $porosia['dataPorosis'] ?>
+          </td>
+          <td>
+            <?php echo $porosia['TotaliPorosis'] ?> €
+          </td>
+          <td>
+            <?php echo $porosia['statusiPorosis'] ?>
+          </td>
+          <td>
+            <button class="edito"><a href="?porosiaID=<?php echo $porosia['nrPorosis'] ?>">Ndrysho</a></button>
+            <button class="edito"><a
+                href="../userPages/detajetPorosis.php?porosiaID=<?php echo $porosia['nrPorosis'] ?>">Detajet
+                e Porosis</a></button>
+            <button class="edito"><a href="../funksione/fatura.php?nrPorosis=<?php echo $porosia['nrPorosis'] ?>"
+                target="_blank">Shkarko Faturen</a></button>
+
+            </a>
+          </td>
+        </tr>
+        <?php
       }
       ?>
     </table>

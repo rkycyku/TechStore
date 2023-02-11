@@ -86,6 +86,19 @@ header {
   font-weight: 600;
 }
 
+.badge:after{
+  content:attr(value);
+  font-size:12px;
+  color: #fff;
+  background: red;
+  border-radius:50%;
+  padding: 0 5px;
+  position:relative;
+  left:-8px;
+  top:-10px;
+  opacity:0.9;
+}
+
 .hamburger {
   display: block;
   cursor: pointer;

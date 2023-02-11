@@ -66,7 +66,7 @@ $perdoruesi = $userCRUD->shfaqSipasID();
             if (isset($_SESSION['passGabim'])) {
                 echo '
                 <div class="mesazhiGabimStyle">
-                  <p>Wrong Password!</p>
+                  <p>Keni shkruar Passwordin gabim!</p>
                   <button id="mbyllMesazhin">
                     X
                   </button>
@@ -82,7 +82,7 @@ $perdoruesi = $userCRUD->shfaqSipasID();
             </label>
             <label for="">
                 <strong>Username: </strong>
-                <input type="text" name="uName" value="<?php echo $perdoruesi['username'] ?>">
+                <?php echo $perdoruesi['username'] ?>
             </label>
             <label for="">
                 <strong>Name: </strong>
@@ -97,7 +97,7 @@ $perdoruesi = $userCRUD->shfaqSipasID();
                 <input type="text" name="email" value="<?php echo $perdoruesi['email'] ?>">
             </label>
             <label for="">
-                <strong>nrKontaktit: </strong>
+                <strong>Nr Kontaktit: </strong>
                 <input type="text" name="nrKontaktit" value="<?php echo $perdoruesi['nrKontaktit'] ?>">
             </label>
             <label for="">
@@ -116,8 +116,8 @@ $perdoruesi = $userCRUD->shfaqSipasID();
                 <strong>Password: </strong>
                 <input type="password" placeholder="Shkruani passwordin!" name="pass">
             </label>
-            <input class="button" type="submit" value="Update info" name='perditDhenat'>
-            <input class="button" type="submit" value="Dissmis" name='anulo'>
+            <input class="button" type="submit" value="Perditeso te Dhenat" name='perditDhenat'>
+            <input class="button" type="submit" value="Anulo" name='anulo'>
         </form>
     </div>
     <script src="../../js/validimiFormave.js"></script>

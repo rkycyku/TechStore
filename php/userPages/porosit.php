@@ -37,6 +37,7 @@ $porosiaCRUD = new porosiaCRUD();
     if (isset($_GET['produktID'])) {
       $porosiaCRUD->setProduktiID($_GET['produktID']);
       echo '<h2>Te gjitha porosit e Produktit me ID: ' . $_GET['produktID'] . '</h2>';
+      echo '<h2>Emri i Produktit: ' .  $_SESSION['emriProduktit']. '</h2>';
       $porosiaCRUD->shfaqPorositSipasProduktit();
     } else {
 

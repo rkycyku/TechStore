@@ -200,6 +200,7 @@ if ($porosia['idKlienti'] != $_SESSION['userID'] && $_SESSION['aksesi'] == 0 && 
           <?php echo date("d-m-y", strtotime("+4 days", strtotime(date($porosia['dataPorosis'])))) ?>
         </strong>
       </p>
+      <h3>Ju lutemi qe pas pranimit ta konfirmoni porosine ne Sistem!</h3>
     </div>
     <div class="detajetPoresis">
       <table class="tabelaQmimit">

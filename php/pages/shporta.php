@@ -120,13 +120,7 @@ if (isset($_POST['largo'])) {
             }
             ?>
         </table>
-        <!-- Kjo pjes e kodit ben numerin e artikujve ne shporte -->
-        <?php
-        //  $cart = $_SESSION['shportaBlerjes'];
-        // $num_items = count($cart);
         
-        // echo "<span class='cart-count'>$num_items</span>";
-        ?>
 
         <a href="./produktet.php">Vazhdo me Blerjen</a>
 

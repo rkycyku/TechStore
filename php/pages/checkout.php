@@ -26,7 +26,7 @@ foreach ($_SESSION["shportaBlerjes"] as $keys => $values) {
 </head>
 
 <body>
-
+<?php include('../design/header.php'); ?>
     <div>
         <h1>Checkout</h1>
 
