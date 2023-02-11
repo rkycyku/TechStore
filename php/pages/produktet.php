@@ -81,7 +81,7 @@ if (isset($_Post['Blej'])) {
             <p class="cmimi">
               <?php echo $produkti['qmimiProduktit'] ?> €
             </p>
-            <input type="submit" class="button" value="Shto ne Shport" name="submit">
+            <input type="submit" class="button fa fa-lg" value="&#xf07a;" name="submit">
             <input type="submit" class="button" value="Blej Tani" name="blej">
           </form>
           <?php
@@ -133,8 +133,10 @@ if (isset($_Post['Blej'])) {
                 <p class="cmimi">
                 <?php echo $produkti['qmimiProduktit'] ?> €
                 </p>
-                <input type="submit" class="button" value="Shto ne Shport" name="submit">
-                <input type="submit" class="button" value="Blej Tani" name="blej">
+                <div>
+                  <input type="submit" class="button" value="Blej Tani" name="blej">
+                  <input type="submit" class="button button-shporta fa fa-lg" value="&#xf07a;" name="submit">
+                </div>
               </form>
             <?php
             }

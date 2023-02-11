@@ -61,7 +61,7 @@ if ($porosia['idKlienti'] != $_SESSION['userID'] && $_SESSION['aksesi'] == 0 && 
 
       <div class="teDhenatKlientit">
         <h1>
-          <?php echo '<span style="font-size: 30pt;" id="emriKlientit">' . $porosia['emri'] . ' ' . $porosia['mbiemri'] . '</span>' ?>
+          <?php echo '<span style="font-size: 30pt;" id="emriKlientit">' . ucfirst($porosia['emri']) . ' ' . ucfirst($porosia['mbiemri']) . '</span>' ?>
         </h1>
         <p style="font-size: 20pt">
           <?php echo $porosia['nrKontaktit'] ?>

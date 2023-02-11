@@ -1,0 +1,13 @@
+--Dizajn
+Me e rregullu pjesen e artikujve, add to cart n index dhe produktet. 
+Me e dizajnu shporten.
+Me e dizajnu checkout.
+Me e dizajnu orderComplete.
+Me e rregullu header.
+Me e rregullu dizajnin e detajet e porosis(butoni nuk osht i dizajnuar).
+
+--Validim
+Me e rregullu mos me mujt me porosit nqofse ska adres.
+Me e rregullu mos me mujt me porosit nqofse nuk esht login.
+Mos me Pas akses te Filet qe nvaren prej Shportes nqofse nuk ban porosi.
+Me i Rishiku validimet e krejt inputeve.

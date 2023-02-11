@@ -236,22 +236,23 @@ class porosiaCRUD extends dbCon
                         <td>
                             <?php echo $porosia['statusiPorosis'] ?>
                         </td>
-                        <?php
-                        if ($porosia['idKlienti'] == $_SESSION['userID']) {
-                            ?>
-                            <td>
+
+                        <td>
+                            <?php
+                            if ($porosia['idKlienti'] == $_SESSION['userID']) {
+                                ?>
                                 <button class="edito"><a
                                         href="../funksione/konfirmoPorosin.php?porosiaID=<?php echo $porosia['nrPorosis'] ?>">Konfirmo
                                         Porosin</a></button>
-                                <a href="../funksione/fatura.php?nrPorosis=<?php echo $porosia["nrPorosis"] ?>" target="_blank"><button
-                                        class="edito">Shkarko Faturen</button></a>
-                                <button class="edito"><a
-                                        href="../userPages/detajetPorosis.php?porosiaID=<?php echo $porosia['nrPorosis'] ?>">Detajet
-                                        e Porosis</a></button>
-                            </td>
-                            <?php
-                        }
-                        ?>
+                                <?php
+                            }
+                            ?>
+                            <a href="../funksione/fatura.php?nrPorosis=<?php echo $porosia["nrPorosis"] ?>" target="_blank"><button
+                                    class="edito">Shkarko Faturen</button></a>
+                            <button class="edito"><a
+                                    href="../userPages/detajetPorosis.php?porosiaID=<?php echo $porosia['nrPorosis'] ?>">Detajet
+                                    e Porosis</a></button>
+                        </td>
                     </tr>
                     <?php
                 }
@@ -275,7 +276,7 @@ class porosiaCRUD extends dbCon
             $stm->execute([$this->produktiID]);
 
             ?>
-            
+
             <table>
                 <tr>
                     <th>Numri i Porosis</th>
