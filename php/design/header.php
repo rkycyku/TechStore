@@ -80,7 +80,10 @@ if (!isset($_SESSION['aksesi'])) {
                     </li>';
                 }
                 ?>
-
+                <li class="nav-item">
+                    <a href="../pages/shporta.php">Shporta</a>
+                    <span class="line"></span>
+                </li>'
             </ul>
             <ul class="auth">
 

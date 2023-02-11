@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 26, 2023 at 10:36 PM
+-- Generation Time: Feb 11, 2023 at 05:51 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -168,125 +168,41 @@ VALUES (1, 'Apple', 'AppleLogo.png', ''),
   (26, 'Dell', '63cc95f0a30e93.21744349.png', '');
 -- --------------------------------------------------------
 --
--- Table structure for table `porosia`
+-- Table structure for table `porosit`
 --
 
-CREATE TABLE `porosia` (
-  `porosiaID` int(11) NOT NULL,
-  `produktiID` int(11) NOT NULL,
-  `userID` varchar(11) NULL DEFAULT NULL, 
-  `emriKlientit` varchar(30) NOT NULL,
-  `mbiemriKlientit` varchar(30) NOT NULL,
-  `emailKlientit` varchar(55) NOT NULL,
-  `nrKontaktit` varchar(30) NOT NULL,
-  `qyteti` varchar(30) NOT NULL,
-  `adresaKlientit` varchar(255) NOT NULL,
+CREATE TABLE `porosit` (
+  `nrPorosis` int(11) NOT NULL,
+  `idKlienti` int(11) DEFAULT NULL,
   `dataPorosis` date NOT NULL DEFAULT current_timestamp(),
-  `qmimiProd` double(10, 2) NOT NULL,
-  `sasiaPorositur` int(5) NOT NULL,
-  `qmimiTotal` decimal(10, 2) NOT NULL,
+  `TotaliPorosis` decimal(10, 2) NOT NULL,
   `statusiPorosis` varchar(30) NOT NULL DEFAULT 'Ne Procesim'
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 --
--- Dumping data for table `porosia`
+-- Dumping data for table `porosit`
 --
 
-INSERT INTO `porosia` (
-    `porosiaID`,
-    `produktiID`,
-    `userID`,
-    `emriKlientit`,
-    `mbiemriKlientit`,
-    `emailKlientit`,
-    `nrKontaktit`,
-    `qyteti`,
-    `adresaKlientit`,
+INSERT INTO `porosit` (
+    `nrPorosis`,
+    `idKlienti`,
     `dataPorosis`,
-    `qmimiProd`,
-    `sasiaPorositur`,
-    `qmimiTotal`,
+    `TotaliPorosis`,
     `statusiPorosis`
   )
-VALUES (
+VALUES (30, 2, '2023-02-11', '3638.98', 'Ne Procesim'),
+  (31, 2, '2023-02-11', '17900.39', 'Ne Procesim'),
+  (32, 2, '2023-02-11', '758.50', 'Ne Procesim'),
+  (
+    33,
     1,
-    28,
-    2,
-    'admin',
-    'admin',
-    'r.kycyku.12@gmail.com',
-    '+38343710410',
-    'kaqanik',
-    'besa',
-    '2023-01-23',
-    0.00,
-    0,
-    '5339.00',
+    '2023-02-11',
+    '2710.49',
     'Pranuar Nga Bleresi'
   ),
-  (
-    2,
-    10,
-    1,
-    'user',
-    'user',
-    'test@rmail.com',
-    '+38343710410',
-    'kaqanik',
-    'sdgdags',
-    '2023-01-23',
-    52.50,
-    2,
-    '107.00',
-    'Pranuar Nga Bleresi'
-  ),
-  (
-    3,
-    16,
-    1,
-    'user',
-    'user',
-    'test@rmail.com',
-    '+38343710410',
-    'kaqanik',
-    'asdgsdg',
-    '2023-01-23',
-    18.45,
-    4,
-    '75.80',
-    'Pranuar Nga Bleresi'
-  ),
-  (
-    4,
-    23,
-    1,
-    'user',
-    'user',
-    'test@rmail.com',
-    '+38343710410',
-    'kaqanik',
-    'dgdgsdfg',
-    '2023-01-23',
-    12.99,
-    9,
-    '118.91',
-    'Pranuar Nga Bleresi'
-  ),
-  (
-    5,
-    14,
-    1,
-    'user',
-    'user',
-    'test@rmail.com',
-    '+38343710410',
-    'kaqanik',
-    'zbzb',
-    '2023-01-24',
-    210.66,
-    4,
-    '844.64',
-    'E Derguar'
-  );
+  (34, 1, '2023-02-11', '2.00', 'Ne Procesim'),
+  (35, 1, '2023-02-11', '2.00', 'Ne Procesim'),
+  (36, 1, '2023-02-11', '0.00', 'Ne Procesim'),
+  (37, 1, '2023-02-11', '51477.44', 'Ne Procesim');
 -- --------------------------------------------------------
 --
 -- Table structure for table `produkti`
@@ -322,55 +238,55 @@ VALUES (
     3,
     'Laptop ASUS TUF Gaming F15 (2021), 15.6\"',
     'Asus',
-    'laptop',
+    'Laptop',
     '63d05a950ec7c0.04651424.jpg',
     'admin',
     '2023-01-19 22:00:00',
-    '2023-01-24 22:24:21',
+    '2023-02-05 11:16:42',
     '758.50'
   ),
   (
     4,
     'Laptop Razer Blade 15 Advanced Model',
     'Razer',
-    'laptop',
+    'Laptop',
     '63d055e0c57d81.05756611.jpg',
     'admin',
     '2023-01-19 22:00:00',
-    '2023-01-24 22:04:16',
+    '2023-02-05 11:16:48',
     '2710.49'
   ),
   (
     5,
     'Samsung s22 Ultra, 512GB',
     'Samsung',
-    'celular',
+    'Smartphone',
     '63d055e915be98.37912983.jpg',
     'admin',
     '2023-01-19 22:00:00',
-    '2023-01-24 22:04:25',
+    '2023-02-05 11:16:55',
     '899.99'
   ),
   (
     6,
     'Lenovo NB IdeaPad 3 15ALC6',
     'Lenovo',
-    'laptop',
+    'Laptop',
     '63d055f15d73c8.42300026.jpg',
     'admin',
     '2023-01-19 22:00:00',
-    '2023-01-24 22:04:33',
+    '2023-02-05 11:17:03',
     '459.50'
   ),
   (
     8,
     'Lenovo ThinkPad P14s Gen 3 (AMD), 14\", AMD Ryzen 7 Pro, 32GB RAM, 1TB SSD, AMD Radeon 680M, i zi',
     'Lenovo',
-    'laptop',
+    'Laptop',
     '63d055feb6ffa9.20196181.jpg',
     'admin',
     '2023-01-21 17:24:31',
-    '2023-01-24 22:04:46',
+    '2023-02-05 11:17:09',
     '2469.50'
   ),
   (
@@ -617,6 +533,81 @@ VALUES (
   );
 -- --------------------------------------------------------
 --
+-- Table structure for table `tedhenatporosis`
+--
+
+CREATE TABLE `tedhenatporosis` (
+  `nrRendor` int(11) NOT NULL,
+  `idPorosia` int(11) DEFAULT NULL,
+  `idProdukti` int(11) DEFAULT NULL,
+  `qmimiProd` double(10, 2) NOT NULL,
+  `sasiaPorositur` int(5) NOT NULL,
+  `qmimiTotal` decimal(10, 2) NOT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
+--
+-- Dumping data for table `tedhenatporosis`
+--
+
+INSERT INTO `tedhenatporosis` (
+    `nrRendor`,
+    `idPorosia`,
+    `idProdukti`,
+    `qmimiProd`,
+    `sasiaPorositur`,
+    `qmimiTotal`
+  )
+VALUES (364, 30, 9, 28.50, 1, '28.50'),
+  (365, 30, 4, 2710.49, 1, '2710.49'),
+  (366, 30, 5, 899.99, 1, '899.99'),
+  (367, 31, 3, 758.50, 1, '758.50'),
+  (368, 31, 4, 2710.49, 4, '10841.96'),
+  (369, 31, 5, 899.99, 7, '6299.93'),
+  (370, 32, 3, 758.50, 1, '758.50'),
+  (371, 33, 4, 2710.49, 1, '2710.49'),
+  (372, 37, 3, 758.50, 6, '4551.00'),
+  (373, 37, 9, 28.50, 2, '57.00'),
+  (374, 37, 25, 975.50, 1, '975.50'),
+  (375, 37, 27, 3499.99, 6, '20999.94'),
+  (376, 37, 33, 4149.00, 6, '24894.00');
+-- --------------------------------------------------------
+--
+-- Table structure for table `tedhenatuser`
+--
+
+CREATE TABLE `tedhenatuser` (
+  `userID` int(11) NOT NULL,
+  `nrKontaktit` varchar(30) DEFAULT NULL,
+  `qyteti` varchar(30) DEFAULT NULL,
+  `zipKodi` varchar(7) DEFAULT NULL,
+  `adresa` varchar(50) DEFAULT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
+--
+-- Dumping data for table `tedhenatuser`
+--
+
+INSERT INTO `tedhenatuser` (
+    `userID`,
+    `nrKontaktit`,
+    `qyteti`,
+    `zipKodi`,
+    `adresa`
+  )
+VALUES (1, NULL, NULL, NULL, NULL),
+  (
+    2,
+    '+38343710410',
+    'Kaçanik',
+    '71000',
+    'Komandant Zefi 69'
+  ),
+  (3, NULL, NULL, NULL, NULL),
+  (4, NULL, NULL, NULL, NULL),
+  (5, NULL, NULL, NULL, NULL),
+  (6, NULL, NULL, NULL, NULL),
+  (7, NULL, NULL, NULL, NULL),
+  (8, NULL, NULL, NULL, NULL);
+-- --------------------------------------------------------
+--
 -- Table structure for table `user`
 --
 
@@ -662,7 +653,7 @@ VALUES (
   ),
   (
     3,
-    'menagjim',
+    'menagjimasd',
     'Menagjimit',
     'menagjim',
     'menagjim@gmail.com',
@@ -675,7 +666,7 @@ VALUES (
     'Kyçyku',
     'rkycyku',
     'r.kycyku.12@gmail.com',
-    'Testpw123',
+    '123456789',
     0
   ),
   (
@@ -694,6 +685,24 @@ VALUES (
     'test',
     'r.kycyku.12@gmail.com',
     'test',
+    0
+  ),
+  (
+    7,
+    'testing',
+    'testing',
+    'testing',
+    'test@email.com',
+    'Test123@@@',
+    0
+  ),
+  (
+    8,
+    'testasfasf',
+    'testasfasf',
+    'userasfasf',
+    'test@email.com',
+    'Test123@@@',
     0
   );
 --
@@ -716,15 +725,28 @@ ADD PRIMARY KEY (`kategoriaID`);
 ALTER TABLE `kompania`
 ADD PRIMARY KEY (`kompaniaID`);
 --
--- Indexes for table `porosia`
+-- Indexes for table `porosit`
 --
-ALTER TABLE `porosia`
-ADD PRIMARY KEY (`porosiaID`);
+ALTER TABLE `porosit`
+ADD PRIMARY KEY (`nrPorosis`),
+  ADD KEY `FK_KlientiPorosia` (`idKlienti`);
 --
 -- Indexes for table `produkti`
 --
 ALTER TABLE `produkti`
 ADD PRIMARY KEY (`produktiID`);
+--
+-- Indexes for table `tedhenatporosis`
+--
+ALTER TABLE `tedhenatporosis`
+ADD PRIMARY KEY (`nrRendor`),
+  ADD KEY `FK_PorosiaTeDhenatPorosis` (`idPorosia`),
+  ADD KEY `FK_PorosiaProdukti` (`idProdukti`);
+--
+-- Indexes for table `tedhenatuser`
+--
+ALTER TABLE `tedhenatuser`
+ADD UNIQUE KEY `userID` (`userID`);
 --
 -- Indexes for table `user`
 --
@@ -745,19 +767,19 @@ MODIFY `IDmesazhi` int(11) NOT NULL AUTO_INCREMENT,
 --
 ALTER TABLE `kategoriaproduktit`
 MODIFY `kategoriaID` int(11) NOT NULL AUTO_INCREMENT,
-  AUTO_INCREMENT = 13;
+  AUTO_INCREMENT = 16;
 --
 -- AUTO_INCREMENT for table `kompania`
 --
 ALTER TABLE `kompania`
 MODIFY `kompaniaID` int(11) NOT NULL AUTO_INCREMENT,
-  AUTO_INCREMENT = 27;
+  AUTO_INCREMENT = 36;
 --
--- AUTO_INCREMENT for table `porosia`
+-- AUTO_INCREMENT for table `porosit`
 --
-ALTER TABLE `porosia`
-MODIFY `porosiaID` int(11) NOT NULL AUTO_INCREMENT,
-  AUTO_INCREMENT = 6;
+ALTER TABLE `porosit`
+MODIFY `nrPorosis` int(11) NOT NULL AUTO_INCREMENT,
+  AUTO_INCREMENT = 38;
 --
 -- AUTO_INCREMENT for table `produkti`
 --
@@ -765,11 +787,39 @@ ALTER TABLE `produkti`
 MODIFY `produktiID` int(11) NOT NULL AUTO_INCREMENT,
   AUTO_INCREMENT = 34;
 --
+-- AUTO_INCREMENT for table `tedhenatporosis`
+--
+ALTER TABLE `tedhenatporosis`
+MODIFY `nrRendor` int(11) NOT NULL AUTO_INCREMENT,
+  AUTO_INCREMENT = 377;
+--
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
 MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT,
-  AUTO_INCREMENT = 7;
+  AUTO_INCREMENT = 9;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `porosit`
+--
+ALTER TABLE `porosit`
+ADD CONSTRAINT `FK_KlientiPorosia` FOREIGN KEY (`idKlienti`) REFERENCES `user` (`userID`) ON DELETE
+SET NULL ON UPDATE CASCADE;
+--
+-- Constraints for table `tedhenatporosis`
+--
+ALTER TABLE `tedhenatporosis`
+ADD CONSTRAINT `FK_PorosiaProdukti` FOREIGN KEY (`idProdukti`) REFERENCES `produkti` (`produktiID`) ON DELETE
+SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_PorosiaTeDhenatPorosis` FOREIGN KEY (`idPorosia`) REFERENCES `porosit` (`nrPorosis`) ON DELETE CASCADE ON UPDATE CASCADE;
+--
+-- Constraints for table `tedhenatuser`
+--
+ALTER TABLE `tedhenatuser`
+ADD CONSTRAINT `FK_UserTeDhenatUser` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */
 ;

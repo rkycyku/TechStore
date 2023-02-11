@@ -59,12 +59,22 @@ $produktiCRUD = new produktiCRUD();
       <?php
       $produktet = $produktiCRUD->shfaq20ProduktetEFundit();
       foreach ($produktet as $produkti) {
-        echo '<div class="artikulli">
-                    <img src="../../img/products/' . $produkti['fotoProduktit'] . '" alt="" />' .
-          '<p class="artikulliLabel">' . $produkti['emriProduktit'] . '</p>' .
-          '<p class="cmimi">' . $produkti['qmimiProduktit'] . ' €</p>
-          <a href="./order.php?produktiID=' . $produkti['produktiID'] . '"><button class="button">Buy</button></a>
-                  </div>';
+        ?>
+        <form action="../funksione/shtoNeShport.php" method="POST" class="artikulli">
+          <input type="hidden" name="produktiID" value=<?php echo $produkti['produktiID'] ?>>
+          <input type="hidden" name="emriProduktit" value=<?php echo $produkti['emriProduktit'] ?>>
+          <input type="hidden" name="qmimiProduktit" value=<?php echo $produkti['qmimiProduktit'] ?>>
+          <img src="../../img/products/<?php echo $produkti['fotoProduktit'] ?>" />
+          <p class=" artikulliLabel">
+            <?php echo $produkti['emriProduktit'] ?>
+          </p>
+          <p class="cmimi">
+            <?php echo $produkti['qmimiProduktit'] ?> €
+          </p>
+          <input type="submit" class="button" value="Shto ne Shport" name="submit">
+          <input type="submit" class="button" value="Blej Tani" name="blej">
+        </form>
+        <?php
       }
 
       ?>

@@ -11,8 +11,8 @@ $porosiaCRUD = new porosiaCRUD();
 $porosiaCRUD->setPorosiaID($_GET['nrPorosis']);
 
 $porosia = $porosiaCRUD->shfaqPorosinSipasID();
-
-if ($porosia['userID'] != $_SESSION['userID'] && $_SESSION['aksesi'] == 0 && $_SESSION['userID'] == null && $porosia['emriKlientit'] != $_SESSION['emri']) {
+$produktetEPorosis = $porosiaCRUD->shfaqProduktetEPorosisSipasID();
+if ($porosia['idKlienti'] != $_SESSION['userID'] && $_SESSION['aksesi'] == 0 && $_SESSION['userID'] == null && $porosia['emri'] != $_SESSION['emri']) {
   echo '<script>document.location="../userPages/porosit.php"</script>';
 }
 ?>
@@ -22,7 +22,7 @@ if ($porosia['userID'] != $_SESSION['userID'] && $_SESSION['aksesi'] == 0 && $_S
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>
-    <?php echo $porosia['emriKlientit'] . ' ' . $porosia['mbiemriKlientit'] . ' - ' . '#' . $porosia['porosiaID'] . ' / ' . $porosia['dataPorosis'] ?>
+    <?php echo $porosia['emri'] . ' ' . $porosia['mbiemri'] . ' - ' . '#' . $porosia['nrPorosis'] . ' / ' . $porosia['dataPorosis'] ?>
     | Tech Store
   </title>
   <link rel="shortcut icon" href="../../img/web/favicon.ico" />
@@ -61,20 +61,20 @@ if ($porosia['userID'] != $_SESSION['userID'] && $_SESSION['aksesi'] == 0 && $_S
 
       <div class="teDhenatKlientit">
         <h1>
-          <?php echo '<span style="font-size: 30pt;" id="emriKlientit">' . $porosia['emriKlientit'] . ' ' . $porosia['mbiemriKlientit'] . '</span>' ?>
+          <?php echo '<span style="font-size: 30pt;" id="emriKlientit">' . $porosia['emri'] . ' ' . $porosia['mbiemri'] . '</span>' ?>
         </h1>
         <p style="font-size: 20pt">
           <?php echo $porosia['nrKontaktit'] ?>
         </p>
         <p style="font-size: 20pt">
-          <?php echo $porosia['emailKlientit'] ?>
+          <?php echo $porosia['email'] ?>
         </p>
       </div>
     </div>
 
     <div class="data">
       <h1>Fatura nr:
-        <?php echo '<span style="font-size: 30pt;" id="nrFatures">#' . $porosia['porosiaID'] . '</span>' ?>
+        <?php echo '<span style="font-size: 30pt;" id="nrFatures">#' . $porosia['nrPorosis'] . '</span>' ?>
       </h1>
       <h3>Data e Porosis
         <?php echo '<span style="font-size: 20pt;" id="dataPorosis">' . date("d-m-y", strtotime($porosia['dataPorosis'])) . '</span>' ?>
@@ -107,20 +107,31 @@ if ($porosia['userID'] != $_SESSION['userID'] && $_SESSION['aksesi'] == 0 && $_S
           <h3>Qmimi Total</h3>
         </th>
       </tr>
-      <tr>
-        <td>
-          <?php echo $porosia['emriProduktit'] ?>
-        </td>
-        <td>
-          <?php echo number_format($porosia['qmimiProd'], 2) . ' €' ?>
-        </td>
-        <td>
-          <?php echo $porosia['sasiaPorositur'] ?>
-        </td>
-        <td>
-          <?php echo number_format($porosia['qmimiProd'] * $porosia['sasiaPorositur'], 2) . ' €' ?>
-        </td>
-      </tr>
+      <?php
+      foreach ($produktetEPorosis as $produktet => $produkti) {
+        ?>
+        
+        <tr>
+          <td>
+            <?php echo $produkti['emriProduktit'] ?>
+          </td>
+          <td>
+            <?php echo number_format($produkti['qmimiProd'], 2) . ' €' ?>
+          </td>
+          <td>
+            <?php echo $produkti['sasiaPorositur'] ?>
+          </td>
+          <td>
+            <?php echo number_format($produkti['qmimiTotal'], 2) . ' €' ?>
+          </td>
+        </tr>
+
+        <?php
+      }
+      ?>
+
+
+
     </table>
   </div>
 
@@ -138,13 +149,13 @@ if ($porosia['userID'] != $_SESSION['userID'] && $_SESSION['aksesi'] == 0 && $_S
         <tr>
           <td><strong>Emri: </strong></td>
           <td>
-            <?php echo $porosia['emriKlientit'] ?>
+            <?php echo $porosia['emri'] ?>
           </td>
         </tr>
         <tr>
           <td><strong>Mbiemri: </strong></td>
           <td>
-            <?php echo $porosia['mbiemriKlientit'] ?>
+            <?php echo $porosia['mbiemri'] ?>
           </td>
         </tr>
         <tr>
@@ -156,7 +167,7 @@ if ($porosia['userID'] != $_SESSION['userID'] && $_SESSION['aksesi'] == 0 && $_S
         <tr>
           <td><strong>Email: </strong></td>
           <td>
-            <?php echo $porosia['emailKlientit'] ?>
+            <?php echo $porosia['email'] ?>
           </td>
         </tr>
         <tr>
@@ -166,9 +177,15 @@ if ($porosia['userID'] != $_SESSION['userID'] && $_SESSION['aksesi'] == 0 && $_S
           </td>
         </tr>
         <tr>
+          <td><strong>Zip Kodi: </strong></td>
+          <td>
+            <?php echo $porosia['zipKodi'] ?>
+          </td>
+        </tr>
+        <tr>
           <td><strong>Adresa: </strong></td>
           <td>
-            <?php echo $porosia['adresaKlientit'] ?>
+            <?php echo $porosia['adresa'] ?>
           </td>
         </tr>
       </table>
@@ -191,7 +208,7 @@ if ($porosia['userID'] != $_SESSION['userID'] && $_SESSION['aksesi'] == 0 && $_S
             <strong>Totali Pa TVSH: </strong>
           </td>
           <td>
-            <?php echo number_format(($porosia['qmimiProd'] * $porosia['sasiaPorositur']) - (($porosia['qmimiProd'] * $porosia['sasiaPorositur']) * 0.18), 2) . ' €' ?>
+            <?php echo number_format($porosia['TotaliPorosis']- ($porosia['TotaliPorosis'] * 0.18), 2) . ' €' ?>
           </td>
         </tr>
         <tr>
@@ -199,14 +216,8 @@ if ($porosia['userID'] != $_SESSION['userID'] && $_SESSION['aksesi'] == 0 && $_S
             <strong>TVSH 18%: </strong>
           </td>
           <td>
-            <?php echo number_format(($porosia['qmimiProd'] * $porosia['sasiaPorositur']) * 0.18, 2) . ' €' ?>
+            <?php echo number_format($porosia['TotaliPorosis'] * 0.18, 2) . ' €' ?>
           </td>
-        </tr>
-        <tr>
-          <td>
-            <strong>Qmimi transportit: </strong>
-          </td>
-          <td>2 €</td>
         </tr>
         <tr>
           <td style="font-size: 20pt">
@@ -214,7 +225,7 @@ if ($porosia['userID'] != $_SESSION['userID'] && $_SESSION['aksesi'] == 0 && $_S
           </td>
           <td style="font-size: 20pt">
             <strong>
-              <?php echo number_format($porosia['qmimiProd'] * $porosia['sasiaPorositur'] + 2, 2) . ' €' ?>
+              <?php echo number_format($porosia['TotaliPorosis'],2) . ' €' ?>
             </strong>
           </td>
         </tr>

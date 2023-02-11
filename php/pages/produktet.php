@@ -6,7 +6,9 @@ if (!isset($_SESSION)) {
 require_once('../CRUD/produktiCRUD.php');
 $produktiCRUD = new produktiCRUD();
 
-
+if (isset($_Post['Blej'])) {
+  echo $_Post['produktiID'];
+}
 
 ?>
 <!DOCTYPE html>
@@ -19,57 +21,134 @@ $produktiCRUD = new produktiCRUD();
   <title>Products | Tech Store</title>
   <link rel="shortcut icon" href="../../img/web/favicon.ico" />
   <link rel="stylesheet" href="../../css/index.css" />
+  <link rel="stylesheet" href="../../css/mesazhetStyle.css">
 </head>
 
 <body>
   <?php include '../design/header.php'; ?>
   <div class="container">
+
     <form class="searchBarForm" name='kerko' action='../funksione/search.php' method="post">
       <input class="searchBar" name='kerkimi' type="search" placeholder="Search">
     </form>
     <?php
     if (isset($_GET['kompania'])) {
       $kompania = $_GET['kompania'];
+      ?>
+      <div class="artikujt">
+        <?php
+        if (isset($_SESSION['uShtuaNeShport']) == true) {
+          ?>
+          <div class="mesazhiSuksesStyle">
+            <p>Prdoukti u Shtua ne Shport!</p>
+            <button id="mbyllMesazhin">
+              X
+            </button>
+          </div>
+          <?php
+        }
+        if (isset($_SESSION['ekzistonNeShport']) == true) {
+          ?>
+          <div class="mesazhiGabimStyle">
+            <p>Ky produkt egziston ne Shporten tuaj!</p>
+            <button id="mbyllMesazhin">
+              X
+            </button>
+          </div>
+          <?php
+        }
+        ?>
+        <div class="titulliArtikuj">
+          <h1 class="">All Products from
+            <?php echo $kompania ?>
+          </h1>
+        </div>
+        <?php
 
-      echo '<div class="artikujt">
-                  <div class="titulliArtikuj">
-                    <h1 class="">All Products from ' . $kompania . '</h1>
-                  </div>';
-      $produktiCRUD->setEmriKompanis($kompania);
-      $produktet = $produktiCRUD->shfaqProduktinSipasKompanis();
-      foreach ($produktet as $produkti) {
-        echo '<div class="artikulli">
-                    <img src="../../img/products/' . $produkti['fotoProduktit'] . '" alt="" />
-                    <p class="artikulliLabel">' . $produkti['emriProduktit'] . '</p>
-                    <p class="cmimi">' . $produkti['qmimiProduktit'] . ' €</p>
-                    <a href="./order.php?produktiID=' . $produkti['produktiID'] . '"><button class="button">Buy</button></a>
-                </div>';
-      }
+        $produktiCRUD->setEmriKompanis($kompania);
+        $produktet = $produktiCRUD->shfaqProduktinSipasKompanis();
+
+        foreach ($produktet as $produkti) {
+          ?>
+          <form action="../funksione/shtoNeShport.php" method="POST" class="artikulli">
+            <input type="hidden" name="produktiID" value=<?php echo $produkti['produktiID'] ?>>
+            <input type="hidden" name="emriProduktit" value="<?php echo $produkti['emriProduktit'] ?>">
+            <input type="hidden" name="qmimiProduktit" value=<?php echo $produkti['qmimiProduktit'] ?>>
+            <img src="../../img/products/<?php echo $produkti['fotoProduktit'] ?>" />
+            <p class=" artikulliLabel">
+              <?php echo $produkti['emriProduktit'] ?>
+            </p>
+            <p class="cmimi">
+              <?php echo $produkti['qmimiProduktit'] ?> €
+            </p>
+            <input type="submit" class="button" value="Shto ne Shport" name="submit">
+            <input type="submit" class="button" value="Blej Tani" name="blej">
+          </form>
+          <?php
+        }
     } else if (isset($_GET['kerko'])) {
       $_SESSION['kerko'] = $_GET['kerko'];
 
       $produktiCRUD->shfaqProduktetNgaKerkimi();
     } else {
-      echo '<div class="artikujt">
-                  <div class="titulliArtikuj">
-                    <h1 class="">All Products</h1>
-                </div>';
-      $produktet = $produktiCRUD->shfaqTeGjithaProduktet();
-      foreach ($produktet as $produkti) {
-        echo '<div class="artikulli">
-                    <img src="../../img/products/' . $produkti['fotoProduktit'] . '" alt="" />
-                    <p class="artikulliLabel">' . $produkti['emriProduktit'] . '</p>
-                    <p class="cmimi">' . $produkti['qmimiProduktit'] . ' €</p>
-                    <a href="./order.php?produktiID=' . $produkti['produktiID'] . '"><button class="button">Buy</button></a>
-                  </div>';
-      }
+      ?>
+          <div class="artikujt">
+            <?php
+            if (isset($_SESSION['uShtuaNeShport']) == true) {
+              ?>
+              <div class="mesazhiSuksesStyle">
+                <p>Prdoukti u Shtua ne Shport!</p>
+                <button id="mbyllMesazhin">
+                  X
+                </button>
+              </div>
+            <?php
+            }
+            if (isset($_SESSION['ekzistonNeShport']) == true) {
+              ?>
+              <div class="mesazhiGabimStyle">
+                <p>Ky produkt egziston ne Shporten tuaj!</p>
+                <button id="mbyllMesazhin">
+                  X
+                </button>
+              </div>
+            <?php
+            }
+            ?>
+            <div class="titulliArtikuj">
+              <h1 class="">All Products</h1>
+            </div>
+            <?php
+            $produktet = $produktiCRUD->shfaqTeGjithaProduktet();
+            foreach ($produktet as $produkti) {
+              ?>
+              <form action="../funksione/shtoNeShport.php" method="POST" class="artikulli">
+                <input type="hidden" name="produktiID" value=<?php echo $produkti['produktiID'] ?>>
+                <input type="hidden" name="emriProduktit" value="<?php echo $produkti['emriProduktit'] ?>">
+                <input type="hidden" name="qmimiProduktit" value=<?php echo $produkti['qmimiProduktit'] ?>>
+                <img src="../../img/products/<?php echo $produkti['fotoProduktit'] ?>" />
+                <p class=" artikulliLabel">
+                <?php echo $produkti['emriProduktit'] ?>
+                </p>
+                <p class="cmimi">
+                <?php echo $produkti['qmimiProduktit'] ?> €
+                </p>
+                <input type="submit" class="button" value="Shto ne Shport" name="submit">
+                <input type="submit" class="button" value="Blej Tani" name="blej">
+              </form>
+            <?php
+            }
 
-      echo '</div>';
+            echo '</div>';
     }
     ?>
-  </div>
+      </div>
 
-  <?php include '../design/footer.php' ?>
+      <?php include '../design/footer.php' ?>
 </body>
 
 </html>
+
+<?php unset($_SESSION['uShtuaNeShport']);
+unset($_SESSION['ekzistonNeShport']);
+?>

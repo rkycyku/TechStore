@@ -22,6 +22,10 @@ if (isset($_POST['submit'])) {
     $user->setEmail($_POST['email']);
     $user->setPassword($_POST['password']);
     $user->shtoUser();
+
+    $idUser = $user->idKlientiNeRegjistrim();
+    $user->setUserID($idUser['userID']);
+    $user->shtoAdresen();
     session_destroy();
   }
 }

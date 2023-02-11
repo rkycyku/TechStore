@@ -183,9 +183,21 @@ class porosiaCRUD extends dbCon
     public function shtoPorosin()
     {
         try {
-            $sql = "INSERT INTO `porosia`(`produktiID`, `userID`, `emriKlientit`, `mbiemriKlientit`, `emailKlientit`, `nrKontaktit`, `qyteti`, `adresaKlientit`,`qmimiProd`,`sasiaPorositur`, `qmimiTotal`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO `porosit`(`idKlienti`, `TotaliPorosis`) VALUES (?, ?)";
             $stm = $this->dbConn->prepare($sql);
-            $stm->execute([$this->produktiID, $this->userID, $this->emriKlientit, $this->mbiemriKlientit, $this->emailKlientit, $this->nrKontaktit, $this->qyteti, $this->adresaKlientit, $this->qmimiProd, $this->sasiaPorositur, $this->qmimiTotal]);
+            $stm->execute([$this->userID, $this->qmimiTotal]);
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function shtoTeDhenatPorosis()
+    {
+        try {
+            $sql = "INSERT INTO `tedhenatporosis`(`idPorosia`, `idProdukti`, `qmimiProd`, `sasiaPorositur`, `qmimiTotal`) VALUES (?, ?, ?, ?, ?)";
+            $stm = $this->dbConn->prepare($sql);
+            $stm->execute([$this->porosiaID, $this->produktiID, $this->qmimiProd, $this->sasiaPorositur, $this->qmimiTotal]);
+            $stm->closeCursor();
         } catch (Exception $e) {
             return $e->getMessage();
         }
@@ -194,43 +206,59 @@ class porosiaCRUD extends dbCon
     public function shfaqPorositEKlientit()
     {
         try {
-            $sql = "SELECT * from `porosia` inner join produkti on porosia.produktiID = produkti.produktiID where porosia.userID = ?  ORDER BY porosiaID DESC";
+            $sql = "SELECT * from porosit p  where p.idKlienti = ? ORDER BY nrPorosis DESC";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute([$this->userID]);
 
-            echo '
+            ?>
             <table>
-            <tr>
-              <th>Numri i Porosis</th>
-              <th>Emri i Produktit</th>
-              <th>Qmimi i Produktit</th>
-              <th>Sasia e Porositur</th>
-              <th>Qmimi total</th>
-              <th>Data e porosis</th>
-              <th>Statusi i porosis</th>
-              <th>Funksione</th>
-            </tr>';
+                <tr>
+                    <th>Numri i Porosis</th>
+                    <th>Qmimi total</th>
+                    <th>Data e porosis</th>
+                    <th>Statusi i porosis</th>
+                    <th>Funksione</th>
+                </tr>
 
-
-            foreach ($stm as $porosia) {
-                echo '
-                  <tr>
-                    <td>' . $porosia['porosiaID'] . '</td>
-                    <td>' . $porosia['emriProduktit'] . '</td>
-                    <td>' . $porosia['qmimiProduktit'] . ' €</td>
-                    <td>' . $porosia['sasiaPorositur'] . '</td>
-                    <td>' . $porosia['qmimiTotal'] . ' €</td>
-                    <td>' . $porosia['dataPorosis'] . '</td>
-                    <td>' . $porosia['statusiPorosis'] . '</td>';
-                if ($porosia['userID'] == $_SESSION['userID']) {
-                    echo '<td><button class="edito"><a href="../funksione/konfirmoPorosin.php?porosiaID=' . $porosia['porosiaID'] . '">Konfirmo Porosin</a></button>
-                    <a href="../funksione/fatura.php?nrPorosis=' . $porosia["porosiaID"] . '" target="_blank"><button class="edito">Shkarko Faturen</button></a></td>';
+                <?php
+                foreach ($stm as $porosia) {
+                    ?>
+                    <tr>
+                        <td>
+                            <?php echo $porosia['nrPorosis'] ?>
+                        </td>
+                        <td>
+                            <?php echo $porosia['TotaliPorosis'] ?> €
+                        </td>
+                        <td>
+                            <?php echo $porosia['dataPorosis'] ?>
+                        </td>
+                        <td>
+                            <?php echo $porosia['statusiPorosis'] ?>
+                        </td>
+                        <?php
+                        if ($porosia['idKlienti'] == $_SESSION['userID']) {
+                            ?>
+                            <td>
+                                <button class="edito"><a
+                                        href="../funksione/konfirmoPorosin.php?porosiaID=<?php echo $porosia['nrPorosis'] ?>">Konfirmo
+                                        Porosin</a></button>
+                                <a href="../funksione/fatura.php?nrPorosis=<?php echo $porosia["nrPorosis"] ?>" target="_blank"><button
+                                        class="edito">Shkarko Faturen</button></a>
+                                <button class="edito"><a
+                                        href="../userPages/detajetPorosis.php?porosiaID=<?php echo $porosia['nrPorosis'] ?>">Detajet
+                                        e Porosis</a></button>
+                            </td>
+                            <?php
+                        }
+                        ?>
+                    </tr>
+                    <?php
                 }
-                echo '</tr> ';
-            }
-            echo '</th>
-          </table>';
-
+                ?>
+                </th>
+            </table>
+            <?php
         } catch (Exception $e) {
             return $e->getMessage();
         }
@@ -297,7 +325,16 @@ class porosiaCRUD extends dbCon
     public function shfaqPorosinSipasID()
     {
         try {
-            $sql = "SELECT * from `porosia` inner join produkti on porosia.produktiID = produkti.produktiID where porosiaID = ?  ORDER BY porosiaID DESC";
+            $sql = "SELECT p.nrPorosis, p.idKlienti, t.idProdukti, pr.emriProduktit, 
+                    t.qmimiProd, t.sasiaPorositur, t.qmimiTotal, pr.fotoProduktit, 
+                    u.emri, u.mbiemri, u.email, tu.nrKontaktit, tu.qyteti, tu.zipKodi, tu.adresa, p.dataPorosis, p.TotaliPorosis
+                    from porosit p 
+                    inner join tedhenatporosis t on p.nrPorosis = t.idPorosia 
+                    inner join produkti pr on t.idProdukti = pr.produktiID
+                    inner join user u on u.userID = p.idKlienti 
+                    inner join tedhenatuser tu on u.userID = tu.userID 
+                    where nrPorosis = ? 
+                    ORDER BY nrPorosis DESC";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute([$this->porosiaID]);
 
@@ -307,10 +344,31 @@ class porosiaCRUD extends dbCon
         }
     }
 
+    public function shfaqProduktetEPorosisSipasID()
+    {
+        try {
+            $sql = "SELECT p.nrPorosis, p.idKlienti, t.idProdukti, pr.emriProduktit, 
+                    t.qmimiProd, t.sasiaPorositur, t.qmimiTotal, pr.fotoProduktit, p.dataPorosis, p.TotaliPorosis
+                    from porosit p 
+                    inner join tedhenatporosis t on p.nrPorosis = t.idPorosia 
+                    inner join produkti pr on t.idProdukti = pr.produktiID
+                    inner join user u on u.userID = p.idKlienti 
+                    inner join tedhenatuser tu on u.userID = tu.userID 
+                    where nrPorosis = ? 
+                    ORDER BY nrPorosis DESC";
+            $stm = $this->dbConn->prepare($sql);
+            $stm->execute([$this->porosiaID]);
+
+            return $stm->fetchAll();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
     public function perditesoStatusinPorosis()
     {
         try {
-            $sql = "UPDATE `porosia` SET `statusiPorosis`= ? WHERE `porosiaID` = ?";
+            $sql = "UPDATE `porosit` SET `statusiPorosis`= ? WHERE `nrPorosis` = ?";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute([$this->statusiPorosis, $this->porosiaID]);
         } catch (Exception $e) {
@@ -321,7 +379,7 @@ class porosiaCRUD extends dbCon
     public function numriIPorosisNeKonfirmim()
     {
         try {
-            $sql = "SELECT porosiaID from `porosia` ORDER BY porosiaID DESC LIMIT 1";
+            $sql = "SELECT nrPorosis from `porosit` ORDER BY nrPorosis DESC LIMIT 1";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute();
 

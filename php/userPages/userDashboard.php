@@ -3,6 +3,10 @@ require_once('../funksione/kontrolloEshteLogin.php');
 require_once('../CRUD/userCRUD.php');
 
 $userCRUD = new userCRUD();
+
+$userCRUD->setUserID($_SESSION['userID']);
+$useri = $userCRUD->shfaqSipasID();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,20 +45,59 @@ $userCRUD = new userCRUD();
       <?php echo $_SESSION['name'] ?>!
     </h1>
     <h2>Te dhenat e tua</h2>
+    <table>
+      <tr>
+        <td><strong>ID:</strong></td>
+        <td>
+          <?php echo $useri['userID'] ?>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Emri:</strong></td>
+        <td>
+          <?php echo $useri['emri'] ?>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Mbiemri:</strong></td>
+        <td>
+          <?php echo $useri['mbiemri'] ?>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Username:</strong></td>
+        <td>
+          <?php echo $useri['username'] ?>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Email:</strong></td>
+        <td>
+          <?php echo $useri['email'] ?>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Numri Kontaktit:</strong></td>
+        <td>
+          <?php echo $useri['nrKontaktit'] ?>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Adresa: </strong></td>
+        <td>
+          <?php echo $useri['adresa'] . ', ' . $useri['qyteti'] . ' ' . $useri['zipKodi'] ?>
+        </td>
+      </tr>
+    </table>
+
+    <div class=test>
+      <a href="../funksione/perditesoTeDhenat.php?userID=<?php echo $useri['userID'] ?>"><button
+          class="button">Perditeso te
+          Dhenat</button></a>
+      <a href="../funksione/ndryshoPass.php?userID= <?php echo $useri['userID'] ?>"><button class="button">Ndrysho
+          Fjalekalimin</button></a>
+    </div>
     <?php
-    $userCRUD->setUserID($_SESSION['userID']);
-    $useri = $userCRUD->shfaqSipasID();
-    echo '
-        <p><strong>ID:</strong> ' . ($useri['userID']) . '</p>
-        <p><strong>Emri:</strong> ' . ($useri['emri']) . '</p>
-        <p><strong>Mbiemri:</strong> ' . ($useri['mbiemri']) . '</p>
-        <p><strong>Username:</strong> ' . ($useri['username']) . '</p>
-        <p><strong>Email:</strong> ' . ($useri['email']) . '</p>
-        <div class=test>
-        <a href="../funksione/perditesoTeDhenat.php?userID=' . $useri['userID'] . '"><button class="button">Perditeso te Dhenat</button></a>
-        <a href="../funksione/ndryshoPass.php?userID=' . $useri['userID'] . '"><button class="button">Ndrysho Fjalekalimin</button></a>
-        </div>
-      ';
     if ($_SESSION['aksesi'] == 0) {
       echo ' <a href="../userPages/porosit.php"><button class="button">Porosite e tua</button></a>';
     }

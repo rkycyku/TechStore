@@ -20,15 +20,17 @@ if (isset($_POST['perditDhenat'])) {
         $userCRUD->setEmri($_POST['emri']);
         $userCRUD->setMbiemri($_POST['mbiemri']);
         $userCRUD->setEmail($_POST['email']);
+        $userCRUD->setNrKontaktit($_POST['nrKontaktit']);
+        $userCRUD->setAdresa($_POST['adresa']);
+        $userCRUD->setQyteti($_POST['qyteti']);
+        $userCRUD->setZipKodi($_POST['zipKodi']);
 
         $userCRUD->perditesoTeDhenat();
+        $userCRUD->perditesoAdresen();
 
         $_SESSION['teDhenatUPerditesuan'] = true;
-        if ($_SESSION['aksesi'] != 0) {
-            echo '<script>document.location="../admin/adminDashboard.php"</script>';
-        } else {
+        
             echo '<script>document.location="../userPages/userDashboard.php"</script>';
-        }
     } else {
         $_SESSION['passGabim'] = true;
     }
@@ -93,6 +95,22 @@ $perdoruesi = $userCRUD->shfaqSipasID();
             <label for="">
                 <strong>Email: </strong>
                 <input type="text" name="email" value="<?php echo $perdoruesi['email'] ?>">
+            </label>
+            <label for="">
+                <strong>nrKontaktit: </strong>
+                <input type="text" name="nrKontaktit" value="<?php echo $perdoruesi['nrKontaktit'] ?>">
+            </label>
+            <label for="">
+                <strong>Qyteti: </strong>
+                <input type="text" name="qyteti" value="<?php echo $perdoruesi['qyteti'] ?>">
+            </label>
+            <label for="">
+                <strong>Zip Kodi: </strong>
+                <input type="text" name="zipKodi" value="<?php echo $perdoruesi['zipKodi'] ?>">
+            </label>
+            <label for="">
+                <strong>Adresa: </strong>
+                <input type="text" name="adresa" value="<?php echo $perdoruesi['adresa'] ?>">
             </label>
             <label for="">
                 <strong>Password: </strong>

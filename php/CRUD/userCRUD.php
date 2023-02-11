@@ -14,6 +14,10 @@ class userCRUD extends dbCon
     private $email;
     private $password;
     private $aksesi;
+    private $nrKontaktit;
+    private $qyteti;
+    private $zipKodi;
+    private $adresa;
     private $dbConn;
 
     public function __construct($userID = '', $emri = '', $mbiemri = '', $username = '', $email = '', $password = '', $aksesi = '')
@@ -99,6 +103,46 @@ class userCRUD extends dbCon
         $this->aksesi = $aksesi;
     }
 
+    public function getNrKontaktit()
+    {
+        return $this->nrKontaktit;
+    }
+
+    public function setNrKontaktit($nrKontaktit)
+    {
+        $this->nrKontaktit = $nrKontaktit;
+    }
+
+    public function getQyteti()
+    {
+        return $this->qyteti;
+    }
+
+    public function setQyteti($qyteti)
+    {
+        $this->qyteti = $qyteti;
+    }
+
+    public function getZipKodi()
+    {
+        return $this->zipKodi;
+    }
+
+    public function setZipKodi($zipKodi)
+    {
+        $this->zipKodi = $zipKodi;
+    }
+
+    public function getAdresa()
+    {
+        return $this->adresa;
+    }
+
+    public function setAdresa($adresa)
+    {
+        $this->adresa = $adresa;
+    }
+
     public function shtoUser()
     {
         try {
@@ -107,6 +151,28 @@ class userCRUD extends dbCon
             $stm->execute([$this->emri, $this->mbiemri, $this->username, $this->email, $this->password]);
 
             $_SESSION['regMeSukses'] = true;
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+    public function idKlientiNeRegjistrim()
+    {
+        try {
+            $sql = 'SELECT userID from user ORDER BY userID DESC LIMIT 1';
+            $stm = $this->dbConn->prepare($sql);
+            $stm->execute();
+
+            return $stm->fetch();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+    public function shtoAdresen()
+    {
+        try {
+            $sql = "INSERT INTO `tedhenatuser`(`userID`) VALUES (?)";
+            $stm = $this->dbConn->prepare($sql);
+            $stm->execute([$this->userID]);
         } catch (Exception $e) {
             return $e->getMessage();
         }
@@ -141,7 +207,7 @@ class userCRUD extends dbCon
     public function shfaqSipasID()
     {
         try {
-            $sql = 'SELECT * from user WHERE userID = ?';
+            $sql = 'SELECT * from user u INNER JOIN tedhenatuser t ON u.userID = t.userID WHERE u.userID = ?';
             $stm = $this->dbConn->prepare($sql);
             $stm->execute([$this->userID]);
 
@@ -185,6 +251,16 @@ class userCRUD extends dbCon
             return $e->getMessage();
         }
     }
+    public function perditesoAdresen()
+    {
+        try {
+            $sql = "UPDATE tedhenatuser set `nrKontaktit` = ?, `qyteti` = ?, `zipKodi` = ?, `adresa` = ? where userID = ?";
+            $stm = $this->dbConn->prepare($sql);
+            $stm->execute([$this->nrKontaktit, $this->qyteti, $this->zipKodi, $this->adresa, $this->userID]);
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
     public function perditesoFjalekalimin()
     {
         try {
@@ -195,6 +271,8 @@ class userCRUD extends dbCon
             return $e->getMessage();
         }
     }
+
+    
 }
 
 ?>
