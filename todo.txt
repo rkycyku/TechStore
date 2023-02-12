@@ -10,4 +10,5 @@ Me e rregullu dizajnin e detajet e porosis(butoni nuk osht i dizajnuar).
 Me e rregullu mos me mujt me porosit nqofse ska adres.
 Me e rregullu mos me mujt me porosit nqofse nuk esht login.
 Mos me Pas akses te Filet qe nvaren prej Shportes nqofse nuk ban porosi.
+Validimi i pjeses se perditesimit te te dhenave
 Me i Rishiku validimet e krejt inputeve.

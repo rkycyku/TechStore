@@ -19,11 +19,11 @@ if (isset($_POST['editoProd'])) {
   $_SESSION['KategoriaProduktit'] = $_POST['kategoria'];
   $_SESSION['QmimiProduktit'] = $_POST['cmimiPd'];
   if ($_FILES['pdPhoto']['name'] == '') {
-    $produktiCRUD->editoProduktinPaFoto();
+    $produktiCRUD->editoProduktin(false);
   } else {
     $_SESSION['FotoProduktit'] = $_FILES['pdPhoto'];
     $_SESSION['EmriFotosProduktit'] = $_FILES['pdPhoto']['name'];
-    $produktiCRUD->editoProduktinMeFoto();
+    $produktiCRUD->editoProduktin(true);
   }
 }
 if (isset($_POST['anulo'])) {

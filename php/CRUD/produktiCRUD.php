@@ -205,22 +205,22 @@ class produktiCRUD extends dbCon
                 </div>';
                 foreach ($produktet as $produkti) {
                     ?>
-                        <form action="../funksione/shtoNeShport.php" method="POST" class="artikulli">
-                          <input type="hidden" name="produktiID" value=<?php echo $produkti['produktiID'] ?>>
-                          <input type="hidden" name="emriProduktit" value="<?php echo $produkti['emriProduktit'] ?>">
-                          <input type="hidden" name="qmimiProduktit" value=<?php echo $produkti['qmimiProduktit'] ?>>
-                          <img src="../../img/products/<?php echo $produkti['fotoProduktit'] ?>" />
-                          <p class=" artikulliLabel">
-                          <?php echo $produkti['emriProduktit'] ?>
-                          </p>
-                          <p class="cmimi">
-                          <?php echo $produkti['qmimiProduktit'] ?> €
-                          </p>
-                          <input type="submit" class="button" value="Shto ne Shport" name="submit">
-                          <input type="submit" class="button" value="Blej Tani" name="blej">
-                        </form>
-                      <?php
-                  }
+                    <form action="../funksione/shtoNeShport.php" method="POST" class="artikulli">
+                        <input type="hidden" name="produktiID" value=<?php echo $produkti['produktiID'] ?>>
+                        <input type="hidden" name="emriProduktit" value="<?php echo $produkti['emriProduktit'] ?>">
+                        <input type="hidden" name="qmimiProduktit" value=<?php echo $produkti['qmimiProduktit'] ?>>
+                        <img src="../../img/products/<?php echo $produkti['fotoProduktit'] ?>" />
+                        <p class=" artikulliLabel">
+                            <?php echo $produkti['emriProduktit'] ?>
+                        </p>
+                        <p class="cmimi">
+                            <?php echo $produkti['qmimiProduktit'] ?> €
+                        </p>
+                        <input type="submit" class="button" value="Shto ne Shport" name="submit">
+                        <input type="submit" class="button" value="Blej Tani" name="blej">
+                    </form>
+                    <?php
+                }
             } else {
                 echo '<div class="artikujt">
                 <div class="titulliArtikuj">
@@ -264,47 +264,41 @@ class produktiCRUD extends dbCon
         }
     }
 
-    public function editoProduktinPaFoto()
+    public function editoProduktin($kaFoto)
     {
         try {
-            $this->setProduktiID($_SESSION['prouktiID']);
-            $this->setEmriProduktit($_SESSION['EmriProduktit']);
-            $this->setEmriKompanis($_SESSION['EmriKompanis']);
-            $this->setKategoriaProduktit($_SESSION['KategoriaProduktit']);
-            $this->setEmriStafit($_SESSION['name']);
-            $this->setQmimiProduktit($_SESSION['QmimiProduktit']);
+            if ($kaFoto == false) {
+                $this->setProduktiID($_SESSION['prouktiID']);
+                $this->setEmriProduktit($_SESSION['EmriProduktit']);
+                $this->setEmriKompanis($_SESSION['EmriKompanis']);
+                $this->setKategoriaProduktit($_SESSION['KategoriaProduktit']);
+                $this->setEmriStafit($_SESSION['name']);
+                $this->setQmimiProduktit($_SESSION['QmimiProduktit']);
 
-            $sql = "UPDATE `produkti` SET `emriProduktit`=?,`emriKompanis`=?,`kategoriaProduktit`=?,`emriStafit`=?,`dataModifikimit`=current_timestamp(),`qmimiProduktit`=? WHERE produktiID = ?";
-            $stm = $this->dbConn->prepare($sql);
-            $stm->execute([$this->emriProduktit, $this->emriKompanis, $this->kategoriaProduktit, $this->emriStafit, $this->qmimiProduktit, $this->produktiID]);
+                $sql = "UPDATE `produkti` SET `emriProduktit`=?,`emriKompanis`=?,`kategoriaProduktit`=?,`emriStafit`=?,`dataModifikimit`=current_timestamp(),`qmimiProduktit`=? WHERE produktiID = ?";
+                $stm = $this->dbConn->prepare($sql);
+                $stm->execute([$this->emriProduktit, $this->emriKompanis, $this->kategoriaProduktit, $this->emriStafit, $this->qmimiProduktit, $this->produktiID]);
+            } else {
+                $produkti = $this->shfaqProduktinSipasID();
+                unlink('../../img/products/' . $produkti['fotoProduktit']);
+
+                $this->barteFotonNeFolder();
+
+                $this->setProduktiID($_SESSION['prouktiID']);
+                $this->setEmriProduktit($_SESSION['EmriProduktit']);
+                $this->setEmriKompanis($_SESSION['EmriKompanis']);
+                $this->setKategoriaProduktit($_SESSION['KategoriaProduktit']);
+                $this->setFotoProduktit($_SESSION['emriUnikFotos']);
+                $this->setEmriStafit($_SESSION['name']);
+                $this->setQmimiProduktit($_SESSION['QmimiProduktit']);
+
+                $sql = "UPDATE `produkti` SET `emriProduktit`=?,`emriKompanis`=?,`kategoriaProduktit`=?,`fotoProduktit`=?,`emriStafit`=?,`dataModifikimit`=current_timestamp(),`qmimiProduktit`=? WHERE produktiID = ?";
+                $stm = $this->dbConn->prepare($sql);
+                $stm->execute([$this->emriProduktit, $this->emriKompanis, $this->kategoriaProduktit, $this->fotoProduktit, $this->emriStafit, $this->qmimiProduktit, $this->produktiID]);
+            }
 
             $_SESSION['mesazhiMeSukses'] = true;
             echo '<script>document.location="../admin/produktet.php"</script>';
-        } catch (Exception $e) {
-            return $e->getMessage();
-        }
-    }
-    public function editoProduktinMeFoto()
-    {
-        try {
-            $produkti = $this->shfaqProduktinSipasID();
-            unlink('../../img/products/' . $produkti['fotoProduktit']);
-
-            $this->barteFotonNeFolder();
-
-            $this->setProduktiID($_SESSION['prouktiID']);
-            $this->setEmriProduktit($_SESSION['EmriProduktit']);
-            $this->setEmriKompanis($_SESSION['EmriKompanis']);
-            $this->setKategoriaProduktit($_SESSION['KategoriaProduktit']);
-            $this->setFotoProduktit($_SESSION['emriUnikFotos']);
-            $this->setEmriStafit($_SESSION['name']);
-            $this->setQmimiProduktit($_SESSION['QmimiProduktit']);
-
-            $sql = "UPDATE `produkti` SET `emriProduktit`=?,`emriKompanis`=?,`kategoriaProduktit`=?,`fotoProduktit`=?,`emriStafit`=?,`dataModifikimit`=current_timestamp(),`qmimiProduktit`=? WHERE produktiID = ?";
-            $stm = $this->dbConn->prepare($sql);
-            $stm->execute([$this->emriProduktit, $this->emriKompanis, $this->kategoriaProduktit, $this->fotoProduktit, $this->emriStafit, $this->qmimiProduktit, $this->produktiID]);
-
-            $_SESSION['mesazhiMeSukses'] = true;
         } catch (Exception $e) {
             return $e->getMessage();
         }

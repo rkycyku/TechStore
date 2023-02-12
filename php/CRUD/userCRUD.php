@@ -230,12 +230,18 @@ class userCRUD extends dbCon
         }
     }
 
-    public function perditesoTeDhenatAdmini()
+    public function perditesoTeDhenatAdmini($akses)
     {
         try {
-            $sql = "UPDATE user set `emri` = ?, `mbiemri` = ?, `aksesi` = ?   where userID = ?";
-            $stm = $this->dbConn->prepare($sql);
-            $stm->execute([$this->emri, $this->mbiemri, $this->aksesi, $this->userID]);
+            if ($akses == true) {
+                $sql = "UPDATE user set `emri` = ?, `mbiemri` = ?, `aksesi` = ?   where userID = ?";
+                $stm = $this->dbConn->prepare($sql);
+                $stm->execute([$this->emri, $this->mbiemri, $this->aksesi, $this->userID]);
+            }else{
+                $sql = "UPDATE user set `emri` = ?, `mbiemri` = ? where userID = ?";
+                $stm = $this->dbConn->prepare($sql);
+                $stm->execute([$this->emri, $this->mbiemri, $this->userID]);
+            }
         } catch (Exception $e) {
             return $e->getMessage();
         }
@@ -272,7 +278,7 @@ class userCRUD extends dbCon
         }
     }
 
-    
+
 }
 
 ?>

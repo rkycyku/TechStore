@@ -11,10 +11,12 @@ if (isset($_GET['userID'])) {
   $userCRUD->setUserID($_GET['userID']);
   $userCRUD->setEmri($_GET['emri']);
   $userCRUD->setMbiemri($_GET['mbiemri']);
-  $userCRUD->setAksesi($_GET['aksesi']);
-
-
-  $userCRUD->perditesoTeDhenatAdmini();
+  if(isset($_GET['aksesi'])){
+    $userCRUD->setAksesi($_GET['aksesi']);
+    $userCRUD->perditesoTeDhenatAdmini(true);
+  }else{
+    $userCRUD->perditesoTeDhenatAdmini(false);
+  }
 
   $_SESSION['aksesiUPerditesua'] = true;
 }
@@ -114,7 +116,12 @@ if (isset($_GET['userID'])) {
     }
     
     else {
-      var link = "?userID=" + userID + "&emri=" + emri + "&mbiemri=" + mbiemri + "&aksesi=" + aksesi;
+      if(aksesi == null){
+        var link = "?userID=" + userID + "&emri=" + emri + "&mbiemri=" + mbiemri;
+      }
+      else{
+        var link = "?userID=" + userID + "&emri=" + emri + "&mbiemri=" + mbiemri + "&aksesi=" + aksesi;
+      }
       window.location.href = link;
 
       return true;
