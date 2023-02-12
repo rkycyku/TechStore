@@ -136,7 +136,7 @@ if (isset($_Post['Blej'])) {
                 <?php echo $produkti['qmimiProduktit'] ?> €
                 </p>
                 <div class="butonatDiv">
-                  <input type="submit" class="button" value="Blej Tani" name="blej">
+                  <input type="submit" class="button" value="Buy now" name="blej">
                   <input type="submit" class="button button-shporta fa fa-lg" value="&#xf07a;" name="submit">
                 </div>
               </form>

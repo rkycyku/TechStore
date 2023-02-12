@@ -77,7 +77,7 @@ if (!isset($_SESSION['aksesi'])) {
                         <span class="line"></span>
                     </li>
                     <li class="nav-item">
-                        <a href="../pages/produktet.php">Produktet</a>
+                        <a href="../pages/produktet.php">Products</a>
                         <span class="line"></span>
                     </li>';
                 }
