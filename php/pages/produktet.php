@@ -97,7 +97,7 @@ if (isset($_Post['Blej'])) {
             if (isset($_SESSION['uShtuaNeShport']) == true) {
               ?>
               <div class="mesazhiSuksesStyle">
-                <p>Prdoukti u Shtua ne Shport!</p>
+                <p>Produkti u Shtua ne Shport!</p>
                 <button id="mbyllMesazhin">
                   X
                 </button>
@@ -151,6 +151,7 @@ if (isset($_Post['Blej'])) {
 
 </html>
 
-<?php unset($_SESSION['uShtuaNeShport']);
+<?php
+ unset($_SESSION['uShtuaNeShport']);
 unset($_SESSION['ekzistonNeShport']);
 ?>

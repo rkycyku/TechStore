@@ -390,9 +390,9 @@ class porosiaCRUD extends dbCon
     public function perditesoStatusinPorosis()
     {
         try {
-            $sql = "UPDATE `porosit` SET `statusiPorosis`= 'E Derguar' WHERE `nrPorosis` = ?";
+            $sql = "UPDATE `porosit` SET `statusiPorosis`= ? WHERE `nrPorosis` = ?";
             $stm = $this->dbConn->prepare($sql);
-            $stm->execute([$this->porosiaID]);
+            $stm->execute([$this->statusiPorosis, $this->porosiaID]);
         } catch (Exception $e) {
             return $e->getMessage();
         }

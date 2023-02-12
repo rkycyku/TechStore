@@ -131,46 +131,76 @@ function validimiShtimiProduktit() {
   return true;
 }
 
-function validimiPorosis() {
-  const emriREGEX = /^[A-Za-z]+$/
+function validimiPeritesoTeDhenat(){
+  const textREGEX = /^[A-Za-z]+$/
   const telREGEX = /^04[3,4,5,6,8,9]\d{6}$/
-  let emriVP = document.vendosPorosin.emri;
-  let telVP = document.vendosPorosin.tel;
-  let qytetiVP = document.vendosPorosin.qyteti;
-  let adresaVP = document.vendosPorosin.adresa;
+  const zipKodiREGEX = /^\d{5}$/
+  let emriPTD = document.peritesoTeDhenat.emri;
+  let mbiemriPTD = document.peritesoTeDhenat.mbiemri;
+  let telPTD = document.peritesoTeDhenat.tel;
+  let qytetiPTD = document.peritesoTeDhenat.qyteti;
+  let zipKodiPTD = document.peritesoTeDhenat.zipKodi;
+  let adresaPTD = document.peritesoTeDhenat.adresa;
 
-  if (emriVP.value == "") {
+  if (emriPTD.value == "") {
     alert("Ju lutem shenoni emrin tuaj!");
-    emriVP.focus();
+    emriPTD.focus();
     return false;
   }
-  if (!emriREGEX.test(emriVP.value)) {
+  if (!textREGEX.test(emriPTD.value)) {
     alert("Emri duhet te permbaj vetem shkronja!");
-    emriVP.focus();
+    emriPTD.focus();
+    return false;
+  }
+
+  if (mbiemriPTD.value == "") {
+    alert("Ju lutem shenoni emrin tuaj!");
+    emriPTD.focus();
+    return false;
+  }
+  if (!textREGEX.test(mbiemriPTD.value)) {
+    alert("Mbimeri duhet te permbaj vetem shkronja!");
+    emriPTD.focus();
     return false;
   }
   
-  if (telVP.value == "") {
-    alert("Ju lutem te vendosni nje numer kontakti per shkak te kontaktimit nga postieri!");
-    telVP.focus();
+  if (telPTD.value == "") {
+    alert("Ju lutem te vendosni nje numer kontakti per shkak te kontaktimit nga postieri ne rast porosie!");
+    telPTD.focus();
     return false;
   }
-  if (!telREGEX.test(telVP.value)) {
+  if (!telREGEX.test(telPTD.value)) {
     alert("Numri i telefonit duhte te jet ne formatin 04ONNNNNN ku O eshte identifikimi i numrit te operatorit IPKO ose Vala" +
     " N eshte numer nga 0 deri 9 pra Pjesa tjeter e numrit!");
-    telVP.focus();
+    telPTD.focus();
     return false;
   }
 
-  if (qytetiVP.value == "") {
+  if (qytetiPTD.value == "") {
     alert("Ju lutem shenoni qytetin tuaj!");
-    qytetiVP.focus();
+    qytetiPTD.focus();
+    return false;
+  }
+  if (!textREGEX.test(qytetiPTD.value)) {
+    alert("Qyteti duhet te permbaj vetem shkronja!");
+    emriPTD.focus();
+    return false;
+  }
+
+  if (zipKodiPTD.value == "") {
+    alert("Ju lutem shenoni qytetin tuaj!");
+    zipKodiPTD.focus();
+    return false;
+  }
+  if (!zipKodiREGEX.test(zipKodiPTD.value)) {
+    alert("Zip Kodi duhet te permbaj 5 Numra!");
+    zipKodiPTD.focus();
     return false;
   }
   
-  if (adresaVP.value == "") {
+  if (adresaPTD.value == "") {
     alert("Ju lutem shenoni adresen!");
-    adresaVP.focus();
+    adresaPTD.focus();
     return false;
   }
 

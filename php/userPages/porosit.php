@@ -34,10 +34,16 @@ $porosiaCRUD = new porosiaCRUD();
                       <button id="mbyllMesazhin">X</button>
                     </div>';
     }
+    if (isset($_SESSION['porosiaMeSukses'])) {
+      echo '<div class="mesazhiSuksesStyle">
+                      <h3>Ju faleminderit qe konfirmuat porosin!</h3>
+                      <button id="mbyllMesazhin">X</button>
+                    </div>';
+    }
     if (isset($_GET['produktID'])) {
       $porosiaCRUD->setProduktiID($_GET['produktID']);
       echo '<h2>Te gjitha porosit e Produktit me ID: ' . $_GET['produktID'] . '</h2>';
-      echo '<h2>Emri i Produktit: ' .  $_SESSION['emriProduktit']. '</h2>';
+      echo '<h2>Emri i Produktit: ' . $_SESSION['emriProduktit'] . '</h2>';
       $porosiaCRUD->shfaqPorositSipasProduktit();
     } else {
 
@@ -63,4 +69,7 @@ $porosiaCRUD = new porosiaCRUD();
 
 </html>
 
-<?php unset($_SESSION['konfirmimiPorosis']); ?>
+<?php
+unset($_SESSION['konfirmimiPorosis']);
+unset($_SESSION['porosiaMeSukses']);
+?>

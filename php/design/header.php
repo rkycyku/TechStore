@@ -83,11 +83,11 @@ if (!isset($_SESSION['aksesi'])) {
                 }
                 ?>
                 <li class="nav-item">
-                    <a href="../pages/shporta.php"><i class="fa badge fa-lg" value=<?php
+                    <a href="../pages/shporta.php"><span class="fa badge fa-lg" value=<?php
                     if (isset($_SESSION['shportaBlerjes'])) {
                         echo count($_SESSION['shportaBlerjes']);
                     }else{
-                        echo 0;}?>>&#xf07a;</i>
+                        echo 0;}?>>&#xf07a;</span></a>
                 </li>
             </ul>
             <ul class="auth">

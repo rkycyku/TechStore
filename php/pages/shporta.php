@@ -78,7 +78,7 @@ if (isset($_POST['largo'])) {
                                 <?php echo $produkti["emriProduktit"]; ?>
                             </td>
                             <td>
-                                <input type="number" name="sasia" value="<?php echo $produkti["sasia"]; ?>">
+                                <input type="number" name="sasia" value="<?php echo $produkti["sasia"]; ?>" min=1 max=999>
                             </td>
                             <td>
                                 <?php echo $produkti["qmimiProduktit"]; ?> €
@@ -87,8 +87,8 @@ if (isset($_POST['largo'])) {
                                 <?php echo number_format($produkti["sasia"] * $produkti["qmimiProduktit"], 2); ?> €
                             </td>
                             <td>
-                                <input type="submit" value="Perditeso" name='perdit'>
-                                <input type="submit" value="Largo nga Shporta" name='largo'>
+                                <input class="edito" type="submit" value="Perditeso" name='perdit'>
+                                <input class="fshij" type="submit" value="Largo nga Shporta" name='largo'>
                             </td>
                         </tr>
                     </form>
@@ -98,12 +98,12 @@ if (isset($_POST['largo'])) {
                 ?>
                 <tr>
                     <td colspan="4" align="right">
-                        <strong>Totali i Pergjithshem:</strong>
+                        <h2>Totali i Pergjithshem:</h2>
                     </td>
                     <td>
-                        <strong>
+                        <h2>
                             <?php echo number_format($total, 2); ?> €
-                        </strong>
+                        </h2>
                     </td>
                     <td></td>
                 </tr>
@@ -120,11 +120,11 @@ if (isset($_POST['largo'])) {
             }
             ?>
         </table>
-        
 
-        <a href="./produktet.php">Vazhdo me Blerjen</a>
-
-        <a href="./checkout.php">Kalo tek Pagesa</a>
+        <div>
+            <a href="./produktet.php"><button class="button">Vazhdo me Blerjen</button></a>
+            <a href="./checkout.php"><button class="button">Kalo tek Pagesa</button></a>
+        </div>
     </div>
 
 

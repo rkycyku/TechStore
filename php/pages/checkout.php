@@ -2,8 +2,12 @@
 if (!isset($_SESSION)) {
     session_start();
 }
-if (!isset($_SESSION["shportaBlerjes"])) {
+if (!isset($_SESSION["shportaBlerjes"]) || $_SESSION["shportaBlerjes"] == null) {
     echo '<script>document.location="./shporta.php"</script>';
+}
+if (!isset($_SESSION['userID'])) {
+    echo '<script>document.location="../pages/login.php"</script>';
+    $_SESSION['nukJeLogin'] = true;
 }
 
 include_once('../CRUD/userCRUD.php');
@@ -25,20 +29,18 @@ foreach ($_SESSION["shportaBlerjes"] as $keys => $values) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Checkout | TechStore</title>
+    <link rel="shortcut icon" href="../../img/web/favicon.ico" />
     <link rel="stylesheet" href="../../css/adminDashboard.css">
 </head>
 
 <body>
     <?php include('../design/header.php'); ?>
     <div class="containerDashboardP">
-        <h1>Checkout</h1>
+        <h1>Konfirmimi Porosis</h1>
 
-        <h2>
-
-        </h2>
         <table>
             <tr>
-                <th colspan="2" style="text-align:center;">Te dhenat e Transportit</th>
+                <th colspan="2" style="text-align:center;text-transform: uppercase;">Te dhenat e Transportit</th>
             </tr>
             <h2></h2>
             <tr>
@@ -56,18 +58,25 @@ foreach ($_SESSION["shportaBlerjes"] as $keys => $values) {
             <tr>
                 <th>Qyteti</th>
                 <td id='qyteti'>
-                    <?php echo $teDhenatKlientit["qyteti"] . ', ' . $teDhenatKlientit["zipKodi"]; ?>
+                    <?php if ($teDhenatKlientit["qyteti"] != null) {
+                        echo $teDhenatKlientit["qyteti"] . ', ' . $teDhenatKlientit["zipKodi"];
+                    } ?>
                 </td>
             </tr>
             <tr>
-                <th>nrKontaktit</th>
-                <td>
+                <th>Numri Kontaktues</th>
+                <td id='nrKontaktit'>
                     <?php echo $teDhenatKlientit["nrKontaktit"]; ?>
                 </td>
             </tr>
             <tr>
-                <td colspan="2" style="text-align:center;"><a href="../funksione/perditesoTeDhenat.php?userID=<?php echo $_SESSION['userID'] ?>">Perditeso
-                        te Dhenat</a></td>
+                <td colspan="2" style="text-align:center;">
+                    <a href="../funksione/perditesoTeDhenat.php?userID=<?php echo $_SESSION['userID'] ?>">
+                        <button class="button">
+                            Perditeso te Dhenat
+                        </button>
+                    </a>
+                </td>
             </tr>
             <tr>
                 <th>Totali i Pergjithshem:</th>
@@ -89,31 +98,24 @@ foreach ($_SESSION["shportaBlerjes"] as $keys => $values) {
                 </tr>
                 <tr>
                     <td colspan="2" style="text-align:center;">
-                        <input name='complete' type="submit" value="Perfundo Porosin">
+                        <input class="button" name='complete' type="submit" value="Perfundo Porosin">
                     </td>
                 </tr>
             </form>
         </table>
-
-
-        <button onclick="console.log(kontrolloTeDhenat());"> test</button>
-
-
     </div>
-
-
-
-
+    <?php include_once('../design/footer.php'); ?>
 </body>
 
 </html>
 
 <script>
-    function kontrolloTeDhenat(){
+    function kontrolloTeDhenat() {
         var adresa = document.getElementById('adresa').innerHTML;
-
-        if(adresa.value == null){
-            alert("Ju lutemi te editoni te dhenat e juaja pasi qe nevoiten per dorezim!")
+        var qyteti = document.getElementById('qyteti').innerHTML;
+        var nrKontaktit = document.getElementById('nrKontaktit').innerHTML;
+        if (adresa.replace(/\s/g, "") == "" || qyteti.replace(/\s/g, "") == "" || nrKontaktit.replace(/\s/g, "") == "") {
+            alert("Ju lutemi te editoni te dhenat e juaja pasi qe kerkohen per dorezim nga posta!")
             return false;
         }
         return true;

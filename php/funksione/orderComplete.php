@@ -2,6 +2,9 @@
 if (!isset($_SESSION)) {
   session_start();
 }
+// if (!isset($_SESSION['shportaBlerjes'])) {
+//   echo '<script>document.location="../pages/shporta.php"</script>';
+// }
 
 include('../CRUD/porosiaCRUD.php');
 
@@ -36,15 +39,16 @@ if (isset($_POST['complete'])) {
 
 
 
-  $success = "Faleminderit per Besimin!";
+  $_SESSION['porosiaMeSukses'] = true;
 
   unset($_SESSION["shportaBlerjes"]);
 } else {
-  $error = "Vendosja e Porosis Deshtoi! Ju lutem provoni perseri me vone ose kontaktoni Stafin tone.";
+  $porosiaNukUKrye = "Vendosja e Porosis Deshtoi! Ju lutem provoni perseri me vone ose kontaktoni Stafin tone.";
 }
 
 
-
+$teDhenatPorosis = $porosiaCRUD->shfaqProduktetEPorosisSipasID();
+$porosia = $porosiaCRUD->shfaqPorosinSipasID();
 
 ?>
 
@@ -57,26 +61,108 @@ if (isset($_POST['complete'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Order Complete</title>
+  <link rel="stylesheet" href="../../css/adminDashboard.css">
 </head>
 
 <body>
 
   <?php include('../design/header.php'); ?>
 
-    <div>
-      <h1>Porosia Perfundoi</h1>
-      <?php
-
-      if (isset($error) != "") {
-        echo "<h4>$error</h4>";
-      } else {
-        echo "<h4>$success</h4>";
-      }
+  <div class="containerDashboardP">
+    <h1>Porosia Perfundoi</h1>
+    <?php
+    if (isset($error) != "") {
+      echo "<h3>$porosiaNukUKrye</h3>";
+    } else {
       ?>
-      <a href="./fatura.php?nrPorosis=<?php echo $idPorosia['nrPorosis'] ?>" target="_blank">
-        <button class="perfundoButoni">Shkarko Faturen</button>
-      </a>
+      <h2> Detajet e porosis tuaj </h2>
+      <table>
+        <tr>
+          <th colspan="4" style="text-align:center;text-transform: uppercase;">Te dhenat e Transportit</th>
+        </tr>
+        <h2></h2>
+        <tr>
+          <th style="text-transform: uppercase;">Klienti</th>
+          <td colspan="3" style="text-align:center;">
+            <?php echo ucfirst($porosia["emri"]) . " " . ucfirst($porosia["mbiemri"]); ?>
+          </td>
+        </tr>
+        <tr>
+          <th style="text-transform: uppercase;">Adresa</th>
+          <td id='adresa' colspan="3" style="text-align:center;">
+            <?php echo $porosia["adresa"] . ', ' . $porosia["qyteti"] . ' ' . $porosia["zipKodi"]; ?>
+          </td>
+        </tr>
+        <tr>
+          <th style="text-transform: uppercase;">Numri Kontaktues</th>
+          <td id='nrKontaktit' colspan="3" style="text-align:center;">
+            <?php echo $porosia["nrKontaktit"]; ?>
+          </td>
+        </tr>
+        <tr>
+          <th style="text-transform: uppercase;">Emri Produktit</th>
+          <th style="text-transform: uppercase;">Qmimi Produktit</th>
+          <th style="text-transform: uppercase;">Sasia e Porositur</th>
+          <th style="text-transform: uppercase;">Qmimi total</th>
+        </tr>
+        <?php
+
+        foreach ($teDhenatPorosis as $porosit) {
+          echo '
+            <tr>
+              <td>' . $porosit['emriProduktit'] . '</td>
+              <td>' . $porosit['qmimiProd'] . '</td>
+              <td>' . $porosit['sasiaPorositur'] . '</td>
+              <td>' . $porosit['qmimiTotal'] . ' €</td>
+            </tr>
+          ';
+        }
+        ?>
+        <tr>
+          <td colspan="3" align="right">
+            <strong>Totali Pa TVSH: </strong>
+          </td>
+          <td>
+            <strong>
+              <?php echo number_format($porosia['TotaliPorosis'] - ($porosia['TotaliPorosis'] * 0.18), 2) . ' €' ?>
+            </strong>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3" align="right">
+            <strong>TVSH 18%: </strong>
+          </td>
+          <td>
+            <strong>
+              <?php echo number_format($porosia['TotaliPorosis'] * 0.18, 2) . ' €' ?>
+            </strong>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3" align="right" style="font-size: 20pt">
+            <strong>Qmimi Total: </strong>
+          </td>
+          <td style="font-size: 20pt">
+            <strong>
+              <?php echo number_format($porosia['TotaliPorosis'], 2) . ' €' ?>
+            </strong>
+          </td>
+        </tr>
+      </table>
+      <div>
+        <a href="./fatura.php?nrPorosis=<?php echo $idPorosia['nrPorosis'] ?>" target="_blank">
+          <button class="button">Fatura</button>
+        </a>
+        <a href="../userPages/porosit.php">
+          <button class="button">Perfundo</button>
+        </a>
+      </div>
     </div>
+    <?php
+    }
+    ?>
+
+  </div>
 
 
   <?php include('../design/footer.php'); ?>

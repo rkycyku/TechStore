@@ -12,33 +12,33 @@ require_once('../CRUD/userCRUD.php');
 $userCRUD = new userCRUD();
 
 $userCRUD->setUserID($_GET['userID']);
-$perdoruesi = $userCRUD->shfaqSipasID();
 
-if (isset($_POST['perditDhenat'])) {
-    if ($_POST['pass'] == $perdoruesi['password']) {
-        $userCRUD->setUsername($_POST['uName']);
-        $userCRUD->setEmri($_POST['emri']);
-        $userCRUD->setMbiemri($_POST['mbiemri']);
-        $userCRUD->setEmail($_POST['email']);
-        $userCRUD->setNrKontaktit($_POST['nrKontaktit']);
-        $userCRUD->setAdresa($_POST['adresa']);
-        $userCRUD->setQyteti($_POST['qyteti']);
-        $userCRUD->setZipKodi($_POST['zipKodi']);
 
-        $userCRUD->perditesoTeDhenat();
-        $userCRUD->perditesoAdresen();
+// if (isset($_POST['perditDhenat'])) {
+//     if ($_POST['pass'] == $perdoruesi['password']) {
+//         $userCRUD->setEmri($_POST['emri']);
+//         $userCRUD->setMbiemri($_POST['mbiemri']);
+//         $userCRUD->setEmail($_POST['email']);
+//         $userCRUD->setNrKontaktit($_POST['nrKontaktit']);
+//         $userCRUD->setAdresa($_POST['adresa']);
+//         $userCRUD->setQyteti($_POST['qyteti']);
+//         $userCRUD->setZipKodi($_POST['zipKodi']);
 
-        $_SESSION['teDhenatUPerditesuan'] = true;
+//         $userCRUD->perditesoTeDhenat();
+//         $userCRUD->perditesoAdresen();
+
+//         $_SESSION['teDhenatUPerditesuan'] = true;
         
-            echo '<script>document.location="../userPages/userDashboard.php"</script>';
-    } else {
-        $_SESSION['passGabim'] = true;
-    }
-}
-if (isset($_POST['anulo'])) {
-    $_SESSION['teDhenatUPerditesuan'] = false;
-    echo '<script>document.location="../userPages/userDashboard.php"</script>';
-}
+//             echo '<script>document.location="../userPages/userDashboard.php"</script>';
+//     } else {
+//         $_SESSION['passGabim'] = true;
+//     }
+// }
+// if (isset($_POST['anulo'])) {
+//     $_SESSION['teDhenatUPerditesuan'] = false;
+//     echo '<script>document.location="../userPages/userDashboard.php"</script>';
+// }
+
 $perdoruesi = $userCRUD->shfaqSipasID();
 ?>
 <!DOCTYPE html>
@@ -61,7 +61,7 @@ $perdoruesi = $userCRUD->shfaqSipasID();
     echo '</div>';
     ?>
     <div class="forms">
-        <form name="shtoProduktin" onsubmit="" action='' method="POST" enctype="multipart/form-data">
+        <form name="peritesoTeDhenat" onsubmit="return validimiPeritesoTeDhenat()" method="POST" enctype="multipart/form-data">
             <?php
             if (isset($_SESSION['passGabim'])) {
                 echo '
@@ -94,7 +94,7 @@ $perdoruesi = $userCRUD->shfaqSipasID();
             </label>
             <label for="">
                 <strong>Email: </strong>
-                <input type="text" name="email" value="<?php echo $perdoruesi['email'] ?>">
+                <input type="email" name="email" value="<?php echo $perdoruesi['email'] ?>">
             </label>
             <label for="">
                 <strong>Nr Kontaktit: </strong>
@@ -116,7 +116,7 @@ $perdoruesi = $userCRUD->shfaqSipasID();
                 <strong>Password: </strong>
                 <input type="password" placeholder="Shkruani passwordin!" name="pass">
             </label>
-            <input class="button" type="submit" value="Perditeso te Dhenat" name='perditDhenat'>
+            <input class="button"  onclick="return validimiPeritesoTeDhenat();" value="Perditeso te Dhenat" name='perditDhenat'>
             <input class="button" type="submit" value="Anulo" name='anulo'>
         </form>
     </div>

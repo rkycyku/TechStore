@@ -10,7 +10,7 @@ $porosiaCRUD = new porosiaCRUD();
 
 if (isset($_GET['porosiaID'])) {
   $porosiaCRUD->setPorosiaID($_GET['porosiaID']);
-
+  $porosiaCRUD->setStatusiPorosis('E Derguar');
 
   $porosiaCRUD->perditesoStatusinPorosis();
 

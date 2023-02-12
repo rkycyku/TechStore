@@ -62,7 +62,7 @@ $produktiCRUD = new produktiCRUD();
         ?>
         <form action="../funksione/shtoNeShport.php" method="POST" class="artikulli">
           <input type="hidden" name="produktiID" value=<?php echo $produkti['produktiID'] ?>>
-          <input type="hidden" name="emriProduktit" value=<?php echo $produkti['emriProduktit'] ?>>
+          <input type="hidden" name="emriProduktit" value="<?php echo $produkti['emriProduktit'] ?>">
           <input type="hidden" name="qmimiProduktit" value=<?php echo $produkti['qmimiProduktit'] ?>>
           <img src="../../img/products/<?php echo $produkti['fotoProduktit'] ?>" />
           <p class=" artikulliLabel">

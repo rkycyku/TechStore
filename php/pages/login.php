@@ -41,6 +41,15 @@ if (!isset($_SESSION)) {
                     </button>
                   </div>
             ';
+      }if (isset($_SESSION['nukJeLogin'])) {
+        echo '
+                  <div class="mesazhiGabimStyle">
+                    <h3>Ju lutem kyquni ose krijoni nje llogari per te vazhduar me blerjen!</h3>
+                    <button id="mbyllMesazhin">
+                      X
+                    </button>
+                  </div>
+            ';
       }
       ?>
       <h1 class="form-title">Log In</h1>
@@ -61,4 +70,5 @@ if (!isset($_SESSION)) {
 <?php
 unset($_SESSION['passGabim']);
 unset($_SESSION['uNameGabim']);
+unset($_SESSION['nukJeLogin']);
 ?>
