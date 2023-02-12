@@ -47,12 +47,6 @@ $useri = $userCRUD->shfaqSipasID();
     <h2>Te dhenat e tua</h2>
     <table>
       <tr>
-        <td><strong>ID:</strong></td>
-        <td>
-          <?php echo $useri['userID'] ?>
-        </td>
-      </tr>
-      <tr>
         <td><strong>Emri:</strong></td>
         <td>
           <?php echo $useri['emri'] ?>
@@ -90,7 +84,7 @@ $useri = $userCRUD->shfaqSipasID();
       </tr>
     </table>
 
-    <div class=test>
+    <div class="butonatDiv">
       <a href="../funksione/perditesoTeDhenat.php?userID=<?php echo $useri['userID'] ?>"><button
           class="button">Perditeso te
           Dhenat</button></a>

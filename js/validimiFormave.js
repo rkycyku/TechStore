@@ -131,16 +131,14 @@ function validimiShtimiProduktit() {
   return true;
 }
 
-function validimiPeritesoTeDhenat(){
-  const textREGEX = /^[A-Za-z]+$/
+function validimiPerditesoTeDhenat(){
+  const textREGEX = /^[A-Za-zÇçËëËÇ]+$/
   const telREGEX = /^04[3,4,5,6,8,9]\d{6}$/
-  const zipKodiREGEX = /^\d{5}$/
-  let emriPTD = document.peritesoTeDhenat.emri;
-  let mbiemriPTD = document.peritesoTeDhenat.mbiemri;
-  let telPTD = document.peritesoTeDhenat.tel;
-  let qytetiPTD = document.peritesoTeDhenat.qyteti;
-  let zipKodiPTD = document.peritesoTeDhenat.zipKodi;
-  let adresaPTD = document.peritesoTeDhenat.adresa;
+  let emriPTD = document.perditesoTeDhenat.emri;
+  let mbiemriPTD = document.perditesoTeDhenat.mbiemri;
+  let telPTD = document.perditesoTeDhenat.nrKontaktit;
+  let qytetiPTD = document.perditesoTeDhenat.qyteti;
+  let adresaPTD = document.perditesoTeDhenat.adresa;
 
   if (emriPTD.value == "") {
     alert("Ju lutem shenoni emrin tuaj!");
@@ -187,17 +185,6 @@ function validimiPeritesoTeDhenat(){
     return false;
   }
 
-  if (zipKodiPTD.value == "") {
-    alert("Ju lutem shenoni qytetin tuaj!");
-    zipKodiPTD.focus();
-    return false;
-  }
-  if (!zipKodiREGEX.test(zipKodiPTD.value)) {
-    alert("Zip Kodi duhet te permbaj 5 Numra!");
-    zipKodiPTD.focus();
-    return false;
-  }
-  
   if (adresaPTD.value == "") {
     alert("Ju lutem shenoni adresen!");
     adresaPTD.focus();

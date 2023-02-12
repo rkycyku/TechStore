@@ -81,8 +81,10 @@ if (isset($_Post['Blej'])) {
             <p class="cmimi">
               <?php echo $produkti['qmimiProduktit'] ?> €
             </p>
-            <input type="submit" class="button fa fa-lg" value="&#xf07a;" name="submit">
-            <input type="submit" class="button" value="Blej Tani" name="blej">
+            <div class="butonatDiv">
+              <input type="submit" class="button" value="Blej Tani" name="blej">
+              <input type="submit" class="button button-shporta fa fa-lg" value="&#xf07a;" name="submit">
+            </div>
           </form>
           <?php
         }
@@ -133,7 +135,7 @@ if (isset($_Post['Blej'])) {
                 <p class="cmimi">
                 <?php echo $produkti['qmimiProduktit'] ?> €
                 </p>
-                <div>
+                <div class="butonatDiv">
                   <input type="submit" class="button" value="Blej Tani" name="blej">
                   <input type="submit" class="button button-shporta fa fa-lg" value="&#xf07a;" name="submit">
                 </div>
@@ -152,6 +154,6 @@ if (isset($_Post['Blej'])) {
 </html>
 
 <?php
- unset($_SESSION['uShtuaNeShport']);
+unset($_SESSION['uShtuaNeShport']);
 unset($_SESSION['ekzistonNeShport']);
 ?>

@@ -71,7 +71,7 @@ $produktiCRUD = new produktiCRUD();
           <p class="cmimi">
             <?php echo $produkti['qmimiProduktit'] ?> €
           </p>
-          <div>
+          <div class="butonatDiv">
             <input type="submit" class="button" value="Blej Tani" name="blej">
             <input type="submit" class="button button-shporta fa fa-lg" value="&#xf07a;" name="submit">
           </div>

@@ -12,6 +12,7 @@ body {
   width: fit-content;
   margin: auto;
   margin-top: 7em;
+  margin-bottom: 7em;
   -webkit-box-shadow: 0 0 20px #3aa27e;
   box-shadow: 0 0 20px #3aa27e;
   padding: 3em 2em;
@@ -30,6 +31,10 @@ form {
   color: #fff;
   font-weight: 500;
   margin-bottom: 15px;
+}
+
+.forms table{
+  color: white;
 }
 
 input {

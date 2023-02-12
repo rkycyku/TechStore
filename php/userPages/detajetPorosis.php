@@ -87,7 +87,7 @@ if (isset($_GET['porosiaID'])) {
       </tr>
     </table>
     <a href="../funksione/fatura.php?nrPorosis=<?php echo $_GET['porosiaID'] ?>" target="_blank">
-      <button class="perfundoButoni">Shkarko Faturen</button>
+      <button class="button">Shkarko Faturen</button>
     </a>
   </div>
 
