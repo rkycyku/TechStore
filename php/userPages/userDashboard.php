@@ -28,17 +28,12 @@ $useri = $userCRUD->shfaqSipasID();
   <div class="containerDashboardP">
     <?php
     if (isset($_SESSION['teDhenatUPerditesuan'])) {
-      if ($_SESSION['teDhenatUPerditesuan'] == false) {
-        echo '<div class="mesazhiGabimStyle">
-                      <h3>Perditesimi u anulua!</h3>
-                      <button id="mbyllMesazhin">X</button>
-                    </div>';
-      } else {
-        echo '<div class="mesazhiSuksesStyle">
-                      <h3>Te dhenat u perditesuan me sukses!</h3>
-                      <button id="mbyllMesazhin">X</button>
-                    </div>';
-      }
+      ?>
+      <div class="mesazhiSuksesStyle">
+        <h3>Te dhenat u perditesuan me sukses!</h3>
+        <button id="mbyllMesazhin">X</button>
+      </div>
+      <?php
     }
     ?>
     <h1 class="titulliPershkrim">Miresevini
@@ -90,12 +85,15 @@ $useri = $userCRUD->shfaqSipasID();
           Dhenat</button></a>
       <a href="../funksione/ndryshoPass.php?userID= <?php echo $useri['userID'] ?>"><button class="button">Ndrysho
           Fjalekalimin</button></a>
+      <?php
+      if ($_SESSION['aksesi'] == 0) {
+        ?>
+        <a href="../userPages/porosit.php"><button class="button">Porosite e tua</button></a>
+        <?php
+      }
+      ?>
     </div>
-    <?php
-    if ($_SESSION['aksesi'] == 0) {
-      echo ' <a href="../userPages/porosit.php"><button class="button">Porosite e tua</button></a>';
-    }
-    ?>
+
 
   </div>
 

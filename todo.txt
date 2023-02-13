@@ -1,9 +1,9 @@
 --Dizajn
-Me e rregullu pjesen e artikujve, add to cart n index dhe produktet. 
-Me e rregullu dizajnin e detajet e porosis(butoni nuk osht i dizajnuar).
 Me i rishiku nqofse kan nevoj per editime te gjitha faqet
 
 --Validim
-Mos me Pas akses te Filet qe nvaren prej Shportes nqofse nuk ban porosi.
-Validimi i pjeses se perditesimit te te dhenave dhe rregullimi i komenteve per shkak te testimit
+Me e validu mos me mujt me shtu produktin nqofse egziston i njejti me emer te njejt
 Me i Rishiku validimet e krejt inputeve.
+
+--PHP
+Me shku me elemenimu fajlle qe munden me u transferu direkt n file kryesore.

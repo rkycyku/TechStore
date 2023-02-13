@@ -34,10 +34,6 @@ if (isset($_POST['perditDhenat'])) {
         $_SESSION['passGabim'] = true;
     }
 }
-if (isset($_POST['anulo'])) {
-    $_SESSION['teDhenatUPerditesuan'] = false;
-    echo '<script>document.location="../userPages/userDashboard.php"</script>';
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -133,7 +129,7 @@ if (isset($_POST['anulo'])) {
             </table>
             <div>
                 <input class="button" type="submit" value="Perditeso te Dhenat" name='perditDhenat'>
-                <input class="button" type="submit" value="Anulo" name='anulo'>
+                <input class="button" onclick="window.location='../userPages/userDashboard.php'" type="button" value="Anulo" name='anulo' >
             </div>
         </form>
     </div>

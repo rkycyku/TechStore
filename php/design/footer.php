@@ -20,8 +20,7 @@
           <li><a href="../pages/index.php">Home</a></li>
           <li><a href="../pages/aboutUs.php">About Us</a></li>
           <li><a href="../pages/contactForm.php">Contact Us</a></li>
-          <li><a href="../pages/login.php">Log In</a></li>
-          <li><a href="../pages/signup.php">Sign Up</a></p>
+          <li><a href="../pages/produktet.php">Products</a></li>
         </ul>
       </div>
       <div class="footer-contact">

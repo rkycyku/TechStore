@@ -199,35 +199,44 @@ class produktiCRUD extends dbCon
             $produktet = $stm->fetchAll();
 
             if ($produktet == true) {
-                echo '<div class="artikujt">
-                <div class="titulliArtikuj">
-                  <h1 class="">All Products like ' . $_SESSION['kerko'] . '</h1>
-                </div>';
-                foreach ($produktet as $produkti) {
-                    ?>
-                    <form action="../funksione/shtoNeShport.php" method="POST" class="artikulli">
-                        <input type="hidden" name="produktiID" value=<?php echo $produkti['produktiID'] ?>>
-                        <input type="hidden" name="emriProduktit" value="<?php echo $produkti['emriProduktit'] ?>">
-                        <input type="hidden" name="qmimiProduktit" value=<?php echo $produkti['qmimiProduktit'] ?>>
-                        <img src="../../img/products/<?php echo $produkti['fotoProduktit'] ?>" />
-                        <p class=" artikulliLabel">
-                            <?php echo $produkti['emriProduktit'] ?>
-                        </p>
-                        <p class="cmimi">
-                            <?php echo $produkti['qmimiProduktit'] ?> €
-                        </p>
-                        <input type="submit" class="button" value="Shto ne Shport" name="submit">
-                        <input type="submit" class="button" value="Blej Tani" name="blej">
-                    </form>
+                ?>
+                <div class="artikujt">
+                    <div class="titulliArtikuj">
+                        <h1 class="">All Products like
+                            <?php echo $_SESSION['kerko'] ?>
+                        </h1>
+                    </div>';
                     <?php
-                }
+                    foreach ($produktet as $produkti) {
+                        ?>
+                        <form action="../funksione/shtoNeShport.php" method="POST" class="artikulli">
+                            <input type="hidden" name="produktiID" value=<?php echo $produkti['produktiID'] ?>>
+                            <input type="hidden" name="emriProduktit" value="<?php echo $produkti['emriProduktit'] ?>">
+                            <input type="hidden" name="qmimiProduktit" value=<?php echo $produkti['qmimiProduktit'] ?>>
+                            <img src="../../img/products/<?php echo $produkti['fotoProduktit'] ?>" />
+                            <p class=" artikulliLabel">
+                                <?php echo $produkti['emriProduktit'] ?>
+                            </p>
+                            <p class="cmimi">
+                                <?php echo $produkti['qmimiProduktit'] ?> €
+                            </p>
+                            <div class="butonatDiv">
+                                <input type="submit" class="button" value="Buy now" name="blej">
+                                <input type="submit" class="button button-shporta fa fa-lg" value="&#xf07a;" name="submit">
+                            </div>
+                        </form>
+                        <?php
+                    }
             } else {
-                echo '<div class="artikujt">
-                <div class="titulliArtikuj">
-                  <h1 class="">All Products like ' . $_SESSION['kerko'] . '</h1>
-                </div>
-                    <p>Produkti qe kerkuat nuk egziston!</p>';
-
+                ?>
+                    <div class="artikujt">
+                        <div class="titulliArtikuj">
+                            <h1 class="">All Products like
+                                <?php echo $_SESSION['kerko'] ?>
+                            </h1>
+                        </div>
+                        <p>Nuk kemi asnje produkt qe perputhet me ate qe kerkuat!</p>
+                        <?php
             }
         } catch (Exception $e) {
             return $e->getMessage();
