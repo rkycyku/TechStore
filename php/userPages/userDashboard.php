@@ -25,7 +25,7 @@ $useri = $userCRUD->shfaqSipasID();
 
   <?php include '../design/header.php' ?>
 
-  <div class="containerDashboard">
+  <div class="containerDashboardP">
     <?php
     if (isset($_SESSION['teDhenatUPerditesuan'])) {
       if ($_SESSION['teDhenatUPerditesuan'] == false) {

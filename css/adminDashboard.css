@@ -50,16 +50,6 @@
   border-radius: 2px;
 }
 
-.containerDashboard {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding-bottom: 5em;
-  margin-top: 2em;
-  gap: 0.6em;
-}
-
 .titulliPershkrim {
   display: flex;
   flex-direction: column;
