@@ -46,24 +46,24 @@ if (isset($_GET['fshij'])) {
     <div class="containerDashboardP">
         <?php
         if (isset($_SESSION['ndryshimiSukses'])) {
-            echo '
-                <div class="mesazhiSuksesStyle">
-                  <p>Te dhenat e kategoris u ndryshuan!</p>
-                  <button id="mbyllMesazhin">
+            ?>
+            <div class="mesazhiSuksesStyle">
+                <p>Te dhenat e kategoris u ndryshuan!</p>
+                <button id="mbyllMesazhin">
                     X
-                  </button>
-                </div>
-          ';
+                </button>
+            </div>
+            <?php
         }
         if (isset($_SESSION['uFshiMeSukses'])) {
-            echo '
-                <div class="mesazhiSuksesStyle">
-                  <p>Kategoria u Fshi me sukses!</p>
-                  <button id="mbyllMesazhin">
+            ?>
+            <div class="mesazhiSuksesStyle">
+                <p>Kategoria u Fshi me sukses!</p>
+                <button id="mbyllMesazhin">
                     X
-                  </button>
-                </div>
-          ';
+                </button>
+            </div>
+            <?php
         }
         ?>
         <h1>Lista e Kategorive</h1>
@@ -77,15 +77,21 @@ if (isset($_GET['fshij'])) {
             <?php
             $kategorit = $kategoriaCRUD->shfaqKategorin();
 
-            foreach ($kategorit as $kategoria) {
-                echo '
-            <tr>
-              <td id="kategoriaID_' . $kategoria['kategoriaID'] . '">' . $kategoria['kategoriaID'] . '</td>
-              <td><input id="emriKategoris_' . $kategoria['kategoriaID'] . '" type="text" placeholder="Emri i Kompanis" value="' . $kategoria['emriKategoris'] . '"></td>
-              <td><input id="pershkrimiKategoris_' . $kategoria['kategoriaID'] . '" type="text" placeholder="Pershkrimi Kategoris" value="' . $kategoria['pershkrimiKategoris'] . '"></td>
-              <td><button class="edito" onclick="editoKategorin(' . $kategoria['kategoriaID'] . ')">Edito</button>
-              <button class="fshij" onclick=fshijKategorin(' . $kategoria['kategoriaID'] . ')>Fshije</button></td>
-            </tr>';
+            foreach ($kategorit as $kategorit) {
+                ?>
+                <tr>
+                    <td id="kategoriaID_<?php echo $kategorit['kategoriaID'] ?>"><?php echo $kategorit['kategoriaID'] ?></td>
+                    <td><input id="emriKategoris_<?php echo $kategorit['kategoriaID'] ?>" type="text"
+                            placeholder="Emri i Kategoris" value="<?php echo $kategorit['emriKategoris'] ?>"></td>
+                    <td><input id="pershkrimiKategoris_<?php echo $kategorit['kategoriaID'] ?>" type="text"
+                            placeholder="Detajet e Kategoris" value="<?php echo $kategorit['pershkrimiKategoris'] ?>"></td>
+                    <td><button class="edito"
+                            onclick="editoKategorin(<?php echo $kategorit['kategoriaID'] ?>)">Edito</button>
+                        <button class="fshij"
+                            onclick="fshijKategorin(<?php echo $kategorit['kategoriaID'] ?>)">Fshije</button></button>
+                    </td>
+                </tr>
+                <?php
 
             }
             ?>

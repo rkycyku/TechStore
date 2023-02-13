@@ -7,8 +7,9 @@ $katCRUD = new kategoriaCRUD();
 if (isset($_POST['shtoKat'])) {
   $_SESSION['emriKat'] = $_POST['emriKat'];
   $_SESSION['pershkrimiKat'] = $_POST['pershkrimiKat'];
-
   $katCRUD->insertoKategorinProduktit();
+
+  $_SESSION['katUShtua'] = true;
 }
 ?>
 <!DOCTYPE html>
@@ -30,15 +31,15 @@ if (isset($_POST['shtoKat'])) {
   <div class="forms">
     <form name="shtoKategorin" onsubmit="return validimiKategoris();" action='' method="POST">
       <?php
-      if (isset($_SESSION['katUShtua'])) {
-        echo '
-                  <div class="mesazhiSuksesStyle">
-                    <p>Kategoria u shtua me sukses!</p>
-                    <button id="mbyllMesazhin">
-                      X
-                    </button>
-                  </div>
-            ';
+      if (isset($_SESSION['katUShtua']) == true) {
+        ?>
+        <div class="mesazhiSuksesStyle">
+          <p>Kategoria u shtua me sukses!</p>
+          <button id="mbyllMesazhin">
+            X
+          </button>
+        </div>
+        <?php
       }
       ?>
       <h1 class="form-title">Vendosja e Kategorive</h1>

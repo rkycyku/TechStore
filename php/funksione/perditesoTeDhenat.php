@@ -59,14 +59,14 @@ if (isset($_POST['perditDhenat'])) {
             enctype="multipart/form-data">
             <?php
             if (isset($_SESSION['passGabim'])) {
-                echo '
+                ?>
                 <div class="mesazhiGabimStyle">
-                  <p>Keni shkruar Passwordin gabim!</p>
-                  <button id="mbyllMesazhin">
-                    X
-                  </button>
+                    <p>Keni shkruar Passwordin gabim!</p>
+                    <button id="mbyllMesazhin">
+                        X
+                    </button>
                 </div>
-                ';
+                <?php
             }
 
             ?>
@@ -129,7 +129,8 @@ if (isset($_POST['perditDhenat'])) {
             </table>
             <div>
                 <input class="button" type="submit" value="Perditeso te Dhenat" name='perditDhenat'>
-                <input class="button" onclick="window.location='../userPages/userDashboard.php'" type="button" value="Anulo" name='anulo' >
+                <input class="button" onclick="window.location='../userPages/userDashboard.php'" type="button"
+                    value="Anulo" name='anulo'>
             </div>
         </form>
     </div>

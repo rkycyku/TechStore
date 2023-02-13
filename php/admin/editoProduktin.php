@@ -44,36 +44,42 @@ if (isset($_POST['anulo'])) {
 </head>
 
 <body>
-  <?php
-  include '../design/header.php';
-  echo '<div class="containerDashboard">';
-  echo '</div>';
-  ?>
+  <?php include '../design/header.php'; ?>
   <div class="forms">
     <form name="editoProduktin" onsubmit="" action='' method="POST" enctype="multipart/form-data">
       <h1 class="form-title">Editimi i Produktiti</h1>
       <input class="form-input" name="pdName" type="text" placeholder="Emri i Produktit"
         value='<?php echo $produkti['emriProduktit'] ?>' required>
+      <?php $kompanit = $kompania->shfaqKompanin(); ?>
+      <select name="kompania" class="dropdown">
+        <option hidden value="te tjera">Zgjedhni Kompanin</option>
+        <?php
+
+        foreach ($kompanit as $kompania) {
+          ?>
+          <option value="<?php echo $kompania['emriKompanis'] ?>"><?php echo $kompania['emriKompanis'] ?></option>
+          <?php
+        }
+        ?>
+        <option selected hidden value="<?php echo $produkti['emriKompanis'] ?>"><?php echo $produkti['emriKompanis'] ?>
+        </option>
+      </select>
       <?php
-      $kompanit = $kompania->shfaqKompanin();
-
-      echo '<select name="kompania" class="dropdown">
-              <option hidden value="te tjera">Zgjedhni Kompanin</option>
-          ';
-
-      foreach ($kompanit as $kompania) {
-        echo '<option value="' . $kompania['emriKompanis'] . '">' . $kompania['emriKompanis'] . '</option>';
-      }
-      echo '<option selected hidden value="' . $produkti['emriKompanis'] . '">' . $produkti['emriKompanis'] . '</option> </select>';
       ?>
       <?php
       $kategorit = $kategoria->shfaqKategorin();
 
-      echo '<select name="kategoria" class="dropdown">';
-      foreach ($kategorit as $kategoria) {
-        echo '<option value="' . $kategoria['emriKategoris'] . '">' . $kategoria['emriKategoris'] . '</option>';
-      }
-      echo '<option selected hidden value="' . $produkti['kategoriaProduktit'] . '">' . $produkti['kategoriaProduktit'] . '</option> </select>';
+      ?><select name="kategoria" class="dropdown">
+        <?php
+        foreach ($kategorit as $kategoria) {
+          ?>
+          <option value="<?php echo $kategoria['emriKategoris'] ?>"><?php echo $kategoria['emriKategoris'] ?></option>
+          <?php
+        }
+        ?>
+        <option selected hidden value="<?php echo $produkti['kategoriaProduktit'] ?>"><?php echo $produkti['kategoriaProduktit'] ?></option>
+      </select>
+      <?php
       ?>
       <input class="form-input" name="pdPhoto" accept="image/*" type="file" placeholder="Foto Produktit">
       <input class="form-input" name="cmimiPd" type="text" placeholder="Qmimi i Produktit"

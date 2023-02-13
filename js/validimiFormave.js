@@ -131,7 +131,7 @@ function validimiShtimiProduktit() {
   return true;
 }
 
-function validimiPerditesoTeDhenat(){
+function validimiPerditesoTeDhenat() {
   const textREGEX = /^[A-Za-zÇçËëËÇ]+$/
   const telREGEX = /^04[3,4,5,6,8,9]\d{6}$/
   let emriPTD = document.perditesoTeDhenat.emri;
@@ -161,7 +161,7 @@ function validimiPerditesoTeDhenat(){
     emriPTD.focus();
     return false;
   }
-  
+
   if (telPTD.value == "") {
     alert("Ju lutem te vendosni nje numer kontakti per shkak te kontaktimit nga postieri ne rast porosie!");
     telPTD.focus();
@@ -169,7 +169,7 @@ function validimiPerditesoTeDhenat(){
   }
   if (!telREGEX.test(telPTD.value)) {
     alert("Numri i telefonit duhte te jet ne formatin 04ONNNNNN ku O eshte identifikimi i numrit te operatorit IPKO ose Vala" +
-    " N eshte numer nga 0 deri 9 pra Pjesa tjeter e numrit!");
+      " N eshte numer nga 0 deri 9 pra Pjesa tjeter e numrit!");
     telPTD.focus();
     return false;
   }

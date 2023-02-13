@@ -24,34 +24,34 @@ $produktiCRUD = new produktiCRUD();
   <div class="containerDashboardP">
     <?php
     if (isset($_SESSION['mesazhiMeSukses'])) {
-      echo '
-                <div class="mesazhiSuksesStyle">
-                  <h3>Produkti u editua me sukses!</h3>
-                  <button id="mbyllMesazhin">
-                    X
-                  </button>
-                </div>
-          ';
+      ?>
+      <div class="mesazhiSuksesStyle">
+        <h3>Produkti u editua me sukses!</h3>
+        <button id="mbyllMesazhin">
+          X
+        </button>
+      </div>
+      <?php
     }
     if (isset($_SESSION['mesazhiFshirjesMeSukses'])) {
-      echo '
-                <div class="mesazhiSuksesStyle">
-                  <h3>Produkti u fshi me sukses!</h3>
-                  <button id="mbyllMesazhin">
-                    X
-                  </button>
-                </div>
-          ';
+      ?>
+      <div class="mesazhiSuksesStyle">
+        <h3>Produkti u fshi me sukses!</h3>
+        <button id="mbyllMesazhin">
+          X
+        </button>
+      </div>
+      <?php
     }
     if (isset($_SESSION['skeAksesAdmin'])) {
-      echo '
-                <div class="mesazhiGabimStyle">
-                  <h3>Nuk keni akses per kete sherbim!</h3>
-                  <button id="mbyllMesazhin">
-                    X
-                  </button>
-                </div>
-          ';
+      ?>
+      <div class="mesazhiGabimStyle">
+        <h3>Nuk keni akses per kete sherbim!</h3>
+        <button id="mbyllMesazhin">
+          X
+        </button>
+      </div>
+      <?php
     }
     ?>
     <h1>Produktet</h1>
@@ -69,19 +69,31 @@ $produktiCRUD = new produktiCRUD();
       $produktet = $produktiCRUD->shfaqTeGjithaProduktet();
 
       foreach ($produktet as $produkti) {
-        echo '
-            <tr>
-              <td>' . $produkti['produktiID'] . '</td>
-              <td class="emriP">' . $produkti['emriProduktit'] . '</td>
-              <td>' . $produkti['emriKompanis'] . '</td>
-              <td>' . $produkti['kategoriaProduktit'] . '</td>
-              <td><img src="../../img/products/' . $produkti['fotoProduktit'] . '"></td>
-              <td>' . $produkti['qmimiProduktit'] . ' €</td>
-              <td><button class="edito"><a href="./editoProduktin.php?produktID=' . $produkti['produktiID'] . '">Edito</a></button>
-              <button class="fshij"><a href="../adminFunksione/fshiProduktin.php?produktID=' . $produkti['produktiID'] . '">Fshij</a></button>
-              <button class="porositP"><a href="../userPages/porosit.php?produktID=' . $produkti['produktiID'] . '">Porositë</a></button></td>
-            </tr>
-          ';
+        ?>
+        <tr>
+          <td>
+            <?php echo $produkti['produktiID'] ?>
+          </td>
+          <td class="emriP"><?php echo $produkti['emriProduktit'] ?></td>
+          <td>
+            <?php echo $produkti['emriKompanis'] ?>
+          </td>
+          <td>
+            <?php echo $produkti['kategoriaProduktit'] ?>
+          </td>
+          <td><img src="../../img/products/<?php echo $produkti['fotoProduktit'] ?>"></td>
+          <td>
+            <?php echo $produkti['qmimiProduktit'] ?> €
+          </td>
+          <td><button class="edito"><a
+                href="./editoProduktin.php?produktID=<?php echo $produkti['produktiID'] ?>">Edito</a></button>
+            <button class="fshij"><a
+                href="../adminFunksione/fshiProduktin.php?produktID=<?php echo $produkti['produktiID'] ?>">Fshij</a></button>
+            <button class="porositP"><a
+                href="../userPages/porosit.php?produktID=<?php echo $produkti['produktiID'] ?>">Porositë</a></button>
+          </td>
+        </tr>
+        <?php
       }
       ?>
       </th>

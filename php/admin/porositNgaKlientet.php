@@ -41,14 +41,14 @@ $porosit = $porosiaCRUD->shfaqTeGjithaPorosite();
     <?php
     if (isset($_SESSION['statusiUPerditesua'])) {
       if ($_SESSION['statusiUPerditesua'] == true) {
-        echo '
-                  <div class="mesazhiSuksesStyle">
-                    <p>Statusi i porosis u perditesua me sukses!</p>
-                    <button id="mbyllMesazhin">
-                      X
-                    </button>
-                  </div>
-            ';
+        ?>
+        <div class="mesazhiSuksesStyle">
+          <p>Statusi i porosis u perditesua me sukses!</p>
+          <button id="mbyllMesazhin">
+            X
+          </button>
+        </div>
+        <?php
       }
 
     }

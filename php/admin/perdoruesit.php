@@ -11,10 +11,10 @@ if (isset($_GET['userID'])) {
   $userCRUD->setUserID($_GET['userID']);
   $userCRUD->setEmri($_GET['emri']);
   $userCRUD->setMbiemri($_GET['mbiemri']);
-  if(isset($_GET['aksesi'])){
+  if (isset($_GET['aksesi'])) {
     $userCRUD->setAksesi($_GET['aksesi']);
     $userCRUD->perditesoTeDhenatAdmini(true);
-  }else{
+  } else {
     $userCRUD->perditesoTeDhenatAdmini(false);
   }
 
@@ -41,14 +41,14 @@ if (isset($_GET['userID'])) {
   <div class="containerDashboardP">
     <?php
     if (isset($_SESSION['aksesiUPerditesua'])) {
-      echo '
-                <div class="mesazhiSuksesStyle">
-                  <p>Llogaria u ndryshua!</p>
-                  <button id="mbyllMesazhin">
-                    X
-                  </button>
-                </div>
-          ';
+      ?>
+      <div class="mesazhiSuksesStyle">
+        <p>Llogaria u ndryshua!</p>
+        <button id="mbyllMesazhin">
+          X
+        </button>
+      </div>
+      <?php
     }
     ?>
     <h1>Lista e Perdoruesve</h1>
@@ -66,21 +66,37 @@ if (isset($_GET['userID'])) {
       $perdoruesit = $userCRUD->shfaqTeGjithePerdoruesit();
 
       foreach ($perdoruesit as $perdoruesi) {
-        echo '
-            <tr>
-              <td id="userID_' . $perdoruesi['userID'] . '">' . $perdoruesi['userID'] . '</td>
-              <td><input id="emri_' . $perdoruesi['userID'] . '" type="text" placeholder="Emri" value="' . $perdoruesi['emri'] . '"></td>
-              <td><input id="mbiemri_' . $perdoruesi['userID'] . '" type="text" placeholder=""value="' . $perdoruesi['mbiemri'] . '"></td>
-              <td>' . $perdoruesi['username'] . '</td>
-              <td>' . $perdoruesi['email'] . '</td>';
-        if ($perdoruesi['aksesi'] == 2 && $_SESSION['aksesi'] != 2 || $perdoruesi['userID'] == $_SESSION['userID']) {
-          echo '<td id="aksesi_' . $perdoruesi['userID'] . '">' . $perdoruesi['aksesi'] . '</td>';
-        } else {
-          echo '<td><input id="aksesi_' . $perdoruesi['userID'] . '" type="number" min="0" max="2" placeholder="Aksesi" value="' . $perdoruesi['aksesi'] . '"></td>';
-        }
-        echo '<td><button class="edito" onclick="return ndryshoTeDhenat(' . $perdoruesi['userID'] . '); ">Edito</button>
-              <button class="edito"><a href="../userPages/porosit.php?userID=' . $perdoruesi['userID'] . '">Porosite</a></button></td>
-            </tr>';
+        ?>
+        <tr>
+          <td id="userID_<?php echo $perdoruesi['userID'] ?>"><?php echo $perdoruesi['userID'] ?></td>
+          <td><input id="emri_<?php echo $perdoruesi['userID'] ?>" type="text" placeholder="Emri"
+              value="<?php echo $perdoruesi['emri'] ?>"></td>
+          <td><input id="mbiemri_' . $perdoruesi['userID'] ?>" type="text" placeholder=""
+              value="<?php echo $perdoruesi['mbiemri'] ?>"></td>
+          <td>
+            <?php echo $perdoruesi['username'] ?>
+          </td>
+          <td>
+            <?php echo $perdoruesi['email'] ?>
+          </td>
+          <?php
+          if ($perdoruesi['aksesi'] == 2 && $_SESSION['aksesi'] != 2 || $perdoruesi['userID'] == $_SESSION['userID']) {
+            ?>
+            <td id="aksesi_<?php echo $perdoruesi['userID'] ?>"><?php echo $perdoruesi['aksesi'] ?></td>
+            <?php
+          } else {
+            ?>
+            <td><input id="aksesi_' . $perdoruesi['userID'] ?>" type="number" min="0" max="2" placeholder="Aksesi"
+                value="<?php echo $perdoruesi['aksesi'] ?>"></td>
+            <?php
+          }
+          ?>
+          <td><button class="edito" onclick="return ndryshoTeDhenat(<?php echo $perdoruesi['userID'] ?>); ">Edito</button>
+            <button class="edito"><a
+                href="../userPages/porosit.php?userID=<?php echo $perdoruesi['userID'] ?>">Porosite</a></button>
+          </td>
+        </tr>
+        <?php
 
       }
       ?>
@@ -114,12 +130,12 @@ if (isset($_GET['userID'])) {
       mbiemri.focus();
       return false;
     }
-    
+
     else {
-      if(aksesi == null){
+      if (aksesi == null) {
         var link = "?userID=" + userID + "&emri=" + emri + "&mbiemri=" + mbiemri;
       }
-      else{
+      else {
         var link = "?userID=" + userID + "&emri=" + emri + "&mbiemri=" + mbiemri + "&aksesi=" + aksesi;
       }
       window.location.href = link;

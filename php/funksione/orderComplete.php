@@ -2,9 +2,9 @@
 if (!isset($_SESSION)) {
   session_start();
 }
-// if (!isset($_SESSION['shportaBlerjes'])) {
-//   echo '<script>document.location="../pages/shporta.php"</script>';
-// }
+if (!isset($_SESSION['shportaBlerjes'])) {
+  echo '<script>document.location="../pages/shporta.php"</script>';
+}
 
 include('../CRUD/porosiaCRUD.php');
 
@@ -108,14 +108,22 @@ $porosia = $porosiaCRUD->shfaqPorosinSipasID();
         <?php
 
         foreach ($teDhenatPorosis as $porosit) {
-          echo '
-            <tr>
-              <td>' . $porosit['emriProduktit'] . '</td>
-              <td>' . $porosit['qmimiProd'] . '</td>
-              <td>' . $porosit['sasiaPorositur'] . '</td>
-              <td>' . $porosit['qmimiTotal'] . ' €</td>
-            </tr>
-          ';
+          ?>
+          <tr>
+            <td>
+              <?php echo $porosit['emriProduktit'] ?>
+            </td>
+            <td>
+              <?php echo $porosit['qmimiProd'] ?>
+            </td>
+            <td>
+              <?php echo $porosit['sasiaPorositur'] ?>
+            </td>
+            <td>
+              <?php echo $porosit['qmimiTotal'] ?> €
+            </td>
+          </tr>
+          <?php
         }
         ?>
         <tr>

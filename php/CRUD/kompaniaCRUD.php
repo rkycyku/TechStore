@@ -97,7 +97,7 @@ class kompaniaCRUD extends dbCon
     public function shfaqKompanin()
     {
         try {
-            $sql = "SELECT * FROM kompania";
+            $sql = "SELECT * FROM kompania order by emriKompanis ASC";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute();
 
@@ -124,14 +124,20 @@ class kompaniaCRUD extends dbCon
         try {
             $kompanit = $this->shfaqKompanin();
 
-            echo '<select class="dropdown" name="kompania">
+            ?><select class="dropdown" name="kompania">
                 <option value="te tjera">Zgjedhni Kompanin</option>
-            ';
+                <?php
 
-            foreach ($kompanit as $kompania) {
-                echo '<option value="' . $kompania['emriKompanis'] . '">' . $kompania['emriKompanis'] . '</option>';
-            }
-            echo '</select>';
+                foreach ($kompanit as $kompania) {
+                    ?>
+                    <option value="<?php echo $kompania['emriKompanis'] ?>">
+                        <?php echo $kompania['emriKompanis'] ?>
+                    </option>
+                    <?php
+                }
+                ?>
+            </select>
+            <?php
 
         } catch (Exception $e) {
             return $e->getMessage();
@@ -165,7 +171,7 @@ class kompaniaCRUD extends dbCon
             $fileExt = explode('.', $emriFotos);
             $fileActualExt = strtolower(end($fileExt));
 
-            $teLejuara = array('jpg', 'jpeg', 'png');
+            $teLejuara = array('jpg', 'jpeg', 'png', 'svg');
 
             if (in_array($fileActualExt, $teLejuara)) {
                 if ($errorFoto === 0) {

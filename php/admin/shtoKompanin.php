@@ -36,28 +36,36 @@ if (isset($_POST['shtoKompanin'])) {
     <form name="shtoKompanin" onsubmit='return validimiSHK()' action='' method="POST" enctype="multipart/form-data">
       <?php
       if (isset($_SESSION['mesazhiMeSukses'])) {
-        echo '<div class="mesazhiSuksesStyle">
-                    <p>Kompania u shtua me sukses!</p>
-                    <button id="mbyllMesazhin">X</button>
-                  </div>';
+        ?>
+        <div class="mesazhiSuksesStyle">
+          <p>Kompania u shtua me sukses!</p>
+          <button id="mbyllMesazhin">X</button>
+        </div>
+        <?php
       }
       if (isset($_SESSION['madhesiaGabim'])) {
-        echo '<div class="mesazhiGabimStyle">
-                    <p>Madhesia e fotos eshte shume e madhe!</p>
-                    <button id="mbyllMesazhin"></button>
-                  </div>';
+        ?>
+        <div class="mesazhiGabimStyle">
+          <p>Madhesia e fotos eshte shume e madhe!</p>
+          <button id="mbyllMesazhin"></button>
+        </div>
+        <?php
       }
       if (isset($_SESSION['problemNeBartje'])) {
-        echo '<div class="mesazhiGabimStyle">
-                    <p>Ndodhi nje problem ne bartjen e fotov!</p>
-                    <button id="mbyllMesazhin">X</button>
-                  </div>';
+        ?>
+        <div class="mesazhiGabimStyle">
+          <p>Ndodhi nje problem ne bartjen e fotov!</p>
+          <button id="mbyllMesazhin">X</button>
+        </div>
+        <?php
       }
       if (isset($_SESSION['fileNukSuportohet'])) {
-        echo '<div class="mesazhiGabimStyle">
-                    <p>Ky file nuk supportohet!</p>
-                    <button id="mbyllMesazhin">X</button>
-                  </div>';
+        ?>
+        <div class="mesazhiGabimStyle">
+          <p>Ky file nuk supportohet!</p>
+          <button id="mbyllMesazhin">X</button>
+        </div>
+        <?php
       }
       ?>
       <h1 class="form-title">Vendosja e Kompanive</h1>

@@ -89,7 +89,9 @@ if ($porosia['idKlienti'] != $_SESSION['userID'] && $_SESSION['aksesi'] == 0 && 
 
       <div class="teDhenatKlientit">
         <h1>
-          <?php echo '<span style="font-size: 30pt;" id="emriKlientit">' . ucfirst($porosia['emri']) . ' ' . ucfirst($porosia['mbiemri']) . '</span>' ?>
+          <span style="font-size: 30pt;" id="emriKlientit">
+            <?php echo ucfirst($porosia['emri']) . ' ' . ucfirst($porosia['mbiemri']) ?>
+          </span>
         </h1>
         <p style="font-size: 20pt">
           <?php echo $porosia['nrKontaktit'] ?>
@@ -102,10 +104,14 @@ if ($porosia['idKlienti'] != $_SESSION['userID'] && $_SESSION['aksesi'] == 0 && 
 
     <div class="data">
       <h1>Fatura nr:
-        <?php echo '<span style="font-size: 30pt;" id="nrFatures">#' . $porosia['nrPorosis'] . '</span>' ?>
+        <span style="font-size: 30pt;" id="nrFatures">#
+          <?php echo $porosia['nrPorosis'] ?>
+        </span>
       </h1>
       <h3>Data e Porosis
-        <?php echo '<span style="font-size: 20pt;" id="dataPorosis">' . date("d-m-y", strtotime($porosia['dataPorosis'])) . '</span>' ?>
+        <span style="font-size: 20pt;" id="dataPorosis">
+          <?php echo date("d-m-y", strtotime($porosia['dataPorosis'])) ?>
+        </span>
       </h3>
     </div>
 

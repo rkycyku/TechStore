@@ -39,14 +39,14 @@ if (isset($_POST['dergoMSG'])) {
     <form name="ContactForm" onsubmit="return validimiContactForm()" action="" method="POST">
       <?php
       if (isset($_SESSION['mesazhiMeSukses'])) {
-        echo '
-                <div class="mesazhiSuksesStyle">
-                  <h3>Mesazhi juaj u dergua me sukses!</h3>
-                  <button id="mbyllMesazhin">
-                    X
-                  </button>
-                </div>
-          ';
+        ?>
+        <div class="mesazhiSuksesStyle">
+          <h3>Mesazhi juaj u dergua me sukses!</h3>
+          <button id="mbyllMesazhin">
+            X
+          </button>
+        </div>
+        <?php
       }
       ?>
 

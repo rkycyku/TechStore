@@ -48,24 +48,24 @@ if (isset($_GET['fshij'])) {
     <div class="containerDashboardP">
         <?php
         if (isset($_SESSION['ndryshimiSukses'])) {
-            echo '
-                <div class="mesazhiSuksesStyle">
-                  <p>Te dhenat e kompanis u ndryshuan!</p>
-                  <button id="mbyllMesazhin">
+            ?>
+            <div class="mesazhiSuksesStyle">
+                <p>Te dhenat e kompanis u ndryshuan!</p>
+                <button id="mbyllMesazhin">
                     X
-                  </button>
-                </div>
-          ';
+                </button>
+            </div>
+            <?php
         }
         if (isset($_SESSION['uFshiMeSukses'])) {
-            echo '
-                <div class="mesazhiSuksesStyle">
-                  <p>Kategoria u Fshi me sukses!</p>
-                  <button id="mbyllMesazhin">
+            ?>
+            <div class="mesazhiSuksesStyle">
+                <p>Kategoria u Fshi me sukses!</p>
+                <button id="mbyllMesazhin">
                     X
-                  </button>
-                </div>
-          ';
+                </button>
+            </div>
+            <?php
         }
         ?>
         <h1>Lista e Kompanive Partnere</h1>
@@ -81,15 +81,20 @@ if (isset($_GET['fshij'])) {
             $kompanit = $kompaniaCRUD->shfaqKompanin();
 
             foreach ($kompanit as $kompanit) {
-                echo '
-            <tr>
-              <td id="kompaniaID_' . $kompanit['kompaniaID'] . '">' . $kompanit['kompaniaID'] . '</td>
-              <td><input id="emriKompanis_' . $kompanit['kompaniaID'] . '" type="text" placeholder="Emri i Kompanis" value="' . $kompanit['emriKompanis'] . '"></td>
-              <td><img src="../../img/slider/sliderIcons/' . $kompanit['kompaniaLogo'] . '"></td>
-              <td><input id="adresaKompanis_' . $kompanit['kompaniaID'] . '" type="text" placeholder="Adresa Kompanis" value="' . $kompanit['adresaKompanis'] . '"></td>
-              <td><button class="edito" onclick="editoKompanin(' . $kompanit['kompaniaID'] . ')">Edito</button>
-              <button class="fshij" onclick="fshijKompanin(' . $kompanit['kompaniaID'] . ')">Fshije</button></button></td>
-            </tr>';
+                ?>
+                <tr>
+                    <td id="kompaniaID_<?php echo $kompanit['kompaniaID'] ?>"><?php echo $kompanit['kompaniaID'] ?></td>
+                    <td><input id="emriKompanis_<?php echo $kompanit['kompaniaID'] ?>" type="text"
+                            placeholder="Emri i Kompanis" value="<?php echo $kompanit['emriKompanis'] ?>"></td>
+                    <td><img src="../../img/slider/sliderIcons/<?php echo $kompanit['kompaniaLogo'] ?>"></td>
+                    <td><input id="adresaKompanis_<?php echo $kompanit['kompaniaID'] ?>" type="text"
+                            placeholder="Adresa Kompanis" value="<?php echo $kompanit['adresaKompanis'] ?>"></td>
+                    <td><button class="edito" onclick="editoKompanin(<?php echo $kompanit['kompaniaID'] ?>)">Edito</button>
+                        <button class="fshij"
+                            onclick="fshijKompanin(<?php echo $kompanit['kompaniaID'] ?>)">Fshije</button></button>
+                    </td>
+                </tr>
+                <?php
 
             }
             ?>

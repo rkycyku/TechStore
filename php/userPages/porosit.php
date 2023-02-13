@@ -29,32 +29,42 @@ $porosiaCRUD = new porosiaCRUD();
 
     <?php
     if (isset($_SESSION['konfirmimiPorosis'])) {
-      echo '<div class="mesazhiSuksesStyle">
-                      <h3>Ju faleminderit qe konfirmuat porosin!</h3>
-                      <button id="mbyllMesazhin">X</button>
-                    </div>';
+      ?>
+      <div class="mesazhiSuksesStyle">
+        <h3>Ju faleminderit qe konfirmuat porosin!</h3>
+        <button id="mbyllMesazhin">X</button>
+      </div>
+      <?php
     }
     if (isset($_SESSION['porosiaMeSukses'])) {
-      echo '<div class="mesazhiSuksesStyle">
-                      <h3>Ju faleminderit qe konfirmuat porosin!</h3>
-                      <button id="mbyllMesazhin">X</button>
-                    </div>';
+      ?>
+      <div class="mesazhiSuksesStyle">
+        <h3>Ju faleminderit qe konfirmuat porosin!</h3>
+        <button id="mbyllMesazhin">X</button>
+      </div>
+      <?php
     }
     if (isset($_GET['produktID'])) {
       $porosiaCRUD->setProduktiID($_GET['produktID']);
-      echo '<h2>Te gjitha porosit e Produktit me ID: ' . $_GET['produktID'] . '</h2>';
-      echo '<h2>Emri i Produktit: ' . $_SESSION['emriProduktit'] . '</h2>';
+      ?>
+      <h2>Te gjitha porosit e Produktit me ID: ' . $_GET['produktID'] . '</h2>
+      <h2>Emri i Produktit: ' . $_SESSION['emriProduktit'] . '</h2>
+      <?php
       $porosiaCRUD->shfaqPorositSipasProduktit();
     } else {
 
 
       if (isset($_SESSION['userID'])) {
         $porosiaCRUD->setUserID($_SESSION['userID']);
-        echo '<h2>Te gjitha porosit e tua</h2>';
+        ?>
+        <h2>Te gjitha porosit e tua</h2>
+        <?php
       }
       if (isset($_GET['userID'])) {
         $porosiaCRUD->setUserID($_GET['userID']);
-        echo '<h2>Te gjitha porosit e Klientit me ID: ' . $_GET['userID'] . '</h2>';
+        ?>
+        <h2>Te gjitha porosit e Klientit me ID: ' . $_GET['userID'] . '</h2>
+        <?php
       }
       $porosia = $porosiaCRUD->shfaqPorositEKlientit();
     }

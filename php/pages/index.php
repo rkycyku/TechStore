@@ -34,22 +34,28 @@ $produktiCRUD = new produktiCRUD();
     <?php
     $kompanit = $kompaniaCRUD->shfaqKompanin();
 
-    echo ' <section class="brandsSlider"> 
-                <h2 class="brandsSlider-Label">Brands</h2>
-                <button class="shkoMajtas"><img src="../../img/slider/arrow.png" alt=""></button>
-                <button class="shkoDjathtas"><img src="../../img/slider/arrow.png" alt=""></button>
-                <div class="kornizaEBrendeve">';
-    foreach ($kompanit as $kompania) {
-      echo '<div class="kartelaEBrendit">
-                  <div class="logoBrendit">
-                    <a href="../pages/produktet.php?kompania=' . $kompania['emriKompanis'] . '">
-                      <img src="../../img/slider/sliderIcons/' . $kompania['kompaniaLogo'] . '" alt="">
-                    </a>
-                  </div>
-                </div>';
-    }
-    echo ' </div>
-              </section>';
+    ?>
+    <section class="brandsSlider">
+      <h2 class="brandsSlider-Label">Brands</h2>
+      <button class="shkoMajtas"><img src="../../img/slider/arrow.png" alt=""></button>
+      <button class="shkoDjathtas"><img src="../../img/slider/arrow.png" alt=""></button>
+      <div class="kornizaEBrendeve">
+        <?php
+        foreach ($kompanit as $kompania) {
+          ?>
+          <div class="kartelaEBrendit">
+            <div class="logoBrendit">
+              <a href="../pages/produktet.php?kompania=<?php echo $kompania['emriKompanis'] ?>">
+                <img src="../../img/slider/sliderIcons/<?php echo $kompania['kompaniaLogo'] ?>" alt="">
+              </a>
+            </div>
+          </div>
+          <?php
+        }
+        ?>
+      </div>
+    </section>
+    <?php
     ?>
 
     <div class="artikujt">

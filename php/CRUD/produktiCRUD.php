@@ -324,7 +324,7 @@ class produktiCRUD extends dbCon
             $fileExt = explode('.', $emriFotos);
             $fileActualExt = strtolower(end($fileExt));
 
-            $teLejuara = array('jpg', 'jpeg', 'png');
+            $teLejuara = array('jpg', 'jpeg', 'png', 'svg');
 
             if (in_array($fileActualExt, $teLejuara)) {
                 if ($errorFoto === 0) {

@@ -50,30 +50,34 @@ if (isset($_POST['submit'])) {
     <form name="SignUpForm" onsubmit="return validimiSignUp();" action='' method="POST">
       <?php
       if (isset($_SESSION['regMeSukses'])) {
-        echo '<div class="mesazhiSuksesStyle">
-                      <h3>U regjistruat me sukses!</h3>
-                      <button id="mbyllMesazhin">X</button>
-                    </div>';
+        ?>
+        <div class="mesazhiSuksesStyle">
+          <h3>U regjistruat me sukses!</h3>
+          <button id="mbyllMesazhin">X</button>
+        </div>
+        <?php
       }
       if (isset($_SESSION['userEkziston'])) {
-        echo '<div class="mesazhiGabimStyle">
-                      <h3>Ky username egziston!</h3>
-                      <button id="mbyllMesazhin">X</button>
-                    </div>';
+        ?>
+        <div class="mesazhiGabimStyle">
+          <h3>Ky username egziston!</h3>
+          <button id="mbyllMesazhin">X</button>
+        </div>
+        <?php
       }
       ?>
       <h1 class="form-title">Sign Up</h1>
       <input class="form-input" name="name" type="text" placeholder="Name">
-        <input class="form-input" name="lName" type="text" placeholder="Lastname">
-        <input class="form-input" name="uName" type="text" placeholder="Username">
-        <input class="form-input" name="email" type="text" placeholder="Email">
-        <input class="form-input" name="password" type="password" placeholder="Password">
-        <div class="reg">
-          <p>Do u have an account? <a href="login.php">Log in</a></p>
-        </div>
-        <input class="button" type="submit" value="Sign Up" name='submit'>
-      </form>
-    </div>
+      <input class="form-input" name="lName" type="text" placeholder="Lastname">
+      <input class="form-input" name="uName" type="text" placeholder="Username">
+      <input class="form-input" name="email" type="text" placeholder="Email">
+      <input class="form-input" name="password" type="password" placeholder="Password">
+      <div class="reg">
+        <p>Do u have an account? <a href="login.php">Log in</a></p>
+      </div>
+      <input class="button" type="submit" value="Sign Up" name='submit'>
+    </form>
+  </div>
   <?php include_once('../funksione/importimiScriptave.php'); ?>
 </body>
 

@@ -29,14 +29,14 @@ $contactForm = $contactFormCRUD->shfaqMesazhet();
   <div class="containerDashboardP">
     <?php
     if (isset($_SESSION['mezashiUKonfirmua'])) {
-      echo '
-                  <div class="mesazhiSuksesStyle">
-                    <p>Mesazhi u konfirmua me sukses!</p>
-                    <button id="mbyllMesazhin">
-                      X
-                    </button>
-                  </div>
-            ';
+      ?>
+      <div class="mesazhiSuksesStyle">
+        <p>Mesazhi u konfirmua me sukses!</p>
+        <button id="mbyllMesazhin">
+          X
+        </button>
+      </div>
+      <?php
 
     }
     ?>
@@ -55,17 +55,31 @@ $contactForm = $contactFormCRUD->shfaqMesazhet();
 
 
       foreach ($contactForm as $mesazhi) {
-        echo '
-            <tr>
-              <td>' . $mesazhi['IDmesazhi'] . '</td>
-              <td>' . $mesazhi['emri'] . '</td>
-              <td>' . $mesazhi['email'] . '</td>
-              <td>' . $mesazhi['mesazhi'] . '</td>
-              <td>' . $mesazhi['dataDergeses'] . '</td>
-              <td>' . $mesazhi['statusi'] . '</td>
-              <td><button class="edito"><a href="../adminFunksione/konfirmoMesazhin.php?IDmesazhi=' . $mesazhi['IDmesazhi'] . '">Konfirmo</a></button></td>
-            </tr>
-          ';
+        ?>
+        <tr>
+          <td>
+            <?php echo $mesazhi['IDmesazhi'] ?>
+          </td>
+          <td>
+            <?php echo $mesazhi['emri'] ?>
+          </td>
+          <td>
+            <?php echo $mesazhi['email'] ?>
+          </td>
+          <td>
+            <?php echo $mesazhi['mesazhi'] ?>
+          </td>
+          <td>
+            <?php echo $mesazhi['dataDergeses'] ?>
+          </td>
+          <td>
+            <?php echo $mesazhi['statusi'] ?>'
+          </td>
+          <td><button class="edito"><a
+                href="../adminFunksione/konfirmoMesazhin.php?IDmesazhi=' . $mesazhi['IDmesazhi'] . '">Konfirmo</a></button>
+          </td>
+        </tr>
+        <?php
       }
       ?>
     </table>

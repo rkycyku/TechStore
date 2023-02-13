@@ -60,9 +60,10 @@ class kategoriaCRUD extends dbCon
             $sql = "INSERT INTO `kategoriaproduktit`(`emriKategoris`, `pershkrimiKategoris`) VALUES (?,?)";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute([$this->emriKategoris, $this->pershkrimiKategoris]);
+            
 
             echo '<script>document.location="../admin/shtoKategorin.php"</script>';
-            $_SESSION['katUShtua'] = true;
+
         } catch (Exception $e) {
             return $e->getMessage();
         }
@@ -95,7 +96,7 @@ class kategoriaCRUD extends dbCon
     public function shfaqKategorin()
     {
         try {
-            $sql = "SELECT * FROM kategoriaproduktit";
+            $sql = "SELECT * FROM kategoriaproduktit order by emriKategoris ASC";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute();
 
@@ -111,13 +112,19 @@ class kategoriaCRUD extends dbCon
             $kategorit = $this->shfaqKategorin();
 
 
-            echo '<select class="dropdown1" name="kategoria">
+            ?><select class="dropdown1" name="kategoria">
                 <option value="te tjera">Zgjedhni Kategorin</option>
-            ';
-            foreach ($kategorit as $kategoria) {
-                echo '<option value="' . $kategoria['emriKategoris'] . '">' . $kategoria['emriKategoris'] . '</option>';
-            }
-            echo '</select>';
+                <?php
+                foreach ($kategorit as $kategoria) {
+                    ?>
+                    <option value="<?php echo $kategoria['emriKategoris'] ?>">
+                        <?php echo $kategoria['emriKategoris'] ?>
+                    </option>
+                    <?php
+                }
+                ?>
+            </select>
+            <?php
 
         } catch (Exception $e) {
             return $e->getMessage();

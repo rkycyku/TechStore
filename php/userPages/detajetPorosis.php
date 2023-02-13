@@ -33,7 +33,8 @@ if (isset($_GET['porosiaID'])) {
 
   <div class="containerDashboardP">
     <h1>
-      Te dhenat per porosin me numer #<?php echo $_GET['porosiaID'] ?>
+      Te dhenat per porosin me numer #
+      <?php echo $_GET['porosiaID'] ?>
     </h1>
     <table>
       <tr>
@@ -45,14 +46,22 @@ if (isset($_GET['porosiaID'])) {
       <?php
 
       foreach ($teDhenatPorosis as $porosit) {
-        echo '
-            <tr>
-              <td>' . $porosit['emriProduktit'] . '</td>
-              <td>' . $porosit['qmimiProd'] . '</td>
-              <td>' . $porosit['sasiaPorositur'] . '</td>
-              <td>' . $porosit['qmimiTotal'] . ' €</td>
-            </tr>
-          ';
+        ?>
+        <tr>
+          <td>
+            <?php echo $porosit['emriProduktit'] ?>
+          </td>
+          <td>
+            <?php echo $porosit['qmimiProd'] ?>
+          </td>
+          <td>
+            <?php echo $porosit['sasiaPorositur'] ?>
+          </td>
+          <td>
+            <?php echo $porosit['qmimiTotal'] ?> €
+          </td>
+        </tr>
+        <?php
       }
       ?>
       <tr>

@@ -23,33 +23,34 @@ if (!isset($_SESSION)) {
     <form name="LoginForm" onsubmit="return validimiLogin();" action='../funksione/loginUser.php' method="POST">
       <?php
       if (isset($_SESSION['passGabim'])) {
-        echo '
-                  <div class="mesazhiGabimStyle">
-                    <h3>Keni shenuar passwordin gabim!</h3>
-                    <button id="mbyllMesazhin">
-                      X
-                    </button>
-                  </div>
-            ';
+        ?>
+        <div class="mesazhiGabimStyle">
+          <h3>Keni shenuar passwordin gabim!</h3>
+          <button id="mbyllMesazhin">
+            X
+          </button>
+        </div>
+        <?php
       }
       if (isset($_SESSION['uNameGabim'])) {
-        echo '
-                  <div class="mesazhiGabimStyle">
-                    <h3>Ky username nuk egziston!</h3>
-                    <button id="mbyllMesazhin">
-                      X
-                    </button>
-                  </div>
-            ';
-      }if (isset($_SESSION['nukJeLogin'])) {
-        echo '
-                  <div class="mesazhiGabimStyle">
-                    <h3>Ju lutem kyquni ose krijoni nje llogari per te vazhduar me blerjen!</h3>
-                    <button id="mbyllMesazhin">
-                      X
-                    </button>
-                  </div>
-            ';
+        ?>
+        <div class="mesazhiGabimStyle">
+          <h3>Ky username nuk egziston!</h3>
+          <button id="mbyllMesazhin">
+            X
+          </button>
+        </div>
+        <?php
+      }
+      if (isset($_SESSION['nukJeLogin'])) {
+        ?>
+        <div class="mesazhiGabimStyle">
+          <h3>Ju lutem kyquni ose krijoni nje llogari per te vazhduar me blerjen!</h3>
+          <button id="mbyllMesazhin">
+            X
+          </button>
+        </div>
+        <?php
       }
       ?>
       <h1 class="form-title">Log In</h1>

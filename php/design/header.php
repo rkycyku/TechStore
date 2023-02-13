@@ -27,8 +27,7 @@ if (!isset($_SESSION['aksesi'])) {
             <ul class="nav-links">
                 <?php
                 if ($_SESSION['aksesi'] != 0) {
-                    echo '
-                        <li class="nav-item">
+                    ?><li class="nav-item">
                         <a href="../userPages/userDashboard.php">Dashboard</a>
                         <span class="line"></span>
                     </li>
@@ -61,10 +60,9 @@ if (!isset($_SESSION['aksesi'])) {
                     <li class="nav-item">
                         <a href="../admin/shfaqMesazhet.php">Mesazhet</a>
                         <span class="line"></span>
-                    </li>';
+                    </li><?php
                 } else {
-                    echo '
-                        <li class="nav-item">
+                    ?><li class="nav-item">
                         <a href="../pages/index.php">Home</a>
                         <span class="line"></span>
                     </li>
@@ -79,7 +77,7 @@ if (!isset($_SESSION['aksesi'])) {
                     <li class="nav-item">
                         <a href="../pages/produktet.php">Products</a>
                         <span class="line"></span>
-                    </li>';
+                    </li><?php
                 }
                 ?>
                 <li class="nav-item">
@@ -95,8 +93,8 @@ if (!isset($_SESSION['aksesi'])) {
                 <?php
                 if (isset($_SESSION['name'])) {
                     if ($_SESSION['aksesi'] != 0) {
-                        echo
-                            '<li class="nav-item">
+                        ?>
+                        <li class="nav-item">
                             <a href="../pages/index.php">Home</a>
                         </li>
                         <li class="nav-item">
@@ -115,23 +113,24 @@ if (!isset($_SESSION['aksesi'])) {
                                 <a href="../admin/shtoKompanin.php">Vendos Kompanite</a>
                             </li></li><li class="nav-item">
                             <a href="../funksione/logout.php">Log Out</a>
-                        </li>';
+                        </li>
+                        <?php
                     } else {
-                        echo '    
+                        ?>    
                     <li class="nav-item">
                             <a href="../userPages/userDashboard.php">Dashboard</a>
                         </li><li class="nav-item">
                             <a href="../funksione/logout.php">Log Out</a>
-                        </li>';
+                        </li>
+                        <?php
                     }
                 } else {
-                    echo
-                        '<li class="nav-item">
+                    ?><li class="nav-item">
                             <a href="../pages/login.php">Log In</a>
                         </li>
                         <li class="nav-item">
                             <a href="../pages/signup.php">Sign Up</a>
-                        </li>';
+                        </li><?php
                 }
                 ?>
             </ul>

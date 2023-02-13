@@ -50,23 +50,19 @@ $perdoruesi = $userCRUD->shfaqSipasID();
 </head>
 
 <body>
-    <?php
-    include '../design/header.php';
-    echo '<div class="containerDashboard">';
-    echo '</div>';
-    ?>
+    <?php include '../design/header.php'; ?>
     <div class="forms">
         <form name="ndryshoPass" onsubmit="" action='' method="POST" enctype="multipart/form-data">
             <?php
             if (isset($_SESSION['passGabim'])) {
-                echo '
+                ?>
                 <div class="mesazhiGabimStyle">
-                  <p>Passwordi juaj eshte Gabim!</p>
-                  <button id="mbyllMesazhin">
-                    X
-                  </button>
+                    <p>Passwordi juaj eshte Gabim!</p>
+                    <button id="mbyllMesazhin">
+                        X
+                    </button>
                 </div>
-                ';
+                <?php
             }
 
             ?>
