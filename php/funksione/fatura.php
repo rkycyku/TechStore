@@ -15,6 +15,8 @@ $produktetEPorosis = $porosiaCRUD->shfaqProduktetEPorosisSipasID();
 if ($porosia['idKlienti'] != $_SESSION['userID'] && $_SESSION['aksesi'] == 0 && $_SESSION['userID'] == null && $porosia['emri'] != $_SESSION['emri']) {
   echo '<script>document.location="../userPages/porosit.php"</script>';
 }
+
+$nentotali = 0;
 ?>
 
 <head>
@@ -161,6 +163,8 @@ if ($porosia['idKlienti'] != $_SESSION['userID'] && $_SESSION['aksesi'] == 0 && 
         </tr>
 
         <?php
+
+        $nentotali = $nentotali + $produkti['qmimiTotal'];
       }
       ?>
 
@@ -238,6 +242,27 @@ if ($porosia['idKlienti'] != $_SESSION['userID'] && $_SESSION['aksesi'] == 0 && 
     </div>
     <div class="detajetPoresis">
       <table class="tabelaQmimit">
+        <?php if ($nentotali != $porosia['TotaliPorosis']) {
+          ?>
+          <tr>
+            <td>
+              <strong>Nentotali: </strong>
+            </td>
+            <td>
+              <?php echo number_format($nentotali, 2) . ' €' ?>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Zbritja: </strong>
+            </td>
+            <td>
+              <?php echo number_format($porosia['TotaliPorosis'] - $nentotali, 2) . ' €' ?>
+            </td>
+          </tr>
+          <?php
+        }
+        ?>
         <tr>
           <td>
             <strong>Totali Pa TVSH: </strong>

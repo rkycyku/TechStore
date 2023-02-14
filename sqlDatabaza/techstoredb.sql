@@ -1,14 +1,31 @@
--- TechStore - Databaza
--- Versioni i PHP-s:  5.2.0
--- Emri Databazes: `techstoredb`
-
--- --------------------------------------------------------
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Feb 14, 2023 at 08:26 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `techstoredb`
+--
+
 -- --------------------------------------------------------
+
+--
+-- Table structure for table `contactform`
+--
 
 CREATE TABLE `contactform` (
   `IDmesazhi` int(11) NOT NULL,
@@ -19,11 +36,19 @@ CREATE TABLE `contactform` (
   `statusi` varchar(80) NOT NULL DEFAULT 'Eshte Derguar me Sukses'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `contactform`
+--
+
 INSERT INTO `contactform` (`IDmesazhi`, `emri`, `email`, `mesazhi`, `dataDergeses`, `statusi`) VALUES
 (1, 'Rilind', 'r.kycyku.12@gmail.com', 'ssdgadgf', '2023-01-20 23:00:00', 'Mesazhi eshte Pranuar dhe eshte Pergjigjur ne email'),
 (2, 'Rilind', 'r.kycyku.12@gmail.com', 'test', '2023-01-21 18:50:18', 'Mesazhi eshte Pranuar dhe eshte Pergjigjur ne email');
 
 -- --------------------------------------------------------
+
+--
+-- Table structure for table `kategoriaproduktit`
+--
 
 CREATE TABLE `kategoriaproduktit` (
   `kategoriaID` int(11) NOT NULL,
@@ -31,9 +56,13 @@ CREATE TABLE `kategoriaproduktit` (
   `pershkrimiKategoris` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `kategoriaproduktit`
+--
+
 INSERT INTO `kategoriaproduktit` (`kategoriaID`, `emriKategoris`, `pershkrimiKategoris`) VALUES
-(1, 'Smartphone', ''),
-(2, 'Laptop', ''),
+(1, 'Smartphone', 'gsgd'),
+(2, 'Laptop', 'aaa'),
 (3, 'Smart Watch', 'Ore te menqura te markave te ndryshme'),
 (4, 'Foto & Video', ''),
 (5, 'Audio', ''),
@@ -41,9 +70,41 @@ INSERT INTO `kategoriaproduktit` (`kategoriaID`, `emriKategoris`, `pershkrimiKat
 (7, 'TV & Projektor', ''),
 (8, 'Maus & Aksesore', ''),
 (9, 'Lodra smart & Dron', ''),
-(10, 'Pjesë për kompjuter', '');
+(10, 'Pjesë për kompjuter', ''),
+(11, 'Kufje', ''),
+(12, 'Wireless Charger', ''),
+(13, 'Tablet', ''),
+(14, 'Karrige Gaming', ''),
+(15, 'Printer', ''),
+(16, 'Memorie, Hapesire dhe Akesor Kompjuter', '');
 
 -- --------------------------------------------------------
+
+--
+-- Table structure for table `kodizbritjes`
+--
+
+CREATE TABLE `kodizbritjes` (
+  `kodi` varchar(10) NOT NULL,
+  `idProduktit` varchar(11) DEFAULT NULL,
+  `dataKrijimit` date NOT NULL DEFAULT current_timestamp(),
+  `qmimiZbritjes` decimal(10,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `kodizbritjes`
+--
+
+INSERT INTO `kodizbritjes` (`kodi`, `idProduktit`, `dataKrijimit`, `qmimiZbritjes`) VALUES
+('AB12EE', '45', '2023-02-14', '5.00'),
+('SXKD4R', '18', '2023-02-14', '50.00'),
+('WNDT3C', '4', '2023-02-14', '560.00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kompania`
+--
 
 CREATE TABLE `kompania` (
   `kompaniaID` int(11) NOT NULL,
@@ -52,8 +113,12 @@ CREATE TABLE `kompania` (
   `adresaKompanis` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `kompania`
+--
+
 INSERT INTO `kompania` (`kompaniaID`, `emriKompanis`, `kompaniaLogo`, `adresaKompanis`) VALUES
-(1, 'Apple', 'AppleLogo.png', ''),
+(1, 'Apple', 'AppleLogo.png', 'cALIFORNIA'),
 (2, 'Amd', 'AMDLogo.png', NULL),
 (3, 'Asus', 'AsusLogo.png', NULL),
 (4, 'JBL', 'JBL.png', NULL),
@@ -77,9 +142,18 @@ INSERT INTO `kompania` (`kompaniaID`, `emriKompanis`, `kompaniaLogo`, `adresaKom
 (22, 'Marvo', '63cc93503bc070.76804317.png', ''),
 (23, 'Arctic', '63cc945c98f987.79971283.png', ''),
 (24, 'Transcend', '63cc94dc60f873.30313171.png', ''),
-(25, 'Dell', '63cc95f0a30e93.21744349.png', '');
+(25, 'Dell', '63cc95f0a30e93.21744349.png', ''),
+(26, 'Instax', '63eabba55fbfc7.49583109.png', ''),
+(27, 'Canon', '63eabbd2c18639.05511269.png', ''),
+(28, 'Sony', '63eabc0946e731.30555181.png', ''),
+(29, 'SENSE7', '63eabcbde6e353.90404410.jpeg', ''),
+(30, 'Preyon', '63eabd4a55ae01.00211971.svg', '');
 
 -- --------------------------------------------------------
+
+--
+-- Table structure for table `porosit`
+--
 
 CREATE TABLE `porosit` (
   `nrPorosis` int(11) NOT NULL,
@@ -89,7 +163,72 @@ CREATE TABLE `porosit` (
   `statusiPorosis` varchar(30) NOT NULL DEFAULT 'Ne Procesim'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `porosit`
+--
+
+INSERT INTO `porosit` (`nrPorosis`, `idKlienti`, `dataPorosis`, `TotaliPorosis`, `statusiPorosis`) VALUES
+(1, 2, '2023-02-13', '2710.49', 'Ne Procesim'),
+(2, 1, '2023-02-13', '2710.49', 'Ne Procesim'),
+(3, 1, '2023-02-13', '2879.99', 'Ne Procesim'),
+(4, 1, '2023-02-13', '1898.00', 'Ne Procesim'),
+(5, 1, '2023-02-13', '927.50', 'Ne Procesim'),
+(6, 1, '2023-02-13', '6534.98', 'Ne Procesim'),
+(7, 2, '2023-02-14', '239.00', 'Ne Procesim'),
+(8, 2, '2023-02-14', '89.50', 'Ne Procesim'),
+(9, 2, '2023-02-14', '84.50', 'Ne Procesim'),
+(10, 2, '2023-02-14', '-5.00', 'Ne Procesim'),
+(11, 2, '2023-02-14', '2705.49', 'Ne Procesim'),
+(12, 2, '2023-02-14', '234.00', 'Ne Procesim'),
+(13, 2, '2023-02-14', '164.00', 'Ne Procesim'),
+(14, 2, '2023-02-14', '164.00', 'Ne Procesim'),
+(15, 1, '2023-02-14', '164.00', 'Ne Procesim'),
+(16, 1, '2023-02-14', '164.00', 'Ne Procesim'),
+(17, 1, '2023-02-14', '94.50', 'Ne Procesim'),
+(18, 1, '2023-02-14', '4027.13', 'Ne Procesim'),
+(19, 1, '2023-02-14', '169.00', 'Ne Procesim'),
+(20, 1, '2023-02-14', '0.00', 'Ne Procesim'),
+(21, 1, '2023-02-14', '569.00', 'Ne Procesim'),
+(22, 1, '2023-02-14', '234.00', 'Ne Procesim'),
+(23, 1, '2023-02-14', '164.50', 'Ne Procesim'),
+(24, 1, '2023-02-14', '344.00', 'Ne Procesim'),
+(25, 1, '2023-02-14', '79.50', 'Ne Procesim'),
+(26, 1, '2023-02-14', '894.99', 'Ne Procesim'),
+(27, 1, '2023-02-14', '164.00', 'Ne Procesim'),
+(28, 1, '2023-02-14', '344.00', 'Ne Procesim'),
+(29, 1, '2023-02-14', '164.00', 'Ne Procesim'),
+(30, 1, '2023-02-14', '0.00', 'Ne Procesim'),
+(31, 1, '2023-02-14', '2794.99', 'Ne Procesim'),
+(32, 1, '2023-02-14', '164.00', 'Ne Procesim'),
+(33, 1, '2023-02-14', '84.50', 'Ne Procesim'),
+(34, 1, '2023-02-14', '0.00', 'Ne Procesim'),
+(35, 1, '2023-02-14', '2705.49', 'Ne Procesim'),
+(36, 1, '2023-02-14', '2705.49', 'Ne Procesim'),
+(37, 1, '2023-02-14', '84.50', 'Ne Procesim'),
+(38, 1, '2023-02-14', '169.00', 'Ne Procesim'),
+(39, 1, '2023-02-14', '234.00', 'Ne Procesim'),
+(40, 1, '2023-02-14', '2972.99', 'Ne Procesim'),
+(41, 1, '2023-02-14', '803.00', 'Ne Procesim'),
+(42, 1, '2023-02-14', '0.00', 'Ne Procesim'),
+(43, 1, '2023-02-14', '2705.49', 'Ne Procesim'),
+(44, 1, '2023-02-14', '84.50', 'Ne Procesim'),
+(45, 1, '2023-02-14', '0.00', 'Ne Procesim'),
+(46, 1, '2023-02-14', '84.50', 'Ne Procesim'),
+(47, 1, '2023-02-14', '0.00', 'Ne Procesim'),
+(48, 1, '2023-02-14', '84.50', 'Ne Procesim'),
+(49, 1, '2023-02-14', '161.00', 'Ne Procesim'),
+(50, 1, '2023-02-14', '233.00', 'Ne Procesim'),
+(51, 1, '2023-02-14', '234.00', 'Ne Procesim'),
+(52, 1, '2023-02-14', '234.00', 'Ne Procesim'),
+(53, 1, '2023-02-14', '234.00', 'Ne Procesim'),
+(54, 1, '2023-02-14', '231.00', 'Ne Procesim'),
+(55, 2, '2023-02-14', '2685.49', 'Ne Procesim');
+
 -- --------------------------------------------------------
+
+--
+-- Table structure for table `produkti`
+--
 
 CREATE TABLE `produkti` (
   `produktiID` int(11) NOT NULL,
@@ -102,6 +241,10 @@ CREATE TABLE `produkti` (
   `dataModifikimit` timestamp NOT NULL DEFAULT current_timestamp(),
   `qmimiProduktit` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `produkti`
+--
 
 INSERT INTO `produkti` (`produktiID`, `emriProduktit`, `emriKompanis`, `kategoriaProduktit`, `fotoProduktit`, `emriStafit`, `dataKrijimit`, `dataModifikimit`, `qmimiProduktit`) VALUES
 (1, 'Laptop ASUS TUF Gaming F15 (2021), 15.6\"', 'Asus', 'Laptop', '63e90dd68362c0.14152620.jpg', 'Llogaria', '2023-01-19 22:00:00', '2023-02-12 16:03:54', '758.50'),
@@ -130,9 +273,31 @@ INSERT INTO `produkti` (`produktiID`, `emriProduktit`, `emriKompanis`, `kategori
 (24, 'Projektor Acer C202i', 'Acer', 'TV & Projektor', '63d056f36c8ac5.29677040.jpg', 'admin', '2023-01-22 00:50:56', '2023-01-24 22:08:51', '359.50'),
 (25, 'Maus ZOWIE by BenQ S1,i zi', 'Acer', 'Maus & Aksesore', '63d056fddef055.63527829.jpg', 'admin', '2023-01-22 00:52:37', '2023-01-24 22:09:01', '97.50'),
 (26, 'Maus Marvo M720W, i zi', 'Marvo', 'Maus & Aksesore', '63d057056d4e38.57263102.jpg', 'admin', '2023-01-22 00:53:15', '2023-01-24 22:09:09', '45.59'),
-(27, 'Apple MacBook Pro 16\", M2 Max 12-Core, 32GB, 1TB, 38-Core GPU, Silver', 'Apple', 'Laptop', '63d05c06aa8757.25439961.jpg', 'admin', '2023-01-24 22:15:21', '2023-01-24 22:30:30', '4149.00');
+(27, 'Apple MacBook Pro 16\", M2 Max 12-Core, 32GB, 1TB, 38-Core GPU, Silver', 'Apple', 'Laptop', '63d05c06aa8757.25439961.jpg', 'Llogaria', '2023-01-24 22:15:21', '2023-02-13 22:10:03', '4149.00'),
+(28, 'Kufje Logitech G432, të zeza', 'Logitech', 'Kufje', '63eab827ba77c4.71044525.jpg', 'Llogaria', '2023-02-13 22:22:31', '2023-02-13 22:52:39', '84.50'),
+(29, 'Hard disk Samsung SSD 970 EVO PLUS, M.2 - 250GB', 'Samsung', 'Memorie, Hapesire dhe Akesor Kompjuter', '63eab84858c8d7.45002641.jpg', 'Llogaria', '2023-02-13 22:23:04', '2023-02-13 22:52:25', '49.50'),
+(30, 'Disk portativ WD Elements, 2TB, i zi', 'WD - Western Digital', 'Memorie, Hapesire dhe Akesor Kompjuter', '63eab88a9bae20.95606749.jpg', 'Llogaria', '2023-02-13 22:24:10', '2023-02-13 22:52:01', '84.50'),
+(31, 'Disk i jashtëm Transcend Jet 25H3B, 1 TB, i zi / kaltër', 'Transcend', 'Memorie, Hapesire dhe Akesor Kompjuter', '63eab963cfcf35.02921447.jpg', 'Llogaria', '2023-02-13 22:27:47', '2023-02-13 22:51:42', '69.50'),
+(32, 'Apple MacBook Pro 16.2\", M1 Max 10-core, 32GB, 1TB, 32-core GPU, Silver', 'Apple', 'Laptop', '63eab99c203254.93655263.jpg', 'Llogaria', '2023-02-13 22:28:44', '2023-02-13 22:28:44', '3299.00'),
+(33, 'Apple iPhone 11, 64GB, Black', 'Apple', 'Smartphone', '63eab9e5b821b1.87284331.jpg', 'Llogaria', '2023-02-13 22:29:57', '2023-02-13 22:29:57', '579.00'),
+(34, 'Apple Magic Mouse (2022), Black Multi - Touch Surface', 'Apple', 'Maus & Aksesore', '63eab9ff27af71.66828407.jpg', 'Llogaria', '2023-02-13 22:30:23', '2023-02-13 22:30:23', '119.00'),
+(35, 'Celular Samsung Galaxy A23 5G, 6.6\" FHD+, 4GB RAM, 128GB, i kaltër', 'Samsung', 'Smartphone', '63eaba204edb24.98379543.jpg', 'Llogaria', '2023-02-13 22:30:56', '2023-02-13 22:30:56', '299.50'),
+(36, 'Apple Watch SE2 GPS 44mm, Midnight Aluminium Case me Midnight Sport Band, Regular', 'Apple', 'Smart Watch', '63eaba4ebf5fb1.84174295.jpg', 'Llogaria', '2023-02-13 22:31:42', '2023-02-13 22:31:42', '349.00'),
+(37, 'Fotoaparat momental Fujifilm Instax Mini 90, i zi', 'Instax', 'Foto & Video', '63eabd7f7f4296.27491084.jpg', 'Llogaria', '2023-02-13 22:45:19', '2023-02-13 22:45:19', '119.50'),
+(38, 'Printer Canon PIXMA TS3150, i zi', 'Canon', 'Printer', '63eabdbea539b0.78235909.jpg', 'Llogaria', '2023-02-13 22:46:22', '2023-02-13 22:46:22', '79.50'),
+(39, 'Kufje Sony MDR-RF895RK, të zeza, III', 'Sony', 'Kufje', '63eabdd87c2561.68876767.jpg', 'Llogaria', '2023-02-13 22:46:48', '2023-02-13 22:46:48', '99.50'),
+(40, 'Kontroller Sony Playstation 5 DualSense', 'Sony', 'Lodra smart & Dron', '63eabe14e6ab51.91700813.jpg', 'Llogaria', '2023-02-13 22:47:48', '2023-02-13 22:47:48', '89.50'),
+(41, 'Karrige SENSE7 Knight, e zezë', 'SENSE7', 'Karrige Gaming', '63eabe31db73d8.09365222.jpg', 'Llogaria', '2023-02-13 22:48:17', '2023-02-13 22:48:17', '169.50'),
+(42, 'Maus Preyon Owl Wireless (POW35B)', 'Preyon', 'Maus & Aksesore', '63eabe5a5852e1.52076563.jpg', 'Llogaria', '2023-02-13 22:48:58', '2023-02-13 22:48:58', '49.50'),
+(43, 'Apple 10.9-inch iPad (10th) Wi-Fi, 64GB, Silver', 'Apple', 'Tablet', '63eabe72174975.16788497.jpg', 'Llogaria', '2023-02-13 22:49:22', '2023-02-13 22:49:22', '569.00'),
+(44, 'Apple MagSafe Duo Charger', 'Apple', 'Wireless Charger', '63eabe936e0523.11456101.jpg', 'Llogaria', '2023-02-13 22:49:55', '2023-02-13 22:49:55', '169.00'),
+(45, 'Apple AirPods (3rd generation) with Lightning Charging Case', 'Apple', 'Kufje', '63eabeae767761.75083362.jpg', 'Llogaria', '2023-02-13 22:50:22', '2023-02-13 22:50:39', '239.00');
 
 -- --------------------------------------------------------
+
+--
+-- Table structure for table `tedhenatporosis`
+--
 
 CREATE TABLE `tedhenatporosis` (
   `idPorosia` int(11) DEFAULT NULL,
@@ -142,7 +307,83 @@ CREATE TABLE `tedhenatporosis` (
   `qmimiTotal` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `tedhenatporosis`
+--
+
+INSERT INTO `tedhenatporosis` (`idPorosia`, `idProdukti`, `qmimiProd`, `sasiaPorositur`, `qmimiTotal`) VALUES
+(1, 2, 2710.49, 1, '2710.49'),
+(2, 2, 2710.49, 1, '2710.49'),
+(3, 41, 169.50, 1, '169.50'),
+(3, 2, 2710.49, 1, '2710.49'),
+(4, 34, 119.00, 1, '119.00'),
+(4, 23, 1779.00, 1, '1779.00'),
+(5, 37, 119.50, 1, '119.50'),
+(5, 1, 758.50, 1, '758.50'),
+(5, 42, 49.50, 1, '49.50'),
+(6, 33, 579.00, 1, '579.00'),
+(6, 27, 4149.00, 1, '4149.00'),
+(6, 45, 239.00, 1, '239.00'),
+(6, 19, 55.00, 1, '55.00'),
+(6, 21, 1499.99, 1, '1499.99'),
+(6, 18, 12.99, 1, '12.99'),
+(7, 45, 239.00, 1, '239.00'),
+(8, 40, 89.50, 1, '89.50'),
+(9, 40, 89.50, 1, '89.50'),
+(11, 2, 2710.49, 1, '2710.49'),
+(12, 45, 239.00, 1, '239.00'),
+(13, 44, 169.00, 1, '169.00'),
+(14, 44, 169.00, 1, '169.00'),
+(15, 44, 169.00, 1, '169.00'),
+(16, 44, 169.00, 1, '169.00'),
+(17, 39, 99.50, 1, '99.50'),
+(18, 41, 169.50, 1, '169.50'),
+(18, 2, 2710.49, 1, '2710.49'),
+(18, 6, 28.50, 1, '28.50'),
+(18, 3, 899.99, 1, '899.99'),
+(18, 11, 210.66, 1, '210.66'),
+(18, 18, 12.99, 1, '12.99'),
+(19, 44, 169.00, 1, '169.00'),
+(21, 43, 569.00, 1, '569.00'),
+(22, 45, 239.00, 1, '239.00'),
+(23, 41, 169.50, 1, '169.50'),
+(24, 36, 349.00, 1, '349.00'),
+(25, 38, 79.50, 1, '79.50'),
+(26, 3, 899.99, 1, '899.99'),
+(27, 44, 169.00, 1, '169.00'),
+(28, 36, 349.00, 1, '349.00'),
+(29, 44, 169.00, 1, '169.00'),
+(31, 40, 89.50, 1, '89.50'),
+(31, 2, 2710.49, 1, '2710.49'),
+(32, 44, 169.00, 1, '169.00'),
+(33, 40, 89.50, 1, '89.50'),
+(35, 2, 2710.49, 1, '2710.49'),
+(36, 2, 2710.49, 1, '2710.49'),
+(37, 40, 89.50, 1, '89.50'),
+(38, 44, 169.00, 1, '169.00'),
+(39, 45, 239.00, 1, '239.00'),
+(40, 45, 239.00, 1, '239.00'),
+(40, 6, 28.50, 1, '28.50'),
+(40, 2, 2710.49, 1, '2710.49'),
+(41, 43, 569.00, 1, '569.00'),
+(41, 45, 239.00, 1, '239.00'),
+(43, 2, 2710.49, 1, '2710.49'),
+(44, 40, 89.50, 1, '89.50'),
+(46, 40, 89.50, 1, '89.50'),
+(48, 40, 89.50, 1, '89.50'),
+(49, 44, 169.00, 1, '169.00'),
+(50, 45, 239.00, 1, '239.00'),
+(51, 45, 239.00, 1, '239.00'),
+(52, 45, 239.00, 1, '239.00'),
+(53, 45, 239.00, 1, '239.00'),
+(54, 45, 239.00, 1, '239.00'),
+(55, 2, 2710.49, 1, '2710.49');
+
 -- --------------------------------------------------------
+
+--
+-- Table structure for table `tedhenatuser`
+--
 
 CREATE TABLE `tedhenatuser` (
   `userID` int(11) NOT NULL,
@@ -152,12 +393,20 @@ CREATE TABLE `tedhenatuser` (
   `adresa` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `tedhenatuser`
+--
+
 INSERT INTO `tedhenatuser` (`userID`, `nrKontaktit`, `qyteti`, `zipKodi`, `adresa`) VALUES
-(1, '+38343710410', 'Kaçanik', '', ''),
+(1, '044122123', 'Kaçanik', '71000', 'Adresa'),
 (2, '043710410', 'Kaçanik', '71000', 'Komandant Zefi 69'),
 (3, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
 
 CREATE TABLE `user` (
   `userID` int(11) NOT NULL,
@@ -169,60 +418,139 @@ CREATE TABLE `user` (
   `aksesi` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `user`
+--
+
 INSERT INTO `user` (`userID`, `emri`, `mbiemri`, `username`, `email`, `password`, `aksesi`) VALUES
 (1, 'Llogaria', 'User', 'user', 'test@rmail.com', 'user', 0),
 (2, 'Llogaria', 'Adminit', 'admin', 'admin@gmail.com', 'admin', 2),
 (3, 'Llogaria', 'Menagjimit', 'menagjim', 'menagjim@gmail.com', 'menagjim', 1);
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `contactform`
+--
 ALTER TABLE `contactform`
   ADD PRIMARY KEY (`IDmesazhi`);
 
+--
+-- Indexes for table `kategoriaproduktit`
+--
 ALTER TABLE `kategoriaproduktit`
   ADD PRIMARY KEY (`kategoriaID`);
 
+--
+-- Indexes for table `kodizbritjes`
+--
+ALTER TABLE `kodizbritjes`
+  ADD PRIMARY KEY (`kodi`);
+
+--
+-- Indexes for table `kompania`
+--
 ALTER TABLE `kompania`
   ADD PRIMARY KEY (`kompaniaID`);
 
+--
+-- Indexes for table `porosit`
+--
 ALTER TABLE `porosit`
   ADD PRIMARY KEY (`nrPorosis`),
   ADD KEY `FK_KlientiPorosia` (`idKlienti`);
 
+--
+-- Indexes for table `produkti`
+--
 ALTER TABLE `produkti`
   ADD PRIMARY KEY (`produktiID`);
 
+--
+-- Indexes for table `tedhenatporosis`
+--
 ALTER TABLE `tedhenatporosis`
   ADD KEY `FK_PorosiaTeDhenatPorosis` (`idPorosia`),
   ADD KEY `FK_PorosiaProdukti` (`idProdukti`);
 
+--
+-- Indexes for table `tedhenatuser`
+--
+ALTER TABLE `tedhenatuser`
+  ADD KEY `FK_UserTeDhenatUser` (`userID`);
+
+--
+-- Indexes for table `user`
+--
 ALTER TABLE `user`
   ADD PRIMARY KEY (`userID`);
 
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `contactform`
+--
 ALTER TABLE `contactform`
   MODIFY `IDmesazhi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
+--
+-- AUTO_INCREMENT for table `kategoriaproduktit`
+--
 ALTER TABLE `kategoriaproduktit`
-  MODIFY `kategoriaID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `kategoriaID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
+--
+-- AUTO_INCREMENT for table `kompania`
+--
 ALTER TABLE `kompania`
-  MODIFY `kompaniaID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `kompaniaID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
+--
+-- AUTO_INCREMENT for table `porosit`
+--
 ALTER TABLE `porosit`
-  MODIFY `nrPorosis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `nrPorosis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
+--
+-- AUTO_INCREMENT for table `produkti`
+--
 ALTER TABLE `produkti`
-  MODIFY `produktiID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `produktiID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
+--
+-- AUTO_INCREMENT for table `user`
+--
 ALTER TABLE `user`
   MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `porosit`
+--
 ALTER TABLE `porosit`
   ADD CONSTRAINT `FK_KlientiPorosia` FOREIGN KEY (`idKlienti`) REFERENCES `user` (`userID`) ON DELETE SET NULL ON UPDATE CASCADE;
 
+--
+-- Constraints for table `tedhenatporosis`
+--
 ALTER TABLE `tedhenatporosis`
   ADD CONSTRAINT `FK_PorosiaProdukti` FOREIGN KEY (`idProdukti`) REFERENCES `produkti` (`produktiID`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `FK_PorosiaTeDhenatPorosis` FOREIGN KEY (`idPorosia`) REFERENCES `porosit` (`nrPorosis`) ON DELETE CASCADE ON UPDATE CASCADE;
 
+--
+-- Constraints for table `tedhenatuser`
+--
 ALTER TABLE `tedhenatuser`
   ADD CONSTRAINT `FK_UserTeDhenatUser` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

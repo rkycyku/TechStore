@@ -58,6 +58,10 @@ if (!isset($_SESSION['aksesi'])) {
                         <span class="line"></span>
                     </li>
                     <li class="nav-item">
+                        <a href="../admin/kodetEZbritjes.php">Kodet e Zbritjeve</a>
+                        <span class="line"></span>
+                    </li>
+                    <li class="nav-item">
                         <a href="../admin/shfaqMesazhet.php">Mesazhet</a>
                         <span class="line"></span>
                     </li><?php
@@ -111,7 +115,11 @@ if (!isset($_SESSION['aksesi'])) {
                             </li>
                             <li class="nav-item">
                                 <a href="../admin/shtoKompanin.php">Vendos Kompanite</a>
-                            </li></li><li class="nav-item">
+                            </li>
+                            <li class="nav-item">
+                                <a href="../admin/shtoKodinEZbritjes.php">Shtoni Kode te Zbritjeve</a>
+                            </li>
+                        <li class="nav-item">
                             <a href="../funksione/logout.php">Log Out</a>
                         </li>
                         <?php

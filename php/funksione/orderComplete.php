@@ -7,9 +7,11 @@ if (!isset($_SESSION['shportaBlerjes'])) {
 }
 
 include('../CRUD/porosiaCRUD.php');
-
+include('../CRUD/kodiZbritjesCRUD.php');
 $porosiaCRUD = new porosiaCRUD();
+$kodiZbritjesCRUD = new kodiZbritjesCRUD();
 $total = 0;
+$nentotali = 0;
 
 foreach ($_SESSION["shportaBlerjes"] as $keys => $values) {
   $total = $total + ($values["sasia"] * $values["qmimiProduktit"]);
@@ -17,7 +19,11 @@ foreach ($_SESSION["shportaBlerjes"] as $keys => $values) {
 
 }
 
-if (isset($_POST['complete'])) {
+if (isset($_SESSION['qmimiZbritur'])) {
+  $total = $total - $_SESSION['qmimiZbritur'];
+}
+
+if (isset($_SESSION['complete'])) {
   $porosiaCRUD->setUserID($_SESSION["userID"]);
   $porosiaCRUD->setQmimiTotal($total);
 
@@ -34,6 +40,8 @@ if (isset($_POST['complete'])) {
     $porosiaCRUD->setQmimiTotal(floatval($values['qmimiProduktit'] * $values['sasia']));
 
     $porosiaCRUD->shtoTeDhenatPorosis();
+
+    unset($_SESSION['qmimiZbritur']);
   }
 
 
@@ -50,6 +58,7 @@ if (isset($_POST['complete'])) {
 $teDhenatPorosis = $porosiaCRUD->shfaqProduktetEPorosisSipasID();
 $porosia = $porosiaCRUD->shfaqPorosinSipasID();
 
+ECHO $kodiZbritjesCRUD->getKodiZbritje();
 ?>
 
 
@@ -114,13 +123,36 @@ $porosia = $porosiaCRUD->shfaqPorosinSipasID();
               <?php echo $porosit['emriProduktit'] ?>
             </td>
             <td>
-              <?php echo $porosit['qmimiProd'] ?>
+              <?php echo number_format($porosit['qmimiProd'], 2)  ?> €
             </td>
             <td>
               <?php echo $porosit['sasiaPorositur'] ?>
             </td>
             <td>
               <?php echo $porosit['qmimiTotal'] ?> €
+            </td>
+          </tr>
+          <?php
+
+          $nentotali = $nentotali + $porosit['qmimiTotal'];
+        }
+        ?>
+        <?php if ($nentotali != $porosia['TotaliPorosis']) {
+          ?>
+          <tr>
+            <td colspan="3" align="right">
+              <strong>Nentotali: </strong>
+            </td>
+            <td>
+              <?php echo number_format($nentotali, 2) . ' €' ?>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3" align="right">
+              <strong>Zbritja: </strong>
+            </td>
+            <td>
+              <?php echo number_format($porosia['TotaliPorosis'] - $nentotali, 2) . ' €' ?>
             </td>
           </tr>
           <?php

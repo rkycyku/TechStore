@@ -4,6 +4,8 @@ Me i rishiku nqofse kan nevoj per editime te gjitha faqet
 --Validim
 Me e validu mos me mujt me shtu produktin nqofse egziston i njejti me emer te njejt
 Me i Rishiku validimet e krejt inputeve.
+Me e validu gift code.
 
 --PHP
 Me shku me elemenimu fajlle qe munden me u transferu direkt n file kryesore.
+Me e shiku gift code.
