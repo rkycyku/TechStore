@@ -222,12 +222,19 @@
   .kartelaEBrendit {
     width: 150px;
     margin-right: 2em;
+    height: 150px;
+    justify-content: center;
+    align-items: center;
   }
 
-  .logoBrendit {
-    width: 100px;
-    margin: 0 auto;
+  .logoBrendit{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5em;
   }
+
 
   .shkoMajtas,
   .shkoDjathtas {

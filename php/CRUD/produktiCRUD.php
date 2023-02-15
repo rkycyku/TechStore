@@ -138,7 +138,7 @@ class produktiCRUD extends dbCon
     public function shfaqTeGjithaProduktet()
     {
         try {
-            $sql = "SELECT * FROM `produkti`";
+            $sql = "SELECT * FROM `produkti` ORDER BY `produktiID` DESC  ";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute();
 

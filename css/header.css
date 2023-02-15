@@ -37,6 +37,21 @@ header {
   position: relative;
 }
 
+.nav-center {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 1em;
+}
+
+.nav-right {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  gap: 1em;
+  align-items: center;
+}
+
 .logo img {
   width: 70px;
   aspect-ratio: 3/2;
@@ -48,6 +63,7 @@ header {
   align-items: center;
   justify-content: center;
   gap: 2em;
+  width: 100%;
 }
 
 .nav-links a {
@@ -133,7 +149,7 @@ header {
   border: none;
   outline: none;
   color: white;
-  padding: 14px 16px;
+  padding: 20px 20px;
   background-color: inherit;
   font-family: inherit;
   margin: 0;
@@ -147,7 +163,7 @@ header {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 160px;
+  min-width: 210px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
@@ -170,12 +186,20 @@ header {
   display: block;
 }
 
+.dropdown:hover span,
+.dropbtn:hover span {
+  color: white;
+}
 
 @media (min-width: 1025px) {
   .mobile-shporta {
     display: none;
   }
-
+  .nav-left {
+    display: flex;
+    justify-content: flex-start;
+    width: 50%;
+  }
   .mobile {
     position: fixed;
     left: 100%;
@@ -198,7 +222,7 @@ header {
     display: block;
   }
 
-  .nav-item span{
+  .nav-item span {
     color: black;
   }
 
@@ -245,8 +269,8 @@ header {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    left: auto; 
-    right: 0; 
+    left: 0;
+    right: 0;
   }
 
   .dropdown-content a {
