@@ -16,7 +16,7 @@ header {
   width: 100%;
   padding: 0 5%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   background-color: white;
   z-index: 2000;
@@ -74,14 +74,14 @@ header {
   transition: 0.1s ease-in-out;
 }
 
-.auth {
+.mobile {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 2em;
 }
 
-.auth a {
+.mobile a {
   color: black;
   font-weight: 600;
 }
@@ -100,7 +100,7 @@ header {
 }
 
 .hamburger {
-  display: block;
+  display: none;
   cursor: pointer;
 }
 
@@ -112,27 +112,71 @@ header {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   background-color: black;
+  overflow: hidden;
 }
 
 .hamIkona:nth-child(2) {
   background-color: #073879;
 }
 
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropbtn span {
+  color: #00113f;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3aa27e;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #3aa27e;
+  color: white;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
 @media (min-width: 1025px) {
-  .hamburger.active .hamIkona:nth-child(2) {
-    opacity: 0;
+  .mobile-shporta {
+    display: none;
   }
 
-  .hamburger.active .hamIkona:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-    background-color: #073879;
-  }
-
-  .hamburger.active .hamIkona:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-  }
-
-  .auth {
+  .mobile {
     position: fixed;
     left: 100%;
     top: 70px;
@@ -143,46 +187,40 @@ header {
     text-align: center;
     transition: 0.3s;
   }
-
-  .auth.active {
-    left: 0;
-  }
-  .auth a:hover {
-    color: #073879;
-  }
-
-  .auth .nav-item:hover {
-    transform: none;
-  }
-
-  .auth .nav-item:first-child {
-    margin-top: 5px;
-  }
-
-  .auth .nav-item:last-child {
-    margin-bottom: 10px;
-  }
 }
 
 @media (max-width: 1024px) {
+  header {
+    position: relative;
+  }
+
+  .mobile-shporta {
+    display: block;
+  }
+
+  .nav-item span{
+    color: black;
+  }
+
   .nav ul li:hover {
     transform: none;
   }
   .nav ul li:hover .line {
     display: none;
   }
+
   .hamburger {
     display: block;
   }
 
-  .hamburger.active .hamIkona:nth-child(2) {
+  .dropbtn:hover .hamIkona:nth-child(2) {
     opacity: 0;
   }
-  .hamburger.active .hamIkona:nth-child(1) {
+  .dropbtn:hover .hamIkona:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
     background-color: #073879;
   }
-  .hamburger.active .hamIkona:nth-child(3) {
+  .dropbtn:hover .hamIkona:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }
   .nav li {
@@ -199,23 +237,28 @@ header {
     text-align: center;
     transition: 0.3s;
   }
-  .auth {
-    position: fixed;
-    left: -100%;
-    top: 199px;
-    gap: 0;
-    flex-direction: column;
-    background-color: #f7f7f9;
-    width: 100%;
-    text-align: center;
-    transition: 0.3s;
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    left: auto; 
+    right: 0; 
   }
-  .nav-links.active,
-  .auth.active {
-    left: 0;
+
+  .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
   }
-  .nav-links a:hover,
-  .auth a:hover {
-    color: #073879;
+
+  .dropdown:hover .dropdown-content {
+    display: block;
   }
 }

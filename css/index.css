@@ -92,7 +92,9 @@
 }
 
 .button-shporta {
-  width: 2.5em;
+  width: 3em;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 
 .button:hover {
@@ -266,7 +268,7 @@
   }
 
   .button-shporta {
-    width: 6.3em;
+    width: 10em;
   }
 }
 
