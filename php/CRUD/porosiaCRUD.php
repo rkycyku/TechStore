@@ -17,9 +17,10 @@ class porosiaCRUD extends dbCon
     private $sasiaPorositur;
     private $qmimiTotal;
     private $statusiPorosis;
+    private $kodiZbritjes;
     private $dbConn;
 
-    public function __construct($porosiaID = '', $produktiID = '', $userID = '', $emriKlientit = '', $mbiemriKlientit = '', $emailKlientit = '', $nrKontaktit = '', $qyteti = '', $adresaKlientit = '', $dataPorosis = '', $qmimiProd = '', $sasiaPorositur = '', $qmimiTotal = '', $statusiPorosis = '')
+    public function __construct($porosiaID = '', $produktiID = '', $userID = '', $emriKlientit = '', $mbiemriKlientit = '', $emailKlientit = '', $nrKontaktit = '', $qyteti = '', $adresaKlientit = '', $dataPorosis = '', $qmimiProd = '', $sasiaPorositur = '', $qmimiTotal = '', $statusiPorosis = '', $kodiZbritjes = '')
     {
         $this->porosiaID = $porosiaID;
         $this->produktiID = $produktiID;
@@ -180,12 +181,22 @@ class porosiaCRUD extends dbCon
         $this->statusiPorosis = $statusiPorosis;
     }
 
+    public function getKodiZbritjes()
+    {
+        return $this->kodiZbritjes;
+    }
+
+    public function setKodiZbritjes($kodiZbritjes)
+    {
+        $this->kodiZbritjes = $kodiZbritjes;
+    }
+
     public function shtoPorosin()
     {
         try {
-            $sql = "INSERT INTO `porosit`(`idKlienti`, `TotaliPorosis`) VALUES (?, ?)";
+            $sql = "INSERT INTO `porosit`(`idKlienti`, `TotaliPorosis`, `kodiZbritjes`) VALUES (?, ?, ?)";
             $stm = $this->dbConn->prepare($sql);
-            $stm->execute([$this->userID, $this->qmimiTotal]);
+            $stm->execute([$this->userID, $this->qmimiTotal, $this->kodiZbritjes]);
         } catch (Exception $e) {
             return $e->getMessage();
         }
@@ -330,7 +341,7 @@ class porosiaCRUD extends dbCon
     {
         try {
             $sql = "SELECT p.nrPorosis, u.emri, u.mbiemri, 
-                    tu.nrKontaktit, tu.qyteti, tu.zipKodi, tu.adresa, p.dataPorosis, p.TotaliPorosis, p.statusiPorosis
+                    tu.nrKontaktit, tu.qyteti, tu.zipKodi, tu.adresa, p.dataPorosis, p.TotaliPorosis, p.statusiPorosis, p.kodiZbritjes
                     from porosit p 
                     inner join user u on u.userID = p.idKlienti 
                     inner join tedhenatuser tu on u.userID = tu.userID 
@@ -410,5 +421,7 @@ class porosiaCRUD extends dbCon
             return $e->getMessage();
         }
     }
+
+
 }
 ?>

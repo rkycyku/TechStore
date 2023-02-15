@@ -26,6 +26,10 @@ if (isset($_SESSION['qmimiZbritur'])) {
 if (isset($_SESSION['complete'])) {
   $porosiaCRUD->setUserID($_SESSION["userID"]);
   $porosiaCRUD->setQmimiTotal($total);
+  if (isset($_SESSION['kodiZbritjes'])) {
+    $porosiaCRUD->setKodiZbritjes($_SESSION['kodiZbritjes']);
+    unset($_SESSION['kodiZbritjes']);
+  }
 
   $porosiaCRUD->shtoPorosin();
 
@@ -43,9 +47,6 @@ if (isset($_SESSION['complete'])) {
 
     unset($_SESSION['qmimiZbritur']);
   }
-
-
-
 
   $_SESSION['porosiaMeSukses'] = true;
 
@@ -111,7 +112,8 @@ $porosia = $porosiaCRUD->shfaqPorosinSipasID();
         <tr>
           <th style="text-transform: uppercase;">Numri Porosis</th>
           <td id='nrKontaktit' colspan="3" style="text-align:center;">
-            #<?php echo $porosia["nrPorosis"]; ?>
+            #
+            <?php echo $porosia["nrPorosis"]; ?>
           </td>
         </tr>
         <tr>
@@ -129,7 +131,7 @@ $porosia = $porosiaCRUD->shfaqPorosinSipasID();
               <?php echo $porosit['emriProduktit'] ?>
             </td>
             <td>
-              <?php echo number_format($porosit['qmimiProd'], 2)  ?> €
+              <?php echo number_format($porosit['qmimiProd'], 2) ?> €
             </td>
             <td>
               <?php echo $porosit['sasiaPorositur'] ?>

@@ -27,11 +27,11 @@ if (!isset($_SESSION['aksesi'])) {
             <ul class="nav-links">
                 <?php
                 if ($_SESSION['aksesi'] != 0) {
-                    ?><li class="nav-item">
+                    ?>
+                    <li class="nav-item">
                         <a href="../userPages/userDashboard.php">Dashboard</a>
                         <span class="line"></span>
                     </li>
-
                     <li class="nav-item">
                         <a href="../admin/shtoProdukt.php">Vendos Produktet</a>
                         <span class="line"></span>
@@ -64,9 +64,11 @@ if (!isset($_SESSION['aksesi'])) {
                     <li class="nav-item">
                         <a href="../admin/shfaqMesazhet.php">Mesazhet</a>
                         <span class="line"></span>
-                    </li><?php
+                    </li>
+                    <?php
                 } else {
-                    ?><li class="nav-item">
+                    ?>
+                    <li class="nav-item">
                         <a href="../pages/index.php">Home</a>
                         <span class="line"></span>
                     </li>
@@ -81,15 +83,17 @@ if (!isset($_SESSION['aksesi'])) {
                     <li class="nav-item">
                         <a href="../pages/produktet.php">Products</a>
                         <span class="line"></span>
-                    </li><?php
+                    </li>
+                    <?php
                 }
                 ?>
                 <li class="nav-item">
-                    <a href="../pages/shporta.php"><span class="fa badge fa-lg" value=<?php
+                    <a href="../pages/shporta.php"><span class="fa badge fa-lg" value="<?php
                     if (isset($_SESSION['shportaBlerjes'])) {
                         echo count($_SESSION['shportaBlerjes']);
-                    }else{
-                        echo 0;}?>>&#xf07a;</span></a>
+                    } else {
+                        echo 0;
+                    } ?>">&#xf07a;</span></a>
                 </li>
             </ul>
             <ul class="auth">
@@ -110,35 +114,38 @@ if (!isset($_SESSION['aksesi'])) {
                         <li class="nav-item">
                             <a href="../pages/produktet.php">Produkte</a>
                         </li>
-                            <li class="nav-item">
-                                <a href="../admin/shtoKategorin.php">Vendos Kategorite</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../admin/shtoKompanin.php">Vendos Kompanite</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../admin/shtoKodinEZbritjes.php">Shtoni Kode te Zbritjeve</a>
-                            </li>
+                        <li class="nav-item">
+                            <a href="../admin/shtoKategorin.php">Vendos Kategorite</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../admin/shtoKompanin.php">Vendos Kompanite</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../admin/shtoKodinEZbritjes.php">Shtoni Kode te Zbritjeve</a>
+                        </li>
                         <li class="nav-item">
                             <a href="../funksione/logout.php">Log Out</a>
                         </li>
                         <?php
                     } else {
-                        ?>    
-                    <li class="nav-item">
+                        ?>
+                        <li class="nav-item">
                             <a href="../userPages/userDashboard.php">Dashboard</a>
-                        </li><li class="nav-item">
+                        </li>
+                        <li class="nav-item">
                             <a href="../funksione/logout.php">Log Out</a>
                         </li>
                         <?php
                     }
                 } else {
-                    ?><li class="nav-item">
-                            <a href="../pages/login.php">Log In</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="../pages/signup.php">Sign Up</a>
-                        </li><?php
+                    ?>
+                    <li class="nav-item">
+                        <a href="../pages/login.php">Log In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../pages/signup.php">Sign Up</a>
+                    </li>
+                    <?php
                 }
                 ?>
             </ul>

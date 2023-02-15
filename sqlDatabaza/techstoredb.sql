@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 14, 2023 at 08:26 PM
+-- Generation Time: Feb 15, 2023 at 11:59 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -85,7 +85,7 @@ INSERT INTO `kategoriaproduktit` (`kategoriaID`, `emriKategoris`, `pershkrimiKat
 --
 
 CREATE TABLE `kodizbritjes` (
-  `kodi` varchar(10) NOT NULL,
+  `kodi` char(6) NOT NULL,
   `idProduktit` varchar(11) DEFAULT NULL,
   `dataKrijimit` date NOT NULL DEFAULT current_timestamp(),
   `qmimiZbritjes` decimal(10,2) NOT NULL
@@ -96,9 +96,9 @@ CREATE TABLE `kodizbritjes` (
 --
 
 INSERT INTO `kodizbritjes` (`kodi`, `idProduktit`, `dataKrijimit`, `qmimiZbritjes`) VALUES
+('5B7IKW', '23', '2023-02-15', '600.00'),
 ('AB12EE', '45', '2023-02-14', '5.00'),
-('SXKD4R', '18', '2023-02-14', '50.00'),
-('WNDT3C', '4', '2023-02-14', '560.00');
+('FGNBSQ', '20', '2023-02-15', '123.00');
 
 -- --------------------------------------------------------
 
@@ -160,6 +160,7 @@ CREATE TABLE `porosit` (
   `idKlienti` int(11) DEFAULT NULL,
   `dataPorosis` date NOT NULL DEFAULT current_timestamp(),
   `TotaliPorosis` decimal(10,2) NOT NULL,
+  `kodiZbritjes` char(6) DEFAULT NULL,
   `statusiPorosis` varchar(30) NOT NULL DEFAULT 'Ne Procesim'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -167,62 +168,78 @@ CREATE TABLE `porosit` (
 -- Dumping data for table `porosit`
 --
 
-INSERT INTO `porosit` (`nrPorosis`, `idKlienti`, `dataPorosis`, `TotaliPorosis`, `statusiPorosis`) VALUES
-(1, 2, '2023-02-13', '2710.49', 'Ne Procesim'),
-(2, 1, '2023-02-13', '2710.49', 'Ne Procesim'),
-(3, 1, '2023-02-13', '2879.99', 'Ne Procesim'),
-(4, 1, '2023-02-13', '1898.00', 'Ne Procesim'),
-(5, 1, '2023-02-13', '927.50', 'Ne Procesim'),
-(6, 1, '2023-02-13', '6534.98', 'Ne Procesim'),
-(7, 2, '2023-02-14', '239.00', 'Ne Procesim'),
-(8, 2, '2023-02-14', '89.50', 'Ne Procesim'),
-(9, 2, '2023-02-14', '84.50', 'Ne Procesim'),
-(10, 2, '2023-02-14', '-5.00', 'Ne Procesim'),
-(11, 2, '2023-02-14', '2705.49', 'Ne Procesim'),
-(12, 2, '2023-02-14', '234.00', 'Ne Procesim'),
-(13, 2, '2023-02-14', '164.00', 'Ne Procesim'),
-(14, 2, '2023-02-14', '164.00', 'Ne Procesim'),
-(15, 1, '2023-02-14', '164.00', 'Ne Procesim'),
-(16, 1, '2023-02-14', '164.00', 'Ne Procesim'),
-(17, 1, '2023-02-14', '94.50', 'Ne Procesim'),
-(18, 1, '2023-02-14', '4027.13', 'Ne Procesim'),
-(19, 1, '2023-02-14', '169.00', 'Ne Procesim'),
-(20, 1, '2023-02-14', '0.00', 'Ne Procesim'),
-(21, 1, '2023-02-14', '569.00', 'Ne Procesim'),
-(22, 1, '2023-02-14', '234.00', 'Ne Procesim'),
-(23, 1, '2023-02-14', '164.50', 'Ne Procesim'),
-(24, 1, '2023-02-14', '344.00', 'Ne Procesim'),
-(25, 1, '2023-02-14', '79.50', 'Ne Procesim'),
-(26, 1, '2023-02-14', '894.99', 'Ne Procesim'),
-(27, 1, '2023-02-14', '164.00', 'Ne Procesim'),
-(28, 1, '2023-02-14', '344.00', 'Ne Procesim'),
-(29, 1, '2023-02-14', '164.00', 'Ne Procesim'),
-(30, 1, '2023-02-14', '0.00', 'Ne Procesim'),
-(31, 1, '2023-02-14', '2794.99', 'Ne Procesim'),
-(32, 1, '2023-02-14', '164.00', 'Ne Procesim'),
-(33, 1, '2023-02-14', '84.50', 'Ne Procesim'),
-(34, 1, '2023-02-14', '0.00', 'Ne Procesim'),
-(35, 1, '2023-02-14', '2705.49', 'Ne Procesim'),
-(36, 1, '2023-02-14', '2705.49', 'Ne Procesim'),
-(37, 1, '2023-02-14', '84.50', 'Ne Procesim'),
-(38, 1, '2023-02-14', '169.00', 'Ne Procesim'),
-(39, 1, '2023-02-14', '234.00', 'Ne Procesim'),
-(40, 1, '2023-02-14', '2972.99', 'Ne Procesim'),
-(41, 1, '2023-02-14', '803.00', 'Ne Procesim'),
-(42, 1, '2023-02-14', '0.00', 'Ne Procesim'),
-(43, 1, '2023-02-14', '2705.49', 'Ne Procesim'),
-(44, 1, '2023-02-14', '84.50', 'Ne Procesim'),
-(45, 1, '2023-02-14', '0.00', 'Ne Procesim'),
-(46, 1, '2023-02-14', '84.50', 'Ne Procesim'),
-(47, 1, '2023-02-14', '0.00', 'Ne Procesim'),
-(48, 1, '2023-02-14', '84.50', 'Ne Procesim'),
-(49, 1, '2023-02-14', '161.00', 'Ne Procesim'),
-(50, 1, '2023-02-14', '233.00', 'Ne Procesim'),
-(51, 1, '2023-02-14', '234.00', 'Ne Procesim'),
-(52, 1, '2023-02-14', '234.00', 'Ne Procesim'),
-(53, 1, '2023-02-14', '234.00', 'Ne Procesim'),
-(54, 1, '2023-02-14', '231.00', 'Ne Procesim'),
-(55, 2, '2023-02-14', '2685.49', 'Ne Procesim');
+INSERT INTO `porosit` (`nrPorosis`, `idKlienti`, `dataPorosis`, `TotaliPorosis`, `kodiZbritjes`, `statusiPorosis`) VALUES
+(1, 2, '2023-02-13', '2710.49', NULL, 'Ne Procesim'),
+(2, 1, '2023-02-13', '2710.49', NULL, 'Ne Procesim'),
+(3, 1, '2023-02-13', '2879.99', NULL, 'Ne Procesim'),
+(4, 1, '2023-02-13', '1898.00', NULL, 'Ne Procesim'),
+(5, 1, '2023-02-13', '927.50', NULL, 'Ne Procesim'),
+(6, 1, '2023-02-13', '6534.98', NULL, 'Ne Procesim'),
+(7, 2, '2023-02-14', '239.00', NULL, 'Ne Procesim'),
+(8, 2, '2023-02-14', '89.50', NULL, 'Ne Procesim'),
+(9, 2, '2023-02-14', '84.50', NULL, 'Ne Procesim'),
+(10, 2, '2023-02-14', '-5.00', NULL, 'Ne Procesim'),
+(11, 2, '2023-02-14', '2705.49', NULL, 'Ne Procesim'),
+(12, 2, '2023-02-14', '234.00', NULL, 'Ne Procesim'),
+(13, 2, '2023-02-14', '164.00', NULL, 'Ne Procesim'),
+(14, 2, '2023-02-14', '164.00', NULL, 'Ne Procesim'),
+(15, 1, '2023-02-14', '164.00', NULL, 'Ne Procesim'),
+(16, 1, '2023-02-14', '164.00', NULL, 'Ne Procesim'),
+(17, 1, '2023-02-14', '94.50', NULL, 'Ne Procesim'),
+(18, 1, '2023-02-14', '4027.13', NULL, 'Ne Procesim'),
+(19, 1, '2023-02-14', '169.00', NULL, 'Ne Procesim'),
+(20, 1, '2023-02-14', '0.00', NULL, 'Ne Procesim'),
+(21, 1, '2023-02-14', '569.00', NULL, 'Ne Procesim'),
+(22, 1, '2023-02-14', '234.00', NULL, 'Ne Procesim'),
+(23, 1, '2023-02-14', '164.50', NULL, 'Ne Procesim'),
+(24, 1, '2023-02-14', '344.00', NULL, 'Ne Procesim'),
+(25, 1, '2023-02-14', '79.50', NULL, 'Ne Procesim'),
+(26, 1, '2023-02-14', '894.99', NULL, 'Ne Procesim'),
+(27, 1, '2023-02-14', '164.00', NULL, 'Ne Procesim'),
+(28, 1, '2023-02-14', '344.00', NULL, 'Ne Procesim'),
+(29, 1, '2023-02-14', '164.00', NULL, 'Ne Procesim'),
+(30, 1, '2023-02-14', '0.00', NULL, 'Ne Procesim'),
+(31, 1, '2023-02-14', '2794.99', NULL, 'Ne Procesim'),
+(32, 1, '2023-02-14', '164.00', NULL, 'Ne Procesim'),
+(33, 1, '2023-02-14', '84.50', NULL, 'Ne Procesim'),
+(34, 1, '2023-02-14', '0.00', NULL, 'Ne Procesim'),
+(35, 1, '2023-02-14', '2705.49', NULL, 'Ne Procesim'),
+(36, 1, '2023-02-14', '2705.49', NULL, 'Ne Procesim'),
+(37, 1, '2023-02-14', '84.50', NULL, 'Ne Procesim'),
+(38, 1, '2023-02-14', '169.00', NULL, 'Ne Procesim'),
+(39, 1, '2023-02-14', '234.00', NULL, 'Ne Procesim'),
+(40, 1, '2023-02-14', '2972.99', NULL, 'Ne Procesim'),
+(41, 1, '2023-02-14', '803.00', NULL, 'Ne Procesim'),
+(42, 1, '2023-02-14', '0.00', NULL, 'Ne Procesim'),
+(43, 1, '2023-02-14', '2705.49', NULL, 'Ne Procesim'),
+(44, 1, '2023-02-14', '84.50', NULL, 'Ne Procesim'),
+(45, 1, '2023-02-14', '0.00', NULL, 'Ne Procesim'),
+(46, 1, '2023-02-14', '84.50', NULL, 'Ne Procesim'),
+(47, 1, '2023-02-14', '0.00', NULL, 'Ne Procesim'),
+(48, 1, '2023-02-14', '84.50', NULL, 'Ne Procesim'),
+(49, 1, '2023-02-14', '161.00', NULL, 'Ne Procesim'),
+(50, 1, '2023-02-14', '233.00', NULL, 'Ne Procesim'),
+(51, 1, '2023-02-14', '234.00', NULL, 'Ne Procesim'),
+(52, 1, '2023-02-14', '234.00', NULL, 'Ne Procesim'),
+(53, 1, '2023-02-14', '234.00', NULL, 'Ne Procesim'),
+(54, 1, '2023-02-14', '231.00', NULL, 'Ne Procesim'),
+(55, 2, '2023-02-14', '2685.49', NULL, 'Ne Procesim'),
+(56, 2, '2023-02-15', '234.00', NULL, 'Ne Procesim'),
+(57, 2, '2023-02-15', '1285.48', NULL, 'Ne Procesim'),
+(58, 2, '2023-02-15', '0.00', NULL, 'Ne Procesim'),
+(59, 2, '2023-02-15', '17115.46', NULL, 'Ne Procesim'),
+(60, 2, '2023-02-15', '1179.00', NULL, 'Ne Procesim'),
+(61, 2, '2023-02-15', '0.00', NULL, 'Ne Procesim'),
+(62, 2, '2023-02-15', '149.00', NULL, 'Ne Procesim'),
+(63, 2, '2023-02-15', '1179.00', '5B7IKW', 'Ne Procesim'),
+(64, 2, '2023-02-15', '569.00', '5B7IKW', 'Ne Procesim'),
+(65, 2, '2023-02-15', '99.50', '5B7IKW', 'Ne Procesim'),
+(66, 2, '2023-02-15', '89.50', NULL, 'Ne Procesim'),
+(67, 2, '2023-02-15', '0.00', NULL, 'Ne Procesim'),
+(68, 2, '2023-02-15', '279.50', 'CK36TI', 'Ne Procesim'),
+(69, 2, '2023-02-15', '169.00', NULL, 'Ne Procesim'),
+(70, 2, '2023-02-15', '519.00', 'I37A2C', 'Ne Procesim'),
+(71, 2, '2023-02-15', '49.50', NULL, 'Ne Procesim');
 
 -- --------------------------------------------------------
 
@@ -377,7 +394,28 @@ INSERT INTO `tedhenatporosis` (`idPorosia`, `idProdukti`, `qmimiProd`, `sasiaPor
 (52, 45, 239.00, 1, '239.00'),
 (53, 45, 239.00, 1, '239.00'),
 (54, 45, 239.00, 1, '239.00'),
-(55, 2, 2710.49, 1, '2710.49');
+(55, 2, 2710.49, 1, '2710.49'),
+(56, 45, 239.00, 1, '239.00'),
+(57, 41, 169.50, 1, '169.50'),
+(57, 1, 758.50, 1, '758.50'),
+(57, 9, 284.49, 1, '284.49'),
+(57, 19, 55.00, 1, '55.00'),
+(57, 13, 18.99, 1, '18.99'),
+(57, 34, 119.00, 1, '119.00'),
+(59, 5, 2469.50, 1, '2469.50'),
+(59, 10, 2489.99, 1, '2489.99'),
+(59, 22, 3499.99, 3, '10499.97'),
+(59, 23, 1779.00, 1, '1779.00'),
+(60, 23, 1779.00, 1, '1779.00'),
+(62, 44, 169.00, 1, '169.00'),
+(63, 23, 1779.00, 1, '1779.00'),
+(64, 43, 569.00, 1, '569.00'),
+(65, 39, 99.50, 1, '99.50'),
+(66, 40, 89.50, 1, '89.50'),
+(68, 35, 299.50, 1, '299.50'),
+(69, 44, 169.00, 1, '169.00'),
+(70, 43, 569.00, 1, '569.00'),
+(71, 42, 49.50, 1, '49.50');
 
 -- --------------------------------------------------------
 
@@ -513,7 +551,7 @@ ALTER TABLE `kompania`
 -- AUTO_INCREMENT for table `porosit`
 --
 ALTER TABLE `porosit`
-  MODIFY `nrPorosis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `nrPorosis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT for table `produkti`

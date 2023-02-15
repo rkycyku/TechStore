@@ -62,6 +62,7 @@ $porosit = $porosiaCRUD->shfaqTeGjithaPorosite();
         <th>Adresa</th>
         <th>Data e Porosis</th>
         <th>Totali i Porosis</th>
+        <th>Gift Code</th>
         <th>Statusi i Porosis</th>
         <th>Funksione</th>
       </tr>
@@ -88,6 +89,9 @@ $porosit = $porosiaCRUD->shfaqTeGjithaPorosite();
           </td>
           <td>
             <?php echo $porosia['TotaliPorosis'] ?> €
+          </td>
+          <td>
+            <?php echo $porosia['kodiZbritjes'] ?>
           </td>
           <td>
             <?php echo $porosia['statusiPorosis'] ?>
