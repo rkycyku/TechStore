@@ -13,6 +13,8 @@ if (isset($_GET['porosiaID'])) {
   $teDhenatPorosis = $porosiaCRUD->shfaqProduktetEPorosisSipasID();
   $porosia = $porosiaCRUD->shfaqPorosinSipasID();
 }
+
+$nentotali = 0;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,13 +54,36 @@ if (isset($_GET['porosiaID'])) {
             <?php echo $porosit['emriProduktit'] ?>
           </td>
           <td>
-            <?php echo $porosit['qmimiProd'] ?>
+            <?php echo number_format($porosit['qmimiProd'], 2) ?> €
           </td>
           <td>
             <?php echo $porosit['sasiaPorositur'] ?>
           </td>
           <td>
             <?php echo $porosit['qmimiTotal'] ?> €
+          </td>
+        </tr>
+        <?php
+
+        $nentotali += $porosit['qmimiTotal'];
+      }
+      ?>
+      <?php if ($nentotali != $porosia['TotaliPorosis']) {
+        ?>
+        <tr>
+          <td colspan="3" align="right">
+            <strong>Nentotali: </strong>
+          </td>
+          <td>
+            <?php echo number_format($nentotali, 2) . ' €' ?>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3" align="right">
+            <strong>Zbritja: </strong>
+          </td>
+          <td>
+            <?php echo number_format($porosia['TotaliPorosis'] - $nentotali, 2) . ' €' ?>
           </td>
         </tr>
         <?php

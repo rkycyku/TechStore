@@ -13,12 +13,24 @@ if (isset($_POST['shtoKodin'])) {
     $kodiZbritjesCRUD->setIdProduktit($_POST['produkti']);
     $kodiZbritjesCRUD->setQmimZbritjes($_POST['qmimiZbritjes']);
 
+
     if ($_POST['produkti'] == '') {
         $kodiZbritjesCRUD->shtoKodinEZbritjes(false);
+
+        $_SESSION['zbrtijatUShtua'] = true;
     } else {
-        $kodiZbritjesCRUD->shtoKodinEZbritjes(true);
+        $produktetCRUD->setProduktiID($_POST['produkti']);
+
+        $produkti = $produktetCRUD->shfaqProduktinSipasID();
+        if ($_POST['qmimiZbritjes'] < $produkti['qmimiProduktit']) {
+            $kodiZbritjesCRUD->shtoKodinEZbritjes(true);
+
+        } else {
+            $_SESSION['zbritjaMeEMadhe'] = true;
+        }
     }
-    $_SESSION['katUShtua'] = true;
+
+
 }
 ?>
 <!DOCTYPE html>
@@ -40,10 +52,20 @@ if (isset($_POST['shtoKodin'])) {
     <div class="forms">
         <form name="shtoKodinEZbritjes" onsubmit="return validimiKategoris();" action='' method="POST">
             <?php
-            if (isset($_SESSION['katUShtua']) == true) {
+            if (isset($_SESSION['zbrtijatUShtua']) == true) {
                 ?>
                 <div class="mesazhiSuksesStyle">
-                    <p>Kategoria u shtua me sukses!</p>
+                    <p>Kodi i zbritjes u shtua me sukses!</p>
+                    <button id="mbyllMesazhin">
+                        X
+                    </button>
+                </div>
+                <?php
+            }
+            if (isset($_SESSION['zbritjaMeEMadhe']) == true) {
+                ?>
+                <div class="mesazhiGabimStyle">
+                    <p>Qmimi qe keni vendosur eshte me e i madh se i produktit!</p>
                     <button id="mbyllMesazhin">
                         X
                     </button>
@@ -66,7 +88,7 @@ if (isset($_POST['shtoKodin'])) {
                 ?>
             </select>
             <input class="form-input" name="qmimiZbritjes" type="number" placeholder="Qmimi i Zbritjes">
-            <input class="button" type="submit" value="Shtoni Kategorin" name='shtoKodin'>
+            <input class="button" type="submit" value="Shtoni Gift Code" name='shtoKodin'>
         </form>
     </div>
     <?php include('../funksione/importimiScriptave.php') ?>
@@ -74,5 +96,6 @@ if (isset($_POST['shtoKodin'])) {
 
 </html>
 <?php
-unset($_SESSION['katUShtua']);
+unset($_SESSION['zbrtijatUShtua']);
+unset($_SESSION['zbritjaMeEMadhe']);
 ?>

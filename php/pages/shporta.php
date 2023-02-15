@@ -28,7 +28,8 @@ if (isset($_POST['largo'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart</title>
+    <title>Shopping Cart | TechStore</title>
+    <link rel="shortcut icon" href="../../img/web/favicon.ico" />
     <link rel="stylesheet" href="../../css/adminDashboard.css" />
     <link rel="stylesheet" href="../../css/mesazhetStyle.css">
 </head>

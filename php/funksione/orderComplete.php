@@ -58,7 +58,6 @@ if (isset($_SESSION['complete'])) {
 $teDhenatPorosis = $porosiaCRUD->shfaqProduktetEPorosisSipasID();
 $porosia = $porosiaCRUD->shfaqPorosinSipasID();
 
-ECHO $kodiZbritjesCRUD->getKodiZbritje();
 ?>
 
 
@@ -69,7 +68,8 @@ ECHO $kodiZbritjesCRUD->getKodiZbritje();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Order Complete</title>
+  <title>Order Complete | TechStore</title>
+  <link rel="shortcut icon" href="../../img/web/favicon.ico" />
   <link rel="stylesheet" href="../../css/adminDashboard.css">
 </head>
 
@@ -106,6 +106,12 @@ ECHO $kodiZbritjesCRUD->getKodiZbritje();
           <th style="text-transform: uppercase;">Numri Kontaktues</th>
           <td id='nrKontaktit' colspan="3" style="text-align:center;">
             <?php echo $porosia["nrKontaktit"]; ?>
+          </td>
+        </tr>
+        <tr>
+          <th style="text-transform: uppercase;">Numri Porosis</th>
+          <td id='nrKontaktit' colspan="3" style="text-align:center;">
+            #<?php echo $porosia["nrPorosis"]; ?>
           </td>
         </tr>
         <tr>

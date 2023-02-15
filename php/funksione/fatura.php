@@ -91,8 +91,7 @@ $nentotali = 0;
 
       <div class="teDhenatKlientit">
         <h1>
-          <span style="font-size: 30pt;" id="emriKlientit">
-            <?php echo ucfirst($porosia['emri']) . ' ' . ucfirst($porosia['mbiemri']) ?>
+          <span style="font-size: 30pt;" id="emriKlientit"><?php echo ucfirst($porosia['emri']) . ' ' . ucfirst($porosia['mbiemri']) ?>
           </span>
         </h1>
         <p style="font-size: 20pt">
@@ -106,13 +105,11 @@ $nentotali = 0;
 
     <div class="data">
       <h1>Fatura nr:
-        <span style="font-size: 30pt;" id="nrFatures">#
-          <?php echo $porosia['nrPorosis'] ?>
+        <span style="font-size: 30pt;" id="nrFatures"><?php echo '#' . $porosia['nrPorosis'] ?>
         </span>
       </h1>
       <h3>Data e Porosis
-        <span style="font-size: 20pt;" id="dataPorosis">
-          <?php echo date("d-m-y", strtotime($porosia['dataPorosis'])) ?>
+        <span style="font-size: 20pt;" id="dataPorosis"><?php echo date("d-m-y", strtotime($porosia['dataPorosis'])) ?>
         </span>
       </h3>
     </div>

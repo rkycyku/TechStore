@@ -47,7 +47,10 @@ if (isset($_GET['fshij'])) {
             <tr>
                 <th>Kodi i Zbritjes</th>
                 <th>ID Produktit</th>
+                <th>Emri Produktit</th>
+                <th>Qmimi Produktit</th>
                 <th>Qmimi Zbritjes</th>
+                <th>Qmimi Pas Zbritjes</th>
                 <th>Data Krijimit</th>
                 <th>Funksione</th>
             </tr>
@@ -62,14 +65,29 @@ if (isset($_GET['fshij'])) {
                         <?php echo $kodi['idProduktit'] ?>
                     </td>
                     <td>
-                        <?php echo $kodi['qmimiZbritjes'] ?> €
+                        <?php if ($kodi['qmimiProduktit'] == null) {
+                            echo 'Zbritja aplikohet ne te gjitha produktet';
+                        } else {
+                            echo $kodi['emriProduktit'];
+                        }
+                        ?>
+
+                    </td>
+                    <td>
+                        <?php echo number_format($kodi['qmimiProduktit'], 2) ?> €
+                    </td>
+                    <td>
+                        -
+                        <?php echo number_format($kodi['qmimiZbritjes'], 2) ?> €
+                    </td>
+                    <td>
+                        <?php echo number_format($kodi['qmimiProduktit'] - $kodi['qmimiZbritjes'], 2) ?> €
                     </td>
                     <td>
                         <?php echo $kodi['dataKrijimit'] ?>
                     </td>
                     <td>
-                        <button class="fshij"
-                            onclick="fshijKodin('<?php echo $kodi['kodi'] ?>')">Fshije</button></button>
+                        <button class="fshij" onclick="fshijKodin('<?php echo $kodi['kodi'] ?>')">Fshije</button></button>
                     </td>
                 </tr>
                 <?php
