@@ -165,18 +165,28 @@ $produktet = $produktiCRUD->shfaqProduktetENdara($fillimi, $nrMaxIProduktevPerFa
             ?>
 
           </div>
-          <div class="faqet">
-          <?php
-           for ($i = 1; $i <= $nrFaqev; $i++) {
+          <div class="navigimiFaqev">
+          <?php if ($nrFaqes > 1) {
+            ?>
+              <a class='faqjaTjeter' href="?faqja=<?php echo $nrFaqes - 1 ?>"><i class='fa-solid'>&#xf104;</i></a>
+            <?php
+          }
+
+          for ($i = 1; $i <= $nrFaqev; $i++) {
             if ($i === $nrFaqes) {
-              echo " <i class='fa-solid'>&#xf060;</i> <a class='faqja' href=\"?faqja=$i\">$i</a>";
+              echo "    <a class='faqjaAktive' href=\"?faqja=$i\">$i</a>";
             } else {
-              echo "<a class='faqja1' href=\"?faqja=$i\">$i</a>";
+              echo "<a class='faqjaTjeter' href=\"?faqja=$i\">$i</a>";
             }
           }
     }
-          ?>
-          </div>
+    if ($nrFaqes < $nrFaqev) {
+      ?>
+          <a class='faqjaTjeter' href="?faqja=<?php echo $nrFaqes + 1 ?>"><i class='fa-solid'>&#xf105;</i></a>
+          <?php
+    }
+    ?>
+      </div>
     </div>
 
     <?php include '../design/footer.php' ?>
