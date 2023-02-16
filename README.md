@@ -1,6 +1,8 @@
-# TechStore
+# TechStore 
 
 ## Rreth Projektit
+
+![Home | TechStore](img/web/favicon.ico?raw=true) 
 
 Ky projekt eshte punuar per projektin ne **Inxhinierin e Webit**.
 
