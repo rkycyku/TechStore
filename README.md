@@ -26,8 +26,22 @@ Eshte punuar nga:
 
  - **[Gjirafa50](https://gjirafa50.com)** - Emrat, çmimet dhe fotot e produkteve,
  - **[Logos World](https://logos-world.net/)** - Disa nga logot e brendeve të cilat janë të vendosura ne slider,
- - **[Behance | Abbas - Techstore](https://www.behance.net/gallery/130956581/Tech-Store-Brand-identity)** - Logo e TechStore.
- - **[jsPDF - James Hall / Parallax](https://parall.ax/products/jspdf)** - A library to generate PDFs in JavaScript.
+ - **[Behance | Abbas - Techstore](https://www.behance.net/gallery/130956581/Tech-Store-Brand-identity)** - Logo e TechStore,
+ - **[jsPDF - James Hall / Parallax](https://parall.ax/products/jspdf)** - A library to generate PDFs in JavaScript,
+ - **[html2canvas - Niklas von Hertzen](https://html2canvas.hertzen.com/)** - Screenshots with JavaScript.
+
+## Konfigurimi
+
+Se pari ju duhet te krijoni nje databaze me emrin techstoredb ne mysql.
+Pasi te keni perfunduar databazen ju duhet te importoni databazen e Web-it e cila gjendet ne folderin sqlDatabaza.
+
+Pasi qe te behet konfigurimi ju mund te kyqeni me keto te dhena:
+
+| **Username** | **Password** | **Aksesi** |
+| -------- | -------- | -------- |
+| admin | admin | Administrator (Akses i Plote) |
+| menagjim | menagjim | Menagjer (Akses i Pjesshem) |
+| user | user | Klient (Akses i thjesht) |
 
 ## Disa nga shembujt e pamjes se TechStore
 
