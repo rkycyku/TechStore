@@ -68,7 +68,7 @@ $porosit = $porosiaCRUD->shfaqTeGjithaPorosite();
       </tr>
       <?php
 
-
+      
       foreach ($porosit as $porosia) {
         ?>
         <tr>

@@ -169,9 +169,9 @@ $produktet = $produktiCRUD->shfaqProduktetENdara($fillimi, $nrMaxIProduktevPerFa
           <?php
            for ($i = 1; $i <= $nrFaqev; $i++) {
             if ($i === $nrFaqes) {
-              echo "<strong class='faqja'>$i</strong> ";
+              echo " <i class='fa-solid'>&#xf060;</i> <a class='faqja' href=\"?faqja=$i\">$i</a>";
             } else {
-              echo "<a class='faqja1' href=\"?faqja=$i\">$i</a> ";
+              echo "<a class='faqja1' href=\"?faqja=$i\">$i</a>";
             }
           }
     }

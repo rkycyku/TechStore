@@ -216,18 +216,38 @@
 
 
 .faqet{
+  margin-top: 2em;
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 0.5em;
 }
 
 .faqja{
-  color: black;
+  color: white;
+  border: none;
+  padding: 0.6em;
+  border-radius: 100px;
+  background-color: #01df93;
 }
 
+.faqja:hover{
+  cursor: pointer;
+  color: white;
+  background-color: #01df93;
+}
 
 .faqja1{
-  color: grey;
+  color: black;
+  border: none;
+  padding: 0.6em;
+  border-radius: 100px;
+}
+
+.faqja1:hover{
+  cursor: pointer;
+  color: white;
+  background-color: #01df93;
 }
 
 /* Mbarimi i CSS te Slider-it te Brendeve */
