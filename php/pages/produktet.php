@@ -10,6 +10,27 @@ if (isset($_Post['Blej'])) {
   echo $_Post['produktiID'];
 }
 
+
+$nrMaxIProduktevPerFaqe = 16;
+
+$nrTotalIProdukteveNeSistem = $produktiCRUD->numriTotalIProdukteve();
+
+$nrFaqev = ceil($nrTotalIProdukteveNeSistem['tot'] / $nrMaxIProduktevPerFaqe);
+
+$nrFaqes = isset($_GET['faqja']) ? (int) $_GET['faqja'] : 1;
+
+if ($nrFaqes < 1) {
+  $nrFaqes = 1;
+} elseif ($nrFaqes > $nrFaqev) {
+  $nrFaqes = $nrFaqev;
+}
+
+$fillimi = ($nrFaqes - 1) * $nrMaxIProduktevPerFaqe;
+
+$produktet = $produktiCRUD->shfaqProduktetENdara($fillimi, $nrMaxIProduktevPerFaqe);
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -121,7 +142,6 @@ if (isset($_Post['Blej'])) {
               <h1 class="">All Products</h1>
             </div>
             <?php
-            $produktet = $produktiCRUD->shfaqTeGjithaProduktet();
             foreach ($produktet as $produkti) {
               ?>
               <form action="../funksione/shtoNeShport.php" method="POST" class="artikulli">
@@ -142,13 +162,24 @@ if (isset($_Post['Blej'])) {
               </form>
             <?php
             }
+            ?>
 
-            echo '</div>';
+          </div>
+          <div class="faqet">
+          <?php
+           for ($i = 1; $i <= $nrFaqev; $i++) {
+            if ($i === $nrFaqes) {
+              echo "<strong class='faqja'>$i</strong> ";
+            } else {
+              echo "<a class='faqja1' href=\"?faqja=$i\">$i</a> ";
+            }
+          }
     }
-    ?>
-      </div>
+          ?>
+          </div>
+    </div>
 
-      <?php include '../design/footer.php' ?>
+    <?php include '../design/footer.php' ?>
 </body>
 
 </html>

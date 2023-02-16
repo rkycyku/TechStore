@@ -214,6 +214,22 @@
   margin-bottom: 1em;
 }
 
+
+.faqet{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.faqja{
+  color: black;
+}
+
+
+.faqja1{
+  color: grey;
+}
+
 /* Mbarimi i CSS te Slider-it te Brendeve */
 
 /* Fillimi i CSS-it per nje dukje me te mire ne Paisjet mobile (Responsive) */

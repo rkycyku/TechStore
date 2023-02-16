@@ -342,6 +342,35 @@ class produktiCRUD extends dbCon
             return $e->getMessage();
         }
     }
+
+
+    public function shfaqProduktetENdara($fillimi, $limitiProduktec)
+{
+    try {
+        $sql = "SELECT * FROM `produkti` ORDER BY `produktiID` DESC LIMIT :fillimi, :limiti";
+        $stm = $this->dbConn->prepare($sql);
+        $stm->bindParam(':fillimi', $fillimi, PDO::PARAM_INT);
+        $stm->bindParam(':limiti', $limitiProduktec, PDO::PARAM_INT);
+        $stm->execute();
+
+        return $stm->fetchAll();
+    } catch (Exception $e) {
+        return $e->getMessage();
+    }
+}
+
+public function numriTotalIProdukteve()
+{
+    try {
+        $sql = "SELECT COUNT(*) as tot FROM `produkti`";
+        $stm = $this->dbConn->prepare($sql);
+        $stm->execute();
+
+        return $stm->fetch();
+    } catch (Exception $e) {
+        return $e->getMessage();
+    }
+}
 }
 
 
