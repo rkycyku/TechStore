@@ -164,7 +164,7 @@ class produktiCRUD extends dbCon
     public function shfaqProduktinSipasID()
     {
         try {
-            $sql = "SELECT * FROM produkti WHERE produktiID = ?";
+            $sql = "SELECT * FROM produkti p left join kodiZbritjes kz on p.produktiID = kz.idProduktit WHERE produktiID = ?";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute([$this->produktiID]);
 
@@ -371,6 +371,19 @@ public function numriTotalIProdukteve()
         return $e->getMessage();
     }
 }
+
+public function shfaq8MeTeShiturat()
+    {
+        try {
+            $sql = "SELECT P.* FROM `produkti` p inner join tedhenatporosis t on p.produktiID = t.idProdukti group by p.produktiID order by count(*) desc LIMIT 8;";
+            $stm = $this->dbConn->prepare($sql);
+            $stm->execute();
+
+            return $stm->fetchAll();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
 }
 
 

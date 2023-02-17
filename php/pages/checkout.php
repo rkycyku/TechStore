@@ -18,6 +18,10 @@ $kodiZbritjesCRUD = new kodiZbritjesCRUD();
 
 $userCRUD->setUserID($_SESSION['userID']);
 $teDhenatKlientit = $userCRUD->shfaqSipasID();
+if ($teDhenatKlientit == false) {
+    echo '<script>document.location="../pages/login.php"</script>';
+    $_SESSION['nukJeLogin'] = true;
+}
 $total = 0;
 $nentotali = 0;
 $produktetNeShport = array_column($_SESSION["shportaBlerjes"], "produktiID");
