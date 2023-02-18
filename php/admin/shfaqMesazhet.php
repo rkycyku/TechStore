@@ -31,7 +31,7 @@ $contactForm = $contactFormCRUD->shfaqMesazhet();
     if (isset($_SESSION['mezashiUKonfirmua'])) {
       ?>
       <div class="mesazhiSuksesStyle">
-        <p>Mesazhi u konfirmua me sukses!</p>
+        <p><strong>Mesazhi u konfirmua me sukses!</strong></p>
         <button id="mbyllMesazhin">
           X
         </button>
@@ -73,10 +73,10 @@ $contactForm = $contactFormCRUD->shfaqMesazhet();
             <?php echo $mesazhi['dataDergeses'] ?>
           </td>
           <td>
-            <?php echo $mesazhi['statusi'] ?>'
+            <?php echo $mesazhi['statusi'] ?>
           </td>
           <td><button class="edito"><a
-                href="../adminFunksione/konfirmoMesazhin.php?IDmesazhi=' . $mesazhi['IDmesazhi'] . '">Konfirmo</a></button>
+                href="../adminFunksione/konfirmoMesazhin.php?IDmesazhi=<?php echo $mesazhi['IDmesazhi'] ?>">Konfirmo</a></button>
           </td>
         </tr>
         <?php

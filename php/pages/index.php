@@ -63,12 +63,12 @@ $produktiCRUD = new produktiCRUD();
         <h1 class="">Latest Products</h1>
       </div>
       <?php
-      $produktet = $produktiCRUD->shfaq20ProduktetEFundit();
+      $produktet = $produktiCRUD->shfaq15ProduktetEFundit();
       foreach ($produktet as $produkti) {
         ?>
         <form action="../funksione/shtoNeShport.php" method="POST" class="artikulli">
           <input type="hidden" name="produktiID" value=<?php echo $produkti['produktiID'] ?>>
-          <input type="hidden" name="emriProduktit" value="<?php echo $produkti['emriProduktit'] ?>">
+          <input type="hidden" name="emriProduktit" value='<?php echo $produkti['emriProduktit'] ?>'>
           <input type="hidden" name="qmimiProduktit" value=<?php echo $produkti['qmimiProduktit'] ?>>
           <a href="../pages/produkti.php?produktiID=<?php echo $produkti['produktiID'] ?> ">
             <img src="../../img/products/<?php echo $produkti['fotoProduktit'] ?>" />

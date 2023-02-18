@@ -11,7 +11,7 @@ if (isset($_Post['Blej'])) {
 }
 
 
-$nrMaxIProduktevPerFaqe = 16;
+$nrMaxIProduktevPerFaqe = 20;
 
 $nrTotalIProdukteveNeSistem = $produktiCRUD->numriTotalIProdukteve();
 
@@ -95,7 +95,7 @@ $produktet = $produktiCRUD->shfaqProduktetENdara($fillimi, $nrMaxIProduktevPerFa
           ?>
           <form action="../funksione/shtoNeShport.php" method="POST" class="artikulli">
             <input type="hidden" name="produktiID" value=<?php echo $produkti['produktiID'] ?>>
-            <input type="hidden" name="emriProduktit" value="<?php echo $produkti['emriProduktit'] ?>">
+            <input type="hidden" name="emriProduktit" value='<?php echo $produkti['emriProduktit'] ?>'>
             <input type="hidden" name="qmimiProduktit" value=<?php echo $produkti['qmimiProduktit'] ?>>
             <a href="../pages/produkti.php?produktiID=<?php echo $produkti['produktiID'] ?> ">
               <img src="../../img/products/<?php echo $produkti['fotoProduktit'] ?>" />
@@ -150,7 +150,7 @@ $produktet = $produktiCRUD->shfaqProduktetENdara($fillimi, $nrMaxIProduktevPerFa
               ?>
               <form action="../funksione/shtoNeShport.php" method="POST" class="artikulli">
                 <input type="hidden" name="produktiID" value=<?php echo $produkti['produktiID'] ?>>
-                <input type="hidden" name="emriProduktit" value="<?php echo $produkti['emriProduktit'] ?>">
+                <input type="hidden" name="emriProduktit" value='<?php echo $produkti['emriProduktit'] ?>'>
                 <input type="hidden" name="qmimiProduktit" value=<?php echo $produkti['qmimiProduktit'] ?>>
                 <a href="../pages/produkti.php?produktiID=<?php echo $produkti['produktiID'] ?> ">
                   <img src="../../img/products/<?php echo $produkti['fotoProduktit'] ?>" />

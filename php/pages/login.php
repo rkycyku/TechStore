@@ -57,7 +57,7 @@ if (!isset($_SESSION)) {
       <input class="form-input" name="username" type="text" placeholder="Username">
       <input class="form-input" name="password" type="password" placeholder="Password">
       <div class="reg">
-        <p>Don't have an account? <a href="signup.php">Sign Up</a></p>
+        <p>Don't have an account? <a href="../pages/signup.php">Sign up &nbsp;<i class="fa-solid">&#xf234;</i></a></p>
       </div>
       <input class="button" type="submit" value="Log In" name='login' />
     </form>

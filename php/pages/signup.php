@@ -73,7 +73,7 @@ if (isset($_POST['submit'])) {
       <input class="form-input" name="email" type="text" placeholder="Email">
       <input class="form-input" name="password" type="password" placeholder="Password">
       <div class="reg">
-        <p>Do u have an account? <a href="login.php">Log in</a></p>
+        <p>Do u have an account? <a href="../pages/login.php">Sign in &nbsp;<i class="fa-solid">&#xf2f6;</i></a></p>
       </div>
       <input class="button" type="submit" value="Sign Up" name='submit'>
     </form>

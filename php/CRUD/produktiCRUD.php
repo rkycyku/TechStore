@@ -160,10 +160,10 @@ class produktiCRUD extends dbCon
         }
     }
 
-    public function shfaq20ProduktetEFundit()
+    public function shfaq15ProduktetEFundit()
     {
         try {
-            $sql = "SELECT * FROM (SELECT * FROM `produkti` ORDER BY `produktiID` DESC LIMIT 20) AS prodEFundit ORDER BY prodEFundit.produktiID DESC";
+            $sql = "SELECT * FROM `produkti` ORDER BY `produktiID` DESC LIMIT 15";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute();
 
@@ -223,7 +223,7 @@ class produktiCRUD extends dbCon
                         ?>
                         <form action="../funksione/shtoNeShport.php" method="POST" class="artikulli">
                             <input type="hidden" name="produktiID" value=<?php echo $produkti['produktiID'] ?>>
-                            <input type="hidden" name="emriProduktit" value="<?php echo $produkti['emriProduktit'] ?>">
+                            <input type="hidden" name="emriProduktit" value='<?php echo $produkti['emriProduktit'] ?>'>
                             <input type="hidden" name="qmimiProduktit" value=<?php echo $produkti['qmimiProduktit'] ?>>
                             <a href="../pages/produkti.php?produktiID=<?php echo $produkti['produktiID'] ?> ">
                                 <img src="../../img/products/<?php echo $produkti['fotoProduktit'] ?>" />

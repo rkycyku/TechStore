@@ -186,11 +186,6 @@ header {
   display: block;
 }
 
-.dropdown:hover span,
-.dropbtn:hover span {
-  color: white;
-}
-
 @media (min-width: 1025px) {
   .mobile-shporta {
     display: none;

@@ -74,7 +74,7 @@ if (isset($_POST['complete'])) {
             $kodiZbritjesCRUD->fshijKodin();
         }
     }
-    
+
     echo '<script>document.location="../funksione/orderComplete.php"</script>';
 }
 
@@ -118,7 +118,11 @@ if (isset($_POST['complete'])) {
         if (isset($_SESSION['zbritjaUAplikua'])) {
             ?>
             <div class="mesazhiSuksesStyle">
-                <p>Zbritja u aplikua!</p>
+                <p>Zbritja u aplikua per produktin:
+                    <strong>
+                        <?php echo $kontrolloKodin['emriProduktit']; ?>
+                    </strong>
+                </p>
                 <button id="mbyllMesazhin">
                     X
                 </button>

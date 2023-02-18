@@ -51,7 +51,11 @@ $nentotali = 0;
         ?>
         <tr>
           <td>
-            <?php echo $porosit['emriProduktit'] ?>
+            <a href="../pages/produkti.php?produktiID=<?php echo $porosit['idProdukti'] ?> ">
+              <p class=" artikulliLabel">
+                <?php echo $porosit['emriProduktit'] ?>
+              </p>
+            </a>
           </td>
           <td>
             <?php echo number_format($porosit['qmimiProd'], 2) ?> €

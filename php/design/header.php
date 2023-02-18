@@ -16,8 +16,8 @@ if (!isset($_SESSION['aksesi'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/header.css" />
     <script src="https://kit.fontawesome.com/aef627d6f9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../css/header.css" />
 </head>
 
 <body>
@@ -145,8 +145,8 @@ if (!isset($_SESSION['aksesi'])) {
                         if (isset($_SESSION['name'])) {
                             if ($_SESSION['aksesi'] != 0) {
                                 ?>
-                                <a href="../userPages/userDashboard.php">Dashboard &nbsp;<span
-                                        class="fa-solid">&#xf2bd;</span></a>
+                                <a href="../userPages/userDashboard.php">Dashboard &nbsp;<i
+                                        class="fa-solid">&#xf2bd;</i></a>
                                 <a href="../admin/produktet.php">Produktet</a>
                                 <a href="../admin/porositNgaKlientet.php">Porosite</a>
                                 <a href="../admin/perdoruesit.php">Perdoruesit</a>

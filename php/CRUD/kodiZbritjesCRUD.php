@@ -96,7 +96,7 @@ class kodiZbritjesCRUD extends dbCon
     public function kontrolloKodin()
     {
         try {
-            $sql = 'SELECT * FROM `kodizbritjes` WHERE `kodi` = ?';
+            $sql = 'SELECT * FROM `kodizbritjes` kz inner join produkti p on kz.idProduktit = p.produktiID WHERE `kodi` = ?';
             $stm = $this->conDB->prepare($sql);
             $stm->execute([$this->kodiZbritje]);
 
