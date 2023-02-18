@@ -213,10 +213,12 @@ class produktiCRUD extends dbCon
                             <input type="hidden" name="produktiID" value=<?php echo $produkti['produktiID'] ?>>
                             <input type="hidden" name="emriProduktit" value="<?php echo $produkti['emriProduktit'] ?>">
                             <input type="hidden" name="qmimiProduktit" value=<?php echo $produkti['qmimiProduktit'] ?>>
-                            <img src="../../img/products/<?php echo $produkti['fotoProduktit'] ?>" />
-                            <p class=" artikulliLabel">
-                                <?php echo $produkti['emriProduktit'] ?>
-                            </p>
+                            <a href="../pages/produkti.php?produktiID=<?php echo $produkti['produktiID'] ?> ">
+                                <img src="../../img/products/<?php echo $produkti['fotoProduktit'] ?>" />
+                                <p class=" artikulliLabel">
+                                    <?php echo $produkti['emriProduktit'] ?>
+                                </p>
+                            </a>
                             <p class="cmimi">
                                 <?php echo $produkti['qmimiProduktit'] ?> €
                             </p>
@@ -345,34 +347,34 @@ class produktiCRUD extends dbCon
 
 
     public function shfaqProduktetENdara($fillimi, $limitiProduktec)
-{
-    try {
-        $sql = "SELECT * FROM `produkti` ORDER BY `produktiID` DESC LIMIT :fillimi, :limiti";
-        $stm = $this->dbConn->prepare($sql);
-        $stm->bindParam(':fillimi', $fillimi, PDO::PARAM_INT);
-        $stm->bindParam(':limiti', $limitiProduktec, PDO::PARAM_INT);
-        $stm->execute();
+    {
+        try {
+            $sql = "SELECT * FROM `produkti` ORDER BY `produktiID` DESC LIMIT :fillimi, :limiti";
+            $stm = $this->dbConn->prepare($sql);
+            $stm->bindParam(':fillimi', $fillimi, PDO::PARAM_INT);
+            $stm->bindParam(':limiti', $limitiProduktec, PDO::PARAM_INT);
+            $stm->execute();
 
-        return $stm->fetchAll();
-    } catch (Exception $e) {
-        return $e->getMessage();
+            return $stm->fetchAll();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
     }
-}
 
-public function numriTotalIProdukteve()
-{
-    try {
-        $sql = "SELECT COUNT(*) as tot FROM `produkti`";
-        $stm = $this->dbConn->prepare($sql);
-        $stm->execute();
+    public function numriTotalIProdukteve()
+    {
+        try {
+            $sql = "SELECT COUNT(*) as tot FROM `produkti`";
+            $stm = $this->dbConn->prepare($sql);
+            $stm->execute();
 
-        return $stm->fetch();
-    } catch (Exception $e) {
-        return $e->getMessage();
+            return $stm->fetch();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
     }
-}
 
-public function shfaq8MeTeShiturat()
+    public function shfaq8MeTeShiturat()
     {
         try {
             $sql = "SELECT P.* FROM `produkti` p inner join tedhenatporosis t on p.produktiID = t.idProdukti group by p.produktiID order by count(*) desc LIMIT 8;";

@@ -76,7 +76,7 @@ if (isset($_POST['largo'])) {
                         <input type="hidden" name="produktiID" value="<?php echo $produkti["produktiID"]; ?>">
                         <tr>
                             <td>
-                            <a href="../pages/produkti.php?produktiID=<?php echo $produkti["produktiID"]; ?>"><?php echo $produkti["emriProduktit"]; ?></a>
+                                <a href="../pages/produkti.php?produktiID=<?php echo $produkti["produktiID"]; ?>"><?php echo $produkti["emriProduktit"]; ?></a>
                             </td>
                             <td>
                                 <input type="number" name="sasia" value="<?php echo $produkti["sasia"]; ?>" min=1 max=999>

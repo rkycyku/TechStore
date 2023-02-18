@@ -114,7 +114,8 @@ $produkti = $produktiCRUD->shfaqProduktinSipasID();
                     <?php if ($produkti['kodi'] != null) {
                         ?>
                         <p style="font-size: 8pt;">
-                            Ju lutemi qe gjat perfundimit te pageses te aplikoni kodin i cili gjendet tek pjesa e info-ve te Produktit
+                            Ju lutemi qe gjat perfundimit te pageses te aplikoni kodin i cili gjendet tek pjesa e info-ve te
+                            Produktit
                         </p>
                         <?php
                     }
@@ -144,10 +145,12 @@ $produkti = $produktiCRUD->shfaqProduktinSipasID();
                     <input type="hidden" name="produktiID" value=<?php echo $produkti['produktiID'] ?>>
                     <input type="hidden" name="emriProduktit" value="<?php echo $produkti['emriProduktit'] ?>">
                     <input type="hidden" name="qmimiProduktit" value=<?php echo $produkti['qmimiProduktit'] ?>>
-                    <img src="../../img/products/<?php echo $produkti['fotoProduktit'] ?>" />
-                    <p class=" artikulliLabel">
-                        <?php echo $produkti['emriProduktit'] ?>
-                    </p>
+                    <a href="../pages/produkti.php?produktiID=<?php echo $produkti['produktiID'] ?> ">
+                        <img src="../../img/products/<?php echo $produkti['fotoProduktit'] ?>" />
+                        <p class=" artikulliLabel">
+                            <?php echo $produkti['emriProduktit'] ?>
+                        </p>
+                    </a>
                     <p class="cmimi">
                         <?php echo $produkti['qmimiProduktit'] ?> €
                     </p>
