@@ -65,12 +65,16 @@ if (isset($_POST['kodiZbritjes'])) {
 
 if (isset($_POST['complete'])) {
     $_SESSION['complete'] = true;
-    $kodiZbritjesCRUD->setKodiZbritje($_SESSION['kodiZbritjes']);
-    $kontrolloKodin = $kodiZbritjesCRUD->kontrolloKodin();
 
-    if ($kontrolloKodin == true && $kontrolloKodin['idProduktit'] == null) {
-        $kodiZbritjesCRUD->fshijKodin();
+    if (isset($_SESSION['kodiZbritjes'])) {
+        $kodiZbritjesCRUD->setKodiZbritje($_SESSION['kodiZbritjes']);
+        $kontrolloKodin = $kodiZbritjesCRUD->kontrolloKodin();
+
+        if ($kontrolloKodin == true && $kontrolloKodin['idProduktit'] == null) {
+            $kodiZbritjesCRUD->fshijKodin();
+        }
     }
+    
     echo '<script>document.location="../funksione/orderComplete.php"</script>';
 }
 

@@ -18,6 +18,7 @@ if (isset($_POST['editoProd'])) {
   $_SESSION['EmriKompanis'] = $_POST['kompania'];
   $_SESSION['KategoriaProduktit'] = $_POST['kategoria'];
   $_SESSION['QmimiProduktit'] = $_POST['cmimiPd'];
+  $_SESSION['PershkrimiProd'] = $_POST['pershkrimiProd'];
   if ($_FILES['pdPhoto']['name'] == '') {
     $produktiCRUD->editoProduktin(false);
   } else {
@@ -84,6 +85,7 @@ if (isset($_POST['anulo'])) {
       <input class="form-input" name="pdPhoto" accept="image/*" type="file" placeholder="Foto Produktit">
       <input class="form-input" name="cmimiPd" type="text" placeholder="Qmimi i Produktit"
         value='<?php echo $produkti['qmimiProduktit'] ?>' required>
+      <textarea placeholder="Pershkrimi Produktit" name="pershkrimiProd"><?php echo $produkti['pershkrimiProd'] ?></textarea>
       <div>
         <input class="button" type="submit" value="Editoni Produktin" name='editoProd'>
         <input class="button" type="submit" value="Anulo" name='anulo'>

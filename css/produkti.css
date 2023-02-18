@@ -4,28 +4,37 @@
   align-items: center;
   flex-direction: column;
 }
-.teDhenatProduktit h1{
+.teDhenatProduktit h1 {
   font-size: 1em;
 }
 
-.teDhenatProduktit td{
+.emriProd{
+  text-align: left;
+}
+
+.teDhenatProduktit td {
   border-bottom: 2px solid #dddddd;
 }
 
-.foto{
+table{
+  width: 80%;
+}
+
+.foto {
   width: 20em;
 }
 
-.foto img{
-  width: 100%;
+.foto img {
+  width: 80%;
   aspect-ratio: 3/2;
   object-fit: contain;
 }
+
 .produkti {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 25px ;
+  margin: 25px;
   font-size: 1em;
   gap: 1.3em;
   border: none;
@@ -33,24 +42,37 @@
   border-radius: 30px;
   box-shadow: 0 0 10px #d3d3d3;
   background-color: white;
+  flex-direction: column;
+  width: 60%;
 }
 
-.blerja{
+.detajet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.blerja {
   margin-top: 2em;
   font-size: 0.7em;
 }
 
-.button{
+.button {
   margin-top: 1.3em;
 }
 
-.pershkrimi{
-  width: 70%;
+.pershkrimi {
+  width: 80%;
   font-size: 0.8em;
-  padding: 3em;
 }
 
-.pershkrimi h2{
+.pershkrimi h2 {
   font-size: 1.4em;
+}
 
+.mesazhiZbritjes{
+  margin-top: 1em;
+  font-size: 8pt;
+  width: 55%;
 }

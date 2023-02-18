@@ -19,6 +19,7 @@ if (isset($_POST['shtoProd'])) {
   $_SESSION['QmimiProduktit'] = $_POST['cmimiPd'];
   $_SESSION['FotoProduktit'] = $_FILES['pdPhoto'];
   $_SESSION['EmriFotosProduktit'] = $_FILES['pdPhoto']['name'];
+  $_SESSION['PershkrimiProd'] = $_POST['pershkrimiProd'];
 
   $produktiCRUD->shtoProduktin();
 }
@@ -90,6 +91,7 @@ if (isset($_POST['shtoProd'])) {
       <?php $kategoria->shfaqKategorinSelektim(); ?>
       <input class="form-input" name="pdPhoto" accept="image/*" type="file" value="Foto Produktit" required>
       <input class="finput" name="cmimiPd" type="text" placeholder="Qmimi i Produktit" required>
+      <textarea placeholder="Pershkrimi Produktit" name="pershkrimiProd"></textarea>
       <input class="button" type="submit" value="Shtoni Produktin" name='shtoProd'>
     </form>
   </div>

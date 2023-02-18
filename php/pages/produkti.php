@@ -34,106 +34,124 @@ $produkti = $produktiCRUD->shfaqProduktinSipasID();
     <?php include '../design/header.php'; ?>
     <div class="container">
         <div class="produkti">
-            <div class="foto">
-                <img src="../../img/products/<?php echo $produkti['fotoProduktit'] ?>" />
-            </div>
-            <div>
-            <div class="teDhenatProduktit">
-                <table>
-                    <tr>
-                        <th colspan="2">
-                            <h1>
-                                <?php echo $produkti['emriProduktit'] ?>
-                            </h1>
-                        </th>
-                    </tr>
-                    <tr>
-                        <td>Kompania:</td>
-                        <td>
-                            <?php echo $produkti['emriKompanis'] ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Kategoria</td>
-                        <td>
-                            <?php echo $produkti['kategoriaProduktit'] ?>
-                        </td>
-                    </tr>
-                    <?php if ($produkti['kodi'] != null) {
-                        ?>
-                        <tr>
-                            <td>Kodi Zbritjes: </td>
-                            <td>
-                                <strong>
-                                    <?php echo $produkti['kodi'] ?>
-                                </strong>
-                            </td>
-                        </tr>
-                        <?php
+            <div class="detajet">
 
-                    }
-                    ?>
-                </table>
 
-            </div>
-            <div class="blerja">
-                <form action="../funksione/shtoNeShport.php" method="POST">
-                    <input type="hidden" name="produktiID" value=<?php echo $produkti['produktiID'] ?>>
-                    <input type="hidden" name="emriProduktit" value="<?php echo $produkti['emriProduktit'] ?>">
-                    <input type="hidden" name="qmimiProduktit" value=<?php echo $produkti['qmimiProduktit'] ?>>
+                <div class="foto">
+                    <img src="../../img/products/<?php echo $produkti['fotoProduktit'] ?>" />
+                </div>
+                <div>
+                    <div class="teDhenatProduktit">
+                        <table>
+                            <tr>
+                                <th colspan="2">
+                                    <h1 class="emriProd">
+                                        <?php echo $produkti['emriProduktit'] ?>
+                                    </h1>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>Kompania:</td>
+                                <td>
+                                    <?php echo $produkti['emriKompanis'] ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Kategoria</td>
+                                <td>
+                                    <?php echo $produkti['kategoriaProduktit'] ?>
+                                </td>
+                            </tr>
+                            <?php if ($produkti['kodi'] != null) {
+                                ?>
+                                <tr>
+                                    <td>Kodi Zbritjes: </td>
+                                    <td>
+                                        <strong>
+                                            <?php echo $produkti['kodi'] ?>
+                                        </strong>
+                                    </td>
+                                </tr>
+                                <?php
 
-                    <?php if ($produkti['kodi'] != null) {
-                        ?>
-                        <h1>
-                            <?php echo number_format($produkti['qmimiProduktit'] - $produkti['qmimiZbritjes'], 2) ?> €
-                        </h1>
-                        <p style="font-size: 12pt;">
-                            <?php echo $produkti['qmimiZbritjes'] ?> € Zbritja
-                        </p>
-                        <p style="font-size: 10pt;">
-                            <?php echo $produkti['qmimiProduktit'] ?> € qmimi pa zbritje
-                        </p>
+                            }
+                            ?>
+                        </table>
 
-                        <?php
-                    } else {
-                        ?>
-                        <h1>
-                            <?php echo $produkti['qmimiProduktit'] ?> €
-                        </h1>
-                        <p>
-                            <?php echo number_format($produkti['qmimiProduktit'] - ($produkti['qmimiProduktit'] * 0.18), 2) ?>€
-                            pa TVSH
-                        </p>
-                        <?php
-                    }
-                    ?>
-
-                    <div>
-                        <input type="submit" class="button" value="Buy now" name="blej">
-                        <input type="submit" class="button button-shporta fa-solid" value="&#xf07a;" name="submit">
                     </div>
-                    <?php if ($produkti['kodi'] != null) {
-                        ?>
-                        <p style="font-size: 8pt;">
-                            Ju lutemi qe gjat perfundimit te pageses te aplikoni kodin i cili gjendet tek pjesa e info-ve te
-                            Produktit
-                        </p>
-                        <?php
-                    }
-                    ?>
-                </form>
+                    <div class="blerja">
+                        <form action="../funksione/shtoNeShport.php" method="POST">
+                            <input type="hidden" name="produktiID" value=<?php echo $produkti['produktiID'] ?>>
+                            <input type="hidden" name="emriProduktit" value="<?php echo $produkti['emriProduktit'] ?>">
+                            <input type="hidden" name="qmimiProduktit" value=<?php echo $produkti['qmimiProduktit'] ?>>
+
+                            <?php if ($produkti['kodi'] != null) {
+                                ?>
+                                <h1>
+                                    <?php echo number_format($produkti['qmimiProduktit'] - $produkti['qmimiZbritjes'], 2) ?>
+                                    €
+                                </h1>
+                                <p>
+                                    <strong><?php echo $produkti['qmimiZbritjes'] ?> € Zbritja</strong>
+                                </p>
+                                <p>
+                                    <?php echo $produkti['qmimiProduktit'] ?> € qmimi pa zbritje
+                                </p>
+                                <p>
+                                    <?php echo number_format($produkti['qmimiProduktit'] - ($produkti['qmimiProduktit'] * 0.18), 2) ?>€
+                                    pa TVSH
+                                </p>
+
+                                <?php
+                            } else {
+                                ?>
+                                <h1>
+                                    <?php echo $produkti['qmimiProduktit'] ?> €
+                                </h1>
+                                <p>
+                                    <?php echo number_format($produkti['qmimiProduktit'] - ($produkti['qmimiProduktit'] * 0.18), 2) ?>€
+                                    pa TVSH
+                                </p>
+                                <?php
+                            }
+                            ?>
+
+                            <div>
+                                <input type="submit" class="button" value="Buy now" name="blej">
+                                <input type="submit" class="button button-shporta fa-solid" value="&#xf07a;"
+                                    name="submit">
+                            </div>
+                            <?php if ($produkti['kodi'] != null) {
+                                ?>
+                                <p class="mesazhiZbritjes" style="font-size: 8pt;">
+                                    Ju lutemi qe gjat perfundimit te pageses te aplikoni kodin i cili gjendet tek pjesa e
+                                    info-ve te
+                                    Produktit
+                                </p>
+                                <?php
+                            }
+                            ?>
+                        </form>
 
 
+                    </div>
+                </div>
             </div>
-            </div>
+            <?php
+            if ($produkti['pershkrimiProd'] != null) {
+                ?>
+                <div class="pershkrimi">
+                    <h2>Pershkrimi: </h2>
+                    <p>
+                        <?php echo $produkti['pershkrimiProd'] ?>
+                    </p>
+                </div>
+                <?php
+            }
+            ?>
         </div>
 
-        <div class="pershkrimi">
-            <h2>Pershkrimi: </h2>
-            <p>
-                <?php echo $produkti['pershkrimiProd'] ?>
-            </p>
-        </div>
+
 
         <div class="artikujt">
             <div class="titulliArtikuj">

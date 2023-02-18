@@ -15,9 +15,10 @@ class produktiCRUD extends dbCon
     private $emriStafit;
     private $dataKrijimit;
     private $qmimiProduktit;
+    private $pershkrimiProduktit;
     private $dbConn;
 
-    public function __construct($produktiID = '', $emriProduktit = '', $emriKompanis = '', $kategoriaProduktit = '', $fotoProduktit = '', $emriStafit = '', $dataKrijimit = '', $qmimiProduktit = '')
+    public function __construct($produktiID = '', $emriProduktit = '', $emriKompanis = '', $kategoriaProduktit = '', $fotoProduktit = '', $emriStafit = '', $dataKrijimit = '', $qmimiProduktit = '', $pershkrimiProduktit = '')
     {
         $this->produktiID = $produktiID;
         $this->emriProduktit = $emriProduktit;
@@ -27,6 +28,7 @@ class produktiCRUD extends dbCon
         $this->emriStafit = $emriStafit;
         $this->dataKrijimit = $dataKrijimit;
         $this->qmimiProduktit = $qmimiProduktit;
+        $this->pershkrimiProduktit = $pershkrimiProduktit;
 
         $this->dbConn = $this->connDB();
     }
@@ -110,6 +112,15 @@ class produktiCRUD extends dbCon
     {
         $this->qmimiProduktit = $qmimiProduktit;
     }
+    public function getPershkrimiProduktit()
+    {
+        return $this->pershkrimiProduktit;
+    }
+
+    public function setPershkrimiProduktit($pershkrimiProduktit)
+    {
+        $this->pershkrimiProduktit = $pershkrimiProduktit;
+    }
 
     public function shtoProduktin()
     {
@@ -122,10 +133,11 @@ class produktiCRUD extends dbCon
             $this->setEmriStafit($_SESSION['name']);
             $this->setQmimiProduktit($_SESSION['QmimiProduktit']);
             $this->setFotoProduktit($_SESSION['emriUnikFotos']);
+            $this->setPershkrimiProduktit($_SESSION['PershkrimiProd']);
 
-            $sql = "INSERT INTO `produkti`(`emriProduktit`, `emriKompanis`, `kategoriaProduktit`, `fotoProduktit`, `emriStafit`,`qmimiProduktit`) VALUES (?,?,?,?,?,?)";
+            $sql = "INSERT INTO `produkti`(`emriProduktit`, `emriKompanis`, `kategoriaProduktit`, `fotoProduktit`, `emriStafit`,`qmimiProduktit`, `pershkrimiProd`) VALUES (?, ?,?,?,?,?,?)";
             $stm = $this->dbConn->prepare($sql);
-            $stm->execute([$this->emriProduktit, $this->emriKompanis, $this->kategoriaProduktit, $this->fotoProduktit, $this->emriStafit, $this->qmimiProduktit]);
+            $stm->execute([$this->emriProduktit, $this->emriKompanis, $this->kategoriaProduktit, $this->fotoProduktit, $this->emriStafit, $this->qmimiProduktit, $this->pershkrimiProduktit]);
 
             $_SESSION['mesazhiMeSukses'] = true;
         } catch (Exception $e) {
@@ -278,34 +290,30 @@ class produktiCRUD extends dbCon
     public function editoProduktin($kaFoto)
     {
         try {
-            if ($kaFoto == false) {
-                $this->setProduktiID($_SESSION['prouktiID']);
-                $this->setEmriProduktit($_SESSION['EmriProduktit']);
-                $this->setEmriKompanis($_SESSION['EmriKompanis']);
-                $this->setKategoriaProduktit($_SESSION['KategoriaProduktit']);
-                $this->setEmriStafit($_SESSION['name']);
-                $this->setQmimiProduktit($_SESSION['QmimiProduktit']);
+            $this->setProduktiID($_SESSION['prouktiID']);
+            $this->setEmriProduktit($_SESSION['EmriProduktit']);
+            $this->setEmriKompanis($_SESSION['EmriKompanis']);
+            $this->setKategoriaProduktit($_SESSION['KategoriaProduktit']);
+            $this->setEmriStafit($_SESSION['name']);
+            $this->setQmimiProduktit($_SESSION['QmimiProduktit']);
+            $this->setPershkrimiProduktit($_SESSION['PershkrimiProd']);
 
-                $sql = "UPDATE `produkti` SET `emriProduktit`=?,`emriKompanis`=?,`kategoriaProduktit`=?,`emriStafit`=?,`dataModifikimit`=current_timestamp(),`qmimiProduktit`=? WHERE produktiID = ?";
+            if ($kaFoto == false) {
+
+                $sql = "UPDATE `produkti` SET `emriProduktit`=?,`emriKompanis`=?,`kategoriaProduktit`=?,`emriStafit`=?,`dataModifikimit`=current_timestamp(),`qmimiProduktit`=? , `pershkrimiProd` =? WHERE produktiID = ?";
                 $stm = $this->dbConn->prepare($sql);
-                $stm->execute([$this->emriProduktit, $this->emriKompanis, $this->kategoriaProduktit, $this->emriStafit, $this->qmimiProduktit, $this->produktiID]);
+                $stm->execute([$this->emriProduktit, $this->emriKompanis, $this->kategoriaProduktit, $this->emriStafit, $this->qmimiProduktit, $this->pershkrimiProduktit, $this->produktiID]);
             } else {
                 $produkti = $this->shfaqProduktinSipasID();
                 unlink('../../img/products/' . $produkti['fotoProduktit']);
 
                 $this->barteFotonNeFolder();
 
-                $this->setProduktiID($_SESSION['prouktiID']);
-                $this->setEmriProduktit($_SESSION['EmriProduktit']);
-                $this->setEmriKompanis($_SESSION['EmriKompanis']);
-                $this->setKategoriaProduktit($_SESSION['KategoriaProduktit']);
                 $this->setFotoProduktit($_SESSION['emriUnikFotos']);
-                $this->setEmriStafit($_SESSION['name']);
-                $this->setQmimiProduktit($_SESSION['QmimiProduktit']);
 
-                $sql = "UPDATE `produkti` SET `emriProduktit`=?,`emriKompanis`=?,`kategoriaProduktit`=?,`fotoProduktit`=?,`emriStafit`=?,`dataModifikimit`=current_timestamp(),`qmimiProduktit`=? WHERE produktiID = ?";
+                $sql = "UPDATE `produkti` SET `emriProduktit`=?,`emriKompanis`=?,`kategoriaProduktit`=?,`fotoProduktit`=?,`emriStafit`=?,`dataModifikimit`=current_timestamp(),`qmimiProduktit`=?, `pershkrimiProd` =? WHERE produktiID = ?";
                 $stm = $this->dbConn->prepare($sql);
-                $stm->execute([$this->emriProduktit, $this->emriKompanis, $this->kategoriaProduktit, $this->fotoProduktit, $this->emriStafit, $this->qmimiProduktit, $this->produktiID]);
+                $stm->execute([$this->emriProduktit, $this->emriKompanis, $this->kategoriaProduktit, $this->fotoProduktit, $this->emriStafit, $this->qmimiProduktit, $this->pershkrimiProduktit, $this->produktiID]);
             }
 
             $_SESSION['mesazhiMeSukses'] = true;
@@ -386,6 +394,8 @@ class produktiCRUD extends dbCon
             return $e->getMessage();
         }
     }
+
+
 }
 
 
