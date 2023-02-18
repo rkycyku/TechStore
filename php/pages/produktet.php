@@ -43,6 +43,8 @@ $produktet = $produktiCRUD->shfaqProduktetENdara($fillimi, $nrMaxIProduktevPerFa
   <link rel="shortcut icon" href="../../img/web/favicon.ico" />
   <link rel="stylesheet" href="../../css/index.css" />
   <link rel="stylesheet" href="../../css/mesazhetStyle.css">
+  <link rel="stylesheet" href="../../css/produkti.css">
+
 </head>
 
 <body>
@@ -95,7 +97,8 @@ $produktet = $produktiCRUD->shfaqProduktetENdara($fillimi, $nrMaxIProduktevPerFa
             <input type="hidden" name="produktiID" value=<?php echo $produkti['produktiID'] ?>>
             <input type="hidden" name="emriProduktit" value="<?php echo $produkti['emriProduktit'] ?>">
             <input type="hidden" name="qmimiProduktit" value=<?php echo $produkti['qmimiProduktit'] ?>>
-            <img src="../../img/products/<?php echo $produkti['fotoProduktit'] ?>" />
+            <a href= "../pages/produkti.php?produktiID=<?php echo $produkti['produktiID'] ?> ">
+          <img src="../../img/products/<?php echo $produkti['fotoProduktit'] ?>"/>
             <p class=" artikulliLabel">
               <?php echo $produkti['emriProduktit'] ?>
             </p>
@@ -148,7 +151,8 @@ $produktet = $produktiCRUD->shfaqProduktetENdara($fillimi, $nrMaxIProduktevPerFa
                 <input type="hidden" name="produktiID" value=<?php echo $produkti['produktiID'] ?>>
                 <input type="hidden" name="emriProduktit" value="<?php echo $produkti['emriProduktit'] ?>">
                 <input type="hidden" name="qmimiProduktit" value=<?php echo $produkti['qmimiProduktit'] ?>>
-                <img src="../../img/products/<?php echo $produkti['fotoProduktit'] ?>" />
+                <a href= "../pages/produkti.php?produktiID=<?php echo $produkti['produktiID'] ?> ">
+          <img src="../../img/products/<?php echo $produkti['fotoProduktit'] ?>"/>
                 <p class=" artikulliLabel">
                 <?php echo $produkti['emriProduktit'] ?>
                 </p>
