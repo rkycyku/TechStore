@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 15, 2023 at 11:59 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Feb 18, 2023 at 01:24 AM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -252,6 +252,7 @@ CREATE TABLE `produkti` (
   `emriProduktit` varchar(255) NOT NULL,
   `emriKompanis` varchar(30) NOT NULL,
   `kategoriaProduktit` varchar(50) NOT NULL,
+  `pershkrimiProd` text NOT NULL,
   `fotoProduktit` varchar(50) NOT NULL,
   `emriStafit` varchar(30) NOT NULL,
   `dataKrijimit` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -263,52 +264,52 @@ CREATE TABLE `produkti` (
 -- Dumping data for table `produkti`
 --
 
-INSERT INTO `produkti` (`produktiID`, `emriProduktit`, `emriKompanis`, `kategoriaProduktit`, `fotoProduktit`, `emriStafit`, `dataKrijimit`, `dataModifikimit`, `qmimiProduktit`) VALUES
-(1, 'Laptop ASUS TUF Gaming F15 (2021), 15.6\"', 'Asus', 'Laptop', '63e90dd68362c0.14152620.jpg', 'Llogaria', '2023-01-19 22:00:00', '2023-02-12 16:03:54', '758.50'),
-(2, 'Laptop Razer Blade 15 Advanced Model', 'Razer', 'Laptop', '63d055e0c57d81.05756611.jpg', 'admin', '2023-01-19 22:00:00', '2023-02-05 11:16:48', '2710.49'),
-(3, 'Samsung s22 Ultra, 512GB', 'Samsung', 'Smartphone', '63d055e915be98.37912983.jpg', 'admin', '2023-01-19 22:00:00', '2023-02-05 11:16:55', '899.99'),
-(4, 'Lenovo NB IdeaPad 3 15ALC6', 'Lenovo', 'Laptop', '63d055f15d73c8.42300026.jpg', 'admin', '2023-01-19 22:00:00', '2023-02-05 11:17:03', '459.50'),
-(5, 'Lenovo ThinkPad P14s Gen 3 (AMD), 14\", AMD Ryzen 7 Pro, 32GB RAM, 1TB SSD, AMD Radeon 680M, i zi', 'Lenovo', 'Laptop', '63d055feb6ffa9.20196181.jpg', 'admin', '2023-01-21 17:24:31', '2023-02-05 11:17:09', '2469.50'),
-(6, 'Maus pad SteelSeries QcK Heavy M', 'SteelSeries', 'Maus & Aksesore', '63d05608dd9912.15133010.jpg', 'admin', '2023-01-22 00:37:58', '2023-01-24 22:04:56', '28.50'),
-(7, 'Maus pad SteelSeries QcK Edge XL', 'SteelSeries', 'Maus & Aksesore', '63d0561088af36.99850110.jpg', 'admin', '2023-01-22 00:38:30', '2023-01-24 22:05:04', '52.50'),
-(8, 'Dron DJI Ryze Tello ED', 'DJI', 'Lodra smart & Dron', '63d0561af0d506.97064987.jpg', 'admin', '2023-01-22 00:39:00', '2023-01-24 22:05:14', '357.99'),
-(9, 'Dron Overmax X-Bee, 600 m, i zi', 'Overmax', 'Lodra smart & Dron', '63d056224fcfd5.12230564.jpg', 'admin', '2023-01-22 00:39:38', '2023-01-24 22:05:22', '284.49'),
-(10, 'Dron DJI Mavic 3 Classic (DJI RC)(EU)', 'DJI', 'Lodra smart & Dron', '63d0562b618d48.16102205.jpg', 'admin', '2023-01-22 00:40:14', '2023-01-24 22:05:31', '2489.99'),
-(11, 'Kasë Thermaltake Core P3, e bardhë', 'Thermaltake', 'Pjesë për kompjuter', '63d056323276c7.81542918.jpg', 'admin', '2023-01-22 00:40:53', '2023-01-24 22:05:38', '210.66'),
-(12, 'Flutur ftohëse Arctic P14 PWM - 140 mm', 'Arctic', 'Pjesë për kompjuter', '63d0563b7f0dd0.69298527.jpg', 'admin', '2023-01-22 00:42:17', '2023-01-24 22:05:47', '18.45'),
-(13, 'Memorie G. Skill DDR4, 8 GB, 2400 MHz, CL17', 'G.Skill', 'Pjesë për kompjuter', '63d056492e89d5.21517717.jpg', 'admin', '2023-01-22 00:42:52', '2023-01-24 22:06:01', '18.99'),
-(14, 'SSD Transcend MTE220S, M.2 - 256GB', 'Transcend', 'Pjesë për kompjuter', '63d0567a1432f3.30627468.jpg', 'admin', '2023-01-22 00:44:40', '2023-01-24 22:06:50', '29.99'),
-(15, 'Ftohës Akasa DDR, aRGB LED, pasiv (AK-MX248)', 'Akasa', 'Pjesë për kompjuter', '63d05689da6022.83633684.jpg', 'admin', '2023-01-22 00:45:12', '2023-01-24 22:07:05', '30.00'),
-(16, 'Përshtatës i brendshëm Akasa AK-CBUB37-50BK', 'Akasa', 'Pjesë për kompjuter', '63d056a353ba19.29349886.jpg', 'admin', '2023-01-22 00:45:53', '2023-01-24 22:07:31', '9.99'),
-(17, 'Ftohës Corsair ML120 PRO RGB, 120mm', 'Corsair', 'Pjesë për kompjuter', '63d056ab22eb80.78302695.jpg', 'admin', '2023-01-22 00:46:19', '2023-01-24 22:07:39', '43.50'),
-(18, 'Pastë Arctic MX-4 2019 (4g)', 'Arctic', 'Pjesë për kompjuter', '63d056b3c3cc68.15404951.jpg', 'admin', '2023-01-22 00:46:46', '2023-01-24 22:07:47', '12.99'),
-(19, 'Hard disk SSD WD Green SATA III - 240GB 3D NAND', 'WD - Western Digital', 'Pjesë për kompjuter', '63d056bd110280.38041391.jpg', 'admin', '2023-01-22 00:47:16', '2023-01-24 22:07:57', '55.00'),
-(20, 'Kompjuter AIO Acer Veriton Essential Z (EZ2740G),23.8\", Intel Core i5-1135G7, 8 GB DDR4, 512GB SSD, Intel UHD Graphics, i argjendtë', 'Acer', 'All in One (AiO)', '63d056c7197425.11040451.jpg', 'admin', '2023-01-22 00:47:50', '2023-01-24 22:08:07', '975.50'),
-(21, 'Kompjuter Dell Inspiron 24 (5415), 23.8 \", AMD Ryzen 5, 16GB RAM, 256GB SSD, 1TB HDD, AMD Radeon Graphics, i bardhë', 'Dell', 'All in One (AiO)', '63d056d11496d3.86492053.jpg', 'admin', '2023-01-22 00:48:56', '2023-01-24 22:08:17', '1499.99'),
-(22, 'Kompjuter HP ENVY 34-c1001nc, 34\", Intel Core i7, 32GB RAM, 1TB SSD, NVIDIA GeForce RTX 3060, i argjendtë', 'HP', 'All in One (AiO)', '63d056dd5bc157.84233223.jpg', 'admin', '2023-01-22 00:49:23', '2023-01-24 22:08:29', '3499.99'),
-(23, 'Apple iMac 24\", M1 8-core, 8GB, 256GB, 8-core GPU, Green', 'Apple', 'All in One (AiO)', '63d056e8dc0484.98868210.jpg', 'admin', '2023-01-22 00:50:00', '2023-01-24 22:08:40', '1779.00'),
-(24, 'Projektor Acer C202i', 'Acer', 'TV & Projektor', '63d056f36c8ac5.29677040.jpg', 'admin', '2023-01-22 00:50:56', '2023-01-24 22:08:51', '359.50'),
-(25, 'Maus ZOWIE by BenQ S1,i zi', 'Acer', 'Maus & Aksesore', '63d056fddef055.63527829.jpg', 'admin', '2023-01-22 00:52:37', '2023-01-24 22:09:01', '97.50'),
-(26, 'Maus Marvo M720W, i zi', 'Marvo', 'Maus & Aksesore', '63d057056d4e38.57263102.jpg', 'admin', '2023-01-22 00:53:15', '2023-01-24 22:09:09', '45.59'),
-(27, 'Apple MacBook Pro 16\", M2 Max 12-Core, 32GB, 1TB, 38-Core GPU, Silver', 'Apple', 'Laptop', '63d05c06aa8757.25439961.jpg', 'Llogaria', '2023-01-24 22:15:21', '2023-02-13 22:10:03', '4149.00'),
-(28, 'Kufje Logitech G432, të zeza', 'Logitech', 'Kufje', '63eab827ba77c4.71044525.jpg', 'Llogaria', '2023-02-13 22:22:31', '2023-02-13 22:52:39', '84.50'),
-(29, 'Hard disk Samsung SSD 970 EVO PLUS, M.2 - 250GB', 'Samsung', 'Memorie, Hapesire dhe Akesor Kompjuter', '63eab84858c8d7.45002641.jpg', 'Llogaria', '2023-02-13 22:23:04', '2023-02-13 22:52:25', '49.50'),
-(30, 'Disk portativ WD Elements, 2TB, i zi', 'WD - Western Digital', 'Memorie, Hapesire dhe Akesor Kompjuter', '63eab88a9bae20.95606749.jpg', 'Llogaria', '2023-02-13 22:24:10', '2023-02-13 22:52:01', '84.50'),
-(31, 'Disk i jashtëm Transcend Jet 25H3B, 1 TB, i zi / kaltër', 'Transcend', 'Memorie, Hapesire dhe Akesor Kompjuter', '63eab963cfcf35.02921447.jpg', 'Llogaria', '2023-02-13 22:27:47', '2023-02-13 22:51:42', '69.50'),
-(32, 'Apple MacBook Pro 16.2\", M1 Max 10-core, 32GB, 1TB, 32-core GPU, Silver', 'Apple', 'Laptop', '63eab99c203254.93655263.jpg', 'Llogaria', '2023-02-13 22:28:44', '2023-02-13 22:28:44', '3299.00'),
-(33, 'Apple iPhone 11, 64GB, Black', 'Apple', 'Smartphone', '63eab9e5b821b1.87284331.jpg', 'Llogaria', '2023-02-13 22:29:57', '2023-02-13 22:29:57', '579.00'),
-(34, 'Apple Magic Mouse (2022), Black Multi - Touch Surface', 'Apple', 'Maus & Aksesore', '63eab9ff27af71.66828407.jpg', 'Llogaria', '2023-02-13 22:30:23', '2023-02-13 22:30:23', '119.00'),
-(35, 'Celular Samsung Galaxy A23 5G, 6.6\" FHD+, 4GB RAM, 128GB, i kaltër', 'Samsung', 'Smartphone', '63eaba204edb24.98379543.jpg', 'Llogaria', '2023-02-13 22:30:56', '2023-02-13 22:30:56', '299.50'),
-(36, 'Apple Watch SE2 GPS 44mm, Midnight Aluminium Case me Midnight Sport Band, Regular', 'Apple', 'Smart Watch', '63eaba4ebf5fb1.84174295.jpg', 'Llogaria', '2023-02-13 22:31:42', '2023-02-13 22:31:42', '349.00'),
-(37, 'Fotoaparat momental Fujifilm Instax Mini 90, i zi', 'Instax', 'Foto & Video', '63eabd7f7f4296.27491084.jpg', 'Llogaria', '2023-02-13 22:45:19', '2023-02-13 22:45:19', '119.50'),
-(38, 'Printer Canon PIXMA TS3150, i zi', 'Canon', 'Printer', '63eabdbea539b0.78235909.jpg', 'Llogaria', '2023-02-13 22:46:22', '2023-02-13 22:46:22', '79.50'),
-(39, 'Kufje Sony MDR-RF895RK, të zeza, III', 'Sony', 'Kufje', '63eabdd87c2561.68876767.jpg', 'Llogaria', '2023-02-13 22:46:48', '2023-02-13 22:46:48', '99.50'),
-(40, 'Kontroller Sony Playstation 5 DualSense', 'Sony', 'Lodra smart & Dron', '63eabe14e6ab51.91700813.jpg', 'Llogaria', '2023-02-13 22:47:48', '2023-02-13 22:47:48', '89.50'),
-(41, 'Karrige SENSE7 Knight, e zezë', 'SENSE7', 'Karrige Gaming', '63eabe31db73d8.09365222.jpg', 'Llogaria', '2023-02-13 22:48:17', '2023-02-13 22:48:17', '169.50'),
-(42, 'Maus Preyon Owl Wireless (POW35B)', 'Preyon', 'Maus & Aksesore', '63eabe5a5852e1.52076563.jpg', 'Llogaria', '2023-02-13 22:48:58', '2023-02-13 22:48:58', '49.50'),
-(43, 'Apple 10.9-inch iPad (10th) Wi-Fi, 64GB, Silver', 'Apple', 'Tablet', '63eabe72174975.16788497.jpg', 'Llogaria', '2023-02-13 22:49:22', '2023-02-13 22:49:22', '569.00'),
-(44, 'Apple MagSafe Duo Charger', 'Apple', 'Wireless Charger', '63eabe936e0523.11456101.jpg', 'Llogaria', '2023-02-13 22:49:55', '2023-02-13 22:49:55', '169.00'),
-(45, 'Apple AirPods (3rd generation) with Lightning Charging Case', 'Apple', 'Kufje', '63eabeae767761.75083362.jpg', 'Llogaria', '2023-02-13 22:50:22', '2023-02-13 22:50:39', '239.00');
+INSERT INTO `produkti` (`produktiID`, `emriProduktit`, `emriKompanis`, `kategoriaProduktit`, `pershkrimiProd`, `fotoProduktit`, `emriStafit`, `dataKrijimit`, `dataModifikimit`, `qmimiProduktit`) VALUES
+(1, 'Laptop ASUS TUF Gaming F15 (2021), 15.6\"', 'Asus', 'Laptop', '', '63e90dd68362c0.14152620.jpg', 'Llogaria', '2023-01-19 22:00:00', '2023-02-12 16:03:54', '758.50'),
+(2, 'Laptop Razer Blade 15 Advanced Model', 'Razer', 'Laptop', '', '63d055e0c57d81.05756611.jpg', 'admin', '2023-01-19 22:00:00', '2023-02-05 11:16:48', '2710.49'),
+(3, 'Samsung s22 Ultra, 512GB', 'Samsung', 'Smartphone', '', '63d055e915be98.37912983.jpg', 'admin', '2023-01-19 22:00:00', '2023-02-05 11:16:55', '899.99'),
+(4, 'Lenovo NB IdeaPad 3 15ALC6', 'Lenovo', 'Laptop', '', '63d055f15d73c8.42300026.jpg', 'admin', '2023-01-19 22:00:00', '2023-02-05 11:17:03', '459.50'),
+(5, 'Lenovo ThinkPad P14s Gen 3 (AMD), 14\", AMD Ryzen 7 Pro, 32GB RAM, 1TB SSD, AMD Radeon 680M, i zi', 'Lenovo', 'Laptop', '', '63d055feb6ffa9.20196181.jpg', 'admin', '2023-01-21 17:24:31', '2023-02-05 11:17:09', '2469.50'),
+(6, 'Maus pad SteelSeries QcK Heavy M', 'SteelSeries', 'Maus & Aksesore', '', '63d05608dd9912.15133010.jpg', 'admin', '2023-01-22 00:37:58', '2023-01-24 22:04:56', '28.50'),
+(7, 'Maus pad SteelSeries QcK Edge XL', 'SteelSeries', 'Maus & Aksesore', '', '63d0561088af36.99850110.jpg', 'admin', '2023-01-22 00:38:30', '2023-01-24 22:05:04', '52.50'),
+(8, 'Dron DJI Ryze Tello ED', 'DJI', 'Lodra smart & Dron', '', '63d0561af0d506.97064987.jpg', 'admin', '2023-01-22 00:39:00', '2023-01-24 22:05:14', '357.99'),
+(9, 'Dron Overmax X-Bee, 600 m, i zi', 'Overmax', 'Lodra smart & Dron', '', '63d056224fcfd5.12230564.jpg', 'admin', '2023-01-22 00:39:38', '2023-01-24 22:05:22', '284.49'),
+(10, 'Dron DJI Mavic 3 Classic (DJI RC)(EU)', 'DJI', 'Lodra smart & Dron', '', '63d0562b618d48.16102205.jpg', 'admin', '2023-01-22 00:40:14', '2023-01-24 22:05:31', '2489.99'),
+(11, 'Kasë Thermaltake Core P3, e bardhë', 'Thermaltake', 'Pjesë për kompjuter', '', '63d056323276c7.81542918.jpg', 'admin', '2023-01-22 00:40:53', '2023-01-24 22:05:38', '210.66'),
+(12, 'Flutur ftohëse Arctic P14 PWM - 140 mm', 'Arctic', 'Pjesë për kompjuter', '', '63d0563b7f0dd0.69298527.jpg', 'admin', '2023-01-22 00:42:17', '2023-01-24 22:05:47', '18.45'),
+(13, 'Memorie G. Skill DDR4, 8 GB, 2400 MHz, CL17', 'G.Skill', 'Pjesë për kompjuter', '', '63d056492e89d5.21517717.jpg', 'admin', '2023-01-22 00:42:52', '2023-01-24 22:06:01', '18.99'),
+(14, 'SSD Transcend MTE220S, M.2 - 256GB', 'Transcend', 'Pjesë për kompjuter', '', '63d0567a1432f3.30627468.jpg', 'admin', '2023-01-22 00:44:40', '2023-01-24 22:06:50', '29.99'),
+(15, 'Ftohës Akasa DDR, aRGB LED, pasiv (AK-MX248)', 'Akasa', 'Pjesë për kompjuter', '', '63d05689da6022.83633684.jpg', 'admin', '2023-01-22 00:45:12', '2023-01-24 22:07:05', '30.00'),
+(16, 'Përshtatës i brendshëm Akasa AK-CBUB37-50BK', 'Akasa', 'Pjesë për kompjuter', '', '63d056a353ba19.29349886.jpg', 'admin', '2023-01-22 00:45:53', '2023-01-24 22:07:31', '9.99'),
+(17, 'Ftohës Corsair ML120 PRO RGB, 120mm', 'Corsair', 'Pjesë për kompjuter', '', '63d056ab22eb80.78302695.jpg', 'admin', '2023-01-22 00:46:19', '2023-01-24 22:07:39', '43.50'),
+(18, 'Pastë Arctic MX-4 2019 (4g)', 'Arctic', 'Pjesë për kompjuter', '', '63d056b3c3cc68.15404951.jpg', 'admin', '2023-01-22 00:46:46', '2023-01-24 22:07:47', '12.99'),
+(19, 'Hard disk SSD WD Green SATA III - 240GB 3D NAND', 'WD - Western Digital', 'Pjesë për kompjuter', '', '63d056bd110280.38041391.jpg', 'admin', '2023-01-22 00:47:16', '2023-01-24 22:07:57', '55.00'),
+(20, 'Kompjuter AIO Acer Veriton Essential Z (EZ2740G),23.8\", Intel Core i5-1135G7, 8 GB DDR4, 512GB SSD, Intel UHD Graphics, i argjendtë', 'Acer', 'All in One (AiO)', '', '63d056c7197425.11040451.jpg', 'admin', '2023-01-22 00:47:50', '2023-01-24 22:08:07', '975.50'),
+(21, 'Kompjuter Dell Inspiron 24 (5415), 23.8 \", AMD Ryzen 5, 16GB RAM, 256GB SSD, 1TB HDD, AMD Radeon Graphics, i bardhë', 'Dell', 'All in One (AiO)', '', '63d056d11496d3.86492053.jpg', 'admin', '2023-01-22 00:48:56', '2023-01-24 22:08:17', '1499.99'),
+(22, 'Kompjuter HP ENVY 34-c1001nc, 34\", Intel Core i7, 32GB RAM, 1TB SSD, NVIDIA GeForce RTX 3060, i argjendtë', 'HP', 'All in One (AiO)', '', '63d056dd5bc157.84233223.jpg', 'admin', '2023-01-22 00:49:23', '2023-01-24 22:08:29', '3499.99'),
+(23, 'Apple iMac 24\", M1 8-core, 8GB, 256GB, 8-core GPU, Green', 'Apple', 'All in One (AiO)', '', '63d056e8dc0484.98868210.jpg', 'admin', '2023-01-22 00:50:00', '2023-01-24 22:08:40', '1779.00'),
+(24, 'Projektor Acer C202i', 'Acer', 'TV & Projektor', '', '63d056f36c8ac5.29677040.jpg', 'admin', '2023-01-22 00:50:56', '2023-01-24 22:08:51', '359.50'),
+(25, 'Maus ZOWIE by BenQ S1,i zi', 'Acer', 'Maus & Aksesore', '', '63d056fddef055.63527829.jpg', 'admin', '2023-01-22 00:52:37', '2023-01-24 22:09:01', '97.50'),
+(26, 'Maus Marvo M720W, i zi', 'Marvo', 'Maus & Aksesore', '', '63d057056d4e38.57263102.jpg', 'admin', '2023-01-22 00:53:15', '2023-01-24 22:09:09', '45.59'),
+(27, 'Apple MacBook Pro 16\", M2 Max 12-Core, 32GB, 1TB, 38-Core GPU, Silver', 'Apple', 'Laptop', '', '63d05c06aa8757.25439961.jpg', 'Llogaria', '2023-01-24 22:15:21', '2023-02-13 22:10:03', '4149.00'),
+(28, 'Kufje Logitech G432, të zeza', 'Logitech', 'Kufje', '', '63eab827ba77c4.71044525.jpg', 'Llogaria', '2023-02-13 22:22:31', '2023-02-13 22:52:39', '84.50'),
+(29, 'Hard disk Samsung SSD 970 EVO PLUS, M.2 - 250GB', 'Samsung', 'Memorie, Hapesire dhe Akesor Kompjuter', '', '63eab84858c8d7.45002641.jpg', 'Llogaria', '2023-02-13 22:23:04', '2023-02-13 22:52:25', '49.50'),
+(30, 'Disk portativ WD Elements, 2TB, i zi', 'WD - Western Digital', 'Memorie, Hapesire dhe Akesor Kompjuter', '', '63eab88a9bae20.95606749.jpg', 'Llogaria', '2023-02-13 22:24:10', '2023-02-13 22:52:01', '84.50'),
+(31, 'Disk i jashtëm Transcend Jet 25H3B, 1 TB, i zi / kaltër', 'Transcend', 'Memorie, Hapesire dhe Akesor Kompjuter', '', '63eab963cfcf35.02921447.jpg', 'Llogaria', '2023-02-13 22:27:47', '2023-02-13 22:51:42', '69.50'),
+(32, 'Apple MacBook Pro 16.2\", M1 Max 10-core, 32GB, 1TB, 32-core GPU, Silver', 'Apple', 'Laptop', '', '63eab99c203254.93655263.jpg', 'Llogaria', '2023-02-13 22:28:44', '2023-02-13 22:28:44', '3299.00'),
+(33, 'Apple iPhone 11, 64GB, Black', 'Apple', 'Smartphone', '', '63eab9e5b821b1.87284331.jpg', 'Llogaria', '2023-02-13 22:29:57', '2023-02-13 22:29:57', '579.00'),
+(34, 'Apple Magic Mouse (2022), Black Multi - Touch Surface', 'Apple', 'Maus & Aksesore', '', '63eab9ff27af71.66828407.jpg', 'Llogaria', '2023-02-13 22:30:23', '2023-02-13 22:30:23', '119.00'),
+(35, 'Celular Samsung Galaxy A23 5G, 6.6\" FHD+, 4GB RAM, 128GB, i kaltër', 'Samsung', 'Smartphone', '', '63eaba204edb24.98379543.jpg', 'Llogaria', '2023-02-13 22:30:56', '2023-02-13 22:30:56', '299.50'),
+(36, 'Apple Watch SE2 GPS 44mm, Midnight Aluminium Case me Midnight Sport Band, Regular', 'Apple', 'Smart Watch', '', '63eaba4ebf5fb1.84174295.jpg', 'Llogaria', '2023-02-13 22:31:42', '2023-02-13 22:31:42', '349.00'),
+(37, 'Fotoaparat momental Fujifilm Instax Mini 90, i zi', 'Instax', 'Foto & Video', '', '63eabd7f7f4296.27491084.jpg', 'Llogaria', '2023-02-13 22:45:19', '2023-02-13 22:45:19', '119.50'),
+(38, 'Printer Canon PIXMA TS3150, i zi', 'Canon', 'Printer', '', '63eabdbea539b0.78235909.jpg', 'Llogaria', '2023-02-13 22:46:22', '2023-02-13 22:46:22', '79.50'),
+(39, 'Kufje Sony MDR-RF895RK, të zeza, III', 'Sony', 'Kufje', '', '63eabdd87c2561.68876767.jpg', 'Llogaria', '2023-02-13 22:46:48', '2023-02-13 22:46:48', '99.50'),
+(40, 'Kontroller Sony Playstation 5 DualSense', 'Sony', 'Lodra smart & Dron', '', '63eabe14e6ab51.91700813.jpg', 'Llogaria', '2023-02-13 22:47:48', '2023-02-13 22:47:48', '89.50'),
+(41, 'Karrige SENSE7 Knight, e zezë', 'SENSE7', 'Karrige Gaming', '', '63eabe31db73d8.09365222.jpg', 'Llogaria', '2023-02-13 22:48:17', '2023-02-13 22:48:17', '169.50'),
+(42, 'Maus Preyon Owl Wireless (POW35B)', 'Preyon', 'Maus & Aksesore', '', '63eabe5a5852e1.52076563.jpg', 'Llogaria', '2023-02-13 22:48:58', '2023-02-13 22:48:58', '49.50'),
+(43, 'Apple 10.9-inch iPad (10th) Wi-Fi, 64GB, Silver', 'Apple', 'Tablet', '', '63eabe72174975.16788497.jpg', 'Llogaria', '2023-02-13 22:49:22', '2023-02-13 22:49:22', '569.00'),
+(44, 'Apple MagSafe Duo Charger', 'Apple', 'Wireless Charger', '', '63eabe936e0523.11456101.jpg', 'Llogaria', '2023-02-13 22:49:55', '2023-02-13 22:49:55', '169.00'),
+(45, 'Apple AirPods (3rd generation) with Lightning Charging Case', 'Apple', 'Kufje', '', '63eabeae767761.75083362.jpg', 'Llogaria', '2023-02-13 22:50:22', '2023-02-13 22:50:39', '239.00');
 
 -- --------------------------------------------------------
 
