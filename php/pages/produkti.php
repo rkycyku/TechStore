@@ -37,6 +37,7 @@ $produkti = $produktiCRUD->shfaqProduktinSipasID();
             <div class="foto">
                 <img src="../../img/products/<?php echo $produkti['fotoProduktit'] ?>" />
             </div>
+            <div>
             <div class="teDhenatProduktit">
                 <table>
                     <tr>
@@ -123,6 +124,7 @@ $produkti = $produktiCRUD->shfaqProduktinSipasID();
                 </form>
 
 
+            </div>
             </div>
         </div>
 

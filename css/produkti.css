@@ -4,10 +4,53 @@
   align-items: center;
   flex-direction: column;
 }
+.teDhenatProduktit h1{
+  font-size: 1em;
+}
 
+.teDhenatProduktit td{
+  border-bottom: 2px solid #dddddd;
+}
+
+.foto{
+  width: 20em;
+}
+
+.foto img{
+  width: 100%;
+  aspect-ratio: 3/2;
+  object-fit: contain;
+}
 .produkti {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80%;
+  margin: 25px ;
+  font-size: 1em;
+  gap: 1.3em;
+  border: none;
+  padding: 5em;
+  border-radius: 30px;
+  box-shadow: 0 0 10px #d3d3d3;
+  background-color: white;
+}
+
+.blerja{
+  margin-top: 2em;
+  font-size: 0.7em;
+}
+
+.button{
+  margin-top: 1.3em;
+}
+
+.pershkrimi{
+  width: 70%;
+  font-size: 0.8em;
+  padding: 3em;
+}
+
+.pershkrimi h2{
+  font-size: 1.4em;
+
 }
