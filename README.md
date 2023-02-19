@@ -34,8 +34,7 @@ Eshte punuar nga:
 
 ## Konfigurimi
 
-Se pari ju duhet te krijoni nje databaze me emrin techstoredb ne mysql.
-Pasi te keni perfunduar databazen ju duhet te importoni databazen e Web-it e cila gjendet ne folderin sqlDatabaza.
+Se pari ju duhet te importoni databazen e Web-it ne **phpMyAdmin (MySQL)** e cila gjendet ne folderin sqlDatabaza me emrin **techstoredb.sql**.
 
 Pasi qe te behet konfigurimi ju mund te kyqeni me keto te dhena:
 

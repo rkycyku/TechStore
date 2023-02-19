@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2023 at 04:26 PM
+-- Generation Time: Feb 19, 2023 at 04:34 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -32,14 +32,15 @@ USE `techstoredb`;
 --
 
 DROP TABLE IF EXISTS `contactform`;
-CREATE TABLE `contactform` (
-  `IDmesazhi` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `contactform` (
+  `IDmesazhi` int(11) NOT NULL AUTO_INCREMENT,
   `emri` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `mesazhi` varchar(255) NOT NULL,
   `dataDergeses` timestamp NOT NULL DEFAULT current_timestamp(),
-  `statusi` varchar(80) NOT NULL DEFAULT 'Eshte Derguar me Sukses'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `statusi` varchar(80) NOT NULL DEFAULT 'Eshte Derguar me Sukses',
+  PRIMARY KEY (`IDmesazhi`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 --
 -- RELATIONSHIPS FOR TABLE `contactform`:
@@ -63,11 +64,12 @@ INSERT INTO `contactform` (`IDmesazhi`, `emri`, `email`, `mesazhi`, `dataDergese
 --
 
 DROP TABLE IF EXISTS `kategoriaproduktit`;
-CREATE TABLE `kategoriaproduktit` (
-  `kategoriaID` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `kategoriaproduktit` (
+  `kategoriaID` int(11) NOT NULL AUTO_INCREMENT,
   `emriKategoris` varchar(255) NOT NULL,
-  `pershkrimiKategoris` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `pershkrimiKategoris` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`kategoriaID`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4;
 
 --
 -- RELATIONSHIPS FOR TABLE `kategoriaproduktit`:
@@ -104,11 +106,12 @@ INSERT INTO `kategoriaproduktit` (`kategoriaID`, `emriKategoris`, `pershkrimiKat
 --
 
 DROP TABLE IF EXISTS `kodizbritjes`;
-CREATE TABLE `kodizbritjes` (
+CREATE TABLE IF NOT EXISTS `kodizbritjes` (
   `kodi` char(6) NOT NULL,
   `idProduktit` varchar(11) DEFAULT NULL,
   `dataKrijimit` date NOT NULL DEFAULT current_timestamp(),
-  `qmimiZbritjes` decimal(10,2) NOT NULL
+  `qmimiZbritjes` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`kodi`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -135,12 +138,13 @@ INSERT INTO `kodizbritjes` (`kodi`, `idProduktit`, `dataKrijimit`, `qmimiZbritje
 --
 
 DROP TABLE IF EXISTS `kompania`;
-CREATE TABLE `kompania` (
-  `kompaniaID` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `kompania` (
+  `kompaniaID` int(11) NOT NULL AUTO_INCREMENT,
   `emriKompanis` varchar(50) NOT NULL,
   `kompaniaLogo` varchar(255) NOT NULL,
-  `adresaKompanis` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `adresaKompanis` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`kompaniaID`)
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4;
 
 --
 -- RELATIONSHIPS FOR TABLE `kompania`:
@@ -191,14 +195,16 @@ INSERT INTO `kompania` (`kompaniaID`, `emriKompanis`, `kompaniaLogo`, `adresaKom
 --
 
 DROP TABLE IF EXISTS `porosit`;
-CREATE TABLE `porosit` (
-  `nrPorosis` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `porosit` (
+  `nrPorosis` int(11) NOT NULL AUTO_INCREMENT,
   `idKlienti` int(11) DEFAULT NULL,
   `dataPorosis` date NOT NULL DEFAULT current_timestamp(),
   `TotaliPorosis` decimal(10,2) NOT NULL,
   `kodiZbritjes` char(6) DEFAULT NULL,
-  `statusiPorosis` varchar(30) NOT NULL DEFAULT 'Ne Procesim'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `statusiPorosis` varchar(30) NOT NULL DEFAULT 'Ne Procesim',
+  PRIMARY KEY (`nrPorosis`),
+  KEY `FK_KlientiPorosia` (`idKlienti`)
+) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=utf8mb4;
 
 --
 -- RELATIONSHIPS FOR TABLE `porosit`:
@@ -244,8 +250,8 @@ INSERT INTO `porosit` (`nrPorosis`, `idKlienti`, `dataPorosis`, `TotaliPorosis`,
 --
 
 DROP TABLE IF EXISTS `produkti`;
-CREATE TABLE `produkti` (
-  `produktiID` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `produkti` (
+  `produktiID` int(11) NOT NULL AUTO_INCREMENT,
   `emriProduktit` varchar(255) NOT NULL,
   `emriKompanis` varchar(30) NOT NULL,
   `kategoriaProduktit` varchar(50) NOT NULL,
@@ -254,8 +260,9 @@ CREATE TABLE `produkti` (
   `emriStafit` varchar(30) NOT NULL,
   `dataKrijimit` timestamp NOT NULL DEFAULT current_timestamp(),
   `dataModifikimit` timestamp NOT NULL DEFAULT current_timestamp(),
-  `qmimiProduktit` decimal(10,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `qmimiProduktit` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`produktiID`)
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4;
 
 --
 -- RELATIONSHIPS FOR TABLE `produkti`:
@@ -322,12 +329,14 @@ INSERT INTO `produkti` (`produktiID`, `emriProduktit`, `emriKompanis`, `kategori
 --
 
 DROP TABLE IF EXISTS `tedhenatporosis`;
-CREATE TABLE `tedhenatporosis` (
+CREATE TABLE IF NOT EXISTS `tedhenatporosis` (
   `idPorosia` int(11) DEFAULT NULL,
   `idProdukti` int(11) DEFAULT NULL,
   `qmimiProd` double(10,2) NOT NULL,
   `sasiaPorositur` int(5) NOT NULL,
-  `qmimiTotal` decimal(10,2) NOT NULL
+  `qmimiTotal` decimal(10,2) NOT NULL,
+  KEY `FK_PorosiaTeDhenatPorosis` (`idPorosia`),
+  KEY `FK_PorosiaProdukti` (`idProdukti`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -391,12 +400,13 @@ INSERT INTO `tedhenatporosis` (`idPorosia`, `idProdukti`, `qmimiProd`, `sasiaPor
 --
 
 DROP TABLE IF EXISTS `tedhenatuser`;
-CREATE TABLE `tedhenatuser` (
+CREATE TABLE IF NOT EXISTS `tedhenatuser` (
   `userID` int(11) NOT NULL,
   `nrKontaktit` varchar(30) DEFAULT NULL,
   `qyteti` varchar(30) DEFAULT NULL,
   `zipKodi` varchar(7) DEFAULT NULL,
-  `adresa` varchar(50) DEFAULT NULL
+  `adresa` varchar(50) DEFAULT NULL,
+  KEY `FK_UserTeDhenatUser` (`userID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -423,15 +433,16 @@ INSERT INTO `tedhenatuser` (`userID`, `nrKontaktit`, `qyteti`, `zipKodi`, `adres
 --
 
 DROP TABLE IF EXISTS `user`;
-CREATE TABLE `user` (
-  `userID` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `user` (
+  `userID` int(11) NOT NULL AUTO_INCREMENT,
   `emri` varchar(20) NOT NULL,
   `mbiemri` varchar(30) DEFAULT NULL,
   `username` varchar(20) NOT NULL,
   `email` varchar(50) DEFAULT NULL,
   `password` varchar(50) NOT NULL,
-  `aksesi` int(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `aksesi` int(1) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`userID`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 --
 -- RELATIONSHIPS FOR TABLE `user`:
@@ -445,106 +456,6 @@ INSERT INTO `user` (`userID`, `emri`, `mbiemri`, `username`, `email`, `password`
 (1, 'Llogaria', 'User', 'user', 'test@rmail.com', 'user', 0),
 (2, 'Llogaria', 'Adminit', 'admin', 'admin@gmail.com', 'admin', 2),
 (3, 'Llogaria', 'Menagjimit', 'menagjim', 'menagjim@gmail.com', 'menagjim', 1);
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `contactform`
---
-ALTER TABLE `contactform`
-  ADD PRIMARY KEY (`IDmesazhi`);
-
---
--- Indexes for table `kategoriaproduktit`
---
-ALTER TABLE `kategoriaproduktit`
-  ADD PRIMARY KEY (`kategoriaID`);
-
---
--- Indexes for table `kodizbritjes`
---
-ALTER TABLE `kodizbritjes`
-  ADD PRIMARY KEY (`kodi`);
-
---
--- Indexes for table `kompania`
---
-ALTER TABLE `kompania`
-  ADD PRIMARY KEY (`kompaniaID`);
-
---
--- Indexes for table `porosit`
---
-ALTER TABLE `porosit`
-  ADD PRIMARY KEY (`nrPorosis`),
-  ADD KEY `FK_KlientiPorosia` (`idKlienti`);
-
---
--- Indexes for table `produkti`
---
-ALTER TABLE `produkti`
-  ADD PRIMARY KEY (`produktiID`);
-
---
--- Indexes for table `tedhenatporosis`
---
-ALTER TABLE `tedhenatporosis`
-  ADD KEY `FK_PorosiaTeDhenatPorosis` (`idPorosia`),
-  ADD KEY `FK_PorosiaProdukti` (`idProdukti`);
-
---
--- Indexes for table `tedhenatuser`
---
-ALTER TABLE `tedhenatuser`
-  ADD KEY `FK_UserTeDhenatUser` (`userID`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`userID`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `contactform`
---
-ALTER TABLE `contactform`
-  MODIFY `IDmesazhi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `kategoriaproduktit`
---
-ALTER TABLE `kategoriaproduktit`
-  MODIFY `kategoriaID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
---
--- AUTO_INCREMENT for table `kompania`
---
-ALTER TABLE `kompania`
-  MODIFY `kompaniaID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
-
---
--- AUTO_INCREMENT for table `porosit`
---
-ALTER TABLE `porosit`
-  MODIFY `nrPorosis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
-
---
--- AUTO_INCREMENT for table `produkti`
---
-ALTER TABLE `produkti`
-  MODIFY `produktiID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
-
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
