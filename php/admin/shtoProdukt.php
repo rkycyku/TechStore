@@ -13,13 +13,13 @@ if (!isset($_SESSION)) {
 }
 
 if (isset($_POST['shtoProd'])) {
-  $_SESSION['EmriProduktit'] = $_POST['pdName'];
-  $_SESSION['EmriKompanis'] = $_POST['kompania'];
-  $_SESSION['KategoriaProduktit'] = $_POST['kategoria'];
-  $_SESSION['QmimiProduktit'] = $_POST['cmimiPd'];
+  $produktiCRUD->setEmriProduktit($_POST['pdName']);
+  $produktiCRUD->setEmriKompanis($_POST['kompania']);
+  $produktiCRUD->setKategoriaProduktit($_POST['kategoria']);
+  $produktiCRUD->setEmriStafit($_SESSION['name']);
+  $produktiCRUD->setQmimiProduktit($_POST['cmimiPd']);
+  $produktiCRUD->setPershkrimiProduktit($_POST['pershkrimiProd']);
   $_SESSION['FotoProduktit'] = $_FILES['pdPhoto'];
-  $_SESSION['EmriFotosProduktit'] = $_FILES['pdPhoto']['name'];
-  $_SESSION['PershkrimiProd'] = $_POST['pershkrimiProd'];
 
   $produktiCRUD->shtoProduktin();
 }

@@ -47,8 +47,8 @@ $porosiaCRUD = new porosiaCRUD();
     if (isset($_GET['produktID'])) {
       $porosiaCRUD->setProduktiID($_GET['produktID']);
       ?>
-      <h2>Te gjitha porosit e Produktit me ID: ' . $_GET['produktID'] . '</h2>
-      <h2>Emri i Produktit: ' . $_SESSION['emriProduktit'] . '</h2>
+      <h2>Te gjitha porosit e Produktit me ID: <?php echo $_GET['produktID'] ?></h2>
+      <h2>Emri i Produktit: <?php echo $_SESSION['emriProduktit'] ?></h2>
       <?php
       $porosiaCRUD->shfaqPorositSipasProduktit();
     } else {
@@ -63,7 +63,7 @@ $porosiaCRUD = new porosiaCRUD();
       if (isset($_GET['userID'])) {
         $porosiaCRUD->setUserID($_GET['userID']);
         ?>
-        <h2>Te gjitha porosit e Klientit me ID: ' . $_GET['userID'] . '</h2>
+        <h2>Te gjitha porosit e Klientit me ID: <?php echo $_GET['userID'] ?></h2>
         <?php
       }
       $porosia = $porosiaCRUD->shfaqPorositEKlientit();

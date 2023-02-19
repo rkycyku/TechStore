@@ -114,7 +114,7 @@ $produktet = $produktiCRUD->shfaqProduktetENdara($fillimi, $nrMaxIProduktevPerFa
           <?php
         }
     } else if (isset($_GET['kerko'])) {
-      $_SESSION['kerko'] = $_GET['kerko'];
+      $produktiCRUD->setEmriProduktit('%' . $_GET['kerko'] . '%');
 
       $produktiCRUD->shfaqProduktetNgaKerkimi();
     } else {
@@ -185,11 +185,12 @@ $produktet = $produktiCRUD->shfaqProduktetENdara($fillimi, $nrMaxIProduktevPerFa
               echo "<a class='faqjaTjeter' href=\"?faqja=$i\">$i</a>";
             }
           }
-    }
-    if ($nrFaqes < $nrFaqev) {
-      ?>
-          <a class='faqjaTjeter' href="?faqja=<?php echo $nrFaqes + 1 ?>"><i class='fa-solid'>&#xf105;</i></a>
-          <?php
+
+          if ($nrFaqes < $nrFaqev) {
+            ?>
+              <a class='faqjaTjeter' href="?faqja=<?php echo $nrFaqes + 1 ?>"><i class='fa-solid'>&#xf105;</i></a>
+            <?php
+          }
     }
     ?>
       </div>

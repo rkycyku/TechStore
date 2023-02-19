@@ -158,7 +158,7 @@ $produkti = $produktiCRUD->shfaqProduktinSipasID();
                 <h1 class="">Me te shiturat</h1>
             </div>
             <?php
-            $produktet = $produktiCRUD->shfaq8MeTeShiturat();
+            $produktet = $produktiCRUD->shfaq10MeTeShiturat();
             foreach ($produktet as $produkti) {
                 ?>
                 <form action="../funksione/shtoNeShport.php" method="POST" class="artikulli">

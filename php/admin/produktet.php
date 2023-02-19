@@ -63,6 +63,7 @@ $produktiCRUD = new produktiCRUD();
         <th>Kategoria e Produktit</th>
         <th>Foto e Produktit</th>
         <th>Qmimi i Produktit</th>
+        <th>Ka Pershkrim</th>
         <th>Funksione</th>
       </tr>
       <?php
@@ -84,6 +85,13 @@ $produktiCRUD = new produktiCRUD();
           <td><img src="../../img/products/<?php echo $produkti['fotoProduktit'] ?>"></td>
           <td>
             <?php echo $produkti['qmimiProduktit'] ?> €
+          </td>
+          <td>
+            <?php if($produkti['pershkrimiProd'] != null){
+              echo '<i class="fa-solid">&#xf00c;</i>';
+            } else{
+              echo '<i class="fa-solid">&#xf00d;</i>';
+            }?> 
           </td>
           <td><button class="edito"><a
                 href="./editoProduktin.php?produktID=<?php echo $produkti['produktiID'] ?>">Edito</a></button>

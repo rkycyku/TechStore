@@ -127,14 +127,6 @@ class produktiCRUD extends dbCon
         try {
             $this->barteFotonNeFolder();
 
-            $this->setEmriProduktit($_SESSION['EmriProduktit']);
-            $this->setEmriKompanis($_SESSION['EmriKompanis']);
-            $this->setKategoriaProduktit($_SESSION['KategoriaProduktit']);
-            $this->setEmriStafit($_SESSION['name']);
-            $this->setQmimiProduktit($_SESSION['QmimiProduktit']);
-            $this->setFotoProduktit($_SESSION['emriUnikFotos']);
-            $this->setPershkrimiProduktit($_SESSION['PershkrimiProd']);
-
             $sql = "INSERT INTO `produkti`(`emriProduktit`, `emriKompanis`, `kategoriaProduktit`, `fotoProduktit`, `emriStafit`,`qmimiProduktit`, `pershkrimiProd`) VALUES (?, ?,?,?,?,?,?)";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute([$this->emriProduktit, $this->emriKompanis, $this->kategoriaProduktit, $this->fotoProduktit, $this->emriStafit, $this->qmimiProduktit, $this->pershkrimiProduktit]);
@@ -202,7 +194,7 @@ class produktiCRUD extends dbCon
     public function shfaqProduktetNgaKerkimi()
     {
         try {
-            $this->setEmriProduktit('%' . $_SESSION['kerko'] . '%');
+            
 
             $sql = "SELECT * FROM produkti WHERE `emriProduktit` LIKE ?";
             $stm = $this->dbConn->prepare($sql);
@@ -215,7 +207,7 @@ class produktiCRUD extends dbCon
                 <div class="artikujt">
                     <div class="titulliArtikuj">
                         <h1 class="">All Products like
-                            <?php echo $_SESSION['kerko'] ?>
+                            <?php echo $_GET['kerko'] ?>
                         </h1>
                     </div>';
                     <?php
@@ -246,7 +238,7 @@ class produktiCRUD extends dbCon
                     <div class="artikujt">
                         <div class="titulliArtikuj">
                             <h1 class="">All Products like
-                                <?php echo $_SESSION['kerko'] ?>
+                                <?php echo $_GET['kerko'] ?>
                             </h1>
                         </div>
                         <p>Nuk kemi asnje produkt qe perputhet me ate qe kerkuat!</p>
@@ -290,16 +282,7 @@ class produktiCRUD extends dbCon
     public function editoProduktin($kaFoto)
     {
         try {
-            $this->setProduktiID($_SESSION['prouktiID']);
-            $this->setEmriProduktit($_SESSION['EmriProduktit']);
-            $this->setEmriKompanis($_SESSION['EmriKompanis']);
-            $this->setKategoriaProduktit($_SESSION['KategoriaProduktit']);
-            $this->setEmriStafit($_SESSION['name']);
-            $this->setQmimiProduktit($_SESSION['QmimiProduktit']);
-            $this->setPershkrimiProduktit($_SESSION['PershkrimiProd']);
-
             if ($kaFoto == false) {
-
                 $sql = "UPDATE `produkti` SET `emriProduktit`=?,`emriKompanis`=?,`kategoriaProduktit`=?,`emriStafit`=?,`dataModifikimit`=current_timestamp(),`qmimiProduktit`=? , `pershkrimiProd` =? WHERE produktiID = ?";
                 $stm = $this->dbConn->prepare($sql);
                 $stm->execute([$this->emriProduktit, $this->emriKompanis, $this->kategoriaProduktit, $this->emriStafit, $this->qmimiProduktit, $this->pershkrimiProduktit, $this->produktiID]);
@@ -308,8 +291,6 @@ class produktiCRUD extends dbCon
                 unlink('../../img/products/' . $produkti['fotoProduktit']);
 
                 $this->barteFotonNeFolder();
-
-                $this->setFotoProduktit($_SESSION['emriUnikFotos']);
 
                 $sql = "UPDATE `produkti` SET `emriProduktit`=?,`emriKompanis`=?,`kategoriaProduktit`=?,`fotoProduktit`=?,`emriStafit`=?,`dataModifikimit`=current_timestamp(),`qmimiProduktit`=?, `pershkrimiProd` =? WHERE produktiID = ?";
                 $stm = $this->dbConn->prepare($sql);
@@ -338,10 +319,11 @@ class produktiCRUD extends dbCon
 
             if (in_array($fileActualExt, $teLejuara)) {
                 if ($errorFoto === 0) {
-                    $_SESSION['emriUnikFotos'] = uniqid('', true) . "." . $fileActualExt;
-                    $destinacioniFotos = '../../img/products/' . $_SESSION['emriUnikFotos'];
+                    $emriUnikFotos = uniqid('', true) . "." . $fileActualExt;
+                    $destinacioniFotos = '../../img/products/' . $emriUnikFotos;
                     move_uploaded_file($emeriTempIFotes, $destinacioniFotos);
 
+                    $this->setFotoProduktit($emriUnikFotos);
                 } else {
                     $_SESSION['problemNeBartje'] = true;
                 }
@@ -382,10 +364,10 @@ class produktiCRUD extends dbCon
         }
     }
 
-    public function shfaq8MeTeShiturat()
+    public function shfaq10MeTeShiturat()
     {
         try {
-            $sql = "SELECT P.* FROM `produkti` p inner join tedhenatporosis t on p.produktiID = t.idProdukti group by p.produktiID order by count(*) desc LIMIT 8;";
+            $sql = "SELECT P.* FROM `produkti` p inner join tedhenatporosis t on p.produktiID = t.idProdukti group by p.produktiID order by count(*) desc LIMIT 10;";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute();
 
