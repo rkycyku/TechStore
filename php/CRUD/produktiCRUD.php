@@ -137,7 +137,36 @@ class produktiCRUD extends dbCon
         }
     }
 
+    public function shfaqNrProduktev($ndarja)
+    {
+        try {
+            if ($ndarja == 'kerko') {
+                $sql = "SELECT count(*) as totProd FROM produkti WHERE `emriProduktit` LIKE ?";
+                $stm = $this->dbConn->prepare($sql);
+                $stm->execute([$this->emriProduktit]);
 
+            } else if ($ndarja == 'kompania') {
+                $sql = "SELECT count(*) as totProd FROM produkti WHERE `emriKompanis` LIKE ?";
+                $stm = $this->dbConn->prepare($sql);
+                $stm->execute([$this->emriKompanis]);
+
+            } else if ($ndarja == 'kategoria') {
+                $sql = "SELECT count(*) as totProd FROM produkti WHERE `kategoriaProduktit` LIKE ?";
+                $stm = $this->dbConn->prepare($sql);
+                $stm->execute([$this->kategoriaProduktit]);
+
+            } else {
+                $sql = "SELECT count(*) as totProd FROM produkti";
+                $stm = $this->dbConn->prepare($sql);
+                $stm->execute();
+
+            }
+
+            return $stm->fetch();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
 
     public function shfaqTeGjithaProduktet()
     {
@@ -173,90 +202,6 @@ class produktiCRUD extends dbCon
             $stm->execute([$this->produktiID]);
 
             return $stm->fetch();
-        } catch (Exception $e) {
-            return $e->getMessage();
-        }
-    }
-
-    public function shfaqProduktinSipasKompanis()
-    {
-        try {
-            $sql = "SELECT * FROM produkti WHERE `emriKompanis` = ?";
-            $stm = $this->dbConn->prepare($sql);
-            $stm->execute([$this->emriKompanis]);
-
-            return $stm->fetchAll();
-        } catch (Exception $e) {
-            return $e->getMessage();
-        }
-    }
-
-    public function shfaqProduktetNgaKerkimi()
-    {
-        try {
-            
-
-            $sql = "SELECT * FROM produkti WHERE `emriProduktit` LIKE ?";
-            $stm = $this->dbConn->prepare($sql);
-            $stm->execute([$this->emriProduktit]);
-
-            $produktet = $stm->fetchAll();
-
-            if ($produktet == true) {
-                ?>
-                <div class="artikujt">
-                    <div class="titulliArtikuj">
-                        <h1 class="">All Products like
-                            <?php echo $_GET['kerko'] ?>
-                        </h1>
-                    </div>';
-                    <?php
-                    foreach ($produktet as $produkti) {
-                        ?>
-                        <form action="../funksione/shtoNeShport.php" method="POST" class="artikulli">
-                            <input type="hidden" name="produktiID" value=<?php echo $produkti['produktiID'] ?>>
-                            <input type="hidden" name="emriProduktit" value='<?php echo $produkti['emriProduktit'] ?>'>
-                            <input type="hidden" name="qmimiProduktit" value=<?php echo $produkti['qmimiProduktit'] ?>>
-                            <a href="../pages/produkti.php?produktiID=<?php echo $produkti['produktiID'] ?> ">
-                                <img src="../../img/products/<?php echo $produkti['fotoProduktit'] ?>" />
-                                <p class=" artikulliLabel">
-                                    <?php echo $produkti['emriProduktit'] ?>
-                                </p>
-                            </a>
-                            <p class="cmimi">
-                                <?php echo $produkti['qmimiProduktit'] ?> €
-                            </p>
-                            <div class="butonatDiv">
-                                <input type="submit" class="button" value="Buy now" name="blej">
-                                <input type="submit" class="button button-shporta fa-solid" value="&#xf07a;" name="submit">
-                            </div>
-                        </form>
-                        <?php
-                    }
-            } else {
-                ?>
-                    <div class="artikujt">
-                        <div class="titulliArtikuj">
-                            <h1 class="">All Products like
-                                <?php echo $_GET['kerko'] ?>
-                            </h1>
-                        </div>
-                        <p>Nuk kemi asnje produkt qe perputhet me ate qe kerkuat!</p>
-                        <?php
-            }
-        } catch (Exception $e) {
-            return $e->getMessage();
-        }
-    }
-
-    public function shfaqProduktinSipasKategoris()
-    {
-        try {
-            $sql = "SELECT * FROM produkti WHERE `kategoriaProduktit` = ?";
-            $stm = $this->dbConn->prepare($sql);
-            $stm->execute([$this->kategoriaProduktit]);
-
-            return $stm->fetchAll();
         } catch (Exception $e) {
             return $e->getMessage();
         }
@@ -336,29 +281,34 @@ class produktiCRUD extends dbCon
     }
 
 
-    public function shfaqProduktetENdara($fillimi, $limitiProduktec)
+    public function shfaqProduktetENdara($fillimi, $limitiProduktec, $ndarja)
     {
         try {
-            $sql = "SELECT * FROM `produkti` ORDER BY `produktiID` DESC LIMIT :fillimi, :limiti";
-            $stm = $this->dbConn->prepare($sql);
-            $stm->bindParam(':fillimi', $fillimi, PDO::PARAM_INT);
-            $stm->bindParam(':limiti', $limitiProduktec, PDO::PARAM_INT);
-            $stm->execute();
+            if ($ndarja == 'kerko') {
+                $sql = "SELECT * FROM produkti WHERE `emriProduktit` LIKE ? ORDER BY `produktiID` DESC LIMIT $fillimi, $limitiProduktec";
+                $stm = $this->dbConn->prepare($sql);
+                $stm->execute([$this->emriProduktit]);
+                return $stm->fetchAll();
+            } else if ($ndarja == 'kompania') {
+                $sql = "SELECT * FROM produkti WHERE `emriKompanis` like ? ORDER BY `produktiID` DESC LIMIT $fillimi, $limitiProduktec";
+                $stm = $this->dbConn->prepare($sql);
+                $stm->execute([$this->emriKompanis]);
+                return $stm->fetchAll();
+            } else if ($ndarja == 'kategoria') {
+                $sql = "SELECT * FROM produkti WHERE `kategoriaProduktit` LIKE ? ORDER BY `produktiID` DESC LIMIT $fillimi, $limitiProduktec";
+                $stm = $this->dbConn->prepare($sql);
 
-            return $stm->fetchAll();
-        } catch (Exception $e) {
-            return $e->getMessage();
-        }
-    }
+                $stm->execute([$this->kategoriaProduktit]);
+                return $stm->fetchAll();
 
-    public function numriTotalIProdukteve()
-    {
-        try {
-            $sql = "SELECT COUNT(*) as tot FROM `produkti`";
-            $stm = $this->dbConn->prepare($sql);
-            $stm->execute();
+            } else {
+                $sql = "SELECT * FROM `produkti` ORDER BY `produktiID` DESC LIMIT $fillimi, $limitiProduktec";
+                $stm = $this->dbConn->prepare($sql);
+                $stm->execute();
+                return $stm->fetchAll();
+            }
 
-            return $stm->fetch();
+
         } catch (Exception $e) {
             return $e->getMessage();
         }

@@ -76,7 +76,7 @@
   margin-bottom: 0.5em;
 }
 
-.artikulli a{
+.artikulli a {
   align-items: center;
   justify-content: center;
   display: flex;
@@ -207,56 +207,6 @@
   opacity: 1;
 }
 
-.searchBar {
-  width: 23em;
-  padding: 1em 2em;
-  margin-top: 2em;
-  border: 1px solid #d3d3d3;
-  border-radius: 25px;
-}
-
-.searchBarForm {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1em;
-}
-
-
-.navigimiFaqev{
-  margin-top: 2em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5em;
-}
-
-.faqjaAktive{
-  color: white;
-  border: none;
-  padding: 0.6em;
-  border-radius: 100px;
-  background-color: #01df93;
-}
-
-.faqjaAktive:hover{
-  cursor: pointer;
-  color: white;
-  background-color: #01df93;
-}
-
-.faqjaTjeter{
-  color: black;
-  border: none;
-  padding: 0.6em;
-  border-radius: 100px;
-}
-
-.faqjaTjeter:hover{
-  cursor: pointer;
-  color: white;
-  background-color: #01df93;
-}
-
 /* Mbarimi i CSS te Slider-it te Brendeve */
 
 /* Fillimi i CSS-it per nje dukje me te mire ne Paisjet mobile (Responsive) */
@@ -270,14 +220,13 @@
     align-items: center;
   }
 
-  .logoBrendit{
+  .logoBrendit {
     display: flex;
     width: 100%;
     align-items: center;
     justify-content: center;
     margin-top: 1.5em;
   }
-
 
   .shkoMajtas,
   .shkoDjathtas {

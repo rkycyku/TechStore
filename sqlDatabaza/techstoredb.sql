@@ -3,10 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2023 at 04:34 PM
+-- Generation Time: Feb 21, 2023 at 12:20 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
+SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -28,7 +29,8 @@ USE `techstoredb`;
 --
 -- Table structure for table `contactform`
 --
--- Creation: Feb 12, 2023 at 10:50 PM
+-- Creation: Feb 20, 2023 at 11:16 PM
+-- Last update: Feb 20, 2023 at 11:16 PM
 --
 
 DROP TABLE IF EXISTS `contactform`;
@@ -60,7 +62,8 @@ INSERT INTO `contactform` (`IDmesazhi`, `emri`, `email`, `mesazhi`, `dataDergese
 --
 -- Table structure for table `kategoriaproduktit`
 --
--- Creation: Feb 12, 2023 at 10:50 PM
+-- Creation: Feb 20, 2023 at 11:16 PM
+-- Last update: Feb 20, 2023 at 11:16 PM
 --
 
 DROP TABLE IF EXISTS `kategoriaproduktit`;
@@ -102,7 +105,8 @@ INSERT INTO `kategoriaproduktit` (`kategoriaID`, `emriKategoris`, `pershkrimiKat
 --
 -- Table structure for table `kodizbritjes`
 --
--- Creation: Feb 15, 2023 at 10:42 AM
+-- Creation: Feb 20, 2023 at 11:16 PM
+-- Last update: Feb 20, 2023 at 11:16 PM
 --
 
 DROP TABLE IF EXISTS `kodizbritjes`;
@@ -134,7 +138,8 @@ INSERT INTO `kodizbritjes` (`kodi`, `idProduktit`, `dataKrijimit`, `qmimiZbritje
 --
 -- Table structure for table `kompania`
 --
--- Creation: Feb 12, 2023 at 10:50 PM
+-- Creation: Feb 20, 2023 at 11:16 PM
+-- Last update: Feb 20, 2023 at 11:16 PM
 --
 
 DROP TABLE IF EXISTS `kompania`;
@@ -191,7 +196,8 @@ INSERT INTO `kompania` (`kompaniaID`, `emriKompanis`, `kompaniaLogo`, `adresaKom
 --
 -- Table structure for table `porosit`
 --
--- Creation: Feb 15, 2023 at 10:41 AM
+-- Creation: Feb 20, 2023 at 11:16 PM
+-- Last update: Feb 20, 2023 at 11:16 PM
 --
 
 DROP TABLE IF EXISTS `porosit`;
@@ -245,8 +251,8 @@ INSERT INTO `porosit` (`nrPorosis`, `idKlienti`, `dataPorosis`, `TotaliPorosis`,
 --
 -- Table structure for table `produkti`
 --
--- Creation: Feb 17, 2023 at 05:03 PM
--- Last update: Feb 19, 2023 at 03:08 PM
+-- Creation: Feb 20, 2023 at 11:16 PM
+-- Last update: Feb 20, 2023 at 11:16 PM
 --
 
 DROP TABLE IF EXISTS `produkti`;
@@ -325,7 +331,8 @@ INSERT INTO `produkti` (`produktiID`, `emriProduktit`, `emriKompanis`, `kategori
 --
 -- Table structure for table `tedhenatporosis`
 --
--- Creation: Feb 12, 2023 at 10:50 PM
+-- Creation: Feb 20, 2023 at 11:16 PM
+-- Last update: Feb 20, 2023 at 11:16 PM
 --
 
 DROP TABLE IF EXISTS `tedhenatporosis`;
@@ -396,7 +403,8 @@ INSERT INTO `tedhenatporosis` (`idPorosia`, `idProdukti`, `qmimiProd`, `sasiaPor
 --
 -- Table structure for table `tedhenatuser`
 --
--- Creation: Feb 12, 2023 at 10:50 PM
+-- Creation: Feb 20, 2023 at 11:16 PM
+-- Last update: Feb 20, 2023 at 11:16 PM
 --
 
 DROP TABLE IF EXISTS `tedhenatuser`;
@@ -429,7 +437,8 @@ INSERT INTO `tedhenatuser` (`userID`, `nrKontaktit`, `qyteti`, `zipKodi`, `adres
 --
 -- Table structure for table `user`
 --
--- Creation: Feb 12, 2023 at 10:50 PM
+-- Creation: Feb 20, 2023 at 11:16 PM
+-- Last update: Feb 20, 2023 at 11:16 PM
 --
 
 DROP TABLE IF EXISTS `user`;
@@ -479,6 +488,7 @@ ALTER TABLE `tedhenatporosis`
 --
 ALTER TABLE `tedhenatuser`
   ADD CONSTRAINT `FK_UserTeDhenatUser` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE;
+SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
