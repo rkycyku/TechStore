@@ -15,8 +15,8 @@ $userCRUD->setUserID($_GET['userID']);
 $perdoruesi = $userCRUD->shfaqSipasID();
 
 if (isset($_POST['perditPass'])) {
-    if ($_POST['oldPass'] == $perdoruesi['password']) {
-        $userCRUD->setPassword($_POST['newPass']);
+    if (password_verify($_POST['passVjeter'],$perdoruesi['password'])) {
+        $userCRUD->setPassword(password_hash($_POST['passIRi'], PASSWORD_DEFAULT));
 
         $userCRUD->perditesoFjalekalimin();
 
@@ -77,11 +77,11 @@ $perdoruesi = $userCRUD->shfaqSipasID();
             </label>
             <label for="">
                 <strong>Password i Ri: </strong>
-                <input type="password" placeholder="Shkruani passwordin!" name="newPass">
+                <input type="password" placeholder="Shkruani passwordin!" name="passIRi">
             </label>
             <label for="">
                 <strong>Password Aktual: </strong>
-                <input type="password" placeholder="Shkruani passwordin!" name="oldPass">
+                <input type="password" placeholder="Shkruani passwordin!" name="passVjeter">
             </label>
             <input class="button" type="submit" value="Perditesoni Password" name='perditPass'>
             <input class="button" type="submit" value="Anulo" name='anulo'>

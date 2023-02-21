@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
     $user->setEmri($_POST['name']);
     $user->setMbiemri($_POST['lName']);
     $user->setEmail($_POST['email']);
-    $user->setPassword($_POST['password']);
+    $user->setPassword(password_hash($_POST['password'], PASSWORD_DEFAULT));
     $user->shtoUser();
 
     $idUser = $user->idKlientiNeRegjistrim();

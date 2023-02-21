@@ -15,7 +15,7 @@ $userCRUD->setUserID($_GET['userID']);
 $perdoruesi = $userCRUD->shfaqSipasID();
 
 if (isset($_POST['perditDhenat'])) {
-    if ($_POST['pass'] == $perdoruesi['password']) {
+    if (password_verify($_POST['pass'], $perdoruesi['password'])) {
         $userCRUD->setEmri($_POST['emri']);
         $userCRUD->setMbiemri($_POST['mbiemri']);
         $userCRUD->setEmail($_POST['email']);

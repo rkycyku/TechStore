@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 21, 2023 at 12:20 AM
+-- Generation Time: Feb 21, 2023 at 07:42 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -29,8 +29,8 @@ USE `techstoredb`;
 --
 -- Table structure for table `contactform`
 --
--- Creation: Feb 20, 2023 at 11:16 PM
--- Last update: Feb 20, 2023 at 11:16 PM
+-- Creation: Feb 20, 2023 at 11:21 PM
+-- Last update: Feb 20, 2023 at 11:21 PM
 --
 
 DROP TABLE IF EXISTS `contactform`;
@@ -49,6 +49,11 @@ CREATE TABLE IF NOT EXISTS `contactform` (
 --
 
 --
+-- Truncate table before insert `contactform`
+--
+
+TRUNCATE TABLE `contactform`;
+--
 -- Dumping data for table `contactform`
 --
 
@@ -62,8 +67,8 @@ INSERT INTO `contactform` (`IDmesazhi`, `emri`, `email`, `mesazhi`, `dataDergese
 --
 -- Table structure for table `kategoriaproduktit`
 --
--- Creation: Feb 20, 2023 at 11:16 PM
--- Last update: Feb 20, 2023 at 11:16 PM
+-- Creation: Feb 20, 2023 at 11:21 PM
+-- Last update: Feb 20, 2023 at 11:21 PM
 --
 
 DROP TABLE IF EXISTS `kategoriaproduktit`;
@@ -78,6 +83,11 @@ CREATE TABLE IF NOT EXISTS `kategoriaproduktit` (
 -- RELATIONSHIPS FOR TABLE `kategoriaproduktit`:
 --
 
+--
+-- Truncate table before insert `kategoriaproduktit`
+--
+
+TRUNCATE TABLE `kategoriaproduktit`;
 --
 -- Dumping data for table `kategoriaproduktit`
 --
@@ -105,8 +115,8 @@ INSERT INTO `kategoriaproduktit` (`kategoriaID`, `emriKategoris`, `pershkrimiKat
 --
 -- Table structure for table `kodizbritjes`
 --
--- Creation: Feb 20, 2023 at 11:16 PM
--- Last update: Feb 20, 2023 at 11:16 PM
+-- Creation: Feb 20, 2023 at 11:21 PM
+-- Last update: Feb 20, 2023 at 11:21 PM
 --
 
 DROP TABLE IF EXISTS `kodizbritjes`;
@@ -123,6 +133,11 @@ CREATE TABLE IF NOT EXISTS `kodizbritjes` (
 --
 
 --
+-- Truncate table before insert `kodizbritjes`
+--
+
+TRUNCATE TABLE `kodizbritjes`;
+--
 -- Dumping data for table `kodizbritjes`
 --
 
@@ -138,8 +153,8 @@ INSERT INTO `kodizbritjes` (`kodi`, `idProduktit`, `dataKrijimit`, `qmimiZbritje
 --
 -- Table structure for table `kompania`
 --
--- Creation: Feb 20, 2023 at 11:16 PM
--- Last update: Feb 20, 2023 at 11:16 PM
+-- Creation: Feb 20, 2023 at 11:21 PM
+-- Last update: Feb 20, 2023 at 11:21 PM
 --
 
 DROP TABLE IF EXISTS `kompania`;
@@ -155,6 +170,11 @@ CREATE TABLE IF NOT EXISTS `kompania` (
 -- RELATIONSHIPS FOR TABLE `kompania`:
 --
 
+--
+-- Truncate table before insert `kompania`
+--
+
+TRUNCATE TABLE `kompania`;
 --
 -- Dumping data for table `kompania`
 --
@@ -197,7 +217,7 @@ INSERT INTO `kompania` (`kompaniaID`, `emriKompanis`, `kompaniaLogo`, `adresaKom
 -- Table structure for table `porosit`
 --
 -- Creation: Feb 20, 2023 at 11:16 PM
--- Last update: Feb 20, 2023 at 11:16 PM
+-- Last update: Feb 21, 2023 at 06:29 PM
 --
 
 DROP TABLE IF EXISTS `porosit`;
@@ -210,7 +230,7 @@ CREATE TABLE IF NOT EXISTS `porosit` (
   `statusiPorosis` varchar(30) NOT NULL DEFAULT 'Ne Procesim',
   PRIMARY KEY (`nrPorosis`),
   KEY `FK_KlientiPorosia` (`idKlienti`)
-) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=utf8mb4;
 
 --
 -- RELATIONSHIPS FOR TABLE `porosit`:
@@ -218,6 +238,11 @@ CREATE TABLE IF NOT EXISTS `porosit` (
 --       `user` -> `userID`
 --
 
+--
+-- Truncate table before insert `porosit`
+--
+
+TRUNCATE TABLE `porosit`;
 --
 -- Dumping data for table `porosit`
 --
@@ -244,7 +269,9 @@ INSERT INTO `porosit` (`nrPorosis`, `idKlienti`, `dataPorosis`, `TotaliPorosis`,
 (91, 2, '2023-02-18', '234.00', 'AB12EE', 'Ne Procesim'),
 (92, 2, '2023-02-18', '234.00', 'AB12EE', 'Ne Procesim'),
 (93, 2, '2023-02-18', '1179.00', '5B7IKW', 'Pranuar Nga Bleresi'),
-(94, 2, '2023-02-18', '13632.00', '5B7IKW', 'Ne Procesim');
+(94, 2, '2023-02-18', '13632.00', '5B7IKW', 'Ne Procesim'),
+(95, 2, '2023-02-21', '149.50', NULL, 'Ne Procesim'),
+(96, 2, '2023-02-21', '149.50', NULL, 'Ne Procesim');
 
 -- --------------------------------------------------------
 
@@ -274,6 +301,11 @@ CREATE TABLE IF NOT EXISTS `produkti` (
 -- RELATIONSHIPS FOR TABLE `produkti`:
 --
 
+--
+-- Truncate table before insert `produkti`
+--
+
+TRUNCATE TABLE `produkti`;
 --
 -- Dumping data for table `produkti`
 --
@@ -332,7 +364,7 @@ INSERT INTO `produkti` (`produktiID`, `emriProduktit`, `emriKompanis`, `kategori
 -- Table structure for table `tedhenatporosis`
 --
 -- Creation: Feb 20, 2023 at 11:16 PM
--- Last update: Feb 20, 2023 at 11:16 PM
+-- Last update: Feb 21, 2023 at 06:29 PM
 --
 
 DROP TABLE IF EXISTS `tedhenatporosis`;
@@ -354,6 +386,11 @@ CREATE TABLE IF NOT EXISTS `tedhenatporosis` (
 --       `porosit` -> `nrPorosis`
 --
 
+--
+-- Truncate table before insert `tedhenatporosis`
+--
+
+TRUNCATE TABLE `tedhenatporosis`;
 --
 -- Dumping data for table `tedhenatporosis`
 --
@@ -396,7 +433,9 @@ INSERT INTO `tedhenatporosis` (`idPorosia`, `idProdukti`, `qmimiProd`, `sasiaPor
 (91, 45, 239.00, 1, '239.00'),
 (92, 45, 239.00, 1, '239.00'),
 (93, 23, 1779.00, 1, '1779.00'),
-(94, 23, 1779.00, 8, '14232.00');
+(94, 23, 1779.00, 8, '14232.00'),
+(95, 46, 149.50, 1, '149.50'),
+(96, 46, 149.50, 1, '149.50');
 
 -- --------------------------------------------------------
 
@@ -404,7 +443,7 @@ INSERT INTO `tedhenatporosis` (`idPorosia`, `idProdukti`, `qmimiProd`, `sasiaPor
 -- Table structure for table `tedhenatuser`
 --
 -- Creation: Feb 20, 2023 at 11:16 PM
--- Last update: Feb 20, 2023 at 11:16 PM
+-- Last update: Feb 21, 2023 at 06:00 PM
 --
 
 DROP TABLE IF EXISTS `tedhenatuser`;
@@ -424,6 +463,11 @@ CREATE TABLE IF NOT EXISTS `tedhenatuser` (
 --
 
 --
+-- Truncate table before insert `tedhenatuser`
+--
+
+TRUNCATE TABLE `tedhenatuser`;
+--
 -- Dumping data for table `tedhenatuser`
 --
 
@@ -437,8 +481,8 @@ INSERT INTO `tedhenatuser` (`userID`, `nrKontaktit`, `qyteti`, `zipKodi`, `adres
 --
 -- Table structure for table `user`
 --
--- Creation: Feb 20, 2023 at 11:16 PM
--- Last update: Feb 20, 2023 at 11:16 PM
+-- Creation: Feb 21, 2023 at 05:45 PM
+-- Last update: Feb 21, 2023 at 06:04 PM
 --
 
 DROP TABLE IF EXISTS `user`;
@@ -448,23 +492,28 @@ CREATE TABLE IF NOT EXISTS `user` (
   `mbiemri` varchar(30) DEFAULT NULL,
   `username` varchar(20) NOT NULL,
   `email` varchar(50) DEFAULT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` varchar(60) NOT NULL,
   `aksesi` int(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`userID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 --
 -- RELATIONSHIPS FOR TABLE `user`:
 --
 
 --
+-- Truncate table before insert `user`
+--
+
+TRUNCATE TABLE `user`;
+--
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`userID`, `emri`, `mbiemri`, `username`, `email`, `password`, `aksesi`) VALUES
-(1, 'Llogaria', 'User', 'user', 'test@rmail.com', 'user', 0),
-(2, 'Llogaria', 'Adminit', 'admin', 'admin@gmail.com', 'admin', 2),
-(3, 'Llogaria', 'Menagjimit', 'menagjim', 'menagjim@gmail.com', 'menagjim', 1);
+(1, 'Llogaria', 'User', 'user', 'test@rmail.com', '$2y$10$juI.BOzWW1giyHJ1D9.Hje.mOPSGAFDgB..C9ACJkSZ1cKZchCTPa', 0),
+(2, 'Llogaria', 'Adminit', 'admin', 'admin@gmail.com', '$2y$10$bWkaCvfxf/k4bZMSbP2rbOHEk7NTOx9UmBjSrpOYnyMACCEq99rNa', 2),
+(3, 'Llogaria', 'Menagjimit', 'menagjim', 'menagjim@gmail.com', '$2y$10$eepxMAnYPktEBl0dWRhOU.oC7S2FO2GrlxTOJuTk8YhUFNcIIRYcy', 1);
 
 --
 -- Constraints for dumped tables
@@ -488,7 +537,257 @@ ALTER TABLE `tedhenatporosis`
 --
 ALTER TABLE `tedhenatuser`
   ADD CONSTRAINT `FK_UserTeDhenatUser` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE;
-SET FOREIGN_KEY_CHECKS=1;
+
+
+--
+-- Metadata
+--
+USE `phpmyadmin`;
+
+--
+-- Metadata for table contactform
+--
+
+--
+-- Truncate table before insert `pma__column_info`
+--
+
+TRUNCATE TABLE `pma__column_info`;
+--
+-- Truncate table before insert `pma__table_uiprefs`
+--
+
+TRUNCATE TABLE `pma__table_uiprefs`;
+--
+-- Dumping data for table `pma__table_uiprefs`
+--
+
+INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
+('root', 'techstoredb', 'contactform', '{\"sorted_col\":\"`contactform`.`IDmesazhi` ASC\"}', '2023-01-19 21:35:21');
+
+--
+-- Truncate table before insert `pma__tracking`
+--
+
+TRUNCATE TABLE `pma__tracking`;
+--
+-- Metadata for table kategoriaproduktit
+--
+
+--
+-- Truncate table before insert `pma__column_info`
+--
+
+TRUNCATE TABLE `pma__column_info`;
+--
+-- Truncate table before insert `pma__table_uiprefs`
+--
+
+TRUNCATE TABLE `pma__table_uiprefs`;
+--
+-- Truncate table before insert `pma__tracking`
+--
+
+TRUNCATE TABLE `pma__tracking`;
+--
+-- Metadata for table kodizbritjes
+--
+
+--
+-- Truncate table before insert `pma__column_info`
+--
+
+TRUNCATE TABLE `pma__column_info`;
+--
+-- Truncate table before insert `pma__table_uiprefs`
+--
+
+TRUNCATE TABLE `pma__table_uiprefs`;
+--
+-- Truncate table before insert `pma__tracking`
+--
+
+TRUNCATE TABLE `pma__tracking`;
+--
+-- Metadata for table kompania
+--
+
+--
+-- Truncate table before insert `pma__column_info`
+--
+
+TRUNCATE TABLE `pma__column_info`;
+--
+-- Truncate table before insert `pma__table_uiprefs`
+--
+
+TRUNCATE TABLE `pma__table_uiprefs`;
+--
+-- Dumping data for table `pma__table_uiprefs`
+--
+
+INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
+('root', 'techstoredb', 'kompania', '{\"sorted_col\":\"`kompania`.`emriKompanis` ASC\"}', '2023-01-22 01:53:34');
+
+--
+-- Truncate table before insert `pma__tracking`
+--
+
+TRUNCATE TABLE `pma__tracking`;
+--
+-- Metadata for table porosit
+--
+
+--
+-- Truncate table before insert `pma__column_info`
+--
+
+TRUNCATE TABLE `pma__column_info`;
+--
+-- Truncate table before insert `pma__table_uiprefs`
+--
+
+TRUNCATE TABLE `pma__table_uiprefs`;
+--
+-- Dumping data for table `pma__table_uiprefs`
+--
+
+INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
+('root', 'techstoredb', 'porosit', '{\"sorted_col\":\"`porosit`.`idKlienti` ASC\"}', '2023-02-15 23:43:46');
+
+--
+-- Truncate table before insert `pma__tracking`
+--
+
+TRUNCATE TABLE `pma__tracking`;
+--
+-- Metadata for table produkti
+--
+
+--
+-- Truncate table before insert `pma__column_info`
+--
+
+TRUNCATE TABLE `pma__column_info`;
+--
+-- Truncate table before insert `pma__table_uiprefs`
+--
+
+TRUNCATE TABLE `pma__table_uiprefs`;
+--
+-- Dumping data for table `pma__table_uiprefs`
+--
+
+INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
+('root', 'techstoredb', 'produkti', '{\"sorted_col\":\"`produkti`.`produktiID` DESC\"}', '2023-02-19 15:13:06');
+
+--
+-- Truncate table before insert `pma__tracking`
+--
+
+TRUNCATE TABLE `pma__tracking`;
+--
+-- Metadata for table tedhenatporosis
+--
+
+--
+-- Truncate table before insert `pma__column_info`
+--
+
+TRUNCATE TABLE `pma__column_info`;
+--
+-- Truncate table before insert `pma__table_uiprefs`
+--
+
+TRUNCATE TABLE `pma__table_uiprefs`;
+--
+-- Dumping data for table `pma__table_uiprefs`
+--
+
+INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
+('root', 'techstoredb', 'tedhenatporosis', '{\"sorted_col\":\"`tedhenatporosis`.`idProdukti` ASC\"}', '2023-02-11 21:17:05');
+
+--
+-- Truncate table before insert `pma__tracking`
+--
+
+TRUNCATE TABLE `pma__tracking`;
+--
+-- Metadata for table tedhenatuser
+--
+
+--
+-- Truncate table before insert `pma__column_info`
+--
+
+TRUNCATE TABLE `pma__column_info`;
+--
+-- Truncate table before insert `pma__table_uiprefs`
+--
+
+TRUNCATE TABLE `pma__table_uiprefs`;
+--
+-- Dumping data for table `pma__table_uiprefs`
+--
+
+INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
+('root', 'techstoredb', 'tedhenatuser', '{\"sorted_col\":\"`tedhenatuser`.`userID` ASC\"}', '2023-02-11 14:49:01');
+
+--
+-- Truncate table before insert `pma__tracking`
+--
+
+TRUNCATE TABLE `pma__tracking`;
+--
+-- Metadata for table user
+--
+
+--
+-- Truncate table before insert `pma__column_info`
+--
+
+TRUNCATE TABLE `pma__column_info`;
+--
+-- Truncate table before insert `pma__table_uiprefs`
+--
+
+TRUNCATE TABLE `pma__table_uiprefs`;
+--
+-- Dumping data for table `pma__table_uiprefs`
+--
+
+INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
+('root', 'techstoredb', 'user', '{\"sorted_col\":\"`user`.`userID` ASC\"}', '2023-01-24 21:31:36');
+
+--
+-- Truncate table before insert `pma__tracking`
+--
+
+TRUNCATE TABLE `pma__tracking`;
+--
+-- Metadata for database techstoredb
+--
+
+--
+-- Truncate table before insert `pma__bookmark`
+--
+
+TRUNCATE TABLE `pma__bookmark`;
+--
+-- Truncate table before insert `pma__relation`
+--
+
+TRUNCATE TABLE `pma__relation`;
+--
+-- Truncate table before insert `pma__savedsearches`
+--
+
+TRUNCATE TABLE `pma__savedsearches`;
+--
+-- Truncate table before insert `pma__central_columns`
+--
+
+TRUNCATE TABLE `pma__central_columns`;SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

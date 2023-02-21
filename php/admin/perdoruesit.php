@@ -71,7 +71,7 @@ if (isset($_GET['userID'])) {
           <td id="userID_<?php echo $perdoruesi['userID'] ?>"><?php echo $perdoruesi['userID'] ?></td>
           <td><input id="emri_<?php echo $perdoruesi['userID'] ?>" type="text" placeholder="Emri"
               value="<?php echo $perdoruesi['emri'] ?>"></td>
-          <td><input id="mbiemri_' . $perdoruesi['userID'] ?>" type="text" placeholder=""
+          <td><input id="mbiemri_<?php echo $perdoruesi['userID'] ?>" type="text" placeholder=""
               value="<?php echo $perdoruesi['mbiemri'] ?>"></td>
           <td>
             <?php echo $perdoruesi['username'] ?>
@@ -86,7 +86,7 @@ if (isset($_GET['userID'])) {
             <?php
           } else {
             ?>
-            <td><input id="aksesi_' . $perdoruesi['userID'] ?>" type="number" min="0" max="2" placeholder="Aksesi"
+            <td><input id="aksesi_<?php echo $perdoruesi['userID'] ?>" type="number" min="0" max="2" placeholder="Aksesi"
                 value="<?php echo $perdoruesi['aksesi'] ?>"></td>
             <?php
           }
@@ -142,12 +142,6 @@ if (isset($_GET['userID'])) {
 
       return true;
     }
-  }
-  function fshijKategorin(kategoriaID) {
-    var kategoriaID = document.getElementById("kategoriaID_" + kategoriaID).innerHTML;
-
-    var link = "?kategoriaID=" + kategoriaID + "&fshij";
-    window.location.href = link;
   }
 </script>
 

@@ -2,8 +2,10 @@
 
 ## Rreth Projektit
 
-![Home | TechStore](img/web/favicon.ico?raw=true)
-
+<br>
+<img src="img/web/techstoreLogoWhiteSquare.png" width="auto" height="50" />
+<br>
+<br>
 Ky projekt eshte punuar per projektin ne **Inxhinierin e Webit**.
 
 TechStore eshte nje lloj e-Commerce, nje Dyqan Online per paisje Teknologjike.
@@ -32,7 +34,7 @@ Profesoret:
 - **[Behance | Abbas - Techstore](https://www.behance.net/gallery/130956581/Tech-Store-Brand-identity)** - Logo e TechStore,
 - **[jsPDF - James Hall / Parallax](https://parall.ax/products/jspdf)** - A library to generate PDFs in JavaScript,
 - **[html2canvas - Niklas von Hertzen](https://html2canvas.hertzen.com/)** - Screenshots with JavaScript,
-- **[Font Awesome - Fonticons, Inc.](https://fontawesome.com/)** - Font Awesome is the Internet's icon library and toolkit, used by  millions of designers, developers, and content creators.
+- **[Font Awesome - Fonticons, Inc.](https://fontawesome.com/)** - Font Awesome is the Internet's icon library and toolkit, used by millions of designers, developers, and content creators.
 
 ## Konfigurimi
 

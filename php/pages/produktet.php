@@ -66,19 +66,20 @@ if ($fillimi < 0) {
   $fillimi = 0;
 }
 
-if (isset($_GET['kerko'])) {
-  $produktiCRUD->setEmriProduktit('%' . $_GET['kerko'] . '%');
-  $produktet = $produktiCRUD->shfaqProduktetENdara($fillimi, $nrMaxIProduktevPerFaqe, 'kerko');
 
+
+if (isset($_GET['kerko'])) {
+  $produktet = $produktiCRUD->shfaqProduktetENdara($fillimi, $nrMaxIProduktevPerFaqe, 'kerko');
+  $linkuShtes = "&kerko=" . $_GET['kerko'];
 } else if (isset($_GET['kompania'])) {
   $produktet = $produktiCRUD->shfaqProduktetENdara($fillimi, $nrMaxIProduktevPerFaqe, 'kompania');
-
+  $linkuShtes = "&kompania=" . $_GET['kompania'];
 } else if (isset($_GET['kategoria'])) {
   $produktet = $produktiCRUD->shfaqProduktetENdara($fillimi, $nrMaxIProduktevPerFaqe, 'kategoria');
-
+  $linkuShtes = "&kategoria=" . $_GET['kategoria'];
 } else {
   $produktet = $produktiCRUD->shfaqProduktetENdara($fillimi, $nrMaxIProduktevPerFaqe, 'teGjitha');
-
+  $linkuShtes = '';
 }
 
 
@@ -103,10 +104,10 @@ if (isset($_GET['kerko'])) {
   <div class="container">
     <div class="navKerkimi">
       <div class="dropdown">
-        <button class="dropbtn button button-kategoria">
+        <button class="button button-kategoria">
           <span>Kategorit</span>
         </button>
-        <div class="dropdown-content">
+        <div class="dropdown-content dropdown-content-kategoria">
           <?php
           foreach ($kategorit as $kategoria) {
             ?>
@@ -215,98 +216,38 @@ if (isset($_GET['kerko'])) {
     </div>
     <div class="navigimiFaqev">
       <?php
-      if (isset($_GET['kerko'])) {
-        if ($nrFaqes > 1) {
+      if ($nrFaqes > 1) {
+        ?>
+        <a class='faqjaTjeter' href="?faqja=<?php echo $nrFaqes - 1 ?><?php if ($linkuShtes != '') {
+               echo $linkuShtes;
+             } ?>"><i class='fa-solid'>&#xf104;</i></a>
+        <?php
+      }
+
+      for ($i = 1; $i <= $nrFaqev; $i++) {
+        if ($i === $nrFaqes) {
           ?>
-          <a class='faqjaTjeter' href="?faqja=<?php echo $nrFaqes - 1 ?>&kerko=<?php echo $_GET['kerko'] ?>"><i
-              class='fa-solid'>&#xf104;</i></a>
+          <a class='faqjaAktive' href="<?php echo '?faqja=' . $i ?><?php if ($linkuShtes != '') {
+                 echo $linkuShtes;
+               } ?>"><?php
+                echo $i ?></a>
+          <?php
+        } else {
+          ?>
+          <a class='faqjaTjeter' href="<?php echo '?faqja=' . $i ?><?php if ($linkuShtes != '') {
+                 echo $linkuShtes;
+               } ?> "><?php
+                 echo $i ?></a>
           <?php
         }
+      }
 
-        for ($i = 1; $i <= $nrFaqev; $i++) {
-          if ($i === $nrFaqes) {
-            echo "    <a class='faqjaAktive' href=\"?faqja=$i&kerko=" . $_GET['kerko'] . "\">$i</a>";
-          } else {
-            echo "<a class='faqjaTjeter' href=\"?faqja=$i&kerko=" . $_GET['kerko'] . "\">$i</a>";
-          }
-        }
-
-        if ($nrFaqes < $nrFaqev) {
-          ?>
-          <a class='faqjaTjeter' href="?faqja=<?php echo $nrFaqes + 1 ?>&kerko=<?php echo $_GET['kerko'] ?>"><i
-              class='fa-solid'>&#xf105;</i></a>
-          <?php
-        }
-
-
-      } else if (isset($_GET['kompania'])) {
-        if ($nrFaqes > 1) {
-          ?>
-            <a class='faqjaTjeter' href="?faqja=<?php echo $nrFaqes - 1 ?>&kompania=<?php echo $_GET['kompania'] ?>"><i
-                class='fa-solid'>&#xf104;</i></a>
-          <?php
-        }
-
-        for ($i = 1; $i <= $nrFaqev; $i++) {
-          if ($i === $nrFaqes) {
-            echo "    <a class='faqjaAktive' href=\"?faqja=$i&kompania=" . $_GET['kompania'] . "\">$i</a>";
-          } else {
-            echo "<a class='faqjaTjeter' href=\"?faqja=$i&kompania=" . $_GET['kompania'] . "\">$i</a>";
-          }
-        }
-
-        if ($nrFaqes < $nrFaqev) {
-          ?>
-            <a class='faqjaTjeter' href="?faqja=<?php echo $nrFaqes + 1 ?>&kompania=<?php echo $_GET['kompania'] ?>"><i
-                class='fa-solid'>&#xf105;</i></a>
-          <?php
-        }
-
-      } else if (isset($_GET['kategoria'])) {
-        if ($nrFaqes > 1) {
-          ?>
-              <a class='faqjaTjeter' href="?faqja=<?php echo $nrFaqes - 1 ?>&kategoria=<?php echo $_GET['kategoria'] ?>"><i
-                  class='fa-solid'>&#xf104;</i></a>
-          <?php
-        }
-
-        for ($i = 1; $i <= $nrFaqev; $i++) {
-          if ($i === $nrFaqes) {
-            echo "    <a class='faqjaAktive' href=\"?faqja=$i&kategoria=" . $_GET['kategoria'] . "\">$i</a>";
-          } else {
-            echo "<a class='faqjaTjeter' href=\"?faqja=$i&kategoria=" . $_GET['kategoria'] . "\">$i</a>";
-          }
-        }
-
-        if ($nrFaqes < $nrFaqev) {
-          ?>
-              <a class='faqjaTjeter' href="?faqja=<?php echo $nrFaqes + 1 ?>&kategoria=<?php echo $_GET['kategoria'] ?>"><i
-                  class='fa-solid'>&#xf105;</i></a>
-          <?php
-        }
-
-      } else {
-
-        if ($nrFaqes > 1) {
-          ?>
-              <a class='faqjaTjeter' href="?faqja=<?php echo $nrFaqes - 1 ?>"><i class='fa-solid'>&#xf104;</i></a>
-          <?php
-        }
-
-        for ($i = 1; $i <= $nrFaqev; $i++) {
-          if ($i === $nrFaqes) {
-            echo "    <a class='faqjaAktive' href=\"?faqja=$i\">$i</a>";
-          } else {
-            echo "<a class='faqjaTjeter' href=\"?faqja=$i\">$i</a>";
-          }
-        }
-
-        if ($nrFaqes < $nrFaqev) {
-          ?>
-              <a class='faqjaTjeter' href="?faqja=<?php echo $nrFaqes + 1 ?>"><i class='fa-solid'>&#xf105;</i></a>
-          <?php
-        }
-
+      if ($nrFaqes < $nrFaqev) {
+        ?>
+        <a class='faqjaTjeter' href="?faqja=<?php echo $nrFaqes + 1 ?><?php if ($linkuShtes != '') {
+               echo $linkuShtes;
+             } ?>"><i class='fa-solid'>&#xf105;</i></a>
+        <?php
       }
       ?>
 
