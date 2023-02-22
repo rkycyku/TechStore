@@ -45,7 +45,7 @@ $produktiCRUD = new produktiCRUD();
           ?>
           <div class="kartelaEBrendit">
             <div class="logoBrendit">
-              <a href="../pages/produktet.php?kompania=<?php echo $kompania['emriKompanis'] ?>">
+              <a href="../pages/produktet.php?kompania=<?php echo $kompania['kompaniaID'] ?>">
                 <img src="../../img/slider/sliderIcons/<?php echo $kompania['kompaniaLogo'] ?>" alt="">
               </a>
             </div>

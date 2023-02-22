@@ -171,7 +171,10 @@ class produktiCRUD extends dbCon
     public function shfaqTeGjithaProduktet()
     {
         try {
-            $sql = "SELECT * FROM `produkti` ORDER BY `produktiID` DESC  ";
+            $sql = "SELECT p.*, kp.emriKategoris, k.emriKompanis FROM `produkti` p 
+                    left join `kategoriaproduktit` kp on p.kategoriaProduktit = kp.kategoriaID 
+                    left join kompania k on p.emriKompanis = k.kompaniaID
+                    ORDER BY `produktiID` DESC ";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute();
 
@@ -197,7 +200,11 @@ class produktiCRUD extends dbCon
     public function shfaqProduktinSipasID()
     {
         try {
-            $sql = "SELECT * FROM produkti p left join kodiZbritjes kz on p.produktiID = kz.idProduktit WHERE produktiID = ?";
+            $sql = "SELECT p.*, kz.*, kp.emriKategoris, k.emriKompanis FROM `produkti` p 
+            left join `kategoriaproduktit` kp on p.kategoriaProduktit = kp.kategoriaID 
+            left join kompania k on p.emriKompanis = k.kompaniaID
+            left join kodiZbritjes kz on p.produktiID = kz.idProduktit 
+            WHERE produktiID = ?";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute([$this->produktiID]);
 

@@ -57,9 +57,9 @@ $produkti = $produktiCRUD->shfaqProduktinSipasID();
                                 </td>
                             </tr>
                             <tr>
-                                <td>Kategoria</td>
+                                <td>Kategoria:</td>
                                 <td>
-                                    <?php echo $produkti['kategoriaProduktit'] ?>
+                                    <?php echo $produkti['emriKategoris'] ?>
                                 </td>
                             </tr>
                             <?php if ($produkti['kodi'] != null) {
@@ -92,7 +92,9 @@ $produkti = $produktiCRUD->shfaqProduktinSipasID();
                                     €
                                 </h1>
                                 <p>
-                                    <strong><?php echo $produkti['qmimiZbritjes'] ?> € Zbritja</strong>
+                                    <strong>
+                                        <?php echo $produkti['qmimiZbritjes'] ?> € Zbritja
+                                    </strong>
                                 </p>
                                 <p>
                                     <?php echo $produkti['qmimiProduktit'] ?> € qmimi pa zbritje
@@ -120,6 +122,15 @@ $produkti = $produktiCRUD->shfaqProduktinSipasID();
                                 <input type="submit" class="button" value="Buy now" name="blej">
                                 <input type="submit" class="button button-shporta fa-solid" value="&#xf07a;"
                                     name="submit">
+                                <?php if ($_SESSION['aksesi'] != 0) {
+                                    ?>
+
+                                    <a href="../admin/editoProduktin.php?produktID=<?php echo $_GET['produktiID']; ?>"><input
+                                            type="button" value="&#xf044;"
+                                            class="button button-edit-produktin fa-solid"></a>
+                                    <?php
+                                }
+                                ?>
                             </div>
                             <?php if ($produkti['kodi'] != null) {
                                 ?>

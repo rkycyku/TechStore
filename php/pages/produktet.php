@@ -5,10 +5,13 @@ if (!isset($_SESSION)) {
 
 require_once('../CRUD/produktiCRUD.php');
 require_once('../CRUD/kategoriaCRUD.php');
+require_once('../CRUD/kompaniaCRUD.php');
 $produktiCRUD = new produktiCRUD();
 $kategoriaCRUD = new kategoriaCRUD();
+$kompaniaCRUD = new kompaniaCRUD();
 
 $kategorit = $kategoriaCRUD->shfaqKategorin();
+
 
 if (isset($_Post['Blej'])) {
   echo $_Post['produktiID'];
@@ -34,12 +37,17 @@ if (isset($_GET['kerko'])) {
   $nrProduktev = $produktiCRUD->shfaqNrProduktev('kompania');
   $nrTotalIProdukteveNeSistem = $nrProduktev['totProd'];
 
+  $kompaniaCRUD->setKompaniaID($_GET['kompania']);
+  $emriKompanis = $kompaniaCRUD->shfaqKompaninSipasID();
 
 } else if (isset($_GET['kategoria'])) {
   $produktiCRUD->setKategoriaProduktit($_GET['kategoria']);
 
   $nrProduktev = $produktiCRUD->shfaqNrProduktev('kategoria');
   $nrTotalIProdukteveNeSistem = $nrProduktev['totProd'];
+
+  $kategoriaCRUD->setKategoriaID($_GET['kategoria']);
+  $emriKategoris = $kategoriaCRUD->shfaqKategorinSipasID();
 
 } else {
 
@@ -111,7 +119,7 @@ if (isset($_GET['kerko'])) {
           <?php
           foreach ($kategorit as $kategoria) {
             ?>
-            <a href="?kategoria=<?php echo $kategoria['emriKategoris'] ?>">
+            <a href="?kategoria=<?php echo $kategoria['kategoriaID'] ?>">
               <?php echo $kategoria['emriKategoris'] ?>
             </a>
 
@@ -153,7 +161,7 @@ if (isset($_GET['kerko'])) {
 
         <div class="titulliArtikuj">
           <h1 class="">All Products from
-            <?php echo $kompania ?>
+            <?php echo $emriKompanis['emriKompanis'] ?>
           </h1>
         </div>
 
@@ -172,7 +180,7 @@ if (isset($_GET['kerko'])) {
             <div class="titulliArtikuj">
               <h1 class="">All Products of category:
 
-            <?php echo '"' . $_GET['kategoria'] . '"' ?>
+            <?php echo '"' . $emriKategoris['emriKategoris'] . '"' ?>
               </h1>
             </div>
         <?php

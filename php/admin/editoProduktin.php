@@ -59,11 +59,11 @@ if (isset($_POST['anulo'])) {
 
         foreach ($kompanit as $kompania) {
           ?>
-          <option value="<?php echo $kompania['emriKompanis'] ?>"><?php echo $kompania['emriKompanis'] ?></option>
+          <option value="<?php echo $kompania['kompaniaID'] ?>"><?php echo $kompania['emriKompanis'] ?></option>
           <?php
         }
         ?>
-        <option selected hidden value="<?php echo $produkti['emriKompanis'] ?>"><?php echo $produkti['emriKompanis'] ?>
+        <option selected hidden value="<?php echo $produkti['kompaniaID'] ?>"><?php echo $produkti['emriKompanis'] ?>
         </option>
       </select>
       <?php
@@ -75,11 +75,11 @@ if (isset($_POST['anulo'])) {
         <?php
         foreach ($kategorit as $kategoria) {
           ?>
-          <option value="<?php echo $kategoria['emriKategoris'] ?>"><?php echo $kategoria['emriKategoris'] ?></option>
+          <option value="<?php echo $kategoria['kategoriaID'] ?>"><?php echo $kategoria['emriKategoris'] ?></option>
           <?php
         }
         ?>
-        <option selected hidden value="<?php echo $produkti['kategoriaProduktit'] ?>"><?php echo $produkti['kategoriaProduktit'] ?></option>
+        <option selected hidden value="<?php echo $produkti['kategoriaID'] ?>"><?php echo $produkti['kategoriaProduktit'] ?></option>
       </select>
       <?php
       ?>

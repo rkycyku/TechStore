@@ -117,7 +117,7 @@ class kategoriaCRUD extends dbCon
                 <?php
                 foreach ($kategorit as $kategoria) {
                     ?>
-                    <option value="<?php echo $kategoria['emriKategoris'] ?>">
+                    <option value="<?php echo $kategoria['kategoriaID'] ?>">
                         <?php echo $kategoria['emriKategoris'] ?>
                     </option>
                     <?php

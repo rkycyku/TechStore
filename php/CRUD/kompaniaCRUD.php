@@ -130,7 +130,7 @@ class kompaniaCRUD extends dbCon
 
                 foreach ($kompanit as $kompania) {
                     ?>
-                    <option value="<?php echo $kompania['emriKompanis'] ?>">
+                    <option value="<?php echo $kompania['kompaniaID'] ?>">
                         <?php echo $kompania['emriKompanis'] ?>
                     </option>
                     <?php

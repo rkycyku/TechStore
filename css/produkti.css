@@ -74,7 +74,7 @@ table {
 .mesazhiZbritjes {
   margin-top: 1em;
   font-size: 8pt;
-  width: 55%;
+  width: 60%;
 }
 
 .navKerkimi {
@@ -97,6 +97,10 @@ table {
   margin: 2em;
 }
 
+.button-edit-produktin{
+  width:5em;
+  padding: 1em;
+}
 
 
 

@@ -80,7 +80,7 @@ $produktiCRUD = new produktiCRUD();
             <?php echo $produkti['emriKompanis'] ?>
           </td>
           <td>
-            <?php echo $produkti['kategoriaProduktit'] ?>
+            <?php echo $produkti['emriKategoris'] ?>
           </td>
           <td><img src="../../img/products/<?php echo $produkti['fotoProduktit'] ?>"></td>
           <td>
