@@ -63,7 +63,7 @@ class kodiZbritjesCRUD extends dbCon
     {
         try {
             $sql = "SELECT kz.kodi, kz.idProduktit, kz.dataKrijimit, kz.qmimiZbritjes, p.emriProduktit, p.qmimiProduktit
-                     FROM kodizbritjes kz LEFT JOIN produkti p on kz.idProduktit = p.produktiID";
+                     FROM kodizbritjes kz LEFT JOIN produkti p on kz.idProduktit = p.produktiID ORDER BY dataKrijimit desc";
             $stm = $this->conDB->prepare($sql);
             $stm->execute();
 
@@ -96,7 +96,7 @@ class kodiZbritjesCRUD extends dbCon
     public function kontrolloKodin()
     {
         try {
-            $sql = 'SELECT * FROM `kodizbritjes` kz inner join produkti p on kz.idProduktit = p.produktiID WHERE `kodi` = ?';
+            $sql = 'SELECT * FROM `kodizbritjes` kz left join produkti p on kz.idProduktit = p.produktiID WHERE `kodi` = ?';
             $stm = $this->conDB->prepare($sql);
             $stm->execute([$this->kodiZbritje]);
 

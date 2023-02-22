@@ -53,13 +53,13 @@ $produkti = $produktiCRUD->shfaqProduktinSipasID();
                             <tr>
                                 <td>Kompania:</td>
                                 <td>
-                                    <?php echo $produkti['emriKompanis'] ?>
+                                <a href="../pages/produktet.php?kompania=<?php echo $produkti['kompaniaID'] ?>"><?php echo $produkti['emriKompanis'] ?></a> 
                                 </td>
                             </tr>
                             <tr>
                                 <td>Kategoria:</td>
                                 <td>
-                                    <?php echo $produkti['emriKategoris'] ?>
+                                <a href="../pages/produktet.php?kategoria=<?php echo $produkti['kategoriaID'] ?>"><?php echo $produkti['emriKategoris'] ?></a> 
                                 </td>
                             </tr>
                             <?php if ($produkti['kodi'] != null) {

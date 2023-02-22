@@ -200,7 +200,7 @@ class produktiCRUD extends dbCon
     public function shfaqProduktinSipasID()
     {
         try {
-            $sql = "SELECT p.*, kz.*, kp.emriKategoris, k.emriKompanis FROM `produkti` p 
+            $sql = "SELECT * FROM `produkti` p 
             left join `kategoriaproduktit` kp on p.kategoriaProduktit = kp.kategoriaID 
             left join kompania k on p.emriKompanis = k.kompaniaID
             left join kodiZbritjes kz on p.produktiID = kz.idProduktit 

@@ -118,11 +118,20 @@ if (isset($_POST['complete'])) {
         if (isset($_SESSION['zbritjaUAplikua'])) {
             ?>
             <div class="mesazhiSuksesStyle">
-                <p>Zbritja u aplikua per produktin:
-                    <strong>
-                        <?php echo $kontrolloKodin['emriProduktit']; ?>
-                    </strong>
-                </p>
+                <?php if ($kontrolloKodin['emriProduktit'] == null) {
+                    ?>
+                    <p>Zbritja u aplikua ne shporten tuaj!</p>
+                    <?php
+                } else {
+                    ?>
+                    <p>Zbritja u aplikua per produktin:
+                        <strong>
+                            <?php echo $kontrolloKodin['emriProduktit']; ?>
+                        </strong>
+                    </p>
+                    <?php
+                }
+                ?>
                 <button id="mbyllMesazhin">
                     X
                 </button>

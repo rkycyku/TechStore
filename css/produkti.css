@@ -102,6 +102,14 @@ table {
   padding: 1em;
 }
 
+td a{
+  color: black;
+}
+
+td a:hover{
+  color: #01df93;
+}
+
 
 
 @media (min-width: 1025px){
