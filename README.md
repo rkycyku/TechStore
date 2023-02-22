@@ -2,10 +2,10 @@
 
 ## Rreth Projektit
 
-<br>
+<br/>
 <img src="img/web/techstoreLogoWhiteSquare.png" width="auto" height="50" />
-<br>
-<br>
+<br/>
+
 Ky projekt eshte punuar per projektin ne **Inxhinierin e Webit**.
 
 TechStore eshte nje lloj e-Commerce, nje Dyqan Online per paisje Teknologjike.
