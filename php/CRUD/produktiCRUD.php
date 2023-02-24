@@ -264,14 +264,14 @@ class produktiCRUD extends dbCon
             $emeriTempIFotes = $foto['tmp_name'];
             $errorFoto = $foto['error'];
 
-            $fileExt = explode('.', $emriFotos);
-            $fileActualExt = strtolower(end($fileExt));
+            $formatiIFotos = explode('.', $emriFotos);
+            $formatiIFotosPerKontrollim = strtolower(end($formatiIFotos));
 
-            $teLejuara = array('jpg', 'jpeg', 'png', 'svg');
+            $teLejuara = array('jpg', 'jpeg', 'png', 'svg', 'webp');
 
-            if (in_array($fileActualExt, $teLejuara)) {
+            if (in_array($formatiIFotosPerKontrollim, $teLejuara)) {
                 if ($errorFoto === 0) {
-                    $emriUnikFotos = uniqid('', true) . "." . $fileActualExt;
+                    $emriUnikFotos = uniqid('', true) . "." . $formatiIFotosPerKontrollim;
                     $destinacioniFotos = '../../img/products/' . $emriUnikFotos;
                     move_uploaded_file($emeriTempIFotes, $destinacioniFotos);
 

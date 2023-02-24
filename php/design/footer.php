@@ -31,9 +31,9 @@
           <li>Rr. Agim Bajrami 69 - Perballe Xhamise, Kaçanik</li>
         </ul>
         <div class="footer-social-icons">
-          <a href="https://facebook.com"><img src="../../img/web/social-link-icons/facebook.png" alt=""></a>
-          <a href="https://instagram.com"><img src="../../img/web/social-link-icons/instagram.png" alt=""></a>
-          <a href="https://twitter.com"><img src="../../img/web/social-link-icons/twitter.png" alt=""></a>
+          <a href="https://facebook.com"><i class="fa-brands">&#xf09a;</i></a>
+          <a href="https://instagram.com"><i class="fa-brands">&#xf16d;</i></a>
+          <a href="https://twitter.com"><i class="fa-brands">&#xf099;</i></a>
         </div>
       </div>
      </div>

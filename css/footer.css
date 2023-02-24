@@ -76,13 +76,18 @@ a {
   margin-right: 2em;
 }
 
-.footer-social-icons img {
+.footer-social-icons i {
   margin-top: 0.5em;
   margin-left: 1em;
-  height: 30px;
+  font-size: 30px;
+  color: black;
 }
 
-.copyright{
+.footer-social-icons i:hover {
+  color: #01df93;
+}
+
+.copyright {
   width: 100%;
   margin-bottom: 1em;
   text-align: center;
@@ -114,7 +119,7 @@ a {
     margin-top: 1em;
   }
 
-  .copyright{
+  .copyright {
     margin-top: 1em;
   }
 }
