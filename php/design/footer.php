@@ -28,7 +28,7 @@
         <ul>
           <li><a href="tel:+11112223333">+1-111-222-3333</a></li>
           <li><a href="mailto:contact@tech.store">contact@tech.store</a></li>
-          <li>1316 Industrial Rd. Mount Pleasant, TX 75455</li>
+          <li>Rr. Agim Bajrami 69 - Perballe Xhamise, Kaçanik</li>
         </ul>
         <div class="footer-social-icons">
           <a href="https://facebook.com"><img src="../../img/web/social-link-icons/facebook.png" alt=""></a>
@@ -36,6 +36,9 @@
           <a href="https://twitter.com"><img src="../../img/web/social-link-icons/twitter.png" alt=""></a>
         </div>
       </div>
+     </div>
+    <div class="copyright">
+      <i class="fa-regular">&#xf1f9;</i> TechStore SH.P.K.
     </div>
   </footer>
   <?php include_once('../funksione/importimiScriptave.php'); ?>

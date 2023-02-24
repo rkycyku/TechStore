@@ -57,7 +57,7 @@ if (isset($_POST['shtoKodin'])) {
                 <div class="mesazhiSuksesStyle">
                     <p>Kodi i zbritjes u shtua me sukses!</p>
                     <button id="mbyllMesazhin">
-                        X
+                        <i class="fa-solid">&#xf00d;</i>
                     </button>
                 </div>
                 <?php
@@ -67,7 +67,7 @@ if (isset($_POST['shtoKodin'])) {
                 <div class="mesazhiGabimStyle">
                     <p>Qmimi qe keni vendosur eshte me e i madh se i produktit!</p>
                     <button id="mbyllMesazhin">
-                        X
+                        <i class="fa-solid">&#xf00d;</i>
                     </button>
                 </div>
                 <?php
@@ -88,7 +88,7 @@ if (isset($_POST['shtoKodin'])) {
                 ?>
             </select>
             <input class="form-input" name="qmimiZbritjes" type="number" placeholder="Qmimi i Zbritjes">
-            <input class="button" type="submit" value="Shtoni Gift Code" name='shtoKodin'>
+            <button class="button" type="submit" value="" name='shtoKodin'>Shtoni Gift Code-in <i class="fa-solid">&#xf0fe;</i></button>
         </form>
     </div>
     <?php include('../funksione/importimiScriptave.php') ?>

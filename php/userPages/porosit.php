@@ -5,8 +5,10 @@ if (!isset($_SESSION)) {
 
 require_once('../funksione/kontrolloEshteLogin.php');
 require_once('../CRUD/porosiaCRUD.php');
+require_once('../CRUD/produktiCRUD.php');
 
 $porosiaCRUD = new porosiaCRUD();
+$produktiCRUD = new produktiCRUD();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +34,9 @@ $porosiaCRUD = new porosiaCRUD();
       ?>
       <div class="mesazhiSuksesStyle">
         <h3>Ju faleminderit qe konfirmuat porosin!</h3>
-        <button id="mbyllMesazhin">X</button>
+        <button id="mbyllMesazhin" class="fa-solid">
+          <i class="fa-solid">&#xf00d;</i>
+        </button>
       </div>
       <?php
     }
@@ -40,20 +44,27 @@ $porosiaCRUD = new porosiaCRUD();
       ?>
       <div class="mesazhiSuksesStyle">
         <h3>Ju faleminderit qe konfirmuat porosin!</h3>
-        <button id="mbyllMesazhin">X</button>
+        <button id="mbyllMesazhin" class="fa-solid">
+          <i class="fa-solid">&#xf00d;</i>
+        </button>
       </div>
       <?php
     }
     if (isset($_GET['produktID'])) {
       $porosiaCRUD->setProduktiID($_GET['produktID']);
+      $produktiCRUD->setProduktiID($_GET['produktID']);
+
+      $emriProd = $produktiCRUD->shfaqProduktinSipasID();
       ?>
-      <h2>Te gjitha porosit e Produktit me ID: <?php echo $_GET['produktID'] ?></h2>
-      <h2>Emri i Produktit: <?php echo $_SESSION['emriProduktit'] ?></h2>
+      <h2>Te gjitha porosit e Produktit me ID:
+        <?php echo $_GET['produktID'] ?>
+      </h2>
+      <h2>Emri i Produktit:
+        <?php echo $emriProd['emriProduktit'] ?>
+      </h2>
       <?php
       $porosiaCRUD->shfaqPorositSipasProduktit();
     } else {
-
-
       if (isset($_SESSION['userID'])) {
         $porosiaCRUD->setUserID($_SESSION['userID']);
         ?>
@@ -63,7 +74,9 @@ $porosiaCRUD = new porosiaCRUD();
       if (isset($_GET['userID'])) {
         $porosiaCRUD->setUserID($_GET['userID']);
         ?>
-        <h2>Te gjitha porosit e Klientit me ID: <?php echo $_GET['userID'] ?></h2>
+        <h2>Te gjitha porosit e Klientit me ID:
+          <?php echo $_GET['userID'] ?>
+        </h2>
         <?php
       }
       $porosia = $porosiaCRUD->shfaqPorositEKlientit();

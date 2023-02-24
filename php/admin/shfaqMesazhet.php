@@ -16,7 +16,7 @@ $contactForm = $contactFormCRUD->shfaqMesazhet();
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Porosite | Tech Store</title>
+  <title>Mesazhet nga Klientet | Tech Store</title>
   <link rel="shortcut icon" href="../../img/web/favicon.ico" />
   <link rel="stylesheet" href="../../css/mesazhetStyle.css" />
   <link rel="stylesheet" href="../../css/adminDashboard.css" />
@@ -33,7 +33,7 @@ $contactForm = $contactFormCRUD->shfaqMesazhet();
       <div class="mesazhiSuksesStyle">
         <p><strong>Mesazhi u konfirmua me sukses!</strong></p>
         <button id="mbyllMesazhin">
-          X
+          <i class="fa-solid">&#xf00d;</i>
         </button>
       </div>
       <?php

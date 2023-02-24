@@ -45,7 +45,7 @@ $porosit = $porosiaCRUD->shfaqTeGjithaPorosite();
         <div class="mesazhiSuksesStyle">
           <p>Statusi i porosis u perditesua me sukses!</p>
           <button id="mbyllMesazhin">
-            X
+            <i class="fa-solid">&#xf00d;</i>
           </button>
         </div>
         <?php
@@ -68,7 +68,7 @@ $porosit = $porosiaCRUD->shfaqTeGjithaPorosite();
       </tr>
       <?php
 
-      
+
       foreach ($porosit as $porosia) {
         ?>
         <tr>

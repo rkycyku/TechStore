@@ -39,7 +39,9 @@ if (isset($_POST['shtoKompanin'])) {
         ?>
         <div class="mesazhiSuksesStyle">
           <p>Kompania u shtua me sukses!</p>
-          <button id="mbyllMesazhin">X</button>
+          <button id="mbyllMesazhin">
+            <i class="fa-solid">&#xf00d;</i>
+          </button>
         </div>
         <?php
       }
@@ -47,7 +49,9 @@ if (isset($_POST['shtoKompanin'])) {
         ?>
         <div class="mesazhiGabimStyle">
           <p>Madhesia e fotos eshte shume e madhe!</p>
-          <button id="mbyllMesazhin"></button>
+          <button id="mbyllMesazhin">
+            <i class="fa-solid">&#xf00d;</i>
+          </button>
         </div>
         <?php
       }
@@ -55,7 +59,9 @@ if (isset($_POST['shtoKompanin'])) {
         ?>
         <div class="mesazhiGabimStyle">
           <p>Ndodhi nje problem ne bartjen e fotov!</p>
-          <button id="mbyllMesazhin">X</button>
+          <button id="mbyllMesazhin">
+            <i class="fa-solid">&#xf00d;</i>
+          </button>
         </div>
         <?php
       }
@@ -63,7 +69,9 @@ if (isset($_POST['shtoKompanin'])) {
         ?>
         <div class="mesazhiGabimStyle">
           <p>Ky file nuk supportohet!</p>
-          <button id="mbyllMesazhin">X</button>
+          <button id="mbyllMesazhin">
+            <i class="fa-solid">&#xf00d;</i>
+          </button>
         </div>
         <?php
       }
@@ -72,7 +80,8 @@ if (isset($_POST['shtoKompanin'])) {
       <input class="form-input" name="emriKompanis" type="text" placeholder="Emri i Kompanis">
       <input class="form-input" name="kompaniaLogo" accept="image/*" type="file" placeholder="Logo e Kompanis">
       <input class="form-input" name="adresaKompanis" type="text" placeholder="Adresa e Kompanis">
-      <input class="button" type="submit" value="Shtoni Kompanin" name='shtoKompanin'>
+      <button class="button" type="submit" value="" name='shtoKompanin'>Shtoni Kompanin <i
+          class="fa-solid">&#xf0fe;</i></button>
     </form>
   </div>
   <?php include('../funksione/importimiScriptave.php') ?>

@@ -34,6 +34,10 @@ if (isset($_POST['perditDhenat'])) {
         $_SESSION['passGabim'] = true;
     }
 }
+if (isset($_POST['anulo'])) {
+    $_SESSION['perditesimiUAnulua'] = false;
+    echo '<script>document.location="../userPages/userDashboard.php"</script>';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,7 +67,7 @@ if (isset($_POST['perditDhenat'])) {
                 <div class="mesazhiGabimStyle">
                     <p>Keni shkruar Passwordin gabim!</p>
                     <button id="mbyllMesazhin">
-                        X
+                        <i class="fa-solid">&#xf00d;</i>
                     </button>
                 </div>
                 <?php
@@ -128,9 +132,12 @@ if (isset($_POST['perditDhenat'])) {
                 </tr>
             </table>
             <div>
-                <input class="button" type="submit" value="Perditeso te Dhenat" name='perditDhenat'>
-                <input class="button" onclick="window.location='../userPages/userDashboard.php'" type="button"
-                    value="Anulo" name='anulo'>
+                <button class="button" type="submit" name='perditDhenat'>
+                    Perditeso te Dhenat <i class="fa-solid">&#xf4ff;</i>
+                </button>
+                <button class="button" type="submit" name='anulo'>
+                    Anulo <i class="fa-solid">&#xf00d;</i>
+                </button>
             </div>
         </form>
     </div>

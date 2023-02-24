@@ -28,7 +28,7 @@ $produktiCRUD = new produktiCRUD();
       <div class="mesazhiSuksesStyle">
         <h3>Produkti u editua me sukses!</h3>
         <button id="mbyllMesazhin">
-          X
+          <i class="fa-solid">&#xf00d;</i>
         </button>
       </div>
       <?php
@@ -38,7 +38,7 @@ $produktiCRUD = new produktiCRUD();
       <div class="mesazhiSuksesStyle">
         <h3>Produkti u fshi me sukses!</h3>
         <button id="mbyllMesazhin">
-          X
+          <i class="fa-solid">&#xf00d;</i>
         </button>
       </div>
       <?php
@@ -48,7 +48,7 @@ $produktiCRUD = new produktiCRUD();
       <div class="mesazhiGabimStyle">
         <h3>Nuk keni akses per kete sherbim!</h3>
         <button id="mbyllMesazhin">
-          X
+          <i class="fa-solid">&#xf00d;</i>
         </button>
       </div>
       <?php
@@ -75,7 +75,9 @@ $produktiCRUD = new produktiCRUD();
           <td>
             <?php echo $produkti['produktiID'] ?>
           </td>
-          <td class="emriP"><?php echo $produkti['emriProduktit'] ?></td>
+          <td class="emriP">
+            <?php echo $produkti['emriProduktit'] ?>
+          </td>
           <td>
             <?php echo $produkti['emriKompanis'] ?>
           </td>
@@ -87,11 +89,11 @@ $produktiCRUD = new produktiCRUD();
             <?php echo $produkti['qmimiProduktit'] ?> €
           </td>
           <td>
-            <?php if($produkti['pershkrimiProd'] != null){
+            <?php if ($produkti['pershkrimiProd'] != null) {
               echo '<i class="fa-solid">&#xf00c;</i>';
-            } else{
+            } else {
               echo '<i class="fa-solid">&#xf00d;</i>';
-            }?> 
+            } ?>
           </td>
           <td><button class="edito"><a
                 href="./editoProduktin.php?produktID=<?php echo $produkti['produktiID'] ?>">Edito</a></button>

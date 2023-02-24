@@ -36,7 +36,7 @@ if (isset($_GET['fshij'])) {
             <div class="mesazhiSuksesStyle">
                 <p>Kodi i Zbritjes u Fshi me sukses!</p>
                 <button id="mbyllMesazhin">
-                    X
+                    <i class="fa-solid">&#xf00d;</i>
                 </button>
             </div>
             <?php

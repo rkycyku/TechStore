@@ -33,7 +33,7 @@ if (isset($_GET['fshij'])) {
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Categories | Tech Store</title>
+    <title>Kategorit e Produkteve | Tech Store</title>
     <link rel="shortcut icon" href="../../img/web/favicon.ico" />
     <link rel="stylesheet" href="../../css/adminDashboard.css" />
     <link rel="stylesheet" href="../../css/mesazhetStyle.css" />
@@ -50,7 +50,7 @@ if (isset($_GET['fshij'])) {
             <div class="mesazhiSuksesStyle">
                 <p>Te dhenat e kategoris u ndryshuan!</p>
                 <button id="mbyllMesazhin">
-                    X
+                    <i class="fa-solid">&#xf00d;</i>
                 </button>
             </div>
             <?php
@@ -60,7 +60,7 @@ if (isset($_GET['fshij'])) {
             <div class="mesazhiSuksesStyle">
                 <p>Kategoria u Fshi me sukses!</p>
                 <button id="mbyllMesazhin">
-                    X
+                    <i class="fa-solid">&#xf00d;</i>
                 </button>
             </div>
             <?php
@@ -80,7 +80,8 @@ if (isset($_GET['fshij'])) {
             foreach ($kategorit as $kategorit) {
                 ?>
                 <tr>
-                    <td id="kategoriaID_<?php echo $kategorit['kategoriaID'] ?>"><?php echo $kategorit['kategoriaID'] ?></td>
+                    <td id="kategoriaID_<?php echo $kategorit['kategoriaID'] ?>"><?php echo $kategorit['kategoriaID'] ?>
+                    </td>
                     <td><input id="emriKategoris_<?php echo $kategorit['kategoriaID'] ?>" type="text"
                             placeholder="Emri i Kategoris" value="<?php echo $kategorit['emriKategoris'] ?>"></td>
                     <td><input id="pershkrimiKategoris_<?php echo $kategorit['kategoriaID'] ?>" type="text"

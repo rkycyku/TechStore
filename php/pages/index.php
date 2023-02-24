@@ -80,7 +80,7 @@ $produktiCRUD = new produktiCRUD();
             <?php echo $produkti['qmimiProduktit'] ?> €
           </p>
           <div class="butonatDiv">
-            <input type="submit" class="button" value="Buy now" name="blej">
+            <button type="submit" class="button" name="blej">Buy now</button>
             <input type="submit" class="button button-shporta fa-solid" value="&#xf07a;" name="submit">
           </div>
         </form>

@@ -15,7 +15,7 @@ $userCRUD->setUserID($_GET['userID']);
 $perdoruesi = $userCRUD->shfaqSipasID();
 
 if (isset($_POST['perditPass'])) {
-    if (password_verify($_POST['passVjeter'],$perdoruesi['password'])) {
+    if (password_verify($_POST['passVjeter'], $perdoruesi['password'])) {
         $userCRUD->setPassword(password_hash($_POST['passIRi'], PASSWORD_DEFAULT));
 
         $userCRUD->perditesoFjalekalimin();
@@ -31,7 +31,7 @@ if (isset($_POST['perditPass'])) {
     }
 }
 if (isset($_POST['anulo'])) {
-    $_SESSION['teDhenatUPerditesuan'] = false;
+    $_SESSION['perditesimiUAnulua'] = false;
     echo '<script>document.location="../userPages/userDashboard.php"</script>';
 }
 $perdoruesi = $userCRUD->shfaqSipasID();
@@ -57,9 +57,9 @@ $perdoruesi = $userCRUD->shfaqSipasID();
             if (isset($_SESSION['passGabim'])) {
                 ?>
                 <div class="mesazhiGabimStyle">
-                    <p>Passwordi juaj eshte Gabim!</p>
+                    <p>Passwordi juaj aktual eshte Gabim!</p>
                     <button id="mbyllMesazhin">
-                        X
+                        <i class="fa-solid">&#xf00d;</i>
                     </button>
                 </div>
                 <?php
@@ -83,8 +83,11 @@ $perdoruesi = $userCRUD->shfaqSipasID();
                 <strong>Password Aktual: </strong>
                 <input type="password" placeholder="Shkruani passwordin!" name="passVjeter">
             </label>
-            <input class="button" type="submit" value="Perditesoni Password" name='perditPass'>
-            <input class="button" type="submit" value="Anulo" name='anulo'>
+            <div>
+                <button class="button" type="submit" name='perditPass'>Perditesoni Password <i class="fa-solid">&#xf044;</i></button>
+                <button class="button" type="submit" name='anulo'>Anulo <i class="fa-solid">&#xf00d;</i></button>
+            </div>
+
         </form>
     </div>
     <script src="../../js/validimiFormave.js"></script>

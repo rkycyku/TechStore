@@ -43,7 +43,7 @@ if (isset($_POST['largo'])) {
             <div class="mesazhiSuksesStyle">
                 <p>Sasia u Perditesua me sukses!</p>
                 <button id="mbyllMesazhin">
-                    X
+                    <i class="fa-solid">&#xf00d;</i>
                 </button>
             </div>
             <?php
@@ -51,9 +51,9 @@ if (isset($_POST['largo'])) {
         if (isset($_SESSION['largimiMeSukses'])) {
             ?>
             <div class="mesazhiSuksesStyle">
-                <p>Prdoukti u largua nga shporta!</p>
+                <p>Produkti u largua nga shporta!</p>
                 <button id="mbyllMesazhin">
-                    X
+                    <i class="fa-solid">&#xf00d;</i>
                 </button>
             </div>
             <?php
@@ -114,7 +114,7 @@ if (isset($_POST['largo'])) {
                 <div class="mesazhiGabimStyle">
                     <p>Nuk keni asnje Produkt ne Shporte!</p>
                     <button id="mbyllMesazhin">
-                        X
+                        <i class="fa-solid">&#xf00d;</i>
                     </button>
                 </div>
                 <?php
@@ -123,8 +123,10 @@ if (isset($_POST['largo'])) {
         </table>
 
         <div>
-            <a href="./produktet.php"><button class="button">Vazhdo me Blerjen</button></a>
-            <a href="./checkout.php"><button class="button">Kalo tek Pagesa</button></a>
+            <a href="./produktet.php"><button class="button"><i class="fa-solid">&#xf104;</i> Kthehu tek
+                    Produktet</button></a>
+            <a href="./checkout.php"><button class="button">Kalo tek Pagesa <i
+                        class="fa-solid">&#xf105;</i></button></a>
         </div>
     </div>
 

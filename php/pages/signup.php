@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
 
   $user->setUsername($_POST['uName']);
 
-  $kontrollimiUserit = $user->kontrolloUser();
+  $kontrollimiUserit = $user->kontrolloLlogarin();
 
   if ($kontrollimiUserit == true) {
     $_SESSION['userEkziston'] = true;
@@ -53,7 +53,9 @@ if (isset($_POST['submit'])) {
         ?>
         <div class="mesazhiSuksesStyle">
           <h3>U regjistruat me sukses!</h3>
-          <button id="mbyllMesazhin">X</button>
+          <button id="mbyllMesazhin">
+            <i class="fa-solid">&#xf00d;</i>
+          </button>
         </div>
         <?php
       }
@@ -61,7 +63,9 @@ if (isset($_POST['submit'])) {
         ?>
         <div class="mesazhiGabimStyle">
           <h3>Ky username egziston!</h3>
-          <button id="mbyllMesazhin">X</button>
+          <button id="mbyllMesazhin">
+            <i class="fa-solid">&#xf00d;</i>
+          </button>
         </div>
         <?php
       }

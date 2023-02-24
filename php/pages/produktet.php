@@ -139,7 +139,7 @@ if (isset($_GET['kerko'])) {
         <div class="mesazhiSuksesStyle">
           <p>Produkti u Shtua ne Shport!</p>
           <button id="mbyllMesazhin">
-            X
+            <i class="fa-solid">&#xf00d;</i>
           </button>
         </div>
         <?php
@@ -149,7 +149,7 @@ if (isset($_GET['kerko'])) {
         <div class="mesazhiGabimStyle">
           <p>Ky produkt egziston ne Shporten tuaj!</p>
           <button id="mbyllMesazhin">
-            X
+            <i class="fa-solid">&#xf00d;</i>
           </button>
         </div>
         <?php
@@ -208,7 +208,7 @@ if (isset($_GET['kerko'])) {
               <?php echo $produkti['qmimiProduktit'] ?> €
             </p>
             <div class="butonatDiv">
-              <input type="submit" class="button" value="Buy now" name="blej">
+              <button type="submit" class="button" name="blej">Buy now</button>
               <input type="submit" class="button button-shporta fa-solid" value="&#xf07a;" name="submit">
             </div>
           </form>

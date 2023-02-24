@@ -124,9 +124,14 @@ $nentotali = 0;
         </td>
       </tr>
     </table>
-    <a href="../funksione/fatura.php?nrPorosis=<?php echo $_GET['porosiaID'] ?>" target="_blank">
-      <button class="button">Shkarko Faturen</button>
-    </a>
+    <div>
+      <a href="../userPages/porosit.php">
+        <button class="button"><i class="fa-solid">&#xf104;</i> Kthehu Mbrapa</button>
+      </a>
+      <a href="../funksione/fatura.php?nrPorosis=<?php echo $_GET['porosiaID'] ?>" target="_blank">
+        <button class="button">Shkarko Faturen <i class="fa-solid">&#xf56d;</i></button>
+      </a>
+    </div>
   </div>
 
   <?php

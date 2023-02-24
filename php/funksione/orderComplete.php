@@ -203,10 +203,10 @@ $porosia = $porosiaCRUD->shfaqPorosinSipasID();
       </table>
       <div>
         <a href="./fatura.php?nrPorosis=<?php echo $idPorosia['nrPorosis'] ?>" target="_blank">
-          <button class="button">Fatura</button>
+          <button class="button">Fatura <i class="fa-solid">&#xf56d;</i></button>
         </a>
         <a href="../userPages/porosit.php">
-          <button class="button">Perfundo</button>
+          <button class="button">Perfundo <i class="fa-solid">&#xf105;</i></button>
         </a>
       </div>
     </div>

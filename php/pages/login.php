@@ -27,7 +27,7 @@ if (!isset($_SESSION)) {
         <div class="mesazhiGabimStyle">
           <h3>Keni shenuar passwordin gabim!</h3>
           <button id="mbyllMesazhin">
-            X
+            <i class="fa-solid">&#xf00d;</i>
           </button>
         </div>
         <?php
@@ -37,7 +37,7 @@ if (!isset($_SESSION)) {
         <div class="mesazhiGabimStyle">
           <h3>Ky username nuk egziston!</h3>
           <button id="mbyllMesazhin">
-            X
+            <i class="fa-solid">&#xf00d;</i>
           </button>
         </div>
         <?php
@@ -47,7 +47,7 @@ if (!isset($_SESSION)) {
         <div class="mesazhiGabimStyle">
           <h3>Ju lutem kyquni ose krijoni nje llogari per te vazhduar me blerjen!</h3>
           <button id="mbyllMesazhin">
-            X
+            <i class="fa-solid">&#xf00d;</i>
           </button>
         </div>
         <?php

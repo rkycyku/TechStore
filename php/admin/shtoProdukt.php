@@ -49,7 +49,7 @@ if (isset($_POST['shtoProd'])) {
         <div class="mesazhiSuksesStyle">
           <p>Produkti u shtua me sukses!</p>
           <button id="mbyllMesazhin">
-            X
+            <i class="fa-solid">&#xf00d;</i>
           </button>
         </div>
         <?php
@@ -59,7 +59,7 @@ if (isset($_POST['shtoProd'])) {
         <div class="mesazhiGabimStyle">
           <p>Madhesia e fotos eshte shume e madhe!</p>
           <button id="mbyllMesazhin">
-            X
+            <i class="fa-solid">&#xf00d;</i>
           </button>
         </div>
         <?php
@@ -69,7 +69,7 @@ if (isset($_POST['shtoProd'])) {
         <div class="mesazhiGabimStyle">
           <p>Ndodhi nje problem ne bartjen e fotov!</p>
           <button id="mbyllMesazhin">
-            X
+            <i class="fa-solid">&#xf00d;</i>
           </button>
         </div>
         <?php
@@ -79,7 +79,7 @@ if (isset($_POST['shtoProd'])) {
         <div class="mesazhiGabimStyle">
           <p>Ky file nuk supportohet!</p>
           <button id="mbyllMesazhin">
-            X
+            <i class="fa-solid">&#xf00d;</i>
           </button>
         </div>
         <?php
@@ -92,7 +92,7 @@ if (isset($_POST['shtoProd'])) {
       <input class="form-input" name="pdPhoto" accept="image/*" type="file" value="Foto Produktit" required>
       <input class="finput" name="cmimiPd" type="text" placeholder="Qmimi i Produktit" required>
       <textarea placeholder="Pershkrimi Produktit" name="pershkrimiProd"></textarea>
-      <input class="button" type="submit" value="Shtoni Produktin" name='shtoProd'>
+      <button class="button" type="submit" value="" name='shtoProd'>Shtoni Produktin <i class="fa-solid">&#xf0fe;</i></button>
     </form>
   </div>
   <?php include('../funksione/importimiScriptave.php') ?>

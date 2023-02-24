@@ -53,13 +53,15 @@ $produkti = $produktiCRUD->shfaqProduktinSipasID();
                             <tr>
                                 <td>Kompania:</td>
                                 <td>
-                                <a href="../pages/produktet.php?kompania=<?php echo $produkti['kompaniaID'] ?>"><?php echo $produkti['emriKompanis'] ?></a> 
+                                    <a href="../pages/produktet.php?kompania=<?php echo $produkti['kompaniaID'] ?>"><?php
+                                       echo $produkti['emriKompanis'] ?></a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Kategoria:</td>
                                 <td>
-                                <a href="../pages/produktet.php?kategoria=<?php echo $produkti['kategoriaID'] ?>"><?php echo $produkti['emriKategoris'] ?></a> 
+                                    <a href="../pages/produktet.php?kategoria=<?php echo $produkti['kategoriaID'] ?>"><?php
+                                       echo $produkti['emriKategoris'] ?></a>
                                 </td>
                             </tr>
                             <?php if ($produkti['kodi'] != null) {
@@ -119,9 +121,10 @@ $produkti = $produktiCRUD->shfaqProduktinSipasID();
                             ?>
 
                             <div>
-                                <input type="submit" class="button" value="Buy now" name="blej">
+                                <button type="submit" class="button" name="blej">Buy now</button>
                                 <input type="submit" class="button button-shporta fa-solid" value="&#xf07a;"
                                     name="submit">
+
                                 <?php if ($_SESSION['aksesi'] != 0) {
                                     ?>
 

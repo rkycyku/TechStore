@@ -67,8 +67,6 @@ if (!isset($_SESSION['aksesi'])) {
                                     <?php
                                     if ($_SESSION['aksesi'] != 0) {
                                         ?>
-
-                                        <a href="../admin/shtoProdukt.php">Vendos Produktet</a>
                                         <a href="../admin/produktet.php">Produktet</a>
                                         <a href="../admin/porositNgaKlientet.php">Porosite</a>
                                         <a href="../admin/perdoruesit.php">Perdoruesit</a>
@@ -76,6 +74,7 @@ if (!isset($_SESSION['aksesi'])) {
                                         <a href="../admin/kategorit.php">Kategorite</a>
                                         <a href="../admin/kodetEZbritjes.php">Kodet e Zbritjeve</a>
                                         <a href="../admin/shfaqMesazhet.php">Mesazhet</a>
+                                        <a href="../admin/shtoProdukt.php">Vendos Produktet</a>
                                         <a href="../admin/shtoKategorin.php">Vendos Kategorite</a>
                                         <a href="../admin/shtoKompanin.php">Vendos Kompanite</a>
                                         <a href="../admin/shtoKodinEZbritjes.php">Shtoni Kode te Zbritjeve</a>
@@ -145,8 +144,8 @@ if (!isset($_SESSION['aksesi'])) {
                         if (isset($_SESSION['name'])) {
                             if ($_SESSION['aksesi'] != 0) {
                                 ?>
-                                <a href="../userPages/userDashboard.php">Dashboard &nbsp;<i
-                                        class="fa-solid">&#xf2bd;</i></a>
+                                
+                                <a href="../userPages/userDashboard.php">Dashboard &nbsp;<i class="fa-solid">&#xf2bd;</i></a>
                                 <a href="../admin/produktet.php">Produktet</a>
                                 <a href="../admin/porositNgaKlientet.php">Porosite</a>
                                 <a href="../admin/perdoruesit.php">Perdoruesit</a>

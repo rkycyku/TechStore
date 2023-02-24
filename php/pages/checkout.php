@@ -18,10 +18,7 @@ $kodiZbritjesCRUD = new kodiZbritjesCRUD();
 
 $userCRUD->setUserID($_SESSION['userID']);
 $teDhenatKlientit = $userCRUD->shfaqSipasID();
-if ($teDhenatKlientit == false) {
-    echo '<script>document.location="../pages/login.php"</script>';
-    $_SESSION['nukJeLogin'] = true;
-}
+
 $total = 0;
 $nentotali = 0;
 $produktetNeShport = array_column($_SESSION["shportaBlerjes"], "produktiID");
@@ -37,13 +34,17 @@ if (isset($_POST['kodiZbritjes'])) {
 
     if ($kontrolloKodin == true) {
         if ($kontrolloKodin['idProduktit'] == null) {
-            $nentotali = $total;
-            $total = $total - $kontrolloKodin['qmimiZbritjes'];
+            if ($kontrolloKodin['qmimiZbritjes'] >= $total) {
+                $_SESSION['qmimiBlerjesIVogel'] = true;
+            } else {
+                $nentotali = $total;
+                $total = $total - $kontrolloKodin['qmimiZbritjes'];
 
-            $_SESSION['qmimiZbritur'] = $kontrolloKodin['qmimiZbritjes'];
-            $_SESSION['kodiZbritjes'] = $_POST['kodiAplikuar'];
+                $_SESSION['qmimiZbritur'] = $kontrolloKodin['qmimiZbritjes'];
+                $_SESSION['kodiZbritjes'] = $_POST['kodiAplikuar'];
 
-            $_SESSION['zbritjaUAplikua'] = true;
+                $_SESSION['zbritjaUAplikua'] = true;
+            }
         } else {
             if (in_array($kontrolloKodin['idProduktit'], $produktetNeShport)) {
                 $nentotali = $total;
@@ -100,7 +101,7 @@ if (isset($_POST['complete'])) {
             <div class="mesazhiGabimStyle">
                 <p>Ky kod nuk vlene per produktet ne shporten tuaj!</p>
                 <button id="mbyllMesazhin">
-                    X
+                    <i class="fa-solid">&#xf00d;</i>
                 </button>
             </div>
             <?php
@@ -110,7 +111,17 @@ if (isset($_POST['complete'])) {
             <div class="mesazhiGabimStyle">
                 <p>Ky kod nuk egziston!</p>
                 <button id="mbyllMesazhin">
-                    X
+                    <i class="fa-solid">&#xf00d;</i>
+                </button>
+            </div>
+            <?php
+        }
+        if (isset($_SESSION['qmimiBlerjesIVogel'])) {
+            ?>
+            <div class="mesazhiGabimStyle">
+                <p>Shuma juaj e blerjes eshte shume e vogel per te perdorur kete Gift Code!</p>
+                <button id="mbyllMesazhin">
+                    <i class="fa-solid">&#xf00d;</i>
                 </button>
             </div>
             <?php
@@ -133,7 +144,7 @@ if (isset($_POST['complete'])) {
                 }
                 ?>
                 <button id="mbyllMesazhin">
-                    X
+                    <i class="fa-solid">&#xf00d;</i>
                 </button>
             </div>
             <?php
@@ -176,7 +187,7 @@ if (isset($_POST['complete'])) {
                 <td colspan="2" style="text-align:center;">
                     <a href="../funksione/perditesoTeDhenat.php?userID=<?php echo $_SESSION['userID'] ?>">
                         <button class="button">
-                            Perditeso te Dhenat
+                            Perditeso te Dhenat <i class="fa-solid">&#xf4ff;</i>
                         </button>
                     </a>
                 </td>
@@ -240,16 +251,19 @@ if (isset($_POST['complete'])) {
                     <?php if (!isset($_SESSION['qmimiZbritur'])) {
                         ?>
                         <td style="text-align:center;">
-                            <input class="button" name='kodiZbritjes' type="submit" value="Apliko Kodin">
+                            <button name='kodiZbritjes' class="button" type="submit">Apliko Kodin <i
+                                    class="fa-solid">&#xf06b;</i></button>
                         </td>
                         <td style="text-align:center;">
-                            <input class="button" name='complete' type="submit" value="Perfundo Porosin">
+                            <button name='complete' class="button" type="submit">Perfundo Porosin <i
+                                    class="fa-solid">&#xf105;</i></button>
                         </td>
                         <?php
                     } else {
                         ?>
                         <td colspan=2 style="text-align:center;">
-                            <input class="button" name='complete' type="submit" value="Perfundo Porosin">
+
+                            <input class="button" name='complete' type="submit" value="Perfundo Porosin ">
                         </td>
                         <?php
                     }

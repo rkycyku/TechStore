@@ -27,11 +27,23 @@ $useri = $userCRUD->shfaqSipasID();
 
   <div class="containerDashboardP">
     <?php
-    if (isset($_SESSION['teDhenatUPerditesuan'])) {
+    if (isset($_SESSION['teDhenatUPerditesuan']) == true) {
       ?>
       <div class="mesazhiSuksesStyle">
         <h3>Te dhenat u perditesuan me sukses!</h3>
-        <button id="mbyllMesazhin">X</button>
+        <button id="mbyllMesazhin">
+          <i class="fa-solid">&#xf00d;</i>
+        </button>
+      </div>
+      <?php
+    }
+    if (isset($_SESSION['perditesimiUAnulua']) == true) {
+      ?>
+      <div class="mesazhiGabimStyle">
+        <h3>Ju anuluat Perditesimin e te dhenave!</h3>
+        <button id="mbyllMesazhin">
+          <i class="fa-solid">&#xf00d;</i>
+        </button>
       </div>
       <?php
     }
@@ -82,8 +94,8 @@ $useri = $userCRUD->shfaqSipasID();
     <div class="butonatDiv">
       <a href="../funksione/perditesoTeDhenat.php?userID=<?php echo $useri['userID'] ?>"><button
           class="button">Perditeso te
-          Dhenat</button></a>
-      <a href="../funksione/ndryshoPass.php?userID= <?php echo $useri['userID'] ?>"><button class="button">Ndrysho
+          Dhenat <i class="fa-solid">&#xf4ff;</i></button></a>
+      <a href="../funksione/ndryshoPass.php?userID=<?php echo $useri['userID'] ?>"><button class="button">Ndrysho
           Fjalekalimin</button></a>
       <?php
       if ($_SESSION['aksesi'] == 0) {
@@ -103,4 +115,7 @@ $useri = $userCRUD->shfaqSipasID();
 
 </html>
 
-<?php unset($_SESSION['teDhenatUPerditesuan']); ?>
+<?php 
+unset($_SESSION['teDhenatUPerditesuan']); 
+unset($_SESSION['perditesimiUAnulua']);
+?>

@@ -43,7 +43,7 @@ if (isset($_POST['dergoMSG'])) {
         <div class="mesazhiSuksesStyle">
           <h3>Mesazhi juaj u dergua me sukses!</h3>
           <button id="mbyllMesazhin">
-            X
+            <i class="fa-solid">&#xf00d;</i>
           </button>
         </div>
         <?php
@@ -54,7 +54,7 @@ if (isset($_POST['dergoMSG'])) {
       <input class="form-input" name="name" type="text" placeholder="Name">
       <input class="form-input" name="email" type="text" placeholder="Email">
       <textarea placeholder="Enter your message!" name="msgField"></textarea>
-      <input class="button" type="submit" value="Send" name="dergoMSG" />
+      <button class="button" type="submit"name="dergoMSG" >Send <i class="fa-solid">&#xe4e8;</i></button>
     </form>
   </div>
   <?php include_once('../funksione/importimiScriptave.php'); ?>

@@ -45,7 +45,7 @@ if (isset($_GET['userID'])) {
       <div class="mesazhiSuksesStyle">
         <p>Llogaria u ndryshua!</p>
         <button id="mbyllMesazhin">
-          X
+          <i class="fa-solid">&#xf00d;</i>
         </button>
       </div>
       <?php

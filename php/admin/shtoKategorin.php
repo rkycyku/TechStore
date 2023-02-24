@@ -36,7 +36,7 @@ if (isset($_POST['shtoKat'])) {
         <div class="mesazhiSuksesStyle">
           <p>Kategoria u shtua me sukses!</p>
           <button id="mbyllMesazhin">
-            X
+            <i class="fa-solid">&#xf00d;</i>
           </button>
         </div>
         <?php
@@ -45,7 +45,7 @@ if (isset($_POST['shtoKat'])) {
       <h1 class="form-title">Vendosja e Kategorive</h1>
       <input class="form-input" name="emriKat" type="text" placeholder="Emri i Kategoris">
       <input class="form-input" name="pershkrimiKat" type="text" placeholder="Pershkrimi i Kategoris">
-      <input class="button" type="submit" value="Shtoni Kategorin" name='shtoKat'>
+      <button class="button" type="submit" value="" name='shtoKat'>Shtoni Kategorin <i class="fa-solid">&#xf0fe;</i></button>
     </form>
   </div>
   <?php include('../funksione/importimiScriptave.php') ?>
