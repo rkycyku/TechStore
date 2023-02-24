@@ -93,8 +93,11 @@ table {
 }
 
 .button-kategoria{
-  padding: 1.5em;
   margin: 2em;
+}
+
+.button-kategoria span{
+  font-size: 15pt;
 }
 
 .button-edit-produktin{
