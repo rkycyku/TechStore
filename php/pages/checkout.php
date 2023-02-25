@@ -98,7 +98,7 @@ if (isset($_POST['complete'])) {
         <?php
         if (isset($_SESSION['produktiGabuar'])) {
             ?>
-            <div class="mesazhiGabimStyle">
+            <div class="mesazhiStyle mesazhiGabimStyle">
                 <p>Ky kod nuk vlene per produktet ne shporten tuaj!</p>
                 <button id="mbyllMesazhin">
                     <i class="fa-solid">&#xf00d;</i>
@@ -108,7 +108,7 @@ if (isset($_POST['complete'])) {
         }
         if (isset($_SESSION['kodiGabim'])) {
             ?>
-            <div class="mesazhiGabimStyle">
+            <div class="mesazhiStyle mesazhiGabimStyle">
                 <p>Ky kod nuk egziston!</p>
                 <button id="mbyllMesazhin">
                     <i class="fa-solid">&#xf00d;</i>
@@ -118,7 +118,7 @@ if (isset($_POST['complete'])) {
         }
         if (isset($_SESSION['qmimiBlerjesIVogel'])) {
             ?>
-            <div class="mesazhiGabimStyle">
+            <div class="mesazhiStyle mesazhiGabimStyle">
                 <p>Shuma juaj e blerjes eshte shume e vogel per te perdorur kete Gift Code!</p>
                 <button id="mbyllMesazhin">
                     <i class="fa-solid">&#xf00d;</i>
@@ -128,7 +128,7 @@ if (isset($_POST['complete'])) {
         }
         if (isset($_SESSION['zbritjaUAplikua'])) {
             ?>
-            <div class="mesazhiSuksesStyle">
+            <div class="mesazhiStyle mesazhiSuksesStyle">
                 <?php if ($kontrolloKodin['emriProduktit'] == null) {
                     ?>
                     <p>Zbritja u aplikua ne shporten tuaj!</p>

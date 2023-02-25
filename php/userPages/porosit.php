@@ -32,7 +32,7 @@ $produktiCRUD = new produktiCRUD();
     <?php
     if (isset($_SESSION['konfirmimiPorosis'])) {
       ?>
-      <div class="mesazhiSuksesStyle">
+      <div class="mesazhiStyle mesazhiSuksesStyle">
         <h3>Ju faleminderit qe konfirmuat porosin!</h3>
         <button id="mbyllMesazhin" class="fa-solid">
           <i class="fa-solid">&#xf00d;</i>
@@ -45,7 +45,7 @@ $produktiCRUD = new produktiCRUD();
       $porosiaCRUD->setPorosiaID($idPorosia['nrPorosis']);
       $porosia = $porosiaCRUD->shfaqPorosinSipasID();
       ?>
-      <div class="mesazhiSuksesStyle">
+      <div class="mesazhiStyle mesazhiSuksesStyle">
         <div class="porosiaMeSukses">
           <h3>Porosia u vendos me sukses!</h3>
           <p>Porosia jauj arrin me se largu

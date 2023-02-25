@@ -56,7 +56,7 @@ $perdoruesi = $userCRUD->shfaqSipasID();
             <?php
             if (isset($_SESSION['passGabim'])) {
                 ?>
-                <div class="mesazhiGabimStyle">
+                <div class="mesazhiStyle mesazhiGabimStyle">
                     <p>Passwordi juaj aktual eshte Gabim!</p>
                     <button id="mbyllMesazhin">
                         <i class="fa-solid">&#xf00d;</i>

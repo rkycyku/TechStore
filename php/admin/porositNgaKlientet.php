@@ -42,7 +42,7 @@ $porosit = $porosiaCRUD->shfaqTeGjithaPorosite();
     if (isset($_SESSION['statusiUPerditesua'])) {
       if ($_SESSION['statusiUPerditesua'] == true) {
         ?>
-        <div class="mesazhiSuksesStyle">
+        <div class="mesazhiStyle mesazhiSuksesStyle">
           <p>Statusi i porosis u perditesua me sukses!</p>
           <button id="mbyllMesazhin">
             <i class="fa-solid">&#xf00d;</i>

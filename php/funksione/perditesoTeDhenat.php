@@ -64,7 +64,7 @@ if (isset($_POST['anulo'])) {
             <?php
             if (isset($_SESSION['passGabim'])) {
                 ?>
-                <div class="mesazhiGabimStyle">
+                <div class="mesazhiStyle mesazhiGabimStyle">
                     <p>Keni shkruar Passwordin gabim!</p>
                     <button id="mbyllMesazhin">
                         <i class="fa-solid">&#xf00d;</i>

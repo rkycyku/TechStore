@@ -25,7 +25,7 @@ $produktiCRUD = new produktiCRUD();
     <?php
     if (isset($_SESSION['mesazhiMeSukses'])) {
       ?>
-      <div class="mesazhiSuksesStyle">
+      <div class="mesazhiStyle mesazhiSuksesStyle">
         <h3>Produkti u editua me sukses!</h3>
         <button id="mbyllMesazhin">
           <i class="fa-solid">&#xf00d;</i>
@@ -35,7 +35,7 @@ $produktiCRUD = new produktiCRUD();
     }
     if (isset($_SESSION['mesazhiFshirjesMeSukses'])) {
       ?>
-      <div class="mesazhiSuksesStyle">
+      <div class="mesazhiStyle mesazhiSuksesStyle">
         <h3>Produkti u fshi me sukses!</h3>
         <button id="mbyllMesazhin">
           <i class="fa-solid">&#xf00d;</i>
@@ -45,7 +45,7 @@ $produktiCRUD = new produktiCRUD();
     }
     if (isset($_SESSION['skeAksesAdmin'])) {
       ?>
-      <div class="mesazhiGabimStyle">
+      <div class="mesazhiStyle mesazhiGabimStyle">
         <h3>Nuk keni akses per kete sherbim!</h3>
         <button id="mbyllMesazhin">
           <i class="fa-solid">&#xf00d;</i>
@@ -55,59 +55,65 @@ $produktiCRUD = new produktiCRUD();
     }
     ?>
     <h1>Produktet</h1>
-    <table>
-      <tr>
-        <th>ID </th>
-        <th>Emri i Produktit</th>
-        <th>Emri i Kompanis</th>
-        <th>Kategoria e Produktit</th>
-        <th>Foto e Produktit</th>
-        <th>Qmimi i Produktit</th>
-        <th>Ka Pershkrim</th>
-        <th>Funksione</th>
-      </tr>
-      <?php
-      $produktet = $produktiCRUD->shfaqTeGjithaProduktet();
+    <!-- <div class="table-wrapper"> -->
+      <table>
+        <thead>
+          <tr>
+            <th>ID </th>
+            <th>Emri i Produktit</th>
+            <th>Emri i Kompanis</th>
+            <th>Kategoria e Produktit</th>
+            <th>Foto e Produktit</th>
+            <th>Qmimi i Produktit</th>
+            <th>Ka Pershkrim</th>
+            <th>Funksione</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+          $produktet = $produktiCRUD->shfaqTeGjithaProduktet();
 
-      foreach ($produktet as $produkti) {
-        ?>
-        <tr>
-          <td>
-            <?php echo $produkti['produktiID'] ?>
-          </td>
-          <td class="emriP">
-            <?php echo $produkti['emriProduktit'] ?>
-          </td>
-          <td>
-            <?php echo $produkti['emriKompanis'] ?>
-          </td>
-          <td>
-            <?php echo $produkti['emriKategoris'] ?>
-          </td>
-          <td><img src="../../img/products/<?php echo $produkti['fotoProduktit'] ?>"></td>
-          <td>
-            <?php echo $produkti['qmimiProduktit'] ?> €
-          </td>
-          <td>
-            <?php if ($produkti['pershkrimiProd'] != null) {
-              echo '<i class="fa-solid">&#xf00c;</i>';
-            } else {
-              echo '<i class="fa-solid">&#xf00d;</i>';
-            } ?>
-          </td>
-          <td><button class="edito"><a
-                href="./editoProduktin.php?produktID=<?php echo $produkti['produktiID'] ?>">Edito</a></button>
-            <button class="fshij"><a
-                href="../adminFunksione/fshiProduktin.php?produktID=<?php echo $produkti['produktiID'] ?>">Fshij</a></button>
-            <button class="porositP"><a
-                href="../userPages/porosit.php?produktID=<?php echo $produkti['produktiID'] ?>">Porositë</a></button>
-          </td>
-        </tr>
-        <?php
-      }
-      ?>
-      </th>
-    </table>
+          foreach ($produktet as $produkti) {
+            ?>
+            <tr>
+              <td>
+                <?php echo $produkti['produktiID'] ?>
+              </td>
+              <td class="emriP">
+                <?php echo $produkti['emriProduktit'] ?>
+              </td>
+              <td>
+                <?php echo $produkti['emriKompanis'] ?>
+              </td>
+              <td>
+                <?php echo $produkti['emriKategoris'] ?>
+              </td>
+              <td><img src="../../img/products/<?php echo $produkti['fotoProduktit'] ?>"></td>
+              <td>
+                <?php echo $produkti['qmimiProduktit'] ?> €
+              </td>
+              <td>
+                <?php if ($produkti['pershkrimiProd'] != null) {
+                  echo '<i class="fa-solid">&#xf00c;</i>';
+                } else {
+                  echo '<i class="fa-solid">&#xf00d;</i>';
+                } ?>
+              </td>
+              <td><button class="edito"><a
+                    href="./editoProduktin.php?produktID=<?php echo $produkti['produktiID'] ?>">Edito</a></button>
+                <button class="fshij"><a
+                    href="../adminFunksione/fshiProduktin.php?produktID=<?php echo $produkti['produktiID'] ?>">Fshij</a></button>
+                <button class="porositP"><a
+                    href="../userPages/porosit.php?produktID=<?php echo $produkti['produktiID'] ?>">Porositë</a></button>
+              </td>
+            </tr>
+            <?php
+          }
+          ?>
+          </th>
+        </tbody>
+      </table>
+    <!-- </div> -->
   </div>
 
   <?php

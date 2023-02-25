@@ -54,7 +54,7 @@ if (isset($_POST['shtoKodin'])) {
             <?php
             if (isset($_SESSION['zbrtijatUShtua']) == true) {
                 ?>
-                <div class="mesazhiSuksesStyle">
+                <div class="mesazhiStyle mesazhiSuksesStyle">
                     <p>Kodi i zbritjes u shtua me sukses!</p>
                     <button id="mbyllMesazhin">
                         <i class="fa-solid">&#xf00d;</i>
@@ -64,7 +64,7 @@ if (isset($_POST['shtoKodin'])) {
             }
             if (isset($_SESSION['zbritjaMeEMadhe']) == true) {
                 ?>
-                <div class="mesazhiGabimStyle">
+                <div class="mesazhiStyle mesazhiGabimStyle">
                     <p>Qmimi qe keni vendosur eshte me e i madh se i produktit!</p>
                     <button id="mbyllMesazhin">
                         <i class="fa-solid">&#xf00d;</i>

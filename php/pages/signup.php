@@ -51,7 +51,7 @@ if (isset($_POST['submit'])) {
       <?php
       if (isset($_SESSION['regMeSukses'])) {
         ?>
-        <div class="mesazhiSuksesStyle">
+        <div class="mesazhiStyle mesazhiSuksesStyle">
           <h3>U regjistruat me sukses!</h3>
           <button id="mbyllMesazhin">
             <i class="fa-solid">&#xf00d;</i>
@@ -61,7 +61,7 @@ if (isset($_POST['submit'])) {
       }
       if (isset($_SESSION['userEkziston'])) {
         ?>
-        <div class="mesazhiGabimStyle">
+        <div class="mesazhiStyle mesazhiGabimStyle">
           <h3>Ky username egziston!</h3>
           <button id="mbyllMesazhin">
             <i class="fa-solid">&#xf00d;</i>

@@ -33,7 +33,7 @@ if (isset($_POST['shtoKat'])) {
       <?php
       if (isset($_SESSION['katUShtua']) == true) {
         ?>
-        <div class="mesazhiSuksesStyle">
+        <div class="mesazhiStyle mesazhiSuksesStyle">
           <p>Kategoria u shtua me sukses!</p>
           <button id="mbyllMesazhin">
             <i class="fa-solid">&#xf00d;</i>

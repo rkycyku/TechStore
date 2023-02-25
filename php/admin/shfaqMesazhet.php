@@ -30,7 +30,7 @@ $contactForm = $contactFormCRUD->shfaqMesazhet();
     <?php
     if (isset($_SESSION['mezashiUKonfirmua'])) {
       ?>
-      <div class="mesazhiSuksesStyle">
+      <div class="mesazhiStyle mesazhiSuksesStyle">
         <p><strong>Mesazhi u konfirmua me sukses!</strong></p>
         <button id="mbyllMesazhin">
           <i class="fa-solid">&#xf00d;</i>

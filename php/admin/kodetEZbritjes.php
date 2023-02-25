@@ -33,7 +33,7 @@ if (isset($_GET['fshij'])) {
         <?php
         if (isset($_SESSION['uFshiMeSukses'])) {
             ?>
-            <div class="mesazhiSuksesStyle">
+            <div class="mesazhiStyle mesazhiSuksesStyle">
                 <p>Kodi i Zbritjes u Fshi me sukses!</p>
                 <button id="mbyllMesazhin">
                     <i class="fa-solid">&#xf00d;</i>

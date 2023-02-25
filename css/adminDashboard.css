@@ -35,7 +35,8 @@
   border-radius: 2px;
 }
 
-.edito, .edito a{
+.edito,
+.edito a {
   color: white;
 }
 
@@ -46,7 +47,8 @@
   border-radius: 2px;
 }
 
-.fshij, .fshij a{
+.fshij,
+.fshij a {
   color: white;
 }
 
@@ -58,7 +60,8 @@
   border-radius: 2px;
 }
 
-.porositP, .porositP a{
+.porositP,
+.porositP a {
   color: white;
 }
 
@@ -117,4 +120,18 @@ img {
   display: flex;
   margin-top: 1em;
   gap: 1em;
+}
+
+@media (max-width: 767px) {
+  .containerDashboardP table {
+    overflow-x: auto;
+    overflow-y: auto;
+    width: 100%;
+  }
+  table {
+    display: block;
+  }
+  .containerDashboardP {
+    flex-direction: unset;
+  }
 }

@@ -40,7 +40,7 @@ if (isset($_POST['dergoMSG'])) {
       <?php
       if (isset($_SESSION['mesazhiMeSukses'])) {
         ?>
-        <div class="mesazhiSuksesStyle">
+        <div class="mesazhiStyle mesazhiSuksesStyle">
           <h3>Mesazhi juaj u dergua me sukses!</h3>
           <button id="mbyllMesazhin">
             <i class="fa-solid">&#xf00d;</i>

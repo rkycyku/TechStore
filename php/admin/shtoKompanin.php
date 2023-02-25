@@ -37,7 +37,7 @@ if (isset($_POST['shtoKompanin'])) {
       <?php
       if (isset($_SESSION['mesazhiMeSukses'])) {
         ?>
-        <div class="mesazhiSuksesStyle">
+        <div class="mesazhiStyle mesazhiSuksesStyle">
           <p>Kompania u shtua me sukses!</p>
           <button id="mbyllMesazhin">
             <i class="fa-solid">&#xf00d;</i>
@@ -47,7 +47,7 @@ if (isset($_POST['shtoKompanin'])) {
       }
       if (isset($_SESSION['madhesiaGabim'])) {
         ?>
-        <div class="mesazhiGabimStyle">
+        <div class="mesazhiStyle mesazhiGabimStyle">
           <p>Madhesia e fotos eshte shume e madhe!</p>
           <button id="mbyllMesazhin">
             <i class="fa-solid">&#xf00d;</i>
@@ -57,7 +57,7 @@ if (isset($_POST['shtoKompanin'])) {
       }
       if (isset($_SESSION['problemNeBartje'])) {
         ?>
-        <div class="mesazhiGabimStyle">
+        <div class="mesazhiStyle mesazhiGabimStyle">
           <p>Ndodhi nje problem ne bartjen e fotov!</p>
           <button id="mbyllMesazhin">
             <i class="fa-solid">&#xf00d;</i>
@@ -67,7 +67,7 @@ if (isset($_POST['shtoKompanin'])) {
       }
       if (isset($_SESSION['fileNukSuportohet'])) {
         ?>
-        <div class="mesazhiGabimStyle">
+        <div class="mesazhiStyle mesazhiGabimStyle">
           <p>Ky file nuk supportohet!</p>
           <button id="mbyllMesazhin">
             <i class="fa-solid">&#xf00d;</i>

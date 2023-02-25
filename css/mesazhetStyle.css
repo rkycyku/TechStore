@@ -1,16 +1,5 @@
 /* CSS per div e mesazheve */
-.mesazhiGabimStyle {
-  display: flex;
-  gap: 1em;
-  border: none;
-  background: red;
-  border-radius: 25px;
-  color: White;
-  width: fit-content;
-  padding: 0.5em 1em;
-}
-
-.mesazhiSuksesStyle {
+.mesazhiStyle{
   display: flex;
   gap: 1em;
   border: none;
@@ -19,6 +8,14 @@
   width: fit-content;
   padding: 0.5em 1em;
   border-radius: 25px;
+}
+
+.mesazhiGabimStyle {
+  background: red;
+}
+
+.mesazhiSuksesStyle {
+  background-color: #3aa27e;
 }
 
 #mbyllMesazhin {
@@ -44,4 +41,10 @@
   justify-content: center;
   align-items: flex-start;
   gap: 0.2em;   
+}
+
+@media (max-width: 1024px) {
+  .mesazhiStyle{
+    margin-top: 1em;
+  }
 }

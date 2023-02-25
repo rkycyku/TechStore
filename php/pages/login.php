@@ -24,7 +24,7 @@ if (!isset($_SESSION)) {
       <?php
       if (isset($_SESSION['passGabim'])) {
         ?>
-        <div class="mesazhiGabimStyle">
+        <div class="mesazhiStyle mesazhiGabimStyle">
           <h3>Keni shenuar passwordin gabim!</h3>
           <button id="mbyllMesazhin">
             <i class="fa-solid">&#xf00d;</i>
@@ -34,7 +34,7 @@ if (!isset($_SESSION)) {
       }
       if (isset($_SESSION['uNameGabim'])) {
         ?>
-        <div class="mesazhiGabimStyle">
+        <div class="mesazhiStyle mesazhiGabimStyle">
           <h3>Ky username nuk egziston!</h3>
           <button id="mbyllMesazhin">
             <i class="fa-solid">&#xf00d;</i>
@@ -44,7 +44,7 @@ if (!isset($_SESSION)) {
       }
       if (isset($_SESSION['nukJeLogin'])) {
         ?>
-        <div class="mesazhiGabimStyle">
+        <div class="mesazhiStyle mesazhiGabimStyle">
           <h3>Ju lutem kyquni ose krijoni nje llogari per te vazhduar me blerjen!</h3>
           <button id="mbyllMesazhin">
             <i class="fa-solid">&#xf00d;</i>

@@ -136,7 +136,7 @@ if (isset($_GET['kerko'])) {
       <?php
       if (isset($_SESSION['uShtuaNeShport']) == true) {
         ?>
-        <div class="mesazhiSuksesStyle">
+        <div class="mesazhiStyle mesazhiSuksesStyle">
           <p>Produkti u Shtua ne Shport!</p>
           <button id="mbyllMesazhin">
             <i class="fa-solid">&#xf00d;</i>
@@ -146,7 +146,7 @@ if (isset($_GET['kerko'])) {
       }
       if (isset($_SESSION['ekzistonNeShport']) == true) {
         ?>
-        <div class="mesazhiGabimStyle">
+        <div class="mesazhiStyle mesazhiGabimStyle">
           <p>Ky produkt egziston ne Shporten tuaj!</p>
           <button id="mbyllMesazhin">
             <i class="fa-solid">&#xf00d;</i>

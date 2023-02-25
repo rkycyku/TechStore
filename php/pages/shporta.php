@@ -40,7 +40,7 @@ if (isset($_POST['largo'])) {
         <?php
         if (isset($_SESSION['perditMeSukses'])) {
             ?>
-            <div class="mesazhiSuksesStyle">
+            <div class="mesazhiStyle mesazhiSuksesStyle">
                 <p>Sasia u Perditesua me sukses!</p>
                 <button id="mbyllMesazhin">
                     <i class="fa-solid">&#xf00d;</i>
@@ -50,7 +50,7 @@ if (isset($_POST['largo'])) {
         }
         if (isset($_SESSION['largimiMeSukses'])) {
             ?>
-            <div class="mesazhiSuksesStyle">
+            <div class="mesazhiStyle mesazhiSuksesStyle">
                 <p>Produkti u largua nga shporta!</p>
                 <button id="mbyllMesazhin">
                     <i class="fa-solid">&#xf00d;</i>
@@ -111,7 +111,7 @@ if (isset($_POST['largo'])) {
                 <?php
             } else {
                 ?>
-                <div class="mesazhiGabimStyle">
+                <div class="mesazhiStyle mesazhiGabimStyle">
                     <p>Nuk keni asnje Produkt ne Shporte!</p>
                     <button id="mbyllMesazhin">
                         <i class="fa-solid">&#xf00d;</i>

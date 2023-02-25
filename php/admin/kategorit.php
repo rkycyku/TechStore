@@ -47,7 +47,7 @@ if (isset($_GET['fshij'])) {
         <?php
         if (isset($_SESSION['ndryshimiSukses'])) {
             ?>
-            <div class="mesazhiSuksesStyle">
+            <div class="mesazhiStyle mesazhiSuksesStyle">
                 <p>Te dhenat e kategoris u ndryshuan!</p>
                 <button id="mbyllMesazhin">
                     <i class="fa-solid">&#xf00d;</i>
@@ -57,7 +57,7 @@ if (isset($_GET['fshij'])) {
         }
         if (isset($_SESSION['uFshiMeSukses'])) {
             ?>
-            <div class="mesazhiSuksesStyle">
+            <div class="mesazhiStyle mesazhiSuksesStyle">
                 <p>Kategoria u Fshi me sukses!</p>
                 <button id="mbyllMesazhin">
                     <i class="fa-solid">&#xf00d;</i>

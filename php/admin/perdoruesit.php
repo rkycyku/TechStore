@@ -42,7 +42,7 @@ if (isset($_GET['userID'])) {
     <?php
     if (isset($_SESSION['aksesiUPerditesua'])) {
       ?>
-      <div class="mesazhiSuksesStyle">
+      <div class="mesazhiStyle mesazhiSuksesStyle">
         <p>Llogaria u ndryshua!</p>
         <button id="mbyllMesazhin">
           <i class="fa-solid">&#xf00d;</i>

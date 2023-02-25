@@ -29,7 +29,7 @@ $useri = $userCRUD->shfaqSipasID();
     <?php
     if (isset($_SESSION['teDhenatUPerditesuan']) == true) {
       ?>
-      <div class="mesazhiSuksesStyle">
+      <div class="mesazhiStyle mesazhiSuksesStyle">
         <h3>Te dhenat u perditesuan me sukses!</h3>
         <button id="mbyllMesazhin">
           <i class="fa-solid">&#xf00d;</i>
@@ -39,7 +39,7 @@ $useri = $userCRUD->shfaqSipasID();
     }
     if (isset($_SESSION['perditesimiUAnulua']) == true) {
       ?>
-      <div class="mesazhiGabimStyle">
+      <div class="mesazhiStyle mesazhiGabimStyle">
         <h3>Ju anuluat Perditesimin e te dhenave!</h3>
         <button id="mbyllMesazhin">
           <i class="fa-solid">&#xf00d;</i>
