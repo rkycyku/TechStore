@@ -57,7 +57,6 @@ $porosiaCRUD = new porosiaCRUD();
     }
     ?>
     <h1>Produktet</h1>
-    <!-- <div class="table-wrapper"> -->
     <table>
       <thead>
         <tr>
@@ -106,10 +105,14 @@ $porosiaCRUD = new porosiaCRUD();
             </td>
             <td><button class="edito"><a href="./editoProduktin.php?produktID=<?php echo $produkti['produktiID'] ?>"><i
                     class="fa-regular">&#xf044;</i></a></button>
-              <button class="fshij"><a
-                  href="../adminFunksione/fshiProduktin.php?produktID=<?php echo $produkti['produktiID'] ?>"><i
-                    class="fa-regular">&#xf2ed;</i></a></button>
               <?php
+              if ($_SESSION['aksesi'] == 2) {
+                ?>
+                <button class="fshij"><a
+                    href="../adminFunksione/fshiProduktin.php?produktID=<?php echo $produkti['produktiID'] ?>"><i
+                      class="fa-regular">&#xf2ed;</i></a></button>
+                <?php
+              }
               if ($kaPorosiProdukti == true) {
                 ?>
                 <button class="porositP"><a
@@ -127,7 +130,6 @@ $porosiaCRUD = new porosiaCRUD();
         </th>
       </tbody>
     </table>
-    <!-- </div> -->
   </div>
 
   <?php

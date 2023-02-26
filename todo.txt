@@ -1,8 +1,0 @@
---Dizajn
-Me i rishiku nqofse kan nevoj per editime te gjitha faqet
-
---Validim
-Me i Rishiku validimet e krejt inputeve.
-
---PHP
-Me shku me elemenimu fajlle qe munden me u transferu direkt n file kryesore.

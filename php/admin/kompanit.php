@@ -89,9 +89,17 @@ if (isset($_GET['fshij'])) {
                     <td><img src="../../img/slider/sliderIcons/<?php echo $kompanit['kompaniaLogo'] ?>"></td>
                     <td><input id="adresaKompanis_<?php echo $kompanit['kompaniaID'] ?>" type="text"
                             placeholder="Adresa Kompanis" value="<?php echo $kompanit['adresaKompanis'] ?>"></td>
-                    <td><button class="edito" onclick="editoKompanin(<?php echo $kompanit['kompaniaID'] ?>)"><i class="fa-regular">&#xf044;</i></button>
-                        <button class="fshij"
-                            onclick="fshijKompanin(<?php echo $kompanit['kompaniaID'] ?>)"><i class="fa-regular">&#xf2ed;</i></button></button>
+                    <td><button class="edito" onclick="editoKompanin(<?php echo $kompanit['kompaniaID'] ?>)"><i
+                                class="fa-regular">&#xf044;</i></button>
+                        <?php
+                        if ($_SESSION['aksesi'] == 2) {
+                            ?>
+                            <button class="fshij" onclick="fshijKompanin(<?php echo $kompanit['kompaniaID'] ?>)"><i
+                                    class="fa-regular">&#xf2ed;</i></button></button>
+
+                            <?php
+                        }
+                        ?>
                     </td>
                 </tr>
                 <?php

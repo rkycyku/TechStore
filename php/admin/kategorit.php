@@ -86,10 +86,17 @@ if (isset($_GET['fshij'])) {
                             placeholder="Emri i Kategoris" value="<?php echo $kategorit['emriKategoris'] ?>"></td>
                     <td><input id="pershkrimiKategoris_<?php echo $kategorit['kategoriaID'] ?>" type="text"
                             placeholder="Detajet e Kategoris" value="<?php echo $kategorit['pershkrimiKategoris'] ?>"></td>
-                    <td><button class="edito"
-                            onclick="editoKategorin(<?php echo $kategorit['kategoriaID'] ?>);"><i class="fa-regular">&#xf044;</i></button>
-                        <button class="fshij"
-                            onclick="fshijKategorin(<?php echo $kategorit['kategoriaID'] ?>);"><i class="fa-regular">&#xf2ed;</i></button></button>
+                    <td><button class="edito" onclick="editoKategorin(<?php echo $kategorit['kategoriaID'] ?>);"><i
+                                class="fa-regular">&#xf044;</i></button>
+                        <?php
+                        if ($_SESSION['aksesi'] == 2) {
+                            ?>
+                            <button class="fshij" onclick="fshijKategorin(<?php echo $kategorit['kategoriaID'] ?>);"><i
+                                    class="fa-regular">&#xf2ed;</i></button></button>
+
+                            <?php
+                        }
+                        ?>
                     </td>
                 </tr>
                 <?php

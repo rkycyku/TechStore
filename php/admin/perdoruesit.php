@@ -80,7 +80,7 @@ if (isset($_GET['userID'])) {
             <?php echo $perdoruesi['email'] ?>
           </td>
           <?php
-          if ($perdoruesi['aksesi'] == 2 && $_SESSION['aksesi'] != 2 || $perdoruesi['userID'] == $_SESSION['userID']) {
+          if ($_SESSION['aksesi'] != 2 || $perdoruesi['userID'] == $_SESSION['userID']) {
             ?>
             <td id="aksesi_<?php echo $perdoruesi['userID'] ?>"><?php echo $perdoruesi['aksesi'] ?></td>
             <?php

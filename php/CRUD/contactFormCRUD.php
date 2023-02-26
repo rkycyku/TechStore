@@ -79,7 +79,7 @@ class contactFormCRUD extends dbCon
     public function shfaqMesazhet()
     {
         try {
-            $sql = "SELECT * FROM contactform";
+            $sql = "SELECT * FROM contactform order by IDmesazhi DESC";
             $stm = $this->dbConn->prepare($sql);
             $stm->execute();
 
