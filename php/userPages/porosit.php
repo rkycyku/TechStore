@@ -6,9 +6,11 @@ if (!isset($_SESSION)) {
 require_once('../funksione/kontrolloEshteLogin.php');
 require_once('../CRUD/porosiaCRUD.php');
 require_once('../CRUD/produktiCRUD.php');
+require_once('../CRUD/userCRUD.php');
 
 $porosiaCRUD = new porosiaCRUD();
 $produktiCRUD = new produktiCRUD();
+$userCRUD = new userCRUD();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,7 +78,7 @@ $produktiCRUD = new produktiCRUD();
       $porosiaCRUD->shfaqPorositSipasProduktit();
 
     } else {
-      if (isset($_SESSION['userID'])) {
+      if (isset($_SESSION['userID']) && !isset($_GET['userID'])) {
         $porosiaCRUD->setUserID($_SESSION['userID']);
         ?>
         <h2>Te gjitha porosit e tua</h2>
@@ -84,9 +86,11 @@ $produktiCRUD = new produktiCRUD();
       }
       if (isset($_GET['userID'])) {
         $porosiaCRUD->setUserID($_GET['userID']);
+        $userCRUD->setUserID($_GET['userID']);
+        $klienti = $userCRUD->shfaqSipasID();
         ?>
-        <h2>Te gjitha porosit e Klientit me ID:
-          <?php echo $_GET['userID'] ?>
+        <h2>Te gjitha porosit e Klientit:
+          <?php echo $klienti['userID'] . " - " . $klienti['emri'] . " " . $klienti['mbiemri']?>
         </h2>
         <?php
       }

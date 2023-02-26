@@ -87,7 +87,7 @@ if (isset($_GET['fshij'])) {
                         <?php echo $kodi['dataKrijimit'] ?>
                     </td>
                     <td>
-                        <button class="fshij" onclick="fshijKodin('<?php echo $kodi['kodi'] ?>')">Fshije</button></button>
+                        <button class="fshij" onclick="fshijKodin('<?php echo $kodi['kodi'] ?>')"><i class="fa-regular">&#xf2ed;</i></button></button>
                     </td>
                 </tr>
                 <?php

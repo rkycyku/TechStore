@@ -13,12 +13,11 @@ class produktiCRUD extends dbCon
     private $kategoriaProduktit;
     private $fotoProduktit;
     private $emriStafit;
-    private $dataKrijimit;
     private $qmimiProduktit;
     private $pershkrimiProduktit;
     private $dbConn;
 
-    public function __construct($produktiID = '', $emriProduktit = '', $emriKompanis = '', $kategoriaProduktit = '', $fotoProduktit = '', $emriStafit = '', $dataKrijimit = '', $qmimiProduktit = '', $pershkrimiProduktit = '')
+    public function __construct($produktiID = '', $emriProduktit = '', $emriKompanis = '', $kategoriaProduktit = '', $fotoProduktit = '', $emriStafit = '', $qmimiProduktit = '', $pershkrimiProduktit = '')
     {
         $this->produktiID = $produktiID;
         $this->emriProduktit = $emriProduktit;
@@ -26,7 +25,6 @@ class produktiCRUD extends dbCon
         $this->kategoriaProduktit = $kategoriaProduktit;
         $this->fotoProduktit = $fotoProduktit;
         $this->emriStafit = $emriStafit;
-        $this->dataKrijimit = $dataKrijimit;
         $this->qmimiProduktit = $qmimiProduktit;
         $this->pershkrimiProduktit = $pershkrimiProduktit;
 

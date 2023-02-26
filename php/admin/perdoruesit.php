@@ -43,7 +43,7 @@ if (isset($_GET['userID'])) {
     if (isset($_SESSION['aksesiUPerditesua'])) {
       ?>
       <div class="mesazhiStyle mesazhiSuksesStyle">
-        <p>Llogaria u ndryshua!</p>
+        <p>Te dhenat e llogaris u ndryshua!</p>
         <button id="mbyllMesazhin">
           <i class="fa-solid">&#xf00d;</i>
         </button>
@@ -91,9 +91,9 @@ if (isset($_GET['userID'])) {
             <?php
           }
           ?>
-          <td><button class="edito" onclick="return ndryshoTeDhenat(<?php echo $perdoruesi['userID'] ?>); ">Edito</button>
+          <td><button class="edito" onclick="return ndryshoTeDhenat(<?php echo $perdoruesi['userID'] ?>); "><i class="fa-solid">&#xf4ff;</i></button>
             <button class="edito"><a
-                href="../userPages/porosit.php?userID=<?php echo $perdoruesi['userID'] ?>">Porosite</a></button>
+                href="../userPages/porosit.php?userID=<?php echo $perdoruesi['userID'] ?>"><i class="fa-solid">&#xf05a;</i></a></button>
           </td>
         </tr>
         <?php

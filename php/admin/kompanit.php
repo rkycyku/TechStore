@@ -60,7 +60,7 @@ if (isset($_GET['fshij'])) {
         if (isset($_SESSION['uFshiMeSukses'])) {
             ?>
             <div class="mesazhiStyle mesazhiSuksesStyle">
-                <p>Kategoria u Fshi me sukses!</p>
+                <p>Kompania u Fshi me sukses!</p>
                 <button id="mbyllMesazhin">
                     <i class="fa-solid">&#xf00d;</i>
                 </button>
@@ -89,9 +89,9 @@ if (isset($_GET['fshij'])) {
                     <td><img src="../../img/slider/sliderIcons/<?php echo $kompanit['kompaniaLogo'] ?>"></td>
                     <td><input id="adresaKompanis_<?php echo $kompanit['kompaniaID'] ?>" type="text"
                             placeholder="Adresa Kompanis" value="<?php echo $kompanit['adresaKompanis'] ?>"></td>
-                    <td><button class="edito" onclick="editoKompanin(<?php echo $kompanit['kompaniaID'] ?>)">Edito</button>
+                    <td><button class="edito" onclick="editoKompanin(<?php echo $kompanit['kompaniaID'] ?>)"><i class="fa-regular">&#xf044;</i></button>
                         <button class="fshij"
-                            onclick="fshijKompanin(<?php echo $kompanit['kompaniaID'] ?>)">Fshije</button></button>
+                            onclick="fshijKompanin(<?php echo $kompanit['kompaniaID'] ?>)"><i class="fa-regular">&#xf2ed;</i></button></button>
                     </td>
                 </tr>
                 <?php

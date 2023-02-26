@@ -88,8 +88,8 @@ if (isset($_POST['largo'])) {
                                 <?php echo number_format($produkti["sasia"] * $produkti["qmimiProduktit"], 2); ?> €
                             </td>
                             <td>
-                                <input class="edito" type="submit" value="Perditeso" name='perdit'>
-                                <input class="fshij" type="submit" value="Largo nga Shporta" name='largo'>
+                                <button class="edito" type="submit" name='perdit'><i class="fa-regular">&#xf044;</i></button>
+                                <button class="fshij" type="submit" name='largo'><i class="fa-regular">&#xf2ed;</i></button>
                             </td>
                         </tr>
                     </form>

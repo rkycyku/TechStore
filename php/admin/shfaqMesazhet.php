@@ -76,7 +76,7 @@ $contactForm = $contactFormCRUD->shfaqMesazhet();
             <?php echo $mesazhi['statusi'] ?>
           </td>
           <td><button class="edito"><a
-                href="../adminFunksione/konfirmoMesazhin.php?IDmesazhi=<?php echo $mesazhi['IDmesazhi'] ?>">Konfirmo</a></button>
+                href="../adminFunksione/konfirmoMesazhin.php?IDmesazhi=<?php echo $mesazhi['IDmesazhi'] ?>"><i class="fa-regular">&#xf058;</i></a></button>
           </td>
         </tr>
         <?php

@@ -100,11 +100,11 @@ $produktiCRUD = new produktiCRUD();
                 } ?>
               </td>
               <td><button class="edito"><a
-                    href="./editoProduktin.php?produktID=<?php echo $produkti['produktiID'] ?>">Edito</a></button>
+                    href="./editoProduktin.php?produktID=<?php echo $produkti['produktiID'] ?>"><i class="fa-regular">&#xf044;</i></a></button>
                 <button class="fshij"><a
-                    href="../adminFunksione/fshiProduktin.php?produktID=<?php echo $produkti['produktiID'] ?>">Fshij</a></button>
+                    href="../adminFunksione/fshiProduktin.php?produktID=<?php echo $produkti['produktiID'] ?>"><i class="fa-regular">&#xf2ed;</i></a></button>
                 <button class="porositP"><a
-                    href="../userPages/porosit.php?produktID=<?php echo $produkti['produktiID'] ?>">Porositë</a></button>
+                    href="../userPages/porosit.php?produktID=<?php echo $produkti['produktiID'] ?>"><i class="fa-solid">&#xf05a;</i></a></button>
               </td>
             </tr>
             <?php

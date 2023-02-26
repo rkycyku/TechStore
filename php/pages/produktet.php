@@ -137,7 +137,7 @@ if (isset($_GET['kerko'])) {
       if (isset($_SESSION['uShtuaNeShport']) == true) {
         ?>
         <div class="mesazhiStyle mesazhiSuksesStyle">
-          <p>Produkti u Shtua ne Shport!</p>
+          <p>Produkti u Shtua ne Shporte!</p>
           <button id="mbyllMesazhin">
             <i class="fa-solid">&#xf00d;</i>
           </button>

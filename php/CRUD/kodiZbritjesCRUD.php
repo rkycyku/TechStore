@@ -5,15 +5,13 @@ class kodiZbritjesCRUD extends dbCon
 {
     private $kodiZbritje;
     private $idProduktit;
-    private $dataKrijimit;
     private $qmimZbritjes;
     private $conDB;
 
-    public function __construct($kodiZbritjes = '', $idProduktit = '', $dataKrijimit = '', $qmimZbritjes = '')
+    public function __construct($kodiZbritjes = '', $idProduktit = '', $qmimZbritjes = '')
     {
         $this->kodiZbritje = $kodiZbritjes;
         $this->idProduktit = $idProduktit;
-        $this->dataKrijimit = $dataKrijimit;
         $this->qmimZbritjes = $qmimZbritjes;
 
         $this->conDB = $this->connDB();
@@ -39,19 +37,9 @@ class kodiZbritjesCRUD extends dbCon
         $this->idProduktit = $idProduktit;
     }
 
-    public function getDataKrijimit()
+    public function getQmimZbritjes()
     {
-        return $this->dataKrijimit;
-    }
-
-    public function setDataKrijimit($dataKrijimit)
-    {
-        $this->dataKrijimit = $dataKrijimit;
-    }
-
-    public function getQmimZbritjest()
-    {
-        return $this->dataKrijimit;
+        return $this->qmimZbritjes;
     }
 
     public function setQmimZbritjes($qmimZbritjes)

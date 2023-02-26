@@ -26,7 +26,13 @@ if (isset($_POST['submit'])) {
     $idUser = $user->idKlientiNeRegjistrim();
     $user->setUserID($idUser['userID']);
     $user->shtoAdresen();
-    session_destroy();
+
+    $sessionENevojshme = array('shportaBlerjes', 'regMeSukses');
+    foreach ($_SESSION as $key => $value) {
+      if (!in_array($key, $sessionENevojshme)) {
+        unset($_SESSION[$key]);
+      }
+    }
   }
 }
 

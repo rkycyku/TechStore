@@ -87,9 +87,9 @@ if (isset($_GET['fshij'])) {
                     <td><input id="pershkrimiKategoris_<?php echo $kategorit['kategoriaID'] ?>" type="text"
                             placeholder="Detajet e Kategoris" value="<?php echo $kategorit['pershkrimiKategoris'] ?>"></td>
                     <td><button class="edito"
-                            onclick="editoKategorin(<?php echo $kategorit['kategoriaID'] ?>)">Edito</button>
+                            onclick="editoKategorin(<?php echo $kategorit['kategoriaID'] ?>)"><i class="fa-regular">&#xf044;</i></button>
                         <button class="fshij"
-                            onclick="fshijKategorin(<?php echo $kategorit['kategoriaID'] ?>)">Fshije</button></button>
+                            onclick="fshijKategorin(<?php echo $kategorit['kategoriaID'] ?>)"><i class="fa-regular">&#xf2ed;</i></button></button>
                     </td>
                 </tr>
                 <?php

@@ -112,8 +112,7 @@ $porosia = $porosiaCRUD->shfaqPorosinSipasID();
         <tr>
           <th style="text-transform: uppercase;">Numri Porosis</th>
           <td id='nrKontaktit' colspan="3" style="text-align:center;">
-            #
-            <?php echo $porosia["nrPorosis"]; ?>
+            <?php echo '#' . $porosia["nrPorosis"]; ?>
           </td>
         </tr>
         <tr>

@@ -55,9 +55,8 @@ if (isset($_POST['anulo'])) {
 <body>
     <?php
     include '../design/header.php';
-    echo '<div class="containerDashboard">';
-    echo '</div>';
     ?>
+
     <div class="forms">
         <form name="perditesoTeDhenat" onsubmit="return validimiPerditesoTeDhenat()" method="POST"
             enctype="multipart/form-data">

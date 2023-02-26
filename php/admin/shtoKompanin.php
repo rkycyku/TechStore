@@ -58,7 +58,7 @@ if (isset($_POST['shtoKompanin'])) {
       if (isset($_SESSION['problemNeBartje'])) {
         ?>
         <div class="mesazhiStyle mesazhiGabimStyle">
-          <p>Ndodhi nje problem ne bartjen e fotov!</p>
+          <p>Ndodhi nje problem ne bartjen e fotos!</p>
           <button id="mbyllMesazhin">
             <i class="fa-solid">&#xf00d;</i>
           </button>

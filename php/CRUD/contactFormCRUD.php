@@ -11,16 +11,14 @@ class contactFormCRUD extends dbCon
     private $emri;
     private $email;
     private $msg;
-    private $statusi;
     private $dbConn;
 
-    public function __construct($IDmesazhi = '', $emri = '', $email = '', $msg = '', $statusi = '')
+    public function __construct($IDmesazhi = '', $emri = '', $email = '', $msg = '')
     {
         $this->IDmesazhi = $IDmesazhi;
         $this->emri = $emri;
         $this->email = $email;
         $this->msg = $msg;
-        $this->statusi = $statusi;
 
         $this->dbConn = $this->connDB();
     }
@@ -53,15 +51,6 @@ class contactFormCRUD extends dbCon
     public function setMsg($msg)
     {
         $this->msg = $msg;
-    }
-    public function getStatusi()
-    {
-        return $this->statusi;
-    }
-
-    public function setStatusi($statusi)
-    {
-        $this->statusi = $statusi;
     }
     public function getIDmesazhi()
     {
