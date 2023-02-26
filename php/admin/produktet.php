@@ -1,8 +1,10 @@
 <?php
 require_once('../adminFunksione/kontrolloAksesin.php');
 require_once('../CRUD/produktiCRUD.php');
+require_once('../CRUD/porosiaCRUD.php');
 
 $produktiCRUD = new produktiCRUD();
+$porosiaCRUD = new porosiaCRUD();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,63 +58,75 @@ $produktiCRUD = new produktiCRUD();
     ?>
     <h1>Produktet</h1>
     <!-- <div class="table-wrapper"> -->
-      <table>
-        <thead>
-          <tr>
-            <th>ID </th>
-            <th>Emri i Produktit</th>
-            <th>Emri i Kompanis</th>
-            <th>Kategoria e Produktit</th>
-            <th>Foto e Produktit</th>
-            <th>Qmimi i Produktit</th>
-            <th>Ka Pershkrim</th>
-            <th>Funksione</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php
-          $produktet = $produktiCRUD->shfaqTeGjithaProduktet();
+    <table>
+      <thead>
+        <tr>
+          <th>ID </th>
+          <th>Emri i Produktit</th>
+          <th>Emri i Kompanis</th>
+          <th>Kategoria e Produktit</th>
+          <th>Foto e Produktit</th>
+          <th>Qmimi i Produktit</th>
+          <th>Ka Pershkrim</th>
+          <th>Funksione</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+        $produktet = $produktiCRUD->shfaqTeGjithaProduktet();
 
-          foreach ($produktet as $produkti) {
-            ?>
-            <tr>
-              <td>
-                <?php echo $produkti['produktiID'] ?>
-              </td>
-              <td class="emriP">
-                <?php echo $produkti['emriProduktit'] ?>
-              </td>
-              <td>
-                <?php echo $produkti['emriKompanis'] ?>
-              </td>
-              <td>
-                <?php echo $produkti['emriKategoris'] ?>
-              </td>
-              <td><img src="../../img/products/<?php echo $produkti['fotoProduktit'] ?>"></td>
-              <td>
-                <?php echo $produkti['qmimiProduktit'] ?> €
-              </td>
-              <td>
-                <?php if ($produkti['pershkrimiProd'] != null) {
-                  echo '<i class="fa-solid">&#xf00c;</i>';
-                } else {
-                  echo '<i class="fa-solid">&#xf00d;</i>';
-                } ?>
-              </td>
-              <td><button class="edito"><a
-                    href="./editoProduktin.php?produktID=<?php echo $produkti['produktiID'] ?>"><i class="fa-regular">&#xf044;</i></a></button>
-                <button class="fshij"><a
-                    href="../adminFunksione/fshiProduktin.php?produktID=<?php echo $produkti['produktiID'] ?>"><i class="fa-regular">&#xf2ed;</i></a></button>
-                <button class="porositP"><a
-                    href="../userPages/porosit.php?produktID=<?php echo $produkti['produktiID'] ?>"><i class="fa-solid">&#xf05a;</i></a></button>
-              </td>
-            </tr>
-            <?php
-          }
+
+        foreach ($produktet as $produkti) {
+          $porosiaCRUD->setProduktiID($produkti['produktiID']);
+          $kaPorosiProdukti = $porosiaCRUD->kaPorosiProdukti();
           ?>
-          </th>
-        </tbody>
-      </table>
+          <tr>
+            <td>
+              <?php echo $produkti['produktiID'] ?>
+            </td>
+            <td class="emriP">
+              <?php echo $produkti['emriProduktit'] ?>
+            </td>
+            <td>
+              <?php echo $produkti['emriKompanis'] ?>
+            </td>
+            <td>
+              <?php echo $produkti['emriKategoris'] ?>
+            </td>
+            <td><img src="../../img/products/<?php echo $produkti['fotoProduktit'] ?>"></td>
+            <td>
+              <?php echo $produkti['qmimiProduktit'] ?> €
+            </td>
+            <td>
+              <?php if ($produkti['pershkrimiProd'] != null) {
+                echo '<i class="fa-solid">&#xf00c;</i>';
+              } else {
+                echo '<i class="fa-solid">&#xf00d;</i>';
+              } ?>
+            </td>
+            <td><button class="edito"><a href="./editoProduktin.php?produktID=<?php echo $produkti['produktiID'] ?>"><i
+                    class="fa-regular">&#xf044;</i></a></button>
+              <button class="fshij"><a
+                  href="../adminFunksione/fshiProduktin.php?produktID=<?php echo $produkti['produktiID'] ?>"><i
+                    class="fa-regular">&#xf2ed;</i></a></button>
+              <?php
+              if ($kaPorosiProdukti == true) {
+                ?>
+                <button class="porositP"><a
+                    href="../userPages/porosit.php?produktID=<?php echo $produkti['produktiID'] ?>"><i
+                      class="fa-solid">&#xf05a;</i></a></button>
+                <?php
+              }
+              ?>
+
+            </td>
+          </tr>
+          <?php
+        }
+        ?>
+        </th>
+      </tbody>
+    </table>
     <!-- </div> -->
   </div>
 

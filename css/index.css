@@ -263,11 +263,11 @@
     margin: 0 auto;
     justify-content: center;
     align-items: center;
-    gap: 0.2em;
+    gap: 0.7em;
   }
 
   .button-shporta {
-    width: 10em;
+    width: 5em;
   }
   .button {
     width: 10em;

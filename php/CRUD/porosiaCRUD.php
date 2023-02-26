@@ -167,17 +167,19 @@ class porosiaCRUD extends dbCon
 
                         <td>
                             <?php
-                            if ($porosia['idKlienti'] == $_SESSION['userID']) {
+                            if ($porosia['idKlienti'] == $_SESSION['userID'] && $porosia['statusiPorosis'] == 'E Derguar') {
                                 ?>
                                 <button class="edito"><a
-                                        href="../funksione/konfirmoPorosin.php?porosiaID=<?php echo $porosia['nrPorosis'] ?>"><i class="fa-regular">&#xf058;</i></a></button>
+                                        href="../funksione/konfirmoPorosin.php?porosiaID=<?php echo $porosia['nrPorosis'] ?>"><i
+                                            class="fa-regular">&#xf058;</i></a></button>
                                 <?php
                             }
                             ?>
                             <a href="../funksione/fatura.php?nrPorosis=<?php echo $porosia["nrPorosis"] ?>" target="_blank"><button
                                     class="edito"><i class="fa-solid">&#xf56d;</i></button></a>
                             <button class="edito"><a
-                                    href="../userPages/detajetPorosis.php?porosiaID=<?php echo $porosia['nrPorosis'] ?>"><i class="fa-solid">&#xf05a;</i></a></button>
+                                    href="../userPages/detajetPorosis.php?porosiaID=<?php echo $porosia['nrPorosis'] ?>"><i
+                                        class="fa-solid">&#xf05a;</i></a></button>
                         </td>
                     </tr>
                     <?php
@@ -233,10 +235,10 @@ class porosiaCRUD extends dbCon
                         ?>
                         <td>
                             <a href="../funksione/fatura.php?nrPorosis=<?php echo $porosia["nrPorosis"] ?>" target="_blank"><button
-                                    class="edito">Shkarko Faturen</button></a>
+                                    class="edito"><i class="fa-solid">&#xf56d;</i></button></a>
                             <button class="edito"><a
-                                    href="../userPages/detajetPorosis.php?porosiaID=<?php echo $porosia['nrPorosis'] ?>">Detajet
-                                    e Porosis</a></button>
+                                    href="../userPages/detajetPorosis.php?porosiaID=<?php echo $porosia['nrPorosis'] ?>"><i
+                                        class="fa-solid">&#xf05a;</i></a></button>
                         </td>
                         <?php
                         ?>
@@ -337,6 +339,19 @@ class porosiaCRUD extends dbCon
         }
     }
 
+    public function kaPorosiProdukti()
+    {
+        try {
+            $sql = "SELECT tu.idProdukti from porosit p 
+            inner join tedhenatporosis tu on p.nrPorosis = tu.idPorosia 
+            where tu.idProdukti = ?";
+            $stm = $this->dbConn->prepare($sql);
+            $stm->execute([$this->produktiID]);
 
+            return $stm->fetch();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
 }
 ?>

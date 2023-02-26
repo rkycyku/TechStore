@@ -97,9 +97,17 @@ $porosit = $porosiaCRUD->shfaqTeGjithaPorosite();
             <?php echo $porosia['statusiPorosis'] ?>
           </td>
           <td>
-            <button class="edito"><a href="?porosiaID=<?php echo $porosia['nrPorosis'] ?>"><i class="fa-regular">&#xf044;</i></a></button>
+            <?php
+            if ($porosia['statusiPorosis'] == 'Ne Procesim') {
+              ?>
+              <button class="edito"><a href="?porosiaID=<?php echo $porosia['nrPorosis'] ?>"><i
+                    class="fa-regular">&#xf044;</i></a></button>  
+              <?php
+            }
+            ?>
             <button class="edito"><a
-                href="../userPages/detajetPorosis.php?porosiaID=<?php echo $porosia['nrPorosis'] ?>"><i class="fa-solid">&#xf05a;</i></a></button>
+                href="../userPages/detajetPorosis.php?porosiaID=<?php echo $porosia['nrPorosis'] ?>"><i
+                  class="fa-solid">&#xf05a;</i></a></button>
             <button class="edito"><a href="../funksione/fatura.php?nrPorosis=<?php echo $porosia['nrPorosis'] ?>"
                 target="_blank"><i class="fa-solid">&#xf56d;</i></a></button>
 

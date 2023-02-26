@@ -79,7 +79,7 @@ if (isset($_POST['anulo'])) {
           <?php
         }
         ?>
-        <option selected hidden value="<?php echo $produkti['kategoriaID'] ?>"><?php echo $produkti['kategoriaProduktit'] ?></option>
+        <option selected hidden value="<?php echo $produkti['kategoriaID'] ?>"><?php echo $produkti['emriKategoris'] ?></option>
       </select>
       <?php
       ?>

@@ -134,4 +134,14 @@ img {
   .containerDashboardP {
     flex-direction: unset;
   }
+
+  .butonatDiv{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 1em;
+  }
 }

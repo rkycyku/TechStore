@@ -77,7 +77,7 @@ function validimiSignUp() {
 }
 
 function validimiContactForm() {
-  const emriREGEX = /^[A-Za-z]+$/
+  const emriREGEX = /^[A-Za-z ]+$/
   const emailREGEX = /^[\w.+-]+@[\w.-]+\.[a-zA-Z]{2,}$/
   let emriCF = document.ContactForm.name;
   let emailCF = document.ContactForm.email;

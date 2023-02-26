@@ -154,10 +154,16 @@ td a:hover {
   background-color: #01df93;
 }
 
+.button-shporta {
+  width: 5em;
+  padding: 1em;
+}
+
 @media (min-width: 1025px) {
   .button-kategoria {
     width: 10em;
   }
+
   .dropdown-content-kategoria {
     margin: -1.6em;
     margin-left: 1.6em;
@@ -168,9 +174,14 @@ td a:hover {
   .navKerkimi {
     gap: 1em;
   }
-  .button-kategoria {
-    margin: 0.3em;
+  
+  .button {
+    margin: 0;
+    width: 10em;
   }
+  .button-kategoria {
+    margin: 0.3em;  
+  }   
   .searchBar {
     width: 15em;
   }
@@ -183,9 +194,10 @@ td a:hover {
     gap: 1em;
     padding: 1em;
   }
+
   .detajet {
     flex-direction: column;
-    width: 100%;
+    width: 90%;
   }
 
   .pershkrimi {
@@ -208,5 +220,9 @@ td a:hover {
     width: 100%;
     aspect-ratio: 3/2;
     object-fit: contain;
+  }
+
+  .mesazhiZbritjes{
+    width: 90%;
   }
 }

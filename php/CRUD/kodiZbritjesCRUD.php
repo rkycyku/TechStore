@@ -94,6 +94,19 @@ class kodiZbritjesCRUD extends dbCon
         }
     }
 
+    public function kontrolloProduktinAKaZbritjeAktive()
+    {
+        try {
+            $sql = 'SELECT * FROM `kodizbritjes` WHERE `idProduktit` = ?';
+            $stm = $this->conDB->prepare($sql);
+            $stm->execute([$this->idProduktit]);
+
+            return $stm->fetch();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
     public function fshijKodin()
     {
         try {

@@ -19,14 +19,20 @@ if (isset($_POST['shtoKodin'])) {
 
         $_SESSION['zbrtijatUShtua'] = true;
     } else {
-        $produktetCRUD->setProduktiID($_POST['produkti']);
+        $kontrollimiKodit = $kodiZbritjesCRUD->kontrolloProduktinAKaZbritjeAktive();
+        if($kontrollimiKodit == true){
+            $_SESSION['zbritjeAktivePerProduktin'] = true;
+        }else{
+            $produktetCRUD->setProduktiID($_POST['produkti']);
 
-        $produkti = $produktetCRUD->shfaqProduktinSipasID();
-        if ($_POST['qmimiZbritjes'] < $produkti['qmimiProduktit']) {
-            $kodiZbritjesCRUD->shtoKodinEZbritjes(true);
-
-        } else {
-            $_SESSION['zbritjaMeEMadhe'] = true;
+            $produkti = $produktetCRUD->shfaqProduktinSipasID();
+            if ($_POST['qmimiZbritjes'] < $produkti['qmimiProduktit']) {
+                $kodiZbritjesCRUD->shtoKodinEZbritjes(true);
+    
+                $_SESSION['zbrtijatUShtua'] = true;
+            } else {
+                $_SESSION['zbritjaMeEMadhe'] = true;
+            }
         }
     }
 
@@ -72,6 +78,16 @@ if (isset($_POST['shtoKodin'])) {
                 </div>
                 <?php
             }
+            if (isset($_SESSION['zbritjeAktivePerProduktin']) == true) {
+                ?>
+                <div class="mesazhiStyle mesazhiGabimStyle">
+                    <p>Tashme egziston nje zbritje per kete produkt!</p>
+                    <button id="mbyllMesazhin">
+                        <i class="fa-solid">&#xf00d;</i>
+                    </button>
+                </div>
+                <?php
+            }
             ?>
             <h1 class="form-title">Krijoni Gift Code</h1>
             <select class="dropdown" name="produkti">
@@ -98,4 +114,5 @@ if (isset($_POST['shtoKodin'])) {
 <?php
 unset($_SESSION['zbrtijatUShtua']);
 unset($_SESSION['zbritjaMeEMadhe']);
+unset($_SESSION['zbritjeAktivePerProduktin']);
 ?>
