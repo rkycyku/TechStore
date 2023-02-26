@@ -107,8 +107,6 @@ if (isset($_GET['fshij'])) {
 
 <script>
     function fshijKodin(kodi) {
-        var kategoriaID = document.getElementById("kodiID_" + kodi).innerHTML;
-
         var link = "?kodiID=" + kodi + "&fshij";
         window.location.href = link;
     }

@@ -111,7 +111,6 @@ if (isset($_GET['fshij'])) {
 
 <script>
     function editoKompanin(kompaniaID) {
-        var kompaniaID = document.getElementById("kompaniaID_" + kompaniaID).innerHTML;
         var emriKompanis = document.getElementById("emriKompanis_" + kompaniaID).value;
         var adresaKompanis = document.getElementById("adresaKompanis_" + kompaniaID).value;
 
@@ -119,7 +118,6 @@ if (isset($_GET['fshij'])) {
         window.location.href = link;
     }
     function fshijKompanin(kompaniaID) {
-        var kategoriaID = document.getElementById("kompaniaID_" + kompaniaID).innerHTML;
 
         var link = "?kompaniaID=" + kompaniaID + "&fshij";
         window.location.href = link;

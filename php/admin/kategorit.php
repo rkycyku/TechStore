@@ -87,9 +87,9 @@ if (isset($_GET['fshij'])) {
                     <td><input id="pershkrimiKategoris_<?php echo $kategorit['kategoriaID'] ?>" type="text"
                             placeholder="Detajet e Kategoris" value="<?php echo $kategorit['pershkrimiKategoris'] ?>"></td>
                     <td><button class="edito"
-                            onclick="editoKategorin(<?php echo $kategorit['kategoriaID'] ?>)"><i class="fa-regular">&#xf044;</i></button>
+                            onclick="editoKategorin(<?php echo $kategorit['kategoriaID'] ?>);"><i class="fa-regular">&#xf044;</i></button>
                         <button class="fshij"
-                            onclick="fshijKategorin(<?php echo $kategorit['kategoriaID'] ?>)"><i class="fa-regular">&#xf2ed;</i></button></button>
+                            onclick="fshijKategorin(<?php echo $kategorit['kategoriaID'] ?>);"><i class="fa-regular">&#xf2ed;</i></button></button>
                     </td>
                 </tr>
                 <?php
@@ -109,7 +109,6 @@ if (isset($_GET['fshij'])) {
 
 <script>
     function editoKategorin(kategoriaID) {
-        var kategoriaID = document.getElementById("kategoriaID_" + kategoriaID).innerHTML;
         var emriKategoris = document.getElementById("emriKategoris_" + kategoriaID).value;
         var pershkrimiKategoris = document.getElementById("pershkrimiKategoris_" + kategoriaID).value;
 
@@ -127,4 +126,5 @@ if (isset($_GET['fshij'])) {
 
 <?php
 unset($_SESSION['ndryshimiSukses']);
+unset($_SESSION['uFshiMeSukses']);
 ?>

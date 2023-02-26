@@ -62,8 +62,6 @@ class kategoriaCRUD extends dbCon
             $stm->execute([$this->emriKategoris, $this->pershkrimiKategoris]);
             
 
-            echo '<script>document.location="../admin/shtoKategorin.php"</script>';
-
         } catch (Exception $e) {
             return $e->getMessage();
         }

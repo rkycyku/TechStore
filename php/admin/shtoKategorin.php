@@ -31,7 +31,7 @@ if (isset($_POST['shtoKat'])) {
   <div class="forms">
     <form name="shtoKategorin" onsubmit="return validimiKategoris();" action='' method="POST">
       <?php
-      if (isset($_SESSION['katUShtua']) == true) {
+      if (isset($_SESSION['katUShtua'])) {
         ?>
         <div class="mesazhiStyle mesazhiSuksesStyle">
           <p>Kategoria u shtua me sukses!</p>

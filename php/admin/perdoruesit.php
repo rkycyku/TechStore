@@ -114,7 +114,6 @@ if (isset($_GET['userID'])) {
 <script>
   function ndryshoTeDhenat(idUser) {
     const emREGEX = /^[A-Za-z]+$/
-    var userID = document.getElementById("userID_" + idUser).innerHTML;
     var emri = document.getElementById("emri_" + idUser).value;
     var mbiemri = document.getElementById("mbiemri_" + idUser).value;
     var aksesi = document.getElementById("aksesi_" + idUser).value;
@@ -133,10 +132,10 @@ if (isset($_GET['userID'])) {
 
     else {
       if (aksesi == null) {
-        var link = "?userID=" + userID + "&emri=" + emri + "&mbiemri=" + mbiemri;
+        var link = "?userID=" + idUser + "&emri=" + emri + "&mbiemri=" + mbiemri;
       }
       else {
-        var link = "?userID=" + userID + "&emri=" + emri + "&mbiemri=" + mbiemri + "&aksesi=" + aksesi;
+        var link = "?userID=" + idUser + "&emri=" + emri + "&mbiemri=" + mbiemri + "&aksesi=" + aksesi;
       }
       window.location.href = link;
 
