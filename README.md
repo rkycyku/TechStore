@@ -38,7 +38,7 @@ Profesoret:
 
 ## Konfigurimi
 
-Se pari ju duhet te importoni databazen e Web-it ne **phpMyAdmin (MySQL)** e cila gjendet ne folderin sqlDatabaza me emrin **techstoredb.sql**, ne rast se e zevendesoni tabelen e vjeter me te nje version me te ri mos harroni te ndaloni opsionin e **Enable foreign key checks**.
+Se pari ju duhet te importoni databazen e Web-it ne **phpMyAdmin (MySQL)** e cila gjendet ne folderin sqlDatabaza me emrin **techstoredb.sql**.
 
 Pasi qe te behet konfigurimi ju mund te kyqeni me keto te dhena:
 
@@ -57,6 +57,10 @@ Pasi qe te behet konfigurimi ju mund te kyqeni me keto te dhena:
 ### Produktet - Klient
 
 ![About Us | TechStore](img/READMEImg/produktet.png?raw=true)
+
+### Detajet e Produktit
+
+![About Us | TechStore](img/READMEImg/produkti.png?raw=true)
 
 ### Forma e thjesht
 

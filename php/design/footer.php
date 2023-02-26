@@ -28,7 +28,7 @@
         <ul>
           <li><a href="tel:+11112223333">+1-111-222-3333</a></li>
           <li><a href="mailto:contact@tech.store">contact@tech.store</a></li>
-          <li>Rr. Agim Bajrami 69 - Perballe Xhamise, Kaçanik</li>
+          <li>Rr. Agim Bajrami - Perballe Xhamise, Kaçanik</li>
         </ul>
         <div class="footer-social-icons">
           <a href="https://facebook.com"><i class="fa-brands">&#xf09a;</i></a>

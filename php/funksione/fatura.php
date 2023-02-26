@@ -85,7 +85,7 @@ $nentotali = 0;
     <div class="teDhenatKompanis">
       <img src="../../img/web/techstoreLogoWhiteSquare.png">
       <h1>TechStore SH.P.K.</h1>
-      <p>1316 Industrial Rd. Mount Pleasant, TX 75455</p>
+      <p>Rr. Agim Bajrami - Perballe Xhamise, Kaçanik 71000</p>
       <p>contact@tech.store</p>
       <p>+1-111-222-3333</p>
 
