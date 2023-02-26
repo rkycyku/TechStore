@@ -43,7 +43,7 @@ if (isset($_GET['userID'])) {
     if (isset($_SESSION['aksesiUPerditesua'])) {
       ?>
       <div class="mesazhiStyle mesazhiSuksesStyle">
-        <p>Te dhenat e llogaris u ndryshua!</p>
+        <p>Te dhenat e llogaris u ndryshuan!</p>
         <button id="mbyllMesazhin">
           <i class="fa-solid">&#xf00d;</i>
         </button>
